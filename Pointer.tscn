@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://brv03ckg6yq36"]
+
+[ext_resource type="Texture2D" uid="uid://dc7da20lckv05" path="res://pointer.png" id="1_tnv33"]
+
+[node name="Pointer" type="Node2D"]
+z_index = 2
+
+[node name="PointerVisual" type="Sprite2D" parent="."]
+position = Vector2(-3.0517578e-05, -113.999985)
+scale = Vector2(0.29629686, 0.2962969)
+texture = ExtResource("1_tnv33")
