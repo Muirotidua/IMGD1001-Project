@@ -1,2 +1,2 @@
-# Tutorial-Project-IMGD1001
+# IMGD1001-Project
 
