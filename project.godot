@@ -75,9 +75,9 @@ Settings/Show_Tooltips=true
 [application]
 
 config/name="IMGD1001 - Project"
-run/main_scene="uid://dl1shq1p0uaq8"
+run/main_scene="uid://c58br4my2weka"
 config/features=PackedStringArray("4.5", "Forward Plus")
-boot_splash/image="uid://dlw842japfut1"
+boot_splash/show_image=false
 config/icon="res://icon.png"
 
 [display]

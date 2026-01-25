@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://c58br4my2weka"]
+
+[ext_resource type="Script" uid="uid://ujg5tl7ogkca" path="res://scenes/splash_screen.gd" id="1_4gp4q"]
+[ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/fade.tscn" id="2_3mj2l"]
+[ext_resource type="Texture2D" uid="uid://dlw842japfut1" path="res://visuals/splash/WPI_Inst_Prim_FulClr (1).png" id="3_vbcv6"]
+
+[node name="Splash Screen" type="Node2D"]
+script = ExtResource("1_4gp4q")
+
+[node name="Fade" parent="." instance=ExtResource("2_3mj2l")]
+z_index = 40
+offset_left = -34.0
+offset_top = -2.0
+offset_right = 2037.1111
+offset_bottom = 1163.0
+
+[node name="FadeTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -21.0
+offset_top = -40.0
+offset_right = 1971.0
+offset_bottom = 1112.0
+color = Color(0, 0, 0, 1)
+
+[node name="WPILogo" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(1000, 500)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_vbcv6")
+
+[node name="SplashTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]
+[connection signal="timeout" from="SplashTimer" to="." method="_on_splash_timer_timeout"]
