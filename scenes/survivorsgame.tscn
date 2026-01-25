@@ -16,13 +16,6 @@ point_count = 8
 y_sort_enabled = true
 script = ExtResource("1_xty38")
 
-[node name="Fade" parent="." instance=ExtResource("2_u8c7s")]
-z_index = 795
-offset_left = -794.0
-offset_top = -281.0
-offset_right = 3192.0
-offset_bottom = 1882.0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -5
 
@@ -34,6 +27,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Fade" parent="UI" instance=ExtResource("2_u8c7s")]
+z_index = 795
+offset_left = -794.0
+offset_top = -281.0
+offset_right = 3192.0
+offset_bottom = 1882.0
 
 [node name="Mode" type="Label" parent="UI"]
 unique_name_in_owner = true

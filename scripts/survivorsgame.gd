@@ -6,8 +6,8 @@ var time: int = 0
 var kills: int = 0
 
 func _ready():
-	$Fade.show()
-	$Fade/AnimationPlayer.play("fade_out_black")
+	$UI/Fade.show()
+	$UI/Fade/AnimationPlayer.play("fade_out_black")
 	spawn_mob()
 	spawn_mob()
 	spawn_mob()
