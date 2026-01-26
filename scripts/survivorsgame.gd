@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var time_label: Label = $UI/Time
 
+@onready var game_over_sound = $GameOverSound
+@onready var music = $Music
+
 var time: int = 0
 var kills: int = 0
 
@@ -25,7 +28,11 @@ func _on_timer_timeout() -> void:
 
 func _on_player_health_depleted() -> void:
 	%GameOver.visible = true
+	music.stop()
+	game_over_sound.play()
 	get_tree().paused = true
+	
+	
 
 func _on_counter_timeout() -> void:
 	time += 1

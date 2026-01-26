@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0x1b76yowgdw"
+path="res://.godot/imported/Candy Claws - Ceres & Calypso in the Deep Time - 06 Transitional Bird (Clever Girl).mp3-1d0315756f1955aa65fde63e6d4cef99.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/Candy Claws - Ceres & Calypso in the Deep Time - 06 Transitional Bird (Clever Girl).mp3"
+dest_files=["res://.godot/imported/Candy Claws - Ceres & Calypso in the Deep Time - 06 Transitional Bird (Clever Girl).mp3-1d0315756f1955aa65fde63e6d4cef99.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
