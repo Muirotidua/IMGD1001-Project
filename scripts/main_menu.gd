@@ -12,7 +12,7 @@ func _on_start_pressed() -> void:
 		clicked = "start";
 		$"Fade/Fade Timer".start()
 		$Fade/AnimationPlayer.play("fade_in_black")
-	
+		%StartSelect.play();
 
 func _on_version_notes_pressed() -> void:
 	if clicked == null:
@@ -20,7 +20,7 @@ func _on_version_notes_pressed() -> void:
 		$Fade.show()
 		$"Fade/Fade Timer".start()
 		$Fade/AnimationPlayer.play("fade_in_black")
-
+		%OptionSelect.play()
 
 func _on_credits_pressed() -> void:
 	if clicked == null:
@@ -28,7 +28,7 @@ func _on_credits_pressed() -> void:
 		$Fade.show()
 		$"Fade/Fade Timer".start()
 		$Fade/AnimationPlayer.play("fade_in_black")
-
+		%OptionSelect.play()
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
