@@ -10,6 +10,7 @@ func _ready() -> void:
 func _on_start_pressed() -> void:
 	if clicked == null:
 		clicked = "start";
+		$Fade.show()
 		$"Fade/Fade Timer".start()
 		$Fade/AnimationPlayer.play("fade_in_black")
 		%StartSelect.play();
