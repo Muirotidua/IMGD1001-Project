@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bmb7615ge7usp"]
 
-[ext_resource type="Script" uid="uid://chyn2kar3tg8c" path="res://scenes/version_history.gd" id="1_4leat"]
+[ext_resource type="Script" uid="uid://chyn2kar3tg8c" path="res://scripts/version_history.gd" id="1_4leat"]
 [ext_resource type="FontFile" uid="uid://cp3v0aybpc3jl" path="res://Fonts/rubik/Rubik-Bold.ttf" id="1_cikha"]
 [ext_resource type="FontFile" uid="uid://dvpvovkqfuk3s" path="res://Fonts/rubik/Rubik-Medium.ttf" id="2_4leat"]
 
@@ -45,7 +45,7 @@ text = "Back"
 offset_left = 46.0
 offset_top = 52.0
 offset_right = 1871.0
-offset_bottom = 1059.0
+offset_bottom = 777.0
 theme_override_fonts/normal_font = ExtResource("2_4leat")
 theme_override_font_sizes/normal_font_size = 60
 text = "V 0.1
