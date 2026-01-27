@@ -12,12 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://b8m064ln7lx47" path="res://visuals/main_menu/QuitButton.blank.png" id="9_5pajh"]
 [ext_resource type="Texture2D" uid="uid://bumiwjpf8ole4" path="res://visuals/main_menu/QuitButton.fill.png" id="10_j7ex8"]
 [ext_resource type="FontFile" uid="uid://c1g6gofkf5f8s" path="res://Fonts/rubik/Rubik-Regular.ttf" id="12_flqon"]
+[ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="12_rcqid"]
+[ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="13_1ajci"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rcqid"]
 font = ExtResource("12_flqon")
 font_size = 50
-[ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="12_rcqid"]
-[ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="13_1ajci"]
 
 [node name="Main Menu" type="Node2D"]
 script = ExtResource("1_l6cm7")

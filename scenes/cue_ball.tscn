@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3ypj135jxvjd"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cnfo7swlk8npp" path="res://scenes/ball_physics_material.tres" id="1_c01jm"]
-[ext_resource type="Script" uid="uid://djt8v3mxy0ylo" path="res://scenes/cue_ball.gd" id="1_tbouf"]
+[ext_resource type="Script" uid="uid://djt8v3mxy0ylo" path="res://scripts/cue_ball.gd" id="1_tbouf"]
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://visuals/characters/slime/slime.tscn" id="2_c01jm"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nkrrx"]
 radius = 56.0803
