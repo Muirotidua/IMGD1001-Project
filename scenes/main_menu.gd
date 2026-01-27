@@ -1,7 +1,6 @@
 extends Node2D
 
 var clicked = null;
-var loaded = false;
 
 func _ready() -> void:
 	$"Fade/Fade Timer".start()
@@ -35,8 +34,5 @@ func _on_quit_pressed() -> void:
 	
 
 func _on_fade_timer_timeout() -> void:
-	if !loaded:
-		loaded = true
-	else:
-		if clicked == "start":
-			get_tree().change_scene_to_file("res://scenes/survivorsgame.tscn")
+	if clicked == "start":
+		get_tree().change_scene_to_file("res://scenes/survivorsgame.tscn")
