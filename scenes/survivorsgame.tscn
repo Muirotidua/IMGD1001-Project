@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7k4rlnkiqq3m"]
+[gd_scene load_steps=9 format=3 uid="uid://b7k4rlnkiqq3m"]
 
 [ext_resource type="Script" uid="uid://dkfrgjpg6jbww" path="res://scripts/survivorsgame.gd" id="1_xty38"]
 [ext_resource type="PackedScene" uid="uid://brv03ckg6yq36" path="res://scenes/Pointer.tscn" id="2_schfi"]
 [ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/fade.tscn" id="2_u8c7s"]
 [ext_resource type="PackedScene" uid="uid://c1sx7bic4uhdj" path="res://scenes/player.tscn" id="3_u8c7s"]
 [ext_resource type="PackedScene" uid="uid://c0gpy0pye4jr6" path="res://scenes/tree.tscn" id="4_pifhf"]
+[ext_resource type="AudioStream" uid="uid://0x1b76yowgdw" path="res://sounds/music/Candy Claws - Ceres & Calypso in the Deep Time - 06 Transitional Bird (Clever Girl).mp3" id="6_u8c7s"]
+[ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="7_pifhf"]
 
 [sub_resource type="Curve2D" id="Curve2D_66u1r"]
 _data = {
@@ -159,6 +161,16 @@ theme_override_font_sizes/font_size = 127
 text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_u8c7s")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("7_pifhf")
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Spawn" to="." method="_on_timer_timeout"]

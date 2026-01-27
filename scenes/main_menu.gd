@@ -1,7 +1,6 @@
 extends Node2D
 
 var clicked = null;
-var loaded = false;
 
 func _ready() -> void:
 	$"Fade/Fade Timer".start()
@@ -11,23 +10,26 @@ func _ready() -> void:
 	
 
 func _on_start_pressed() -> void:
-	clicked = "start";
-	$"Fade/Fade Timer".start()
-	$Fade/AnimationPlayer.play("fade_in_black")
+	if clicked == null:
+		clicked = "start";
+		$"Fade/Fade Timer".start()
+		$Fade/AnimationPlayer.play("fade_in_black")
 	
 
 func _on_version_notes_pressed() -> void:
-	clicked = "version_notes";
-	$Fade.show()
-	$"Fade/Fade Timer".start()
-	$Fade/AnimationPlayer.play("fade_in_black")
+	if clicked == null:
+		clicked = "version_notes";
+		$Fade.show()
+		$"Fade/Fade Timer".start()
+		$Fade/AnimationPlayer.play("fade_in_black")
 
 
 func _on_credits_pressed() -> void:
-	clicked = "credits";
-	$Fade.show()
-	$"Fade/Fade Timer".start()
-	$Fade/AnimationPlayer.play("fade_in_black")
+	if clicked == null:
+		clicked = "credits";
+		$Fade.show()
+		$"Fade/Fade Timer".start()
+		$Fade/AnimationPlayer.play("fade_in_black")
 
 
 func _on_quit_pressed() -> void:
