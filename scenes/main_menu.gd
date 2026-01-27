@@ -11,6 +11,7 @@ func _ready() -> void:
 	$Fade/AnimationPlayer.play("fade_out_black")
 
 func _on_start_pressed() -> void:
+<<<<<<< Updated upstream
 	clicked = "start";
 	$"Fade/Fade Timer".start()
 	$Fade/AnimationPlayer.play("fade_in_black")
@@ -31,6 +32,28 @@ func _on_credits_pressed() -> void:
 	$"Fade/Fade Timer".start()
 	$Fade/AnimationPlayer.play("fade_in_black")
 	optionSelect.play()
+=======
+	if clicked == null:
+		clicked = "start";
+		$"Fade/Fade Timer".start()
+		$Fade/AnimationPlayer.play("fade_in_black")
+	
+
+func _on_version_notes_pressed() -> void:
+	if clicked == null:
+		clicked = "version_notes";
+		$Fade.show()
+		$"Fade/Fade Timer".start()
+		$Fade/AnimationPlayer.play("fade_in_black")
+
+
+func _on_credits_pressed() -> void:
+	if clicked == null:
+		clicked = "credits";
+		$Fade.show()
+		$"Fade/Fade Timer".start()
+		$Fade/AnimationPlayer.play("fade_in_black")
+>>>>>>> Stashed changes
 
 
 func _on_quit_pressed() -> void:
