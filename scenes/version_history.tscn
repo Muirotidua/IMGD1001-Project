@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://bmb7615ge7usp"]
+
+[ext_resource type="Script" uid="uid://chyn2kar3tg8c" path="res://scenes/version_history.gd" id="1_4leat"]
+[ext_resource type="FontFile" uid="uid://cp3v0aybpc3jl" path="res://Fonts/rubik/Rubik-Bold.ttf" id="1_cikha"]
+[ext_resource type="FontFile" uid="uid://dvpvovkqfuk3s" path="res://Fonts/rubik/Rubik-Medium.ttf" id="2_4leat"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xbik1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvc5c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0po0f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6662"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_732ry"]
+
+[node name="VersionHistory" type="Node2D"]
+script = ExtResource("1_4leat")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 1937.0
+offset_bottom = 1107.0
+color = Color(0, 0, 0, 1)
+
+[node name="Back" type="Button" parent="."]
+offset_left = 1573.0
+offset_top = 863.0
+offset_right = 1868.0
+offset_bottom = 1010.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.10980392, 0.6392157, 0.23529412, 1)
+theme_override_colors/font_hover_color = Color(0.10980392, 0.6392157, 0.23529412, 1)
+theme_override_fonts/font = ExtResource("1_cikha")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xbik1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dvc5c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0po0f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g6662")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_732ry")
+text = "Back"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 46.0
+offset_top = 52.0
+offset_right = 1871.0
+offset_bottom = 1059.0
+theme_override_fonts/normal_font = ExtResource("2_4leat")
+theme_override_font_sizes/normal_font_size = 60
+text = "V 0.1
+
+-Added a WPI Splash Screen
+
+-Added a Main Menu with interactable buttons, title, and image
+
+-Added scrolling credits 
+
+-Added Version History Notes"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
