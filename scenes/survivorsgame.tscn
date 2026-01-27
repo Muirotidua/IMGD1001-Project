@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1sx7bic4uhdj" path="res://scenes/player.tscn" id="3_u8c7s"]
 [ext_resource type="PackedScene" uid="uid://c0gpy0pye4jr6" path="res://scenes/tree.tscn" id="4_pifhf"]
 
+
 [sub_resource type="Curve2D" id="Curve2D_66u1r"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 2126, -177, 0, 0, 0, 0, 2124, 1301, 0, 0, 0, 0, -144, 1292, 0, 0, 0, 0, -128.47546, 1048.5905, 0, 0, 0, 0, -136, -175, 0, 0, 0, 0, -6.9555054, -164.71057, 0, 0, 0, 0, 87.981995, -164.71057, 0, 0, 0, 0, 2126, -177)
