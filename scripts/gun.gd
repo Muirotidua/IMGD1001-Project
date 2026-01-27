@@ -3,8 +3,6 @@ extends Area2D
 @onready var mode_label: Label = $"../../UI/Mode"
 @onready var pointer = $"../../Pointer"
 
-@onready var shootSound = $"Bullet Shoot"
-
 var manual: bool = false
 var cooled: bool = false
 var target: int = 0
@@ -45,7 +43,6 @@ func _physics_process(_delta):
 
 func shoot():
 	if cooled:
-		shootSound.play()
 		const BULLET = preload("res://scenes/bullet.tscn")
 		var new_bullet = BULLET.instantiate()
 		new_bullet.global_position = %ShootingPoint.global_position
