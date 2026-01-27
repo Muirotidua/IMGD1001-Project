@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dl1shq1p0uaq8"]
+[gd_scene load_steps=16 format=3 uid="uid://dl1shq1p0uaq8"]
 
 [ext_resource type="Script" uid="uid://cmqdpq5sqt7dv" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/fade.tscn" id="2_ekxnf"]
@@ -96,12 +96,13 @@ texture_normal = ExtResource("9_5pajh")
 texture_hover = ExtResource("10_j7ex8")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 1795.0
-offset_top = 26.0
-offset_right = 1939.0
-offset_bottom = 110.0
-text = "V 0.1"
+offset_left = 1756.0
+offset_top = 23.0
+offset_right = 1900.0
+offset_bottom = 107.0
+text = "V 0.1.1"
 label_settings = SubResource("LabelSettings_rcqid")
+
 [node name="StartSelect" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("12_rcqid")
