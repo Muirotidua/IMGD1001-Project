@@ -16,6 +16,8 @@
 [sub_resource type="LabelSettings" id="LabelSettings_rcqid"]
 font = ExtResource("12_flqon")
 font_size = 50
+[ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="12_rcqid"]
+[ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="13_1ajci"]
 
 [node name="Main Menu" type="Node2D"]
 script = ExtResource("1_l6cm7")
@@ -100,6 +102,13 @@ offset_right = 1939.0
 offset_bottom = 110.0
 text = "V 0.1"
 label_settings = SubResource("LabelSettings_rcqid")
+[node name="StartSelect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_rcqid")
+
+[node name="OptionSelect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_1ajci")
 
 [connection signal="timeout" from="Fade/Fade Timer" to="." method="_on_fade_timer_timeout"]
 [connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
