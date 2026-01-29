@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var time_label: Label = $UI/Time
-
 @onready var game_over_sound = $GameOverSound
 @onready var music = $Music
 

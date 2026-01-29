@@ -8,6 +8,8 @@ radius = 58.00862
 
 [node name="Pool Ball" type="RigidBody2D"]
 physics_material_override = ExtResource("1_w5es4")
+gravity_scale = 0.0
+linear_damp = 1.0
 angular_damp = 100.0
 
 [node name="HappyBoo" parent="." instance=ExtResource("1_66fna")]
