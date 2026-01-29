@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dih2bhghs70xg"]
+
+[node name="Level_Template" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -51.0
+offset_top = -41.0
+offset_right = 1956.0
+offset_bottom = 1124.0
+color = Color(0, 0, 0, 1)

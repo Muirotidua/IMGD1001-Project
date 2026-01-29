@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddqqcgxtevmw2"]
+
+[ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/cue_ball.tscn" id="1_wl8ks"]
+[ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/pool_ball.tscn" id="2_2qr6t"]
+
+[sub_resource type="Theme" id="Theme_evwt0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evwt0"]
+size = Vector2(1786.6476, 68.37262)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v02g2"]
+size = Vector2(859.3788, 61.09937)
+
+[node name="Boundary_Table" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Table" type="ColorRect" parent="CanvasLayer"]
+offset_left = 67.0
+offset_top = 110.0
+offset_right = 1835.0
+offset_bottom = 981.0
+theme = SubResource("Theme_evwt0")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 128.0
+offset_top = 177.0
+offset_right = 1779.0
+offset_bottom = 915.0
+color = Color(0, 0, 0, 1)
+
+[node name="CueBall" parent="CanvasLayer" instance=ExtResource("1_wl8ks")]
+position = Vector2(438, 517)
+
+[node name="Pool Ball" parent="CanvasLayer" instance=ExtResource("2_2qr6t")]
+position = Vector2(1237, 519)
+gravity_scale = 0.0
+
+[node name="Table_Boundaries" type="StaticBody2D" parent="."]
+position = Vector2(71, 101)
+
+[node name="Top_Boundary" type="CollisionShape2D" parent="Table_Boundaries"]
+position = Vector2(879, 42)
+shape = SubResource("RectangleShape2D_evwt0")
+
+[node name="Bottom_Boundary" type="CollisionShape2D" parent="Table_Boundaries"]
+position = Vector2(881, 848)
+shape = SubResource("RectangleShape2D_evwt0")
+
+[node name="Left_Boundary" type="CollisionShape2D" parent="Table_Boundaries"]
+position = Vector2(26, 449)
+rotation = -1.5681087
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_v02g2")
+
+[node name="Right_Boundary" type="CollisionShape2D" parent="Table_Boundaries"]
+position = Vector2(1737.9998, 441)
+rotation = -1.5681087
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_v02g2")
