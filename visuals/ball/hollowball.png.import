@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm1gu6sao5bje"
-path="res://.godot/imported/pointer.png-d543a422346299cde66902d1a6687b45.ctex"
+uid="uid://cxayemt1xa3us"
+path="res://.godot/imported/hollowball.png-5d331e42fbd982892311522e45652fe5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visuals/pointer.png"
-dest_files=["res://.godot/imported/pointer.png-d543a422346299cde66902d1a6687b45.ctex"]
+source_file="res://visuals/ball/hollowball.png"
+dest_files=["res://.godot/imported/hollowball.png-5d331e42fbd982892311522e45652fe5.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm1gu6sao5bje"
-path="res://.godot/imported/pointer.png-d543a422346299cde66902d1a6687b45.ctex"
+uid="uid://dwjtwrd7s70es"
+path="res://.godot/imported/fullball.png-4be70094ce5588fca5ecdb8e109cb5e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visuals/pointer.png"
-dest_files=["res://.godot/imported/pointer.png-d543a422346299cde66902d1a6687b45.ctex"]
+source_file="res://visuals/ball/fullball.png"
+dest_files=["res://.godot/imported/fullball.png-4be70094ce5588fca5ecdb8e109cb5e5.ctex"]
 
 [params]
 

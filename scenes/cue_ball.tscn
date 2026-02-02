@@ -1,28 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3ypj135jxvjd"]
+[gd_scene load_steps=6 format=3 uid="uid://c3ypj135jxvjd"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cnfo7swlk8npp" path="res://scenes/ball_physics_material.tres" id="1_c01jm"]
 [ext_resource type="Script" uid="uid://djt8v3mxy0ylo" path="res://scripts/cue_ball.gd" id="1_tbouf"]
-[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://visuals/characters/slime/slime.tscn" id="2_c01jm"]
+[ext_resource type="Texture2D" uid="uid://dwjtwrd7s70es" path="res://visuals/ball/fullball.png" id="4_cov1h"]
+[ext_resource type="PackedScene" uid="uid://caq4ej5ayj7eo" path="res://scenes/debug_labels.tscn" id="4_nkrrx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nkrrx"]
-radius = 56.0803
+radius = 22.5
 
-[node name="CueBall" type="RigidBody2D"]
+[node name="Cue Ball" type="Node2D"]
+
+[node name="Ball" type="RigidBody2D" parent="."]
 physics_material_override = ExtResource("1_c01jm")
 gravity_scale = 0.0
-angular_damp = 100.0
 script = ExtResource("1_tbouf")
+debug_label_path = NodePath("../Debug Labels")
 
-[node name="Slime" parent="." instance=ExtResource("2_c01jm")]
-position = Vector2(0, 26)
+[node name="FullBall" type="Sprite2D" parent="Ball"]
+position = Vector2(1.5258789e-05, 1.9073486e-06)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("4_cov1h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("CircleShape2D_nkrrx")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -40.0
-offset_top = -88.0
-offset_right = 40.0
-offset_bottom = -64.0
-text = "0.00"
-horizontal_alignment = 1
+[node name="Debug Labels" parent="." instance=ExtResource("4_nkrrx")]
