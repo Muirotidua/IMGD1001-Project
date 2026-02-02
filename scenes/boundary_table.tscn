@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddqqcgxtevmw2"]
+[gd_scene load_steps=5 format=3 uid="uid://ddqqcgxtevmw2"]
 
 [ext_resource type="Texture2D" uid="uid://dsnuw48upx7dm" path="res://visuals/SuperTemporaryPoolTable!.png" id="1_v02g2"]
-[ext_resource type="Script" uid="uid://ddulmeyujgcsn" path="res://scripts/boundary_table.gd" id="1_wl8ks"]
+[ext_resource type="Script" uid="uid://ovlry8chmr8m" path="res://scripts/boundary_table.gd" id="1_wl8ks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v02g2"]
 size = Vector2(100, 100)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wl8ks"]
+a = Vector2(54.75464, 56.346497)
+b = Vector2(-42.012207, 46.728745)
 
 [node name="Boundary_Table" type="Node2D"]
 script = ExtResource("1_wl8ks")
@@ -17,15 +21,13 @@ z_index = -10
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -17.0
-offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="SuperTemporaryPoolTable!" type="Sprite2D" parent="Visuals"]
-position = Vector2(960.1532, 524)
+position = Vector2(960.1532, 541)
 scale = Vector2(1.2729518, 1.2561576)
 texture = ExtResource("1_v02g2")
 
@@ -48,7 +50,7 @@ position = Vector2(0, -17)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TL Pocket"]
-position = Vector2(126.00001, 83.00001)
+position = Vector2(99.00001, 66.00001)
 rotation = 0.7853982
 shape = SubResource("RectangleShape2D_v02g2")
 
@@ -56,7 +58,7 @@ shape = SubResource("RectangleShape2D_v02g2")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BL Pocket"]
-position = Vector2(121.000046, 991.0001)
+position = Vector2(109.999985, 1022.0001)
 rotation = 0.7853982
 shape = SubResource("RectangleShape2D_v02g2")
 
@@ -64,7 +66,7 @@ shape = SubResource("RectangleShape2D_v02g2")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BR Pocket"]
-position = Vector2(1800.0001, 1002)
+position = Vector2(1815.0001, 1019.00006)
 rotation = 0.7853982
 shape = SubResource("RectangleShape2D_v02g2")
 
@@ -72,7 +74,7 @@ shape = SubResource("RectangleShape2D_v02g2")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TR Pocket"]
-position = Vector2(1800, 83.00006)
+position = Vector2(1826, 65.00006)
 rotation = 0.7853982
 shape = SubResource("RectangleShape2D_v02g2")
 
@@ -80,15 +82,60 @@ shape = SubResource("RectangleShape2D_v02g2")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TC Pocket"]
-position = Vector2(958, 43)
+position = Vector2(958, 18)
 shape = SubResource("RectangleShape2D_v02g2")
 
 [node name="BC Pocket" type="Area2D" parent="Pockets"]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BC Pocket"]
-position = Vector2(962, 1042)
+position = Vector2(960, 1068)
 shape = SubResource("RectangleShape2D_v02g2")
+
+[node name="OneWayPockets" type="StaticBody2D" parent="."]
+position = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPockets"]
+position = Vector2(158, 1016.99994)
+rotation = 3.7597594
+shape = SubResource("SegmentShape2D_wl8ks")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="OneWayPockets"]
+position = Vector2(112, 138)
+rotation = 5.3145275
+shape = SubResource("SegmentShape2D_wl8ks")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="OneWayPockets"]
+position = Vector2(949, 74.999985)
+rotation = -0.05934126
+shape = SubResource("SegmentShape2D_wl8ks")
+one_way_collision = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="OneWayPockets"]
+position = Vector2(975, 1041.9999)
+rotation = 3.0141835
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("SegmentShape2D_wl8ks")
+one_way_collision = true
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="OneWayPockets"]
+position = Vector2(1782.0002, 105.99992)
+rotation = 0.7819075
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("SegmentShape2D_wl8ks")
+one_way_collision = true
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="OneWayPockets"]
+position = Vector2(1796.0001, 999.00006)
+rotation = 2.211332
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("SegmentShape2D_wl8ks")
+one_way_collision = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -17)
 
 [connection signal="area_entered" from="Pockets/TL Pocket" to="." method="_on_tl_pocket_area_entered"]
 [connection signal="body_entered" from="Pockets/TL Pocket" to="." method="_on_tl_pocket_body_entered"]

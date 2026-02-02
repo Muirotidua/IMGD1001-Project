@@ -16,6 +16,7 @@ gravity_scale = 0.0
 linear_damp = 1.0
 script = ExtResource("2_kji1i")
 debug_label_path = NodePath("../Debug Labels")
+sprite_path = NodePath("Hollowball")
 metadata/_custom_type_script = "uid://bu48frm47bqx2"
 
 [node name="Hollowball" type="Sprite2D" parent="Ball"]

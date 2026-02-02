@@ -19,6 +19,7 @@ physics_material_override = ExtResource("1_c01jm")
 gravity_scale = 0.0
 script = ExtResource("1_tbouf")
 debug_label_path = NodePath("../Debug Labels")
+sprite_path = NodePath("FullBall")
 
 [node name="FullBall" type="Sprite2D" parent="Ball"]
 position = Vector2(1.5258789e-05, 1.9073486e-06)
