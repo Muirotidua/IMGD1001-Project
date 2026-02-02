@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://caq4ej5ayj7eo"]
+
+[ext_resource type="Script" uid="uid://bnl6eohpitmr2" path="res://scripts/debug_labels.gd" id="1_uatmu"]
+
+[node name="Debug Labels" type="Node2D"]
+script = ExtResource("1_uatmu")
+ball_path = NodePath("../Ball")
+
+[node name="MotionLabel" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -56.0
+offset_right = 40.0
+offset_bottom = -32.0
+text = "FALSE"
+horizontal_alignment = 1
+
+[node name="SpeedLabel" type="Label" parent="."]
+offset_left = -320.0
+offset_top = 35.0
+offset_right = 320.0
+offset_bottom = 59.0
+text = "0.00"
+horizontal_alignment = 1

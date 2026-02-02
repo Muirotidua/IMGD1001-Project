@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm1gu6sao5bje"
-path="res://.godot/imported/pointer.png-d543a422346299cde66902d1a6687b45.ctex"
+uid="uid://dsnuw48upx7dm"
+path="res://.godot/imported/SuperTemporaryPoolTable!.png-22ee7b39d96a8d399a59a11583d53ce5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visuals/pointer.png"
-dest_files=["res://.godot/imported/pointer.png-d543a422346299cde66902d1a6687b45.ctex"]
+source_file="res://visuals/SuperTemporaryPoolTable!.png"
+dest_files=["res://.godot/imported/SuperTemporaryPoolTable!.png-22ee7b39d96a8d399a59a11583d53ce5.ctex"]
 
 [params]
 

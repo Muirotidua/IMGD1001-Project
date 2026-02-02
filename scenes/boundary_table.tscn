@@ -1,61 +1,99 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddqqcgxtevmw2"]
+[gd_scene load_steps=4 format=3 uid="uid://ddqqcgxtevmw2"]
 
-[ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/cue_ball.tscn" id="1_wl8ks"]
-[ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/pool_ball.tscn" id="2_2qr6t"]
-
-[sub_resource type="Theme" id="Theme_evwt0"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_evwt0"]
-size = Vector2(1786.6476, 68.37262)
+[ext_resource type="Texture2D" uid="uid://dsnuw48upx7dm" path="res://visuals/SuperTemporaryPoolTable!.png" id="1_v02g2"]
+[ext_resource type="Script" uid="uid://ddulmeyujgcsn" path="res://scenes/boundary_table.gd" id="1_wl8ks"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v02g2"]
-size = Vector2(859.3788, 61.09937)
+size = Vector2(100, 100)
 
 [node name="Boundary_Table" type="Node2D"]
+script = ExtResource("1_wl8ks")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Visuals" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Table" type="ColorRect" parent="CanvasLayer"]
-offset_left = 67.0
-offset_top = 110.0
-offset_right = 1835.0
-offset_bottom = 981.0
-theme = SubResource("Theme_evwt0")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = 128.0
-offset_top = 177.0
-offset_right = 1779.0
-offset_bottom = 915.0
+[node name="Background" type="ColorRect" parent="Visuals"]
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="CueBall" parent="CanvasLayer" instance=ExtResource("1_wl8ks")]
-position = Vector2(438, 517)
-
-[node name="Pool Ball" parent="CanvasLayer" instance=ExtResource("2_2qr6t")]
-position = Vector2(1237, 519)
-gravity_scale = 0.0
+[node name="SuperTemporaryPoolTable!" type="Sprite2D" parent="Visuals"]
+position = Vector2(960.1532, 541)
+scale = Vector2(1.2729518, 1.2561576)
+texture = ExtResource("1_v02g2")
 
 [node name="Table_Boundaries" type="StaticBody2D" parent="."]
-position = Vector2(71, 101)
+position = Vector2(85, 108)
 
-[node name="Top_Boundary" type="CollisionShape2D" parent="Table_Boundaries"]
-position = Vector2(879, 42)
-shape = SubResource("RectangleShape2D_evwt0")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table_Boundaries"]
+polygon = PackedVector2Array(64, 58, 65, 47, 10, -8, 53, -50, 107, 4, 830, 4, 841, -13, 841, -70, 908, -70, 910, -12, 920, 4, 1643, 4, 1698, -51, 1741, -8, 1686, 46, 1688, 799, 1842, 817, 1842.8582, -18.931534, 1843, -157, -76, -167, -74, 517, 63, 804)
 
-[node name="Bottom_Boundary" type="CollisionShape2D" parent="Table_Boundaries"]
-position = Vector2(881, 848)
-shape = SubResource("RectangleShape2D_evwt0")
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Table_Boundaries"]
+position = Vector2(1750, 863)
+rotation = -3.1415927
+polygon = PackedVector2Array(64, 47, 64, 47, 13, -8, 53, -50, 107, 4, 830, 4, 841, -13, 841, -70, 908, -70, 910, -12, 920, 4, 1643, 4, 1698, -51, 1741, -8, 1686, 46.000183, 1686.9999, 806.0002, 1824.9999, 802.0002, 1843, -157, -76, -167, -64.00012, 811, 63.999878, 813)
 
-[node name="Left_Boundary" type="CollisionShape2D" parent="Table_Boundaries"]
-position = Vector2(26, 449)
-rotation = -1.5681087
-scale = Vector2(0.99999964, 0.99999964)
+[node name="Pockets" type="Node2D" parent="."]
+
+[node name="TL Pocket" type="Area2D" parent="Pockets"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TL Pocket"]
+position = Vector2(126.00001, 83.00001)
+rotation = 0.7853982
 shape = SubResource("RectangleShape2D_v02g2")
 
-[node name="Right_Boundary" type="CollisionShape2D" parent="Table_Boundaries"]
-position = Vector2(1737.9998, 441)
-rotation = -1.5681087
-scale = Vector2(0.9999997, 0.9999997)
+[node name="BL Pocket" type="Area2D" parent="Pockets"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BL Pocket"]
+position = Vector2(121.000046, 991.0001)
+rotation = 0.7853982
 shape = SubResource("RectangleShape2D_v02g2")
+
+[node name="BR Pocket" type="Area2D" parent="Pockets"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BR Pocket"]
+position = Vector2(1800.0001, 1002)
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_v02g2")
+
+[node name="TR Pocket" type="Area2D" parent="Pockets"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TR Pocket"]
+position = Vector2(1800, 83.00006)
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_v02g2")
+
+[node name="TC Pocket" type="Area2D" parent="Pockets"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TC Pocket"]
+position = Vector2(958, 43)
+shape = SubResource("RectangleShape2D_v02g2")
+
+[node name="BC Pocket" type="Area2D" parent="Pockets"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BC Pocket"]
+position = Vector2(962, 1042)
+shape = SubResource("RectangleShape2D_v02g2")
+
+[connection signal="area_entered" from="Pockets/TL Pocket" to="." method="_on_tl_pocket_area_entered"]
+[connection signal="body_entered" from="Pockets/TL Pocket" to="." method="_on_tl_pocket_body_entered"]
+[connection signal="area_entered" from="Pockets/BL Pocket" to="." method="_on_bl_pocket_area_entered"]
+[connection signal="body_entered" from="Pockets/BL Pocket" to="." method="_on_bl_pocket_body_entered"]
+[connection signal="area_entered" from="Pockets/BR Pocket" to="." method="_on_br_pocket_area_entered"]
+[connection signal="body_entered" from="Pockets/BR Pocket" to="." method="_on_br_pocket_body_entered"]
+[connection signal="area_entered" from="Pockets/TR Pocket" to="." method="_on_tr_pocket_area_entered"]
+[connection signal="body_entered" from="Pockets/TR Pocket" to="." method="_on_tr_pocket_body_entered"]
+[connection signal="area_entered" from="Pockets/TC Pocket" to="." method="_on_tc_pocket_area_entered"]
+[connection signal="body_entered" from="Pockets/TC Pocket" to="." method="_on_tc_pocket_body_entered"]
+[connection signal="area_entered" from="Pockets/BC Pocket" to="." method="_on_bc_pocket_area_entered"]
+[connection signal="body_entered" from="Pockets/BC Pocket" to="." method="_on_bc_pocket_body_entered"]
