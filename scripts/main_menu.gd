@@ -39,7 +39,7 @@ func _on_quit_pressed() -> void:
 
 func _on_fade_timer_timeout() -> void:
 	if clicked == "start":
-		get_tree().change_scene_to_file("res://scenes/survivorsgame.tscn")
+		get_tree().change_scene_to_file("res://scenes/level_template.tscn")
 	if clicked == "credits":
 		get_tree().change_scene_to_file("res://scenes/credits.tscn")
 	if clicked == "version_notes":

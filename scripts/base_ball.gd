@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 			linear_damp = 1
 			inmotion = false
 			motion_label.text = "FALSE"
+			
 	else:
 		inmotion = true
 		motion_label.text = "TRUE"
