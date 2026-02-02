@@ -1,4 +1,4 @@
-extends BaseBall
+class_name CueBall extends BaseBall
 
 # Default Launch Speed
 @export var dls = 1000

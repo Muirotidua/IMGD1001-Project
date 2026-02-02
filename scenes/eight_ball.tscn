@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci5cown6qsyjp"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cnfo7swlk8npp" path="res://scenes/ball_physics_material.tres" id="1_712ic"]
+[ext_resource type="Script" uid="uid://cil2w44gkmxcp" path="res://scripts/eight_ball.gd" id="2_712ic"]
+[ext_resource type="Texture2D" uid="uid://cxayemt1xa3us" path="res://visuals/ball/hollowball.png" id="3_h6wdm"]
+[ext_resource type="PackedScene" uid="uid://caq4ej5ayj7eo" path="res://scenes/debug_labels.tscn" id="4_os32q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w5es4"]
+radius = 22.5
+
+[node name="Eight Ball" type="Node2D"]
+
+[node name="Ball" type="RigidBody2D" parent="."]
+physics_material_override = ExtResource("1_712ic")
+gravity_scale = 0.0
+linear_damp = 1.0
+script = ExtResource("2_712ic")
+debug_label_path = NodePath("../Debug Labels")
+sprite_path = NodePath("Hollowball")
+metadata/_custom_type_script = "uid://bu48frm47bqx2"
+
+[node name="Hollowball" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("3_h6wdm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(1.5258788e-05, 3.814697e-06)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("CircleShape2D_w5es4")
+
+[node name="Debug Labels" parent="." instance=ExtResource("4_os32q")]
