@@ -1,10 +1,8 @@
 extends Node2D
 
-
-
 func pocketed_ball(body: Node2D):
 	if body is BaseBall:
-		body.queue_free()
+		body.pocketing = true
 
 func _on_tl_pocket_body_entered(body: Node2D) -> void:
 	pocketed_ball(body)

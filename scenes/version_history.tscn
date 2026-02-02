@@ -31,18 +31,20 @@ offset_right = 1728.0
 offset_bottom = 949.0
 theme_override_fonts/normal_font = ExtResource("2_4leat")
 theme_override_font_sizes/normal_font_size = 80
-text = "V 0.1
-
--Added a WPI Splash Screen
-
--Added a Main Menu with interactable buttons, title, and image
-
--Added scrolling credits 
-
--Added Version History Notes
+text = "V 0.2
+- Added a Temporary Table with boundaries and pocket detection
+-Changed file structure to use inheritence
+-Constructed a template for levels to use as a base
 
 V0.1.1
 - Added a Pool Demo behind the scenes
+
+V 0.1
+-Added a WPI Splash Screen
+-Added a Main Menu with interactable buttons, title, and image
+-Added scrolling credits 
+-Added Version History Notes
+
 "
 horizontal_alignment = 1
 

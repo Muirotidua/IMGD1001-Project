@@ -13,13 +13,13 @@ z_index = -1
 position = Vector2(438, 517)
 
 [node name="Ball" parent="CueBall" index="0"]
-infinite_shots = true
-
-[node name="PointerLine" parent="CueBall/Ball" index="2"]
-texture_repeat = 2
-width = 100.0
+debug_labels = true
 
 [node name="Pool Ball" parent="." instance=ExtResource("2_6lum8")]
 position = Vector2(1392, 552)
 
+[node name="Ball" parent="Pool Ball" index="0"]
+debug_labels = true
+
 [editable path="CueBall"]
+[editable path="Pool Ball"]
