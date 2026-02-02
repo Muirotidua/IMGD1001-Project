@@ -13,7 +13,8 @@ func _on_start_pressed() -> void:
 		$Fade.show()
 		$"Fade/Fade Timer".start()
 		$Fade/AnimationPlayer.play("fade_in_black")
-		%StartSelect.play();
+		#AudioManager.play("res://sounds/sfx/billiard-break.mp3")
+		AudioManager.BallBreak.play()
 	
 
 func _on_version_notes_pressed() -> void:

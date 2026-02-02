@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8awlpufvfhkk"]
+
+[ext_resource type="Script" uid="uid://ct60y56rryqoj" path="res://global/audio_manager.gd" id="1_ap5g2"]
+[ext_resource type="AudioStream" uid="uid://0x1b76yowgdw" path="res://sounds/music/Candy Claws - Ceres & Calypso in the Deep Time - 06 Transitional Bird (Clever Girl).mp3" id="2_qvr7k"]
+[ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="3_5hfb4"]
+[ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="4_1juyv"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_ap5g2")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qvr7k")
+
+[node name="BallHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5hfb4")
+max_polyphony = 100
+
+[node name="BallBreak" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1juyv")

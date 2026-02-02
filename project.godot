@@ -80,6 +80,10 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.png"
 
+[autoload]
+
+AudioManager="*res://global/AudioManager.tscn"
+
 [display]
 
 window/size/viewport_width=1920
