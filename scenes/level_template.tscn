@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dih2bhghs70xg"]
+[gd_scene load_steps=5 format=3 uid="uid://dih2bhghs70xg"]
 
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/boundary_table.tscn" id="1_6lum8"]
+[ext_resource type="Script" uid="uid://1orqlroorufl" path="res://scripts/level_template.gd" id="1_iw5l3"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/cue_ball.tscn" id="1_mm7tu"]
-[ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/pool_ball.tscn" id="2_6lum8"]
+[ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/eight_ball.tscn" id="4_iw5l3"]
 
 [node name="Level_Template" type="Node2D"]
+script = ExtResource("1_iw5l3")
 
 [node name="Boundary_Table" parent="." instance=ExtResource("1_6lum8")]
 z_index = -1
@@ -15,11 +17,7 @@ position = Vector2(438, 517)
 [node name="Ball" parent="CueBall" index="0"]
 debug_labels = true
 
-[node name="Pool Ball" parent="." instance=ExtResource("2_6lum8")]
-position = Vector2(1392, 552)
-
-[node name="Ball" parent="Pool Ball" index="0"]
-debug_labels = true
+[node name="8Ball" parent="." instance=ExtResource("4_iw5l3")]
+position = Vector2(1469, 546)
 
 [editable path="CueBall"]
-[editable path="Pool Ball"]
