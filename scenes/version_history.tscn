@@ -31,7 +31,15 @@ offset_right = 1728.0
 offset_bottom = 949.0
 theme_override_fonts/normal_font = ExtResource("2_4leat")
 theme_override_font_sizes/normal_font_size = 80
-text = "V 0.2
+text = "V0.2.2
+-Added a redesigned table with added flair
+-Fixed a rewind and win condition bug by completely recreating how the table keeps track of its elements
+
+V0.2.1
+-Added a Rewind & Reset Mechanic to the table to redo shots
+-Created a win condition
+
+V0.2
 - Added a Temporary Table with boundaries and pocket detection
 -Changed file structure to use inheritence
 -Constructed a template for levels to use as a base
