@@ -1,7 +1,7 @@
 class_name CueBall extends BaseBall
 
 # Default Launch Speed
-@export var dls: float = 1000
+@export var dls: float = 1
 @export var infinite_shots: bool = false
 
 @onready var pointer = $PointerLine
