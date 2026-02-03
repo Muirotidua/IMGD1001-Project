@@ -1,7 +1,7 @@
 class_name CueBall extends BaseBall
 
 # Default Launch Speed
-@export var dls: float = 1000
+@export var power_multiplier: float = 1.1
 @export var infinite_shots: bool = false
 
 @onready var pointer = $PointerLine
@@ -32,8 +32,8 @@ func _process(delta: float) -> void:
 		
 func on_shoot():
 	var direction = global_position.direction_to(get_global_mouse_position())
-	var s = global_position.distance_to(get_global_mouse_position())
+	var power = global_position.distance_to(get_global_mouse_position())
 	if !inmotion || infinite_shots:
-		apply_central_impulse(direction * dls * s)
+		apply_central_impulse(direction * power_multiplier * power)
 	
 	

@@ -72,7 +72,7 @@ func check_final():
 	for ball: BaseBall in all_balls:
 		if ball is not CueBall && !ball.pocketed && !ball.pocketing:
 			state = State.PLAYING
-			win_text.text = "Playing"
+			win_text.text = ""
 			return
 	state = State.WON
 	win_text.text = "Victory!"

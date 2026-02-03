@@ -100,7 +100,7 @@ offset_left = 1756.0
 offset_top = 23.0
 offset_right = 1900.0
 offset_bottom = 107.0
-text = "V 0.2"
+text = "V 0.2.2"
 label_settings = SubResource("LabelSettings_rcqid")
 
 [node name="StartSelect" type="AudioStreamPlayer" parent="."]

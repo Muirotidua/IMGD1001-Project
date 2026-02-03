@@ -54,19 +54,19 @@ position = Vector2(960.1532, 541)
 scale = Vector2(1.2729518, 1.2561576)
 sprite_frames = SubResource("SpriteFrames_t5bve")
 autoplay = "default"
-frame_progress = 0.10235944
+frame = 2
+frame_progress = 0.3121109
 
 [node name="Table_Boundaries" type="StaticBody2D" parent="."]
-visible = false
 position = Vector2(85, 108)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table_Boundaries"]
-polygon = PackedVector2Array(64, 58, 65, 47, 10, -8, 53, -50, 107, 4, 830, 4, 841, -13, 841, -70, 908, -70, 910, -12, 920, 4, 1643, 4, 1698, -51, 1741, -8, 1686, 46, 1688, 799, 1842, 817, 1842.8582, -18.931534, 1843, -157, -76, -167, -74, 517, 63, 804)
+polygon = PackedVector2Array(67, 64, 10, -8, 53, -50, 123, 3, 826, 1, 839, -27, 845, -69, 898, -76, 914, -25, 927, 4, 1626, 3, 1698, -51, 1741, -8, 1683, 70, 1688, 799, 1842, 817, 1842.8582, -18.931534, 1843, -157, -76, -167, -74, 517, 65, 798)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Table_Boundaries"]
 position = Vector2(1750, 863)
 rotation = -3.1415927
-polygon = PackedVector2Array(64, 47, 64, 47, 13, -8, 53, -50, 107, 4, 830, 4, 841, -13, 841, -70, 908, -70, 910, -12, 920, 4, 1643, 4, 1698, -51, 1741, -8, 1686, 46.000183, 1686.9999, 806.0002, 1824.9999, 802.0002, 1843, -157, -76, -167, -64.00012, 811, 63.999878, 813)
+polygon = PackedVector2Array(68, 64, 10, 0, 57, -45, 126, -1.999939, 823.99994, 0.00012207031, 840.99994, -25.999878, 841, -70, 908, -70, 909.99994, -26.999878, 922.99994, -0.9998779, 1626, -1.9998169, 1698, -51, 1741, -8, 1686, 58.000183, 1686.9999, 806.0002, 1824.9999, 802.0002, 1843, -157, -76, -167, -64.00012, 811, 67.99988, 790)
 
 [node name="Pockets" type="Node2D" parent="."]
 position = Vector2(0, -17)
@@ -107,7 +107,7 @@ shape = SubResource("RectangleShape2D_v02g2")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TC Pocket"]
-position = Vector2(955, 47)
+position = Vector2(960, 49)
 shape = SubResource("RectangleShape2D_v02g2")
 
 [node name="BC Pocket" type="Area2D" parent="Pockets"]
