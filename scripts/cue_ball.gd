@@ -32,7 +32,8 @@ func _process(delta: float) -> void:
 		
 func on_shoot():
 	var direction = global_position.direction_to(get_global_mouse_position())
+	var s = global_position.distance_to(get_global_mouse_position())
 	if !inmotion || infinite_shots:
-		apply_central_impulse(direction * dls)
+		apply_central_impulse(direction * dls * s)
 	
 	
