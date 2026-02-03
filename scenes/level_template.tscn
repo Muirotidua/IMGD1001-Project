@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dih2bhghs70xg"]
 
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/boundary_table.tscn" id="1_6lum8"]
-[ext_resource type="Script" path="res://scripts/level_template.gd" id="1_iw5l3"]
+[ext_resource type="Script" uid="uid://1orqlroorufl" path="res://scripts/level_template.gd" id="1_iw5l3"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/cue_ball.tscn" id="1_mm7tu"]
-[ext_resource type="PackedScene" path="res://scenes/eight_ball.tscn" id="4_iw5l3"]
+[ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/eight_ball.tscn" id="4_iw5l3"]
 
 [node name="Level_Template" type="Node2D"]
 script = ExtResource("1_iw5l3")
@@ -13,15 +13,8 @@ z_index = -1
 
 [node name="CueBall" parent="." instance=ExtResource("1_mm7tu")]
 position = Vector2(438, 517)
-
-[node name="Ball" parent="CueBall" index="0"]
 debug_labels = true
-
-[node name="PointerLine" parent="CueBall/Ball" index="2"]
-texture_repeat = 2
-width = 200.0
 
 [node name="8Ball" parent="." instance=ExtResource("4_iw5l3")]
 position = Vector2(1469, 546)
-
-[editable path="CueBall"]
+debug_labels = true
