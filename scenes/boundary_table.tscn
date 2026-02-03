@@ -1,7 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddqqcgxtevmw2"]
+[gd_scene load_steps=9 format=3 uid="uid://ddqqcgxtevmw2"]
 
-[ext_resource type="Texture2D" uid="uid://dsnuw48upx7dm" path="res://visuals/SuperTemporaryPoolTable!.png" id="1_v02g2"]
 [ext_resource type="Script" uid="uid://ovlry8chmr8m" path="res://scripts/boundary_table.gd" id="1_wl8ks"]
+[ext_resource type="Texture2D" uid="uid://nt45ir4ggoco" path="res://visuals/table/table_0000_Layer-7.png" id="2_katkb"]
+[ext_resource type="Texture2D" uid="uid://pfpfgktdj0v8" path="res://visuals/table/table_0001_Layer-6.png" id="3_02eu2"]
+[ext_resource type="Texture2D" uid="uid://btic2bjvhj83w" path="res://visuals/table/table_0002_Layer-5.png" id="4_gxrqy"]
+[ext_resource type="Texture2D" uid="uid://dwi5mrtha4al3" path="res://visuals/table/table_0003_Layer-4.png" id="5_6fwsf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t5bve"]
+animations = [{
+"frames": [{
+"duration": 1.71,
+"texture": ExtResource("2_katkb")
+}, {
+"duration": 1.71,
+"texture": ExtResource("3_02eu2")
+}, {
+"duration": 1.71,
+"texture": ExtResource("4_gxrqy")
+}, {
+"duration": 1.71,
+"texture": ExtResource("5_6fwsf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v02g2"]
 size = Vector2(100, 100)
@@ -26,10 +49,12 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="SuperTemporaryPoolTable!" type="Sprite2D" parent="Visuals"]
+[node name="SuperTemporaryPoolTable!" type="AnimatedSprite2D" parent="Visuals"]
 position = Vector2(960.1532, 541)
 scale = Vector2(1.2729518, 1.2561576)
-texture = ExtResource("1_v02g2")
+sprite_frames = SubResource("SpriteFrames_t5bve")
+autoplay = "default"
+frame_progress = 0.10235944
 
 [node name="Table_Boundaries" type="StaticBody2D" parent="."]
 visible = false
