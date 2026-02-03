@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvgfmy6vtvjji"
-path="res://.godot/imported/slime_body.png-1ba94226e87f87e645f1461e937c400b.ctex"
+uid="uid://icu0g0jl842s"
+path="res://.godot/imported/SuperTemporaryPoolTable!.png-aa90a9e53cab51c77c8098ba0c82d2d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visuals/characters/slime/slime_body.png"
-dest_files=["res://.godot/imported/slime_body.png-1ba94226e87f87e645f1461e937c400b.ctex"]
+source_file="res://visuals/table/SuperTemporaryPoolTable!.png"
+dest_files=["res://.godot/imported/SuperTemporaryPoolTable!.png-aa90a9e53cab51c77c8098ba0c82d2d7.ctex"]
 
 [params]
 
