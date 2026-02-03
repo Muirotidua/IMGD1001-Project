@@ -26,8 +26,9 @@ texture = ExtResource("4_cov1h")
 shape = SubResource("CircleShape2D_nkrrx")
 
 [node name="PointerLine" type="Line2D" parent="."]
+texture_repeat = 2
 material = SubResource("CanvasItemMaterial_nkrrx")
-width = 25.0
+width = 200.0
 texture = ExtResource("4_datkq")
 texture_mode = 1
 
