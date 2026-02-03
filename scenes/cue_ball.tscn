@@ -2,8 +2,8 @@
 
 [ext_resource type="PhysicsMaterial" uid="uid://cnfo7swlk8npp" path="res://scenes/ball_physics_material.tres" id="1_c01jm"]
 [ext_resource type="Script" uid="uid://djt8v3mxy0ylo" path="res://scripts/cue_ball.gd" id="1_tbouf"]
-[ext_resource type="Texture2D" uid="uid://dwjtwrd7s70es" path="res://visuals/ball/fullball.png" id="4_cov1h"]
-[ext_resource type="Texture2D" uid="uid://cvvon4pcnolb4" path="res://visuals/Dotted-Line Texture.png" id="4_datkq"]
+[ext_resource type="Texture2D" uid="uid://unfatubegi3u" path="res://visuals/ball/fullball.png" id="4_cov1h"]
+[ext_resource type="Texture2D" uid="uid://reh0mkbm5u42" path="res://visuals/ball/Dotted-Line Texture.png" id="4_datkq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nkrrx"]
 radius = 22.5
