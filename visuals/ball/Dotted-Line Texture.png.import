@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dftkbqwsfd68r"
-path="res://.godot/imported/projectile.png-068a449b7e63460fbe64366945c6bc9c.ctex"
+uid="uid://reh0mkbm5u42"
+path="res://.godot/imported/Dotted-Line Texture.png-b4baf9c1ef1fff42ca64b0a01b76f593.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visuals/pistol/projectile.png"
-dest_files=["res://.godot/imported/projectile.png-068a449b7e63460fbe64366945c6bc9c.ctex"]
+source_file="res://visuals/ball/Dotted-Line Texture.png"
+dest_files=["res://.godot/imported/Dotted-Line Texture.png-b4baf9c1ef1fff42ca64b0a01b76f593.ctex"]
 
 [params]
 

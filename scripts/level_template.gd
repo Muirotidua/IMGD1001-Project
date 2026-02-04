@@ -1,14 +1,15 @@
 #level_template.gd
 extends Node2D
 
+enum State{ WON, LOST, PLAYING }
 
 @onready var table: Node2D = $Boundary_Table
 @onready var cue: CueBall = $CueBall
+@onready var win_text: Label = $WinText
 
-var tabled_balls: Array[BaseBall] = []
-var pocketed_balls: Array[BaseBall] = []
-var queue: Array[BaseBall] = []
+var all_balls: Array[BaseBall] = []
 var rewinded: bool = false
+var state: State = State.PLAYING
 
 signal shoot()
 
@@ -18,59 +19,82 @@ func _ready():
 	shoot.connect(cue.on_shoot)
 	for child: Node in get_children():
 		if child is BaseBall:
-			tabled_balls.append(child)
+			all_balls.append(child)
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset_table"):
 		reset_table()
 	if Input.is_action_just_pressed("rewind_shot"):
 		rewind_shot()
+	if Input.is_action_just_pressed("print_info"):
+		print_info()
 	if !moving_balls():
-		cue.shot_ready = true
+		check_final()
+		cue.shot_ready = (state == State.PLAYING)
 	else:
 		cue.shot_ready = false
+	
 
 func on_pocket(ball, _pocket):
 	if ball is BaseBall:
-		ball.pocketing = true
-		if ball is CueBall:
-			print("Lose")
-		elif ball is EightBall:
-			tabled_balls.erase(ball)
-			pocketed_balls.append(ball)
-			print("Win")
+		if !ball.ignore_pocket:
+			ball.pocketing = true
 
 
 func on_try_shoot():
-	if !moving_balls() || cue.infinite_shots:
-		for ball: BaseBall in tabled_balls:
-			ball.updateLastPos()
-		for ball: BaseBall in pocketed_balls:
-			ball.updateLastPos()
-		shoot.emit()
+	if !cue.shot_ready && !cue.infinite_shots:
+		return
+	for ball: BaseBall in all_balls:
+		ball.updateLastPos()
+	shoot.emit()
 		
 
 func moving_balls() -> bool:
-	var moving = false
-	for ball: BaseBall in tabled_balls:
-		if ball.inmotion:
-			moving = true
-	return moving
+	for ball: BaseBall in all_balls:
+		if ball.inmotion && !ball.pocketed:
+			return true
+	return false
 
 func reset_table():
-	for ball: BaseBall in tabled_balls:
+	for ball: BaseBall in all_balls:
 		ball.reset()
-	for ball: BaseBall in pocketed_balls:
-		ball.reset()
-		queue.append(ball)
-		tabled_balls.append(ball)
-	for ball: BaseBall in queue:
-		pocketed_balls.erase(ball)
-	queue.clear()
 		
 func rewind_shot():
-	for ball: BaseBall in tabled_balls:
+	for ball: BaseBall in all_balls:
 		ball.rewind()
-	for ball: BaseBall in pocketed_balls:
-		ball.rewind()
+
+func check_final():
+	if cue.pocketed || cue.pocketing:
+		state = State.LOST
+		win_text.text = "Failure."
+		return
+	for ball: BaseBall in all_balls:
+		if ball is not CueBall && !ball.pocketed && !ball.pocketing:
+			state = State.PLAYING
+			win_text.text = ""
+			return
+	state = State.WON
+	win_text.text = "Victory!"
+	return
+
+func print_info():
+	print("-----------------------")
+	for ball: BaseBall in all_balls:
+		if ball is CueBall:
+			print("Cue Ball")
+		elif ball is EightBall:
+			print("Eight Ball")
+		else:
+			print("Unknown Ball")
+		if ball.pocketed:
+			print("\tBall is pocketed")
+		if ball.pocketing:
+			print("\tBall is pocketing")
+		if !ball.pocketing && !ball.pocketed:
+			print("\tBall is tabled")
+		if ball.inmotion:
+			print("\tBall is in motion")
+		if ball.tabled_last_shot:
+			print("\tBall was tabled last shot")
+	print("-----------------------")
