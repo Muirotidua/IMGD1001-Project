@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhvq660yqqykv"]
+
+[ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="1_hrusj"]
+[ext_resource type="Texture2D" path="res://visuals/UI/Button.png" id="2_6g3el"]
+[ext_resource type="Texture2D" path="res://visuals/UI/images.png" id="3_ium1h"]
+
+[node name="LevelButton" type="MenuButton"]
+offset_right = 208.0
+offset_bottom = 208.0
+theme_override_fonts/font = ExtResource("1_hrusj")
+theme_override_font_sizes/font_size = 100
+text = "2"
+icon = ExtResource("2_6g3el")
+icon_alignment = 1
+
+[node name="LockImage" type="Sprite2D" parent="."]
+position = Vector2(105.00001, 96)
+scale = Vector2(0.567, 0.556)
+texture = ExtResource("3_ium1h")
