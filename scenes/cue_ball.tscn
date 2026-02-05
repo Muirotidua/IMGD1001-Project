@@ -11,7 +11,7 @@ radius = 22.5
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nkrrx"]
 blend_mode = 1
 
-[node name="Ball" type="RigidBody2D"]
+[node name="CueBall" type="RigidBody2D"]
 physics_material_override = ExtResource("1_c01jm")
 gravity_scale = 0.0
 script = ExtResource("1_tbouf")

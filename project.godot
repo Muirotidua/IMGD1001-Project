@@ -83,7 +83,8 @@ config/icon="res://icon.png"
 [autoload]
 
 AudioManager="*res://global/AudioManager.tscn"
-GlobalEnums="*res://global/GlobalEnums.gd"
+GlobalEnums="*res://global/global_enums.gd"
+LevelManager="*res://global/level_manager.gd"
 
 [display]
 
