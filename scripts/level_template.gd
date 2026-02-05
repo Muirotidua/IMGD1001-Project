@@ -3,6 +3,8 @@ extends Node2D
 
 enum State{ WON, LOST, PLAYING }
 
+@export var shot_limit = 3
+
 @onready var table: Node2D = $Boundary_Table
 @onready var cue: CueBall = $CueBall
 @onready var win_text: Label = $WinText
@@ -12,6 +14,7 @@ var rewinded: bool = false
 var state: State = State.PLAYING
 
 signal shoot()
+signal finished_game_check();
 
 func _ready():
 	table.pocketed_ball.connect(on_pocket)
@@ -30,19 +33,19 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("print_info"):
 		print_info()
 	if !moving_balls():
-		check_final()
+		check_final() 
 		cue.shot_ready = (state == State.PLAYING)
 	else:
 		cue.shot_ready = false
 	
 
-func on_pocket(ball, _pocket):
+func on_pocket(ball, _pocket): 
 	if ball is BaseBall:
 		if !ball.ignore_pocket:
 			ball.pocketing = true
 
-
-func on_try_shoot():
+# 
+func on_try_shoot(): # ?
 	if !cue.shot_ready && !cue.infinite_shots:
 		return
 	for ball: BaseBall in all_balls:
@@ -50,7 +53,8 @@ func on_try_shoot():
 	shoot.emit()
 		
 
-func moving_balls() -> bool:
+# False if no balls are moving. True otherwise
+func moving_balls() -> bool: # ??? Need to ensure that this is looking at the cue ball moving, ask Liam when he's back.
 	for ball: BaseBall in all_balls:
 		if ball.inmotion && !ball.pocketed:
 			return true
@@ -65,18 +69,30 @@ func rewind_shot():
 		ball.rewind()
 
 func check_final():
-	if cue.pocketed || cue.pocketing:
+	var pocket_count: int = 0
+	if (cue.pocketed || cue.pocketing):
 		state = State.LOST
 		win_text.text = "Failure."
 		return
 	for ball: BaseBall in all_balls:
-		if ball is not CueBall && !ball.pocketed && !ball.pocketing:
-			state = State.PLAYING
-			win_text.text = ""
-			return
-	state = State.WON
-	win_text.text = "Victory!"
-	return
+		if ball is not CueBall && (ball.pocketed || ball.pocketing):
+			pocket_count += 1
+		#if ball is not CueBall && !ball.pocketed && !ball.pocketing:
+			#state = State.PLAYING
+			#win_text.text = ""
+			#return
+	if pocket_count == all_balls.size()-1:
+		state = State.WON
+		win_text.text = "Victory!"
+		return
+	elif cue.shot_count>=shot_limit: #fuck you elif!!
+		state = State.LOST
+		win_text.text = "Failure."
+		return
+	else:
+		state = State.PLAYING
+		win_text.text = ""
+		return
 
 func print_info():
 	print("-----------------------")

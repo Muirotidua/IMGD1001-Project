@@ -13,9 +13,11 @@ z_index = -1
 
 [node name="CueBall" parent="." instance=ExtResource("1_mm7tu")]
 position = Vector2(459, 603)
+debug_labels = true
 
 [node name="8Ball" parent="." instance=ExtResource("4_iw5l3")]
-position = Vector2(1192, 553)
+position = Vector2(1789, 981)
+debug_labels = true
 
 [node name="WinText" type="Label" parent="."]
 offset_left = 805.0
@@ -26,4 +28,4 @@ theme_override_font_sizes/font_size = 86
 horizontal_alignment = 1
 
 [node name="Ball" parent="." instance=ExtResource("4_iw5l3")]
-position = Vector2(1307, 552)
+position = Vector2(1735, 932)

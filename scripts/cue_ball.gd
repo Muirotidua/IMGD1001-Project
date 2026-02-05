@@ -3,6 +3,9 @@ class_name CueBall extends BaseBall
 # Default Launch Speed
 @export var dls: float = 1
 @export var infinite_shots: bool = false
+@export var shot_count = 0
+# initial shot number that is incremented for each type of shot. 
+# when it is greater than number of level shots the level triggers failstate
 
 @onready var pointer = $PointerLine
 var shot_ready:bool  = true
@@ -35,5 +38,9 @@ func on_shoot():
 	var s = global_position.distance_to(get_global_mouse_position())
 	if !inmotion || infinite_shots:
 		apply_central_impulse(direction * dls * s)
+		await get_tree().create_timer(1).timeout
+		#inmotion = true
+		shot_count += 1 # no ++ operator :(
+	
 	
 	
