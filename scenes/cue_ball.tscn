@@ -1,16 +1,43 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=7 format=3 uid="uid://c3ypj135jxvjd"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cnfo7swlk8npp" path="res://scenes/ball_physics_material.tres" id="1_c01jm"]
 [ext_resource type="Script" uid="uid://djt8v3mxy0ylo" path="res://scripts/cue_ball.gd" id="1_tbouf"]
 [ext_resource type="Texture2D" uid="uid://unfatubegi3u" path="res://visuals/ball/fullball.png" id="4_cov1h"]
 [ext_resource type="Texture2D" uid="uid://reh0mkbm5u42" path="res://visuals/ball/Dotted-Line Texture.png" id="4_datkq"]
+=======
+[gd_scene load_steps=16 format=3 uid="uid://c3ypj135jxvjd"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nkrrx"]
-radius = 22.5
+[ext_resource type="Script" uid="uid://cmqdpq5sqt7dv" path="res://scripts/main_menu.gd" id="1_e2d0l"]
+[ext_resource type="Texture2D" uid="uid://h1ly20rdymnx" path="res://visuals/main_menu/TempMainMenu.png" id="2_81ls4"]
+[ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/fade.tscn" id="3_b2j12"]
+[ext_resource type="Texture2D" uid="uid://taexxjetixtl" path="res://visuals/main_menu/StartButton.blank.png" id="4_fnj2i"]
+[ext_resource type="Texture2D" uid="uid://wvb2ivtojtdh" path="res://visuals/main_menu/StartButton.fill.png" id="5_fxqw4"]
+[ext_resource type="Texture2D" uid="uid://c652bip0rbdyy" path="res://visuals/main_menu/VHButton.blank.png" id="6_q646c"]
+[ext_resource type="Texture2D" uid="uid://b1s4xk7hxxk1m" path="res://visuals/main_menu/VHButton.fill.png" id="7_lh5tm"]
+[ext_resource type="Texture2D" uid="uid://doie1qm3eamth" path="res://visuals/main_menu/CreditButton.blank.png" id="8_7ctii"]
+[ext_resource type="Texture2D" uid="uid://d02d41mgacpcf" path="res://visuals/main_menu/CreditButton.fill.png" id="9_acw8h"]
+[ext_resource type="Texture2D" uid="uid://dm81aslku2w2h" path="res://visuals/main_menu/QuitButton.blank.png" id="10_hvewe"]
+[ext_resource type="Texture2D" uid="uid://dof6s7uiihjti" path="res://visuals/main_menu/QuitButton.fill.png" id="11_hfvil"]
+[ext_resource type="FontFile" uid="uid://c1g6gofkf5f8s" path="res://Fonts/rubik/Rubik-Regular.ttf" id="12_skckq"]
+[ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="13_ej2uc"]
+[ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="14_cnxvf"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nkrrx"]
-blend_mode = 1
+[sub_resource type="LabelSettings" id="LabelSettings_rcqid"]
+font = ExtResource("12_skckq")
+font_size = 50
+>>>>>>> Stashed changes
 
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_e2d0l")
+
+[node name="TempMainMenu" type="Sprite2D" parent="."]
+z_index = -70
+position = Vector2(929, 544.00006)
+scale = Vector2(1.0157408, 1.0157408)
+texture = ExtResource("2_81ls4")
+
+<<<<<<< Updated upstream
 [node name="Ball" type="RigidBody2D"]
 physics_material_override = ExtResource("1_c01jm")
 gravity_scale = 0.0
@@ -38,19 +65,93 @@ collide_with_areas = true
 [node name="NonRotate" type="Node2D" parent="."]
 
 [node name="MotionLabel" type="Label" parent="NonRotate"]
+=======
+[node name="Fade" parent="." instance=ExtResource("3_b2j12")]
+>>>>>>> Stashed changes
 visible = false
-offset_left = -40.0
-offset_top = -56.0
-offset_right = 40.0
-offset_bottom = -32.0
-text = "FALSE"
-horizontal_alignment = 1
+top_level = true
+z_index = 100
 
-[node name="SpeedLabel" type="Label" parent="NonRotate"]
-visible = false
-offset_left = -320.0
-offset_top = 35.0
-offset_right = 320.0
-offset_bottom = 59.0
-text = "0.00"
-horizontal_alignment = 1
+[node name="Fade Timer" type="Timer" parent="Fade"]
+one_shot = true
+
+[node name="Buttons" type="Control" parent="."]
+z_index = 37
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 8
+
+[node name="Start" type="TextureButton" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 624.0
+offset_top = 124.0
+offset_right = 895.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_fnj2i")
+texture_hover = ExtResource("5_fxqw4")
+
+[node name="Version Notes" type="TextureButton" parent="Buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2140625
+anchor_top = 0.75324076
+anchor_right = 0.48020834
+anchor_bottom = 0.7976852
+offset_left = 741.0
+offset_top = 138.5
+offset_right = 933.0
+offset_bottom = 186.5
+texture_normal = ExtResource("6_q646c")
+texture_hover = ExtResource("7_lh5tm")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Credits" type="TextureButton" parent="Buttons"]
+layout_mode = 0
+offset_left = 1528.0
+offset_top = 856.0
+offset_right = 1857.0
+offset_bottom = 952.0
+texture_normal = ExtResource("8_7ctii")
+texture_hover = ExtResource("9_acw8h")
+stretch_mode = 4
+
+[node name="Quit" type="TextureButton" parent="Buttons"]
+layout_mode = 0
+offset_left = 1664.0
+offset_top = 760.0
+offset_right = 1858.0
+offset_bottom = 856.0
+texture_normal = ExtResource("10_hvewe")
+texture_hover = ExtResource("11_hfvil")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1756.0
+offset_top = 23.0
+offset_right = 1900.0
+offset_bottom = 107.0
+text = "V 0.2.2"
+label_settings = SubResource("LabelSettings_rcqid")
+
+[node name="StartSelect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_ej2uc")
+
+[node name="OptionSelect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_cnxvf")
+
+[connection signal="timeout" from="Fade/Fade Timer" to="." method="_on_fade_timer_timeout"]
+[connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/Version Notes" to="." method="_on_version_notes_pressed"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]

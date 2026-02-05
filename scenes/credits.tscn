@@ -1,126 +1,118 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbaury2loemd3"]
+[gd_scene load_steps=16 format=3 uid="uid://cbaury2loemd3"]
 
-[ext_resource type="Script" uid="uid://clwb6fvehmvpy" path="res://scripts/credits.gd" id="1_2ckv8"]
-[ext_resource type="FontFile" uid="uid://cp3v0aybpc3jl" path="res://Fonts/rubik/Rubik-Bold.ttf" id="3_8gwij"]
+[ext_resource type="Script" uid="uid://cmqdpq5sqt7dv" path="res://scripts/main_menu.gd" id="1_nmdnh"]
+[ext_resource type="Texture2D" uid="uid://h1ly20rdymnx" path="res://visuals/main_menu/TempMainMenu.png" id="2_83ncp"]
+[ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/fade.tscn" id="3_sxold"]
+[ext_resource type="Texture2D" uid="uid://taexxjetixtl" path="res://visuals/main_menu/StartButton.blank.png" id="4_olp7g"]
+[ext_resource type="Texture2D" uid="uid://wvb2ivtojtdh" path="res://visuals/main_menu/StartButton.fill.png" id="5_agqj7"]
+[ext_resource type="Texture2D" uid="uid://c652bip0rbdyy" path="res://visuals/main_menu/VHButton.blank.png" id="6_f3h2w"]
+[ext_resource type="Texture2D" uid="uid://b1s4xk7hxxk1m" path="res://visuals/main_menu/VHButton.fill.png" id="7_e4uir"]
+[ext_resource type="Texture2D" uid="uid://doie1qm3eamth" path="res://visuals/main_menu/CreditButton.blank.png" id="8_g801i"]
+[ext_resource type="Texture2D" uid="uid://d02d41mgacpcf" path="res://visuals/main_menu/CreditButton.fill.png" id="9_4t8yx"]
+[ext_resource type="Texture2D" uid="uid://dm81aslku2w2h" path="res://visuals/main_menu/QuitButton.blank.png" id="10_5hxgf"]
+[ext_resource type="Texture2D" uid="uid://dof6s7uiihjti" path="res://visuals/main_menu/QuitButton.fill.png" id="11_8t73l"]
+[ext_resource type="FontFile" uid="uid://c1g6gofkf5f8s" path="res://Fonts/rubik/Rubik-Regular.ttf" id="12_u62as"]
+[ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="13_gyrtj"]
+[ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="14_aqilg"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kyhnv"]
+[sub_resource type="LabelSettings" id="LabelSettings_rcqid"]
+font = ExtResource("12_u62as")
+font_size = 50
 
-[sub_resource type="Animation" id="Animation_kyhnv"]
-resource_name = "Credit_Scroll"
-length = 2.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(160, 1114), Vector2(160, 86)]
-}
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_nmdnh")
 
-[sub_resource type="Animation" id="Animation_ooihk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(160, 1114)]
-}
+[node name="TempMainMenu" type="Sprite2D" parent="."]
+z_index = -70
+position = Vector2(929, 544.00006)
+scale = Vector2(1.0157408, 1.0157408)
+texture = ExtResource("2_83ncp")
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ih6pn"]
-_data = {
-&"Credit_Scroll": SubResource("Animation_kyhnv"),
-&"RESET": SubResource("Animation_ooihk")
-}
+[node name="Fade" parent="." instance=ExtResource("3_sxold")]
+visible = false
+top_level = true
+z_index = 100
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ckv8"]
+[node name="Fade Timer" type="Timer" parent="Fade"]
+one_shot = true
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ctdu"]
+[node name="Buttons" type="Control" parent="."]
+z_index = 37
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 8
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fbfq"]
+[node name="Start" type="TextureButton" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 624.0
+offset_top = 124.0
+offset_right = 895.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_olp7g")
+texture_hover = ExtResource("5_agqj7")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gwij"]
+[node name="Version Notes" type="TextureButton" parent="Buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2140625
+anchor_top = 0.75324076
+anchor_right = 0.48020834
+anchor_bottom = 0.7976852
+offset_left = 741.0
+offset_top = 138.5
+offset_right = 933.0
+offset_bottom = 186.5
+texture_normal = ExtResource("6_f3h2w")
+texture_hover = ExtResource("7_e4uir")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mah5v"]
+[node name="Credits" type="TextureButton" parent="Buttons"]
+layout_mode = 0
+offset_left = 1528.0
+offset_top = 856.0
+offset_right = 1857.0
+offset_bottom = 952.0
+texture_normal = ExtResource("8_g801i")
+texture_hover = ExtResource("9_4t8yx")
+stretch_mode = 4
 
-[node name="Credits" type="Node2D"]
-script = ExtResource("1_2ckv8")
+[node name="Quit" type="TextureButton" parent="Buttons"]
+layout_mode = 0
+offset_left = 1664.0
+offset_top = 760.0
+offset_right = 1858.0
+offset_bottom = 856.0
+texture_normal = ExtResource("10_5hxgf")
+texture_hover = ExtResource("11_8t73l")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -10.0
-offset_top = -9.0
-offset_right = 1928.0
-offset_bottom = 1090.0
-color = Color(0, 0, 0, 1)
+[node name="Label" type="Label" parent="."]
+offset_left = 1756.0
+offset_top = 23.0
+offset_right = 1900.0
+offset_bottom = 107.0
+text = "V 0.2.2"
+label_settings = SubResource("LabelSettings_rcqid")
 
-[node name="CreditsText" type="RichTextLabel" parent="."]
-offset_left = 160.0
-offset_top = 1114.0
-offset_right = 1527.0
-offset_bottom = 2006.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/font_selected_color = Color(1, 1, 1, 0)
-theme_override_colors/selection_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_8gwij")
-theme_override_font_sizes/normal_font_size = 100
-theme_override_styles/focus = SubResource("StyleBoxEmpty_kyhnv")
-text = "Designer: Liam Blackwell
+[node name="StartSelect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_gyrtj")
 
-Designer: Max B
+[node name="OptionSelect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_aqilg")
 
-Designer: E Hanford
-
-Designer: Eric Farquharson
-
-Wow You can Scrolll!!!
-
-
-
-
-
-
-
-
-
-
-"
-scroll_active = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../CreditsText")
-libraries = {
-&"": SubResource("AnimationLibrary_ih6pn")
-}
-autoplay = "Credit_Scroll"
-
-[node name="Back" type="Button" parent="."]
-offset_left = 1590.0
-offset_top = 880.0
-offset_right = 1885.0
-offset_bottom = 1027.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.22352941, 0.5019608, 0.078431375, 1)
-theme_override_colors/font_hover_color = Color(0.22352941, 0.49803922, 0.078431375, 1)
-theme_override_fonts/font = ExtResource("3_8gwij")
-theme_override_font_sizes/font_size = 100
-theme_override_styles/normal = SubResource("StyleBoxEmpty_2ckv8")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0ctdu")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_2fbfq")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_8gwij")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mah5v")
-text = "Back"
-
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
-[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="timeout" from="Fade/Fade Timer" to="." method="_on_fade_timer_timeout"]
+[connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/Version Notes" to="." method="_on_version_notes_pressed"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]

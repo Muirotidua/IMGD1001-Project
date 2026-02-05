@@ -1,16 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://dih2bhghs70xg"]
+[gd_scene load_steps=16 format=3 uid="uid://dih2bhghs70xg"]
 
-[ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/boundary_table.tscn" id="1_6lum8"]
-[ext_resource type="Script" uid="uid://1orqlroorufl" path="res://scripts/level_template.gd" id="1_iw5l3"]
-[ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/cue_ball.tscn" id="1_mm7tu"]
-[ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/eight_ball.tscn" id="4_iw5l3"]
+[ext_resource type="Script" uid="uid://cmqdpq5sqt7dv" path="res://scripts/main_menu.gd" id="1_88dq5"]
+[ext_resource type="Texture2D" uid="uid://h1ly20rdymnx" path="res://visuals/main_menu/TempMainMenu.png" id="2_84d7x"]
+[ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/fade.tscn" id="3_gw8yf"]
+[ext_resource type="Texture2D" uid="uid://taexxjetixtl" path="res://visuals/main_menu/StartButton.blank.png" id="4_2e8ei"]
+[ext_resource type="Texture2D" uid="uid://wvb2ivtojtdh" path="res://visuals/main_menu/StartButton.fill.png" id="5_a67nr"]
+[ext_resource type="Texture2D" uid="uid://c652bip0rbdyy" path="res://visuals/main_menu/VHButton.blank.png" id="6_ww2sd"]
+[ext_resource type="Texture2D" uid="uid://b1s4xk7hxxk1m" path="res://visuals/main_menu/VHButton.fill.png" id="7_q0swx"]
+[ext_resource type="Texture2D" uid="uid://doie1qm3eamth" path="res://visuals/main_menu/CreditButton.blank.png" id="8_487ge"]
+[ext_resource type="Texture2D" uid="uid://d02d41mgacpcf" path="res://visuals/main_menu/CreditButton.fill.png" id="9_d0iqq"]
+[ext_resource type="Texture2D" uid="uid://dm81aslku2w2h" path="res://visuals/main_menu/QuitButton.blank.png" id="10_3dafp"]
+[ext_resource type="Texture2D" uid="uid://dof6s7uiihjti" path="res://visuals/main_menu/QuitButton.fill.png" id="11_5adam"]
+[ext_resource type="FontFile" uid="uid://c1g6gofkf5f8s" path="res://Fonts/rubik/Rubik-Regular.ttf" id="12_obqqf"]
+[ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="13_ujvvg"]
+[ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="14_evb42"]
 
+<<<<<<< Updated upstream
 [node name="Level_Template" type="Node2D"]
 script = ExtResource("1_iw5l3")
+=======
+[sub_resource type="LabelSettings" id="LabelSettings_rcqid"]
+font = ExtResource("12_obqqf")
+font_size = 50
+>>>>>>> Stashed changes
 
-[node name="Boundary_Table" parent="." instance=ExtResource("1_6lum8")]
-z_index = -1
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_88dq5")
 
+<<<<<<< Updated upstream
 [node name="CueBall" parent="." instance=ExtResource("1_mm7tu")]
 position = Vector2(459, 603)
 
@@ -27,3 +44,99 @@ horizontal_alignment = 1
 
 [node name="Ball" parent="." instance=ExtResource("4_iw5l3")]
 position = Vector2(1307, 552)
+=======
+[node name="TempMainMenu" type="Sprite2D" parent="."]
+z_index = -70
+position = Vector2(929, 544.00006)
+scale = Vector2(1.0157408, 1.0157408)
+texture = ExtResource("2_84d7x")
+
+[node name="Fade" parent="." instance=ExtResource("3_gw8yf")]
+visible = false
+top_level = true
+z_index = 100
+
+[node name="Fade Timer" type="Timer" parent="Fade"]
+one_shot = true
+
+[node name="Buttons" type="Control" parent="."]
+z_index = 37
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 8
+
+[node name="Start" type="TextureButton" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 624.0
+offset_top = 124.0
+offset_right = 895.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_2e8ei")
+texture_hover = ExtResource("5_a67nr")
+
+[node name="Version Notes" type="TextureButton" parent="Buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2140625
+anchor_top = 0.75324076
+anchor_right = 0.48020834
+anchor_bottom = 0.7976852
+offset_left = 741.0
+offset_top = 138.5
+offset_right = 933.0
+offset_bottom = 186.5
+texture_normal = ExtResource("6_ww2sd")
+texture_hover = ExtResource("7_q0swx")
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Credits" type="TextureButton" parent="Buttons"]
+layout_mode = 0
+offset_left = 1528.0
+offset_top = 856.0
+offset_right = 1857.0
+offset_bottom = 952.0
+texture_normal = ExtResource("8_487ge")
+texture_hover = ExtResource("9_d0iqq")
+stretch_mode = 4
+
+[node name="Quit" type="TextureButton" parent="Buttons"]
+layout_mode = 0
+offset_left = 1664.0
+offset_top = 760.0
+offset_right = 1858.0
+offset_bottom = 856.0
+texture_normal = ExtResource("10_3dafp")
+texture_hover = ExtResource("11_5adam")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1756.0
+offset_top = 23.0
+offset_right = 1900.0
+offset_bottom = 107.0
+text = "V 0.2.2"
+label_settings = SubResource("LabelSettings_rcqid")
+
+[node name="StartSelect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_ujvvg")
+
+[node name="OptionSelect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_evb42")
+
+[connection signal="timeout" from="Fade/Fade Timer" to="." method="_on_fade_timer_timeout"]
+[connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/Version Notes" to="." method="_on_version_notes_pressed"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
+>>>>>>> Stashed changes

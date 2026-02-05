@@ -1,176 +1,123 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddqqcgxtevmw2"]
+[gd_scene load_steps=16 format=3 uid="uid://ddqqcgxtevmw2"]
 
-[ext_resource type="Script" uid="uid://ovlry8chmr8m" path="res://scripts/boundary_table.gd" id="1_wl8ks"]
-[ext_resource type="Texture2D" uid="uid://nt45ir4ggoco" path="res://visuals/table/table_0000_Layer-7.png" id="2_katkb"]
-[ext_resource type="Texture2D" uid="uid://pfpfgktdj0v8" path="res://visuals/table/table_0001_Layer-6.png" id="3_02eu2"]
-[ext_resource type="Texture2D" uid="uid://btic2bjvhj83w" path="res://visuals/table/table_0002_Layer-5.png" id="4_gxrqy"]
-[ext_resource type="Texture2D" uid="uid://dwi5mrtha4al3" path="res://visuals/table/table_0003_Layer-4.png" id="5_6fwsf"]
+[ext_resource type="Script" uid="uid://cmqdpq5sqt7dv" path="res://scripts/main_menu.gd" id="1_4jpkf"]
+[ext_resource type="Texture2D" uid="uid://h1ly20rdymnx" path="res://visuals/main_menu/TempMainMenu.png" id="2_m2t16"]
+[ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/fade.tscn" id="3_mreyw"]
+[ext_resource type="Texture2D" uid="uid://taexxjetixtl" path="res://visuals/main_menu/StartButton.blank.png" id="4_fag4n"]
+[ext_resource type="Texture2D" uid="uid://wvb2ivtojtdh" path="res://visuals/main_menu/StartButton.fill.png" id="5_m7h18"]
+[ext_resource type="Texture2D" uid="uid://c652bip0rbdyy" path="res://visuals/main_menu/VHButton.blank.png" id="6_cxogh"]
+[ext_resource type="Texture2D" uid="uid://b1s4xk7hxxk1m" path="res://visuals/main_menu/VHButton.fill.png" id="7_i2n6n"]
+[ext_resource type="Texture2D" uid="uid://doie1qm3eamth" path="res://visuals/main_menu/CreditButton.blank.png" id="8_difr8"]
+[ext_resource type="Texture2D" uid="uid://d02d41mgacpcf" path="res://visuals/main_menu/CreditButton.fill.png" id="9_on84q"]
+[ext_resource type="Texture2D" uid="uid://dm81aslku2w2h" path="res://visuals/main_menu/QuitButton.blank.png" id="10_ijwru"]
+[ext_resource type="Texture2D" uid="uid://dof6s7uiihjti" path="res://visuals/main_menu/QuitButton.fill.png" id="11_eco4g"]
+[ext_resource type="FontFile" uid="uid://c1g6gofkf5f8s" path="res://Fonts/rubik/Rubik-Regular.ttf" id="12_sux7h"]
+[ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="13_5wa65"]
+[ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="14_tngb0"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_t5bve"]
-animations = [{
-"frames": [{
-"duration": 1.71,
-"texture": ExtResource("2_katkb")
-}, {
-"duration": 1.71,
-"texture": ExtResource("3_02eu2")
-}, {
-"duration": 1.71,
-"texture": ExtResource("4_gxrqy")
-}, {
-"duration": 1.71,
-"texture": ExtResource("5_6fwsf")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="LabelSettings" id="LabelSettings_rcqid"]
+font = ExtResource("12_sux7h")
+font_size = 50
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v02g2"]
-size = Vector2(100, 100)
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_4jpkf")
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_wl8ks"]
-a = Vector2(54.75464, 56.346497)
-b = Vector2(-42.012207, 46.728745)
+[node name="TempMainMenu" type="Sprite2D" parent="."]
+z_index = -70
+position = Vector2(929, 544.00006)
+scale = Vector2(1.0157408, 1.0157408)
+texture = ExtResource("2_m2t16")
 
-[node name="Boundary_Table" type="Node2D"]
-script = ExtResource("1_wl8ks")
+[node name="Fade" parent="." instance=ExtResource("3_mreyw")]
+visible = false
+top_level = true
+z_index = 100
 
-[node name="Visuals" type="CanvasLayer" parent="."]
-layer = -1
+[node name="Fade Timer" type="Timer" parent="Fade"]
+one_shot = true
 
-[node name="Background" type="ColorRect" parent="Visuals"]
-z_index = -10
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Buttons" type="Control" parent="."]
+z_index = 37
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 8
+
+[node name="Start" type="TextureButton" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 624.0
+offset_top = 124.0
+offset_right = 895.0
+offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+texture_normal = ExtResource("4_fag4n")
+texture_hover = ExtResource("5_m7h18")
+
+[node name="Version Notes" type="TextureButton" parent="Buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2140625
+anchor_top = 0.75324076
+anchor_right = 0.48020834
+anchor_bottom = 0.7976852
+offset_left = 741.0
+offset_top = 138.5
+offset_right = 933.0
+offset_bottom = 186.5
+texture_normal = ExtResource("6_cxogh")
+texture_hover = ExtResource("7_i2n6n")
+stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="SuperTemporaryPoolTable!" type="AnimatedSprite2D" parent="Visuals"]
-position = Vector2(960.1532, 541)
-scale = Vector2(1.2729518, 1.2561576)
-sprite_frames = SubResource("SpriteFrames_t5bve")
-autoplay = "default"
-frame = 2
-frame_progress = 0.3121109
+[node name="Credits" type="TextureButton" parent="Buttons"]
+layout_mode = 0
+offset_left = 1528.0
+offset_top = 856.0
+offset_right = 1857.0
+offset_bottom = 952.0
+texture_normal = ExtResource("8_difr8")
+texture_hover = ExtResource("9_on84q")
+stretch_mode = 4
 
-[node name="Table_Boundaries" type="StaticBody2D" parent="."]
-position = Vector2(85, 108)
+[node name="Quit" type="TextureButton" parent="Buttons"]
+layout_mode = 0
+offset_left = 1664.0
+offset_top = 760.0
+offset_right = 1858.0
+offset_bottom = 856.0
+texture_normal = ExtResource("10_ijwru")
+texture_hover = ExtResource("11_eco4g")
 
+<<<<<<< Updated upstream
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table_Boundaries"]
 polygon = PackedVector2Array(67, 64, 10, -8, 53, -50, 123, 3, 826, 1, 839, -27, 845, -69, 898, -76, 914, -25, 927, 4, 1626, 3, 1698, -51, 1741, -8, 1683, 70, 1688, 799, 1842, 817, 1842.8582, -18.931534, 1843, -157, -76, -167, -74, 517, 65, 798)
+=======
+[node name="Label" type="Label" parent="."]
+offset_left = 1756.0
+offset_top = 23.0
+offset_right = 1900.0
+offset_bottom = 107.0
+text = "V 0.2.2"
+label_settings = SubResource("LabelSettings_rcqid")
+>>>>>>> Stashed changes
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Table_Boundaries"]
-position = Vector2(1750, 863)
-rotation = -3.1415927
-polygon = PackedVector2Array(68, 64, 10, 0, 57, -45, 126, -1.999939, 823.99994, 0.00012207031, 840.99994, -25.999878, 841, -70, 908, -70, 909.99994, -26.999878, 922.99994, -0.9998779, 1626, -1.9998169, 1698, -51, 1741, -8, 1686, 58.000183, 1686.9999, 806.0002, 1824.9999, 802.0002, 1843, -157, -76, -167, -64.00012, 811, 67.99988, 790)
+[node name="StartSelect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_5wa65")
 
-[node name="Pockets" type="Node2D" parent="."]
-position = Vector2(0, -17)
+[node name="OptionSelect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_tngb0")
 
-[node name="TL Pocket" type="Area2D" parent="Pockets"]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TL Pocket"]
-position = Vector2(108.00001, 93.00001)
-rotation = 0.7853982
-shape = SubResource("RectangleShape2D_v02g2")
-
-[node name="BL Pocket" type="Area2D" parent="Pockets"]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BL Pocket"]
-position = Vector2(115.999985, 1016)
-rotation = 0.7853982
-shape = SubResource("RectangleShape2D_v02g2")
-
-[node name="BR Pocket" type="Area2D" parent="Pockets"]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BR Pocket"]
-position = Vector2(1801.0001, 1022.0002)
-rotation = 0.7853982
-shape = SubResource("RectangleShape2D_v02g2")
-
-[node name="TR Pocket" type="Area2D" parent="Pockets"]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TR Pocket"]
-position = Vector2(1800.0001, 100)
-rotation = 0.7853982
-shape = SubResource("RectangleShape2D_v02g2")
-
-[node name="TC Pocket" type="Area2D" parent="Pockets"]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TC Pocket"]
-position = Vector2(960, 49)
-shape = SubResource("RectangleShape2D_v02g2")
-
-[node name="BC Pocket" type="Area2D" parent="Pockets"]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BC Pocket"]
-position = Vector2(958, 1063)
-shape = SubResource("RectangleShape2D_v02g2")
-
-[node name="OneWayPockets" type="StaticBody2D" parent="."]
-position = Vector2(0, -17)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPockets"]
-position = Vector2(130.99997, 1020)
-rotation = 3.7597594
-shape = SubResource("SegmentShape2D_wl8ks")
-one_way_collision = true
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="OneWayPockets"]
-position = Vector2(103, 107)
-rotation = 5.3145275
-shape = SubResource("SegmentShape2D_wl8ks")
-one_way_collision = true
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="OneWayPockets"]
-position = Vector2(950.99994, 53)
-rotation = -0.05934126
-shape = SubResource("SegmentShape2D_wl8ks")
-one_way_collision = true
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="OneWayPockets"]
-position = Vector2(977.99994, 1056)
-rotation = 3.0141835
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("SegmentShape2D_wl8ks")
-one_way_collision = true
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="OneWayPockets"]
-position = Vector2(1787.0001, 94.999954)
-rotation = 0.7819075
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("SegmentShape2D_wl8ks")
-one_way_collision = true
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="OneWayPockets"]
-position = Vector2(1807, 1000.9999)
-rotation = 2.211332
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("SegmentShape2D_wl8ks")
-one_way_collision = true
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(0, -17)
-
-[connection signal="area_entered" from="Pockets/TL Pocket" to="." method="_on_tl_pocket_area_entered"]
-[connection signal="body_entered" from="Pockets/TL Pocket" to="." method="_on_tl_pocket_body_entered"]
-[connection signal="area_entered" from="Pockets/BL Pocket" to="." method="_on_bl_pocket_area_entered"]
-[connection signal="body_entered" from="Pockets/BL Pocket" to="." method="_on_bl_pocket_body_entered"]
-[connection signal="area_entered" from="Pockets/BR Pocket" to="." method="_on_br_pocket_area_entered"]
-[connection signal="body_entered" from="Pockets/BR Pocket" to="." method="_on_br_pocket_body_entered"]
-[connection signal="area_entered" from="Pockets/TR Pocket" to="." method="_on_tr_pocket_area_entered"]
-[connection signal="body_entered" from="Pockets/TR Pocket" to="." method="_on_tr_pocket_body_entered"]
-[connection signal="area_entered" from="Pockets/TC Pocket" to="." method="_on_tc_pocket_area_entered"]
-[connection signal="body_entered" from="Pockets/TC Pocket" to="." method="_on_tc_pocket_body_entered"]
-[connection signal="area_entered" from="Pockets/BC Pocket" to="." method="_on_bc_pocket_area_entered"]
-[connection signal="body_entered" from="Pockets/BC Pocket" to="." method="_on_bc_pocket_body_entered"]
+[connection signal="timeout" from="Fade/Fade Timer" to="." method="_on_fade_timer_timeout"]
+[connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/Version Notes" to="." method="_on_version_notes_pressed"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
