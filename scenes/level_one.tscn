@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1wa8qq60femv"]
+
+[ext_resource type="Script" uid="uid://bt2lrd5pgiycu" path="res://scripts/level_one.gd" id="1_cd1xg"]
+[ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/boundary_table.tscn" id="2_r4wdr"]
+[ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/cue_ball.tscn" id="3_bhu28"]
+
+[node name="Level_One" type="Node2D"]
+script = ExtResource("1_cd1xg")
+cue_path = NodePath("CueBall")
+
+[node name="Boundary_Table" parent="." instance=ExtResource("2_r4wdr")]
+z_index = -1
+
+[node name="WinText" type="Label" parent="."]
+offset_left = 805.0
+offset_top = 478.0
+offset_right = 1104.0
+offset_bottom = 596.0
+theme_override_font_sizes/font_size = 86
+horizontal_alignment = 1
+
+[node name="CueBall" parent="." instance=ExtResource("3_bhu28")]
+position = Vector2(1015, 555)

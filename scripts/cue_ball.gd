@@ -1,7 +1,7 @@
 class_name CueBall extends BaseBall
 
-# Default Launch Speed
-@export var dls: float = 1
+# Launch Multiplier
+@export var lm: float = 1
 @export var infinite_shots: bool = false
 @export var shot_count = 0
 # initial shot number that is incremented for each type of shot. 

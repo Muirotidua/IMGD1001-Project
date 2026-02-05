@@ -1,11 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci5cown6qsyjp"]
+[gd_scene load_steps=8 format=3 uid="uid://ci5cown6qsyjp"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cnfo7swlk8npp" path="res://scenes/ball_physics_material.tres" id="1_712ic"]
 [ext_resource type="Script" uid="uid://cil2w44gkmxcp" path="res://scripts/eight_ball.gd" id="2_712ic"]
-[ext_resource type="Texture2D" uid="uid://cxayemt1xa3us" path="res://visuals/ball/hollowball.png" id="3_h6wdm"]
+[ext_resource type="Texture2D" uid="uid://cktvwisdyjuhm" path="res://visuals/cueball-basic/Untitled-1_0000_Layer-1-copy-3.png" id="3_jl446"]
+[ext_resource type="Texture2D" uid="uid://i4bgn5mwk4l5" path="res://visuals/cueball-basic/Untitled-1_0001_Layer-1-copy-2.png" id="4_h6wdm"]
+[ext_resource type="Texture2D" uid="uid://bgpgtdbg61x6t" path="res://visuals/cueball-basic/Untitled-1_0002_Layer-1-copy.png" id="5_os32q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6toh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jl446")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h6wdm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_os32q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5es4"]
-radius = 22.5
+radius = 25.019981
 
 [node name="Ball" type="RigidBody2D"]
 physics_material_override = ExtResource("1_712ic")
@@ -15,9 +34,11 @@ script = ExtResource("2_712ic")
 sprite_path = NodePath("Hollowball")
 metadata/_custom_type_script = "uid://bu48frm47bqx2"
 
-[node name="Hollowball" type="Sprite2D" parent="."]
+[node name="Hollowball" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.075, 0.075)
-texture = ExtResource("3_h6wdm")
+sprite_frames = SubResource("SpriteFrames_v6toh")
+autoplay = "default"
+frame_progress = 0.8289112
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5258788e-05, 3.814697e-06)
