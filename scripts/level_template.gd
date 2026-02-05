@@ -1,10 +1,12 @@
 #level_template.gd
-extends Node2D
+class_name Level_template extends Node2D
 
 enum State{ WON, LOST, PLAYING }
 
+@export var cue_path: NodePath
+
 @onready var table: Node2D = $Boundary_Table
-@onready var cue: CueBall = $CueBall
+@onready var cue: CueBall = get_node(cue_path)
 @onready var win_text: Label = $WinText
 
 var all_balls: Array[BaseBall] = []
