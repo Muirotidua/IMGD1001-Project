@@ -37,7 +37,7 @@ func on_shoot():
 	var direction = global_position.direction_to(get_global_mouse_position())
 	var s = global_position.distance_to(get_global_mouse_position())
 	if !inmotion || infinite_shots:
-		apply_central_impulse(direction * dls * s)
+		apply_central_impulse(direction * lm * s)
 		await get_tree().create_timer(1).timeout
 		#inmotion = true
 		shot_count += 1 # no ++ operator :(
