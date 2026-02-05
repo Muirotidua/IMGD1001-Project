@@ -5,7 +5,7 @@ class_name BaseBall extends RigidBody2D
 
 @onready var motion_label: Label = $NonRotate/MotionLabel
 @onready var speed_label: Label = $NonRotate/SpeedLabel
-@onready var sprite: Sprite2D = get_node(sprite_path)
+@onready var sprite: AnimatedSprite2D = get_node(sprite_path)
 
 const DEFAULT_SCALE: Vector2 = Vector2(0.075, 0.075)
 
