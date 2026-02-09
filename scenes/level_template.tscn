@@ -22,7 +22,6 @@ horizontal_alignment = 1
 
 [node name="CueBall" parent="." instance=ExtResource("1_mm7tu")]
 position = Vector2(956, 510)
-lm = 1.1
 
 [node name="Ball" parent="." instance=ExtResource("4_iw5l3")]
 position = Vector2(1165, 525)
