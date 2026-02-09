@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://g7p2rh8svuj8"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cnfo7swlk8npp" path="res://scenes/ball_physics_material.tres" id="1_w5es4"]
-[ext_resource type="Script" uid="uid://bk2a7c6goqdv6" path="res://scripts/pool_ball.gd" id="2_kji1i"]
-[ext_resource type="Texture2D" uid="uid://cxayemt1xa3us" path="res://visuals/ball/hollowball.png" id="3_kji1i"]
+[ext_resource type="Script" path="res://scripts/pool_ball.gd" id="2_kji1i"]
+[ext_resource type="Texture2D" uid="uid://b3aaf016qqi4s" path="res://visuals/ball/hollowball.png" id="3_kji1i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5es4"]
 radius = 22.5

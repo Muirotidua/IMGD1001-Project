@@ -16,7 +16,10 @@ func _on_fade_timer_timeout() -> void:
 	else:
 		loaded = true
 		$SplashTimer.start()
-		
+
+func _input(event):
+	if(event.is_action_pressed("skip_splash")):
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _on_splash_timer_timeout() -> void:
 	$FadeTimer.start()
