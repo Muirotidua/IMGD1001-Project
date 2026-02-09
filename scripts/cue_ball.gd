@@ -21,6 +21,7 @@ func _ready():
 	pointer.add_point(get_local_mouse_position())
 	type = GlobalEnums.BallType.CUE_BALL
 	%ProgressBar.visible = false
+	%PoolStick.visible = false
 
 
 func _input(event):
@@ -42,6 +43,8 @@ func _process(_delta: float) -> void:
 	pointer.set_point_position(1, get_local_mouse_position())
 	%ProgressBar.rotation = rotation*-1
 	%ProgressBar.position = Vector2(-(%ProgressBar.size.x/2),30).rotated(rotation*-1)
+	#%PoolStick.
+	
 	if shot_ready:
 		pointer.show()
 	else:
