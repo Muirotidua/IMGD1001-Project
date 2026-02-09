@@ -19,6 +19,7 @@
 [node name="Level_One" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_4p75b")
+cue_path = NodePath("CueBall")
 
 [node name="LevelPaused" parent="." instance=ExtResource("5_r4wdr")]
 visible = false

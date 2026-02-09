@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://reh0mkbm5u42" path="res://visuals/ball/Dotted-Line Texture.png" id="4_datkq"]
 [ext_resource type="Texture2D" uid="uid://b3x7bm371vark" path="res://visuals/cueball-filled/Untitled-1_0001_Layer-1-copy-2.png" id="4_li0g8"]
 [ext_resource type="Texture2D" uid="uid://du3a6oavwejf8" path="res://visuals/cueball-filled/Untitled-1_0002_Layer-1-copy.png" id="5_h5tuf"]
-[ext_resource type="Script" uid="uid://bitk0caq6f2sd" path="res://scripts/progress_bar.gd" id="7_li0g8"]
+[ext_resource type="Script" path="res://scripts/progress_bar.gd" id="7_li0g8"]
 [ext_resource type="Texture2D" uid="uid://h5twy65whfri" path="res://visuals/poolstick/Untitled-1_0000_Layer-5.png" id="8_8jwt0"]
 [ext_resource type="Texture2D" uid="uid://dvvil3luvwjx0" path="res://visuals/poolstick/Untitled-1_0001_Layer-4.png" id="9_57eu7"]
 [ext_resource type="Texture2D" uid="uid://c84tseqlpio8y" path="res://visuals/poolstick/Untitled-1_0002_Layer-3.png" id="10_ic216"]

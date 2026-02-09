@@ -15,7 +15,7 @@ var rewinded: bool = false
 var state: State = State.PLAYING
 
 signal shoot()
-signal finished_game_check();
+signal finished_game_check()
 
 func _ready():
 	table.pocketed_ball.connect(on_pocket)

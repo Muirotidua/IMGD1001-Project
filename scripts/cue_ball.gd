@@ -41,8 +41,8 @@ func _input(event):
 
 func _process(_delta: float) -> void:
 	pointer.set_point_position(1, get_local_mouse_position())
-	%ProgressBar.rotation = rotation*-1
-	%ProgressBar.position = Vector2(-(%ProgressBar.size.x/2),30).rotated(rotation*-1)
+	#%ProgressBar.rotation = rotation*-1
+	#%ProgressBar.position = Vector2(-(%ProgressBar.size.x/2),30).rotated(rotation*-1)
 	#%PoolStick.
 	
 	if shot_ready:
