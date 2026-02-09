@@ -1,0 +1,127 @@
+[gd_scene load_steps=20 format=3 uid="uid://crehjvhkkw34v"]
+
+[ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="1_kuyhe"]
+[ext_resource type="Script" uid="uid://cl2nb87t0poyp" path="res://level_paused.gd" id="1_yh2wt"]
+[ext_resource type="FontFile" uid="uid://c7xlihre0ua45" path="res://Fonts/rubik/Rubik-BlackItalic.ttf" id="2_yh2wt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yh2wt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nx4k5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3mhhc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0fylh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idwm7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axbgv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8del4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dqo46"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e2ur8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nasek"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1jvp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j08qy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76tx7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2pb5m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1nrd3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kgk5k"]
+
+[node name="LevelPaused" type="Node2D"]
+process_mode = 3
+top_level = true
+script = ExtResource("1_yh2wt")
+
+[node name="LevelPausedBG" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 229.0
+offset_top = 113.0
+offset_right = 2166.0
+offset_bottom = 1209.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+color = Color(0, 0, 0, 1)
+
+[node name="Resume" type="Button" parent="."]
+offset_left = 755.0
+offset_top = 313.0
+offset_right = 1179.0
+offset_bottom = 440.0
+theme_override_fonts/font = ExtResource("1_kuyhe")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yh2wt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nx4k5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3mhhc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0fylh")
+text = "Resume"
+flat = true
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 603.0
+offset_top = 449.0
+offset_right = 1321.0
+offset_bottom = 576.0
+theme_override_fonts/font = ExtResource("1_kuyhe")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_idwm7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_axbgv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8del4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dqo46")
+text = "Restart Level"
+flat = true
+
+[node name="LevelSelect" type="Button" parent="."]
+offset_left = 443.0
+offset_top = 585.0
+offset_right = 1505.0
+offset_bottom = 712.0
+theme_override_fonts/font = ExtResource("1_kuyhe")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e2ur8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nasek")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_q1jvp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j08qy")
+text = "Back to Level Select"
+flat = true
+
+[node name="MainMenu" type="Button" parent="."]
+offset_left = 491.0
+offset_top = 737.0
+offset_right = 1462.0
+offset_bottom = 864.0
+theme_override_fonts/font = ExtResource("1_kuyhe")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_76tx7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2pb5m")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1nrd3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kgk5k")
+text = "Back to Main Menu"
+flat = true
+
+[node name="LevelPausedLabel" type="Label" parent="."]
+offset_left = 611.0
+offset_top = 142.0
+offset_right = 1298.0
+offset_bottom = 261.0
+theme_override_fonts/font = ExtResource("2_yh2wt")
+theme_override_font_sizes/font_size = 100
+text = "Level Paused"
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="LevelSelect" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

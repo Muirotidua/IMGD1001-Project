@@ -15,6 +15,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6662"]
 
 [node name="VersionHistory" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_4leat")
 
 [node name="ColorRect" type="ColorRect" parent="."]
