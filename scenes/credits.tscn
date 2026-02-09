@@ -53,6 +53,7 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mah5v"]
 
 [node name="Credits" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_2ckv8")
 
 [node name="ColorRect" type="ColorRect" parent="."]

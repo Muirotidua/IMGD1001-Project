@@ -115,3 +115,11 @@ func print_info():
 		if ball.tabled_last_shot:
 			print("\tBall was tabled last shot")
 	print("-----------------------")
+	
+	
+		
+
+
+func _on_paused_button_pressed() -> void:
+	get_tree().paused = true
+	$LevelPaused.visible = true

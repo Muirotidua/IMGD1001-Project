@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cmqdpq5sqt7dv" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/fade.tscn" id="2_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://dfkiaswfuq7rc" path="res://visuals/main_menu/TempMainMenu.png" id="2_lgwnu"]
-[ext_resource type="Texture2D" uid="uid://bykmmvgdu3gpx" path="res://visuals/main_menu/StartButton.blank.png" id="3_5dd4i"]
-[ext_resource type="Texture2D" uid="uid://bbqsx2520nsbx" path="res://visuals/main_menu/StartButton.fill.png" id="4_lgwnu"]
-[ext_resource type="Texture2D" uid="uid://2fcqelwp55gv" path="res://visuals/main_menu/VHButton.blank.png" id="5_flqon"]
-[ext_resource type="Texture2D" uid="uid://byg442qnn5l2d" path="res://visuals/main_menu/VHButton.fill.png" id="6_rcqid"]
-[ext_resource type="Texture2D" uid="uid://dr5khfsxd08io" path="res://visuals/main_menu/CreditButton.blank.png" id="7_1ajci"]
-[ext_resource type="Texture2D" uid="uid://b24ot2i6crui7" path="res://visuals/main_menu/CreditButton.fill.png" id="8_7b55j"]
-[ext_resource type="Texture2D" uid="uid://b8m064ln7lx47" path="res://visuals/main_menu/QuitButton.blank.png" id="9_5pajh"]
-[ext_resource type="Texture2D" uid="uid://bumiwjpf8ole4" path="res://visuals/main_menu/QuitButton.fill.png" id="10_j7ex8"]
+[ext_resource type="Texture2D" uid="uid://h1ly20rdymnx" path="res://visuals/main_menu/TempMainMenu.png" id="2_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://taexxjetixtl" path="res://visuals/main_menu/StartButton.blank.png" id="3_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://wvb2ivtojtdh" path="res://visuals/main_menu/StartButton.fill.png" id="4_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://c652bip0rbdyy" path="res://visuals/main_menu/VHButton.blank.png" id="5_flqon"]
+[ext_resource type="Texture2D" uid="uid://b1s4xk7hxxk1m" path="res://visuals/main_menu/VHButton.fill.png" id="6_rcqid"]
+[ext_resource type="Texture2D" uid="uid://doie1qm3eamth" path="res://visuals/main_menu/CreditButton.blank.png" id="7_1ajci"]
+[ext_resource type="Texture2D" uid="uid://d02d41mgacpcf" path="res://visuals/main_menu/CreditButton.fill.png" id="8_7b55j"]
+[ext_resource type="Texture2D" uid="uid://dm81aslku2w2h" path="res://visuals/main_menu/QuitButton.blank.png" id="9_5pajh"]
+[ext_resource type="Texture2D" uid="uid://dof6s7uiihjti" path="res://visuals/main_menu/QuitButton.fill.png" id="10_j7ex8"]
 [ext_resource type="FontFile" uid="uid://c1g6gofkf5f8s" path="res://Fonts/rubik/Rubik-Regular.ttf" id="12_flqon"]
 [ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="12_rcqid"]
 [ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="13_1ajci"]
@@ -20,6 +20,7 @@ font = ExtResource("12_flqon")
 font_size = 50
 
 [node name="Main Menu" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_l6cm7")
 
 [node name="TempMainMenu" type="Sprite2D" parent="."]

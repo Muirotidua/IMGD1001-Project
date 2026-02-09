@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cntusl124bfgw"]
+
+[ext_resource type="FontFile" uid="uid://c7xlihre0ua45" path="res://Fonts/rubik/Rubik-BlackItalic.ttf" id="1_5rmv1"]
+
+[node name="PausedButton" type="Button"]
+offset_right = 151.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("1_5rmv1")
+text = "Pause"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

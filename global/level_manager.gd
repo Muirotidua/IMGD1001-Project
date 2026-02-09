@@ -25,6 +25,7 @@ var level10_stars = 0
 func switch_level(level_id: int):
 	if level_id == 1:
 		get_tree().change_scene_to_file("res://scenes/level_one.tscn")
+		print("Level 1")
 	elif level_id == 2 && level2_unlocked:
 		get_tree().change_scene_to_file("res://scenes/level_template.tscn")
 	elif level_id == 3 && level3_unlocked:

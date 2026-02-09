@@ -1,12 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dih2bhghs70xg"]
+[gd_scene load_steps=12 format=3 uid="uid://dih2bhghs70xg"]
 
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/boundary_table.tscn" id="1_6lum8"]
 [ext_resource type="Script" uid="uid://1orqlroorufl" path="res://scripts/level_template.gd" id="1_iw5l3"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/cue_ball.tscn" id="1_mm7tu"]
+[ext_resource type="PackedScene" uid="uid://crehjvhkkw34v" path="res://scenes/level_paused.tscn" id="2_770am"]
+[ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/eight_ball.tscn" id="4_iw5l3"]
+[ext_resource type="PackedScene" uid="uid://cntusl124bfgw" path="res://scenes/pause_button.tscn" id="6_770am"]
+[ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_0ra3k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdatj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_un07w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0jqh"]
 
 [node name="Level_Template" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_iw5l3")
 cue_path = NodePath("CueBall")
+
+[node name="LevelPaused" parent="." instance=ExtResource("2_770am")]
+visible = false
 
 [node name="Boundary_Table" parent="." instance=ExtResource("1_6lum8")]
 z_index = -1
@@ -22,3 +38,38 @@ horizontal_alignment = 1
 [node name="CueBall" parent="." instance=ExtResource("1_mm7tu")]
 position = Vector2(956, 510)
 lm = 1.1
+
+[node name="Ball" parent="." instance=ExtResource("4_iw5l3")]
+position = Vector2(1165, 525)
+
+[node name="Ball2" parent="." instance=ExtResource("4_iw5l3")]
+position = Vector2(1177, 517)
+
+[node name="Ball3" parent="." instance=ExtResource("4_iw5l3")]
+position = Vector2(1175, 536)
+
+[node name="Ball4" parent="." instance=ExtResource("4_iw5l3")]
+position = Vector2(1190, 546)
+
+[node name="Ball5" parent="." instance=ExtResource("4_iw5l3")]
+position = Vector2(1191, 531)
+
+[node name="Ball6" parent="." instance=ExtResource("4_iw5l3")]
+position = Vector2(1187, 508)
+
+[node name="PausedButton" parent="." instance=ExtResource("6_770am")]
+process_mode = 3
+offset_left = 19.0
+offset_top = 19.0
+offset_right = 127.0
+offset_bottom = 127.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ra3k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cdatj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_un07w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t0jqh")
+text = ""
+icon = ExtResource("7_0ra3k")
+flat = true
+
+[connection signal="pressed" from="PausedButton" to="." method="_on_paused_button_pressed"]
