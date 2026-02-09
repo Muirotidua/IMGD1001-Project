@@ -38,9 +38,9 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	ignore_pocket = false
 	speed = abs(linear_velocity.length())
+	$NonRotate.global_rotation = 0.0
 	if debug_labels:
 		speed_label.text = str(speed)
-		$NonRotate.global_rotation = 0.0
 	if speed < 10:
 		linear_damp = 50
 		if speed < 1:
