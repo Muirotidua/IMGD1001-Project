@@ -37,6 +37,7 @@ z_index = -1
 
 [node name="CueBall" parent="." instance=ExtResource("3_bhu28")]
 position = Vector2(1004, 774)
+debug_labels = true
 
 [node name="Ball" parent="." instance=ExtResource("4_5rfim")]
 position = Vector2(981, 913)

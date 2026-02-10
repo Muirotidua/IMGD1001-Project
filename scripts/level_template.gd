@@ -43,7 +43,7 @@ func _physics_process(_delta: float) -> void:
 	if !moving_balls():
 		check_final() 
 		cue.shot_ready = (state == State.PLAYING)
-	else:
+	elif !cue.rapid_fire:
 		cue.shot_ready = false
 	
 
@@ -54,8 +54,6 @@ func on_pocket(ball, _pocket):
 
 # 
 func on_try_shoot(): # ?
-	if !cue.shot_ready && !cue.infinite_shots:
-		return
 	for ball: BaseBall in all_balls:
 		ball.updateLastPos()
 	shoot.emit()
@@ -71,10 +69,14 @@ func moving_balls() -> bool: # ??? Need to ensure that this is looking at the cu
 func reset_table():
 	for ball: BaseBall in all_balls:
 		ball.reset()
+	lost.clear()
+	won.clear()
 		
 func rewind_shot():
 	for ball: BaseBall in all_balls:
 		ball.rewind()
+	lost.clear()
+	won.clear()
 
 func check_final():
 	var pocket_count: int = 0

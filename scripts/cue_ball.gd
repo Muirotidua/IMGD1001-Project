@@ -62,14 +62,14 @@ func on_shoot():
 	var direction = global_position.direction_to(get_global_mouse_position())
 	#var s = global_position.distance_to(get_global_mouse_position())
 	var power_multiplier = shot_power * 2
-	if !inmotion || infinite_shots:
-		print(shot_power)
-		apply_central_impulse(direction * lm * power_multiplier)
-		await get_tree().create_timer(.1).timeout
-		shot_power = 0
-		#inmotion = true
+	print(shot_power)
+	apply_central_impulse(direction * lm * power_multiplier)
+	await get_tree().create_timer(.1).timeout
+	shot_power = 0
+	#inmotion = true
+	if !infinite_shots:
 		shot_count += 1 # no ++ operator :(
-		rewinded = false
+	rewinded = false
 
 func reset():
 	shot_count = 0
