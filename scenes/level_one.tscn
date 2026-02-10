@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1wa8qq60femv"]
+[gd_scene load_steps=14 format=3 uid="uid://b1wa8qq60femv"]
 
 [ext_resource type="Script" uid="uid://dleqkbjtonrqa" path="res://scripts/level_one.gd" id="1_4p75b"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/boundary_table.tscn" id="2_r4wdr"]
+[ext_resource type="PackedScene" uid="uid://ceuyvfckkp75l" path="res://scenes/level_won.tscn" id="3_astit"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/cue_ball.tscn" id="3_bhu28"]
+[ext_resource type="PackedScene" uid="uid://c4whyrvxyjn6u" path="res://scenes/level_lost.tscn" id="3_y8ti4"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/eight_ball.tscn" id="4_5rfim"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/level_paused.tscn" id="5_r4wdr"]
 [ext_resource type="PackedScene" uid="uid://cw8aac2atgqxf" path="res://scenes/pause_button.tscn" id="6_y8ti4"]
@@ -19,8 +21,15 @@
 [node name="Level_One" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_4p75b")
+level_id = 1
 
 [node name="LevelPaused" parent="." instance=ExtResource("5_r4wdr")]
+visible = false
+
+[node name="LevelWon" parent="." instance=ExtResource("3_astit")]
+visible = false
+
+[node name="LevelLost" parent="." instance=ExtResource("3_y8ti4")]
 visible = false
 
 [node name="Boundary_Table" parent="." instance=ExtResource("2_r4wdr")]

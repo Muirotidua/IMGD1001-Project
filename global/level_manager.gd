@@ -21,7 +21,27 @@ var level7_stars = 0
 var level8_stars = 0
 var level9_stars = 0
 var level10_stars = 0
-   
+
+func unlock_level(level_id: int):
+	if level_id == 2:
+		level2_unlocked = true
+	elif level_id == 3:
+		level3_unlocked = true
+	elif level_id == 4:
+		level4_unlocked = true
+	elif level_id == 5:
+		level5_unlocked = true
+	if level_id == 6:
+		level6_unlocked = true
+	if level_id == 7:
+		level7_unlocked = true
+	if level_id == 8:
+		level8_unlocked = true
+	if level_id == 9:
+		level9_unlocked = true
+	if level_id == 10:
+		level10_unlocked = true
+
 func switch_level(level_id: int):
 	if level_id == 1:
 		get_tree().change_scene_to_file("res://scenes/level_one.tscn")
@@ -45,5 +65,5 @@ func switch_level(level_id: int):
 	elif level_id == 10 && level10_unlocked:
 		get_tree().change_scene_to_file("res://scenes/level_template.tscn")
 	else:
-		#level not unlocked
+		#level not unlocked stuff here
 		pass
