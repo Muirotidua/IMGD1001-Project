@@ -6,14 +6,10 @@ signal restart()
 signal redo()
 
 func _on_redo_pressed() -> void:
-	visible = false
-	get_tree().paused = false
 	redo.emit()
 
 
 func _on_restart_pressed() -> void:
-	visible = false
-	get_tree().paused = false
 	restart.emit()
 
 
@@ -23,3 +19,7 @@ func _on_level_select_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func clear() -> void:
+	visible = false
+	get_tree().paused = false
