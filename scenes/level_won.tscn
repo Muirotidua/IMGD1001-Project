@@ -1,8 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://coisbwly02om5"]
+[gd_scene load_steps=20 format=3 uid="uid://ceuyvfckkp75l"]
 
-[ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="1_kuyhe"]
-[ext_resource type="Script" uid="uid://cl2nb87t0poyp" path="res://scripts/level_paused.gd" id="1_yh2wt"]
-[ext_resource type="FontFile" uid="uid://c7xlihre0ua45" path="res://Fonts/rubik/Rubik-BlackItalic.ttf" id="2_yh2wt"]
+[ext_resource type="Script" uid="uid://d0rix5wir7bsf" path="res://scripts/level_won.gd" id="1_3shn1"]
+[ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="2_21kmv"]
+[ext_resource type="FontFile" uid="uid://c7xlihre0ua45" path="res://Fonts/rubik/Rubik-BlackItalic.ttf" id="3_kdf7k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yh2wt"]
 
@@ -36,12 +36,12 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kgk5k"]
 
-[node name="LevelPaused" type="Node2D"]
+[node name="LevelWon" type="Node2D"]
 process_mode = 3
 top_level = true
-script = ExtResource("1_yh2wt")
+script = ExtResource("1_3shn1")
 
-[node name="LevelPausedBG" type="ColorRect" parent="."]
+[node name="LevelWonBG" type="ColorRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -56,18 +56,18 @@ grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 color = Color(0, 0, 0, 0.50980395)
 
-[node name="Resume" type="Button" parent="."]
-offset_left = 755.0
+[node name="Continue" type="Button" parent="."]
+offset_left = 711.0
 offset_top = 313.0
-offset_right = 1179.0
+offset_right = 1198.0
 offset_bottom = 440.0
-theme_override_fonts/font = ExtResource("1_kuyhe")
+theme_override_fonts/font = ExtResource("2_21kmv")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_yh2wt")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_nx4k5")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_3mhhc")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0fylh")
-text = "Resume"
+text = "Continue"
 flat = true
 
 [node name="Restart" type="Button" parent="."]
@@ -75,7 +75,7 @@ offset_left = 603.0
 offset_top = 449.0
 offset_right = 1321.0
 offset_bottom = 576.0
-theme_override_fonts/font = ExtResource("1_kuyhe")
+theme_override_fonts/font = ExtResource("2_21kmv")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_idwm7")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_axbgv")
@@ -89,7 +89,7 @@ offset_left = 443.0
 offset_top = 585.0
 offset_right = 1505.0
 offset_bottom = 712.0
-theme_override_fonts/font = ExtResource("1_kuyhe")
+theme_override_fonts/font = ExtResource("2_21kmv")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_e2ur8")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_nasek")
@@ -103,7 +103,7 @@ offset_left = 491.0
 offset_top = 737.0
 offset_right = 1462.0
 offset_bottom = 864.0
-theme_override_fonts/font = ExtResource("1_kuyhe")
+theme_override_fonts/font = ExtResource("2_21kmv")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_76tx7")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_2pb5m")
@@ -112,16 +112,17 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_kgk5k")
 text = "Back to Main Menu"
 flat = true
 
-[node name="LevelPausedLabel" type="Label" parent="."]
+[node name="LevelWonLabel" type="Label" parent="."]
 offset_left = 611.0
 offset_top = 142.0
 offset_right = 1298.0
 offset_bottom = 261.0
-theme_override_fonts/font = ExtResource("2_yh2wt")
+theme_override_fonts/font = ExtResource("3_kdf7k")
 theme_override_font_sizes/font_size = 100
-text = "Level Paused"
+text = "Victory!"
+horizontal_alignment = 1
 
-[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="LevelSelect" to="." method="_on_level_select_pressed"]
 [connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

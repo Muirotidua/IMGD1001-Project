@@ -4,10 +4,13 @@ class_name Level_template extends Node2D
 enum State{ WON, LOST, PLAYING }
 
 @export var shot_limit = 3
+@export var level_id = 0
 
 @onready var table: Node2D = $Boundary_Table
 @onready var cue: CueBall = $CueBall
 @onready var pause: Node2D = $LevelPaused
+@onready var lost: Node2D = $LevelLost
+@onready var won: Node2D = $LevelWon
 @onready var win_text: Label = $WinText
 
 var all_balls: Array[BaseBall] = []
@@ -15,20 +18,23 @@ var rewinded: bool = false
 var state: State = State.PLAYING
 
 signal shoot()
-signal finished_game_check()
 
 func _ready():
 	get_tree().paused = false
 	table.pocketed_ball.connect(on_pocket)
 	cue.try_shoot.connect(on_try_shoot)
 	pause.restart.connect(reset_table)
+	lost.restart.connect(reset_table)
+	lost.redo.connect(rewind_shot)
+	won.restart.connect(reset_table)
+	won.next_lev.connect(onward)
 	shoot.connect(cue.on_shoot)
 	for child: Node in get_children():
 		if child is BaseBall:
 			all_balls.append(child)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("reset_table"):
 		reset_table()
 	if Input.is_action_just_pressed("rewind_shot"):
@@ -75,27 +81,22 @@ func check_final():
 	var pocket_count: int = 0
 	if (cue.pocketed || cue.pocketing):
 		state = State.LOST
-		win_text.text = "Failure."
+		lose()
 		return
 	for ball: BaseBall in all_balls:
 		if ball is not CueBall && (ball.pocketed || ball.pocketing):
 			pocket_count += 1
-		#if ball is not CueBall && !ball.pocketed && !ball.pocketing:
-			#state = State.PLAYING
-			#win_text.text = ""
-			#return
-	if pocket_count == all_balls.size()-1:
+	# If all balls pocketed except for cueball
+	if pocket_count == all_balls.size() - 1:
 		state = State.WON
-		LevelManager.level2_unlocked = true
-		win_text.text = "Victory!"
+		win()
 		return
 	elif cue.shot_count>=shot_limit: #fuck you elif!!
 		state = State.LOST
-		win_text.text = "Failure."
+		lose()
 		return
 	else:
 		state = State.PLAYING
-		win_text.text = ""
 		return
 
 func print_info():
@@ -123,5 +124,19 @@ func print_info():
 		
 
 func _on_paused_button_pressed() -> void:
+	if state == State.PLAYING:
+		get_tree().paused = true
+		pause.visible = true
+
+func lose() -> void:
 	get_tree().paused = true
-	$LevelPaused.visible = true
+	lost.visible = true
+
+func win() -> void:
+	# Unlock next level
+	LevelManager.unlock_level(level_id + 1)
+	get_tree().paused = true
+	won.visible = true
+
+func onward() -> void:
+	LevelManager.switch_level(level_id + 1)
