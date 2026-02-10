@@ -86,6 +86,7 @@ func check_final():
 			#return
 	if pocket_count == all_balls.size()-1:
 		state = State.WON
+		LevelManager.level2_unlocked = true
 		win_text.text = "Victory!"
 		return
 	elif cue.shot_count>=shot_limit: #fuck you elif!!
