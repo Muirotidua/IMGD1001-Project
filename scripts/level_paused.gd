@@ -2,13 +2,17 @@ extends Node2D
 
 @onready var current_level = get_tree().current_scene
 
+signal restart()
+
 func _on_resume_pressed() -> void:
 	visible = false
 	get_tree().paused = false
 
 
 func _on_restart_pressed() -> void:
-	get_tree().reload_current_scene()
+	visible = false
+	get_tree().paused = false
+	restart.emit()
 
 
 func _on_level_select_pressed() -> void:
