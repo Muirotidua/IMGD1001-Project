@@ -4,10 +4,10 @@ class_name Level_template extends Node2D
 enum State{ WON, LOST, PLAYING }
 
 @export var shot_limit = 3
-@export var cue_path: NodePath
 
 @onready var table: Node2D = $Boundary_Table
-@onready var cue: CueBall = get_node(cue_path)
+@onready var cue: CueBall = $CueBall
+@onready var pause: Node2D = $LevelPaused
 @onready var win_text: Label = $WinText
 
 var all_balls: Array[BaseBall] = []
@@ -18,8 +18,10 @@ signal shoot()
 signal finished_game_check()
 
 func _ready():
+	get_tree().paused = false
 	table.pocketed_ball.connect(on_pocket)
 	cue.try_shoot.connect(on_try_shoot)
+	pause.restart.connect(reset_table)
 	shoot.connect(cue.on_shoot)
 	for child: Node in get_children():
 		if child is BaseBall:
@@ -118,7 +120,6 @@ func print_info():
 	
 	
 		
-
 
 func _on_paused_button_pressed() -> void:
 	get_tree().paused = true

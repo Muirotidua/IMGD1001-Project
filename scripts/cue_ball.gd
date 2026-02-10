@@ -2,14 +2,17 @@ class_name CueBall extends BaseBall
 
 # Launch Multiplier
 @export var lm: float = 20
+@export var rapid_fire: bool = false
 @export var infinite_shots: bool = false
 @export var shot_count = 0
 # initial shot number that is incremented for each type of shot. 
 # when it is greater than number of level shots the level triggers failstate
 
+var rewinded: bool = false
 var shot_power = 0;
 var MAX_HOLD = 50
 
+@onready var count_label: Label = $NonRotate/CountLabel
 @onready var pointer = $PointerLine
 var shot_ready:bool  = true
 
@@ -17,6 +20,10 @@ signal try_shoot()
 
 func _ready():
 	super._ready()
+	if debug_labels:
+		count_label.show()
+	else:
+		count_label.hide()
 	pointer.add_point(Vector2.ZERO)
 	pointer.add_point(get_local_mouse_position())
 	type = GlobalEnums.BallType.CUE_BALL
@@ -27,7 +34,6 @@ func _ready():
 func _input(event):
 	if(event.is_action("ball_hit")&&shot_ready):
 		%ProgressBar.show()
-		
 		if(shot_power < MAX_HOLD):
 			shot_power += 1
 		%ProgressBar.value = shot_power 
@@ -44,7 +50,8 @@ func _process(_delta: float) -> void:
 	#%ProgressBar.rotation = rotation*-1
 	#%ProgressBar.position = Vector2(-(%ProgressBar.size.x/2),30).rotated(rotation*-1)
 	#%PoolStick.
-	
+	if debug_labels:
+		count_label.text = str(shot_count)
 	if shot_ready:
 		pointer.show()
 	else:
@@ -62,6 +69,15 @@ func on_shoot():
 		shot_power = 0
 		#inmotion = true
 		shot_count += 1 # no ++ operator :(
+		rewinded = false
+
+func reset():
+	shot_count = 0
+	super.reset()
 	
-	
+func rewind():
+	if !rewinded:
+		shot_count -= 1
+	rewinded = true
+	super.rewind()
 	
