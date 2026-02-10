@@ -11,7 +11,6 @@ enum State{ WON, LOST, PLAYING }
 @onready var pause: Node2D = $LevelPaused
 @onready var lost: Node2D = $LevelLost
 @onready var won: Node2D = $LevelWon
-@onready var win_text: Label = $WinText
 
 var all_balls: Array[BaseBall] = []
 var rewinded: bool = false

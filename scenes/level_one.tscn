@@ -35,14 +35,6 @@ visible = false
 [node name="Boundary_Table" parent="." instance=ExtResource("2_r4wdr")]
 z_index = -1
 
-[node name="WinText" type="Label" parent="."]
-offset_left = 805.0
-offset_top = 478.0
-offset_right = 1104.0
-offset_bottom = 596.0
-theme_override_font_sizes/font_size = 86
-horizontal_alignment = 1
-
 [node name="CueBall" parent="." instance=ExtResource("3_bhu28")]
 position = Vector2(1004, 774)
 
