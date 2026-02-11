@@ -32,7 +32,23 @@ offset_right = 1728.0
 offset_bottom = 949.0
 theme_override_fonts/normal_font = ExtResource("2_4leat")
 theme_override_font_sizes/normal_font_size = 80
-text = "V0.2.2
+text = "V0.3.3
+-Added Victory and Failure screens when levels are finished
+
+V0.3.2
+-Added more debug settings and fixed major bugs
+
+V0.3.1
+-Added a level selection screen
+-Added a pause menu
+
+V0.3
+-Added a level manager to keep track of level progress
+-Revamped power gauge to increase as shot is held
+-Added a shot counter for levels to be cleared under
+-Added new sprites
+
+V0.2.2
 -Added a redesigned table with added flair
 -Fixed a rewind and win condition bug by completely recreating how the table keeps track of its elements
 
