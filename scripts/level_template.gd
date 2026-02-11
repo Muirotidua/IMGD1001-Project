@@ -15,6 +15,7 @@ enum State{ WON, LOST, PLAYING }
 var all_balls: Array[BaseBall] = []
 var rewinded: bool = false
 var state: State = State.PLAYING
+var paused: bool = false
 
 signal shoot()
 
@@ -23,6 +24,7 @@ func _ready():
 	table.pocketed_ball.connect(on_pocket)
 	cue.try_shoot.connect(on_try_shoot)
 	pause.restart.connect(reset_table)
+	pause.resume.connect(resume_play)
 	lost.restart.connect(reset_table)
 	lost.redo.connect(rewind_shot)
 	won.restart.connect(reset_table)
@@ -67,12 +69,16 @@ func moving_balls() -> bool: # ??? Need to ensure that this is looking at the cu
 	return false
 
 func reset_table():
+	if paused:
+		return
 	for ball: BaseBall in all_balls:
 		ball.reset()
 	lost.clear()
 	won.clear()
 		
 func rewind_shot():
+	if paused:
+		return
 	for ball: BaseBall in all_balls:
 		ball.rewind()
 	lost.clear()
@@ -128,6 +134,8 @@ func _on_paused_button_pressed() -> void:
 	if state == State.PLAYING:
 		get_tree().paused = true
 		pause.visible = true
+		paused = true
+
 
 func lose() -> void:
 	get_tree().paused = true
@@ -141,3 +149,6 @@ func win() -> void:
 
 func onward() -> void:
 	LevelManager.switch_level(level_id + 1)
+	
+func resume_play():
+	paused = false
