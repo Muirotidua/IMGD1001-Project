@@ -16,6 +16,7 @@ var all_balls: Array[BaseBall] = []
 var rewinded: bool = false
 var state: State = State.PLAYING
 var paused: bool = false
+var fail_ready: bool = false
 
 signal shoot()
 
@@ -53,6 +54,8 @@ func on_pocket(ball, _pocket):
 	if ball is BaseBall:
 		if !ball.ignore_pocket:
 			ball.pocketing = true
+	if ball is EightBall:
+		is_eight_last_ball()
 
 # 
 func on_try_shoot(): # ?
@@ -86,7 +89,7 @@ func rewind_shot():
 
 func check_final():
 	var pocket_count: int = 0
-	if (cue.pocketed || cue.pocketing):
+	if (cue.pocketed || cue.pocketing) || fail_ready:
 		state = State.LOST
 		lose()
 		return
@@ -138,6 +141,7 @@ func _on_paused_button_pressed() -> void:
 
 
 func lose() -> void:
+	fail_ready = false
 	get_tree().paused = true
 	lost.visible = true
 
@@ -152,3 +156,11 @@ func onward() -> void:
 	
 func resume_play():
 	paused = false
+
+func is_eight_last_ball():
+	var pocket_count: int = 0
+	for ball: BaseBall in all_balls:
+		if ball is not CueBall && ball is not EightBall && (ball.pocketed || ball.pocketing):
+			pocket_count += 1
+	if pocket_count != all_balls.size() - 2:
+		fail_ready = true

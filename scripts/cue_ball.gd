@@ -14,6 +14,7 @@ var MAX_HOLD = 50
 
 @onready var count_label: Label = $NonRotate/CountLabel
 @onready var pointer = $PointerLine
+
 var shot_ready:bool  = true
 
 signal try_shoot()
@@ -37,7 +38,6 @@ func _input(event):
 		if(shot_power < MAX_HOLD):
 			shot_power += 1
 		%ProgressBar.value = shot_power 
-		
 		
 	if(event.is_action_released("ball_hit")&&shot_ready):
 		try_shoot.emit()
@@ -80,4 +80,3 @@ func rewind():
 		shot_count -= 1
 	rewinded = true
 	super.rewind()
-	

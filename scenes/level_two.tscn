@@ -1,0 +1,62 @@
+[gd_scene load_steps=15 format=3 uid="uid://djdeofpa286qq"]
+
+[ext_resource type="Script" uid="uid://bu55h3e3g8bmc" path="res://scripts/level_two.gd" id="1_1e7uk"]
+[ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/level_paused.tscn" id="2_ubnpl"]
+[ext_resource type="PackedScene" uid="uid://ceuyvfckkp75l" path="res://scenes/level_won.tscn" id="3_4br1q"]
+[ext_resource type="PackedScene" uid="uid://c4whyrvxyjn6u" path="res://scenes/level_lost.tscn" id="4_sw5gm"]
+[ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/boundary_table.tscn" id="5_05hhi"]
+[ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/cue_ball.tscn" id="6_brhlk"]
+[ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/eight_ball.tscn" id="7_c43tx"]
+[ext_resource type="PackedScene" uid="uid://cw8aac2atgqxf" path="res://scenes/pause_button.tscn" id="8_ibewu"]
+[ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="9_8imr8"]
+[ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/pool_ball.tscn" id="10_ubnpl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdatj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_un07w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0jqh"]
+
+[node name="Level_Two" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_1e7uk")
+
+[node name="LevelPaused" parent="." instance=ExtResource("2_ubnpl")]
+visible = false
+
+[node name="LevelWon" parent="." instance=ExtResource("3_4br1q")]
+visible = false
+
+[node name="LevelLost" parent="." instance=ExtResource("4_sw5gm")]
+visible = false
+
+[node name="Boundary_Table" parent="." instance=ExtResource("5_05hhi")]
+z_index = -1
+
+[node name="CueBall" parent="." instance=ExtResource("6_brhlk")]
+position = Vector2(1004, 774)
+
+[node name="EightBall" parent="." instance=ExtResource("7_c43tx")]
+position = Vector2(981, 913)
+
+[node name="PausedButton" parent="." instance=ExtResource("8_ibewu")]
+process_mode = 3
+offset_left = 19.0
+offset_top = 19.0
+offset_right = 127.0
+offset_bottom = 127.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ra3k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cdatj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_un07w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t0jqh")
+text = ""
+icon = ExtResource("9_8imr8")
+flat = true
+
+[node name="PoolBall" parent="." instance=ExtResource("10_ubnpl")]
+position = Vector2(954, 167)
+
+[connection signal="pressed" from="PausedButton" to="." method="_on_paused_button_pressed"]

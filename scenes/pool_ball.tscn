@@ -1,13 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://g7p2rh8svuj8"]
+[gd_scene load_steps=6 format=3 uid="uid://g7p2rh8svuj8"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cnfo7swlk8npp" path="res://scenes/ball_physics_material.tres" id="1_w5es4"]
 [ext_resource type="Script" uid="uid://bk2a7c6goqdv6" path="res://scripts/pool_ball.gd" id="2_kji1i"]
 [ext_resource type="Texture2D" uid="uid://b3aaf016qqi4s" path="res://visuals/ball/hollowball.png" id="3_kji1i"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_kji1i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kji1i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5es4"]
 radius = 22.5
 
-[node name="Ball" type="RigidBody2D"]
+[node name="PoolBall" type="RigidBody2D"]
 physics_material_override = ExtResource("1_w5es4")
 gravity_scale = 0.0
 linear_damp = 1.0
@@ -15,9 +26,9 @@ script = ExtResource("2_kji1i")
 sprite_path = NodePath("Hollowball")
 metadata/_custom_type_script = "uid://bu48frm47bqx2"
 
-[node name="Hollowball" type="Sprite2D" parent="."]
+[node name="Hollowball" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.075, 0.075)
-texture = ExtResource("3_kji1i")
+sprite_frames = SubResource("SpriteFrames_kji1i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5258788e-05, 3.814697e-06)
