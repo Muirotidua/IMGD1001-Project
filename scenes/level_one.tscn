@@ -38,7 +38,7 @@ z_index = -1
 [node name="CueBall" parent="." instance=ExtResource("3_bhu28")]
 position = Vector2(1004, 774)
 
-[node name="Ball" parent="." instance=ExtResource("4_5rfim")]
+[node name="EightBall" parent="." instance=ExtResource("4_5rfim")]
 position = Vector2(981, 913)
 
 [node name="PausedButton" parent="." instance=ExtResource("6_y8ti4")]
