@@ -1,8 +1,130 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbq6youfuvnjk"]
+[gd_scene load_steps=65 format=3 uid="uid://bbq6youfuvnjk"]
 
 [ext_resource type="Script" uid="uid://gxwvtxc6ed7c" path="res://scripts/level_select.gd" id="1_2epne"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="1_3shnc"]
 [ext_resource type="PackedScene" uid="uid://bip0ukhvo06uf" path="res://scenes/level_button.tscn" id="2_p0wlc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r77uv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rovvv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0wyvj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m4qq5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n1411"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2epne"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rif6e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chg43"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r77uv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4nqmc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7plkq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ckc44"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o2xx4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htctk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6tf7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u4mbh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxici"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_thf6c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f86jd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_317l6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4hmm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ichcy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_112fn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_povud"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6k74p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v042j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ot7t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qhps7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lv2wu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfm1m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_77me6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55e0t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgwdm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_enbtk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bb84"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hww6i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e6hil"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2kyik"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wkxia"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5rjkr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3vnv3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5bcpu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jp0au"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvp7x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bvhs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_664di"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ysuy2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ffxqd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j4uvp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3siuq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jgw07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fx0if"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pq486"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bebg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nmae0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uuj37"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xb6tn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxo7m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4q1l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4kr5t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qus5x"]
 
 [node name="Level Select" type="Node2D"]
 process_mode = 3
@@ -30,6 +152,11 @@ offset_right = 383.0
 offset_bottom = 1016.0
 theme_override_fonts/font = ExtResource("1_3shnc")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r77uv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rovvv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0wyvj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_m4qq5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n1411")
 text = "Back"
 flat = true
 
@@ -42,6 +169,17 @@ grow_horizontal = 1
 grow_vertical = 1
 theme_override_fonts/font = ExtResource("1_3shnc")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2epne")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rif6e")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_chg43")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_r77uv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4nqmc")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_7plkq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ckc44")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_o2xx4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_htctk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_s6tf7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u4mbh")
 text = "1"
 flat = true
 icon_alignment = 1
@@ -55,6 +193,11 @@ grow_horizontal = 1
 grow_vertical = 1
 theme_override_fonts/font = ExtResource("1_3shnc")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vxici")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_thf6c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_f86jd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_317l6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r4hmm")
 text = "2"
 flat = true
 icon_alignment = 1
@@ -68,6 +211,11 @@ grow_horizontal = 1
 grow_vertical = 1
 theme_override_fonts/font = ExtResource("1_3shnc")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ichcy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_112fn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_povud")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6k74p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v042j")
 text = "3"
 flat = true
 icon_alignment = 1
@@ -81,6 +229,11 @@ grow_horizontal = 1
 grow_vertical = 1
 theme_override_fonts/font = ExtResource("1_3shnc")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5ot7t")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qhps7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lv2wu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wfm1m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_77me6")
 text = "4"
 flat = true
 icon_alignment = 1
@@ -94,6 +247,11 @@ grow_horizontal = 1
 grow_vertical = 1
 theme_override_fonts/font = ExtResource("1_3shnc")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_55e0t")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sgwdm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_enbtk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8bb84")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hww6i")
 text = "5"
 flat = true
 icon_alignment = 1
@@ -107,6 +265,11 @@ grow_horizontal = 1
 grow_vertical = 1
 theme_override_fonts/font = ExtResource("1_3shnc")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e6hil")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2kyik")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wkxia")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5rjkr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3vnv3")
 text = "6"
 flat = true
 icon_alignment = 1
@@ -120,6 +283,11 @@ grow_horizontal = 1
 grow_vertical = 1
 theme_override_fonts/font = ExtResource("1_3shnc")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5bcpu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jp0au")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kvp7x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7bvhs")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_664di")
 text = "7"
 flat = true
 icon_alignment = 1
@@ -133,6 +301,11 @@ grow_horizontal = 1
 grow_vertical = 1
 theme_override_fonts/font = ExtResource("1_3shnc")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ysuy2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ffxqd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j4uvp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3siuq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jgw07")
 text = "8"
 flat = true
 icon_alignment = 1
@@ -146,6 +319,11 @@ grow_horizontal = 1
 grow_vertical = 1
 theme_override_fonts/font = ExtResource("1_3shnc")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fx0if")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pq486")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7bebg")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_nmae0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uuj37")
 text = "9"
 flat = true
 icon_alignment = 1
@@ -159,6 +337,13 @@ grow_horizontal = 1
 grow_vertical = 1
 theme_override_fonts/font = ExtResource("1_3shnc")
 theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xb6tn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lxo7m")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t4q1l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4kr5t")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qus5x")
 text = "10"
 flat = true
 icon_alignment = 1
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
