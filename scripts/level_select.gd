@@ -10,6 +10,7 @@ extends Node2D
 @onready var lev8: Button = $LevelButton8
 @onready var lev9: Button = $LevelButton9
 @onready var lev10: Button = $LevelButton10
+@onready var back: Button = $BackButton
 
 const UNLOCKED: Color = Color(1, 1, 1)
 const LOCKED: Color = Color(0.5, 0.5, 0.5)
@@ -33,3 +34,9 @@ func _ready() -> void:
 		lev9.modulate = LOCKED
 	if !LevelManager.level10_unlocked:
 		lev10.modulate = LOCKED
+		
+	
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
