@@ -119,9 +119,6 @@ collision_layer = 2
 position = Vector2(961.24994, 1079.4999)
 shape = SubResource("RectangleShape2D_v02g2")
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(0, -17)
-
 [connection signal="area_entered" from="Pockets/TL Pocket" to="." method="_on_tl_pocket_area_entered"]
 [connection signal="body_entered" from="Pockets/TL Pocket" to="." method="_on_tl_pocket_body_entered"]
 [connection signal="area_entered" from="Pockets/BL Pocket" to="." method="_on_bl_pocket_area_entered"]
