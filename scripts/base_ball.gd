@@ -52,6 +52,7 @@ func _physics_process(delta: float) -> void:
 		inmotion = true
 		motion_label.text = "TRUE"
 	if pocketing:
+		linear_damp = 50
 		sprite.set_scale(sprite.get_scale() - Vector2(0.2, 0.2) * delta)
 		if sprite.scale.length() <= 0.01:
 			pocket()
