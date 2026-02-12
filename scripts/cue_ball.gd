@@ -32,9 +32,6 @@ func _ready():
 	%PoolStick.visible = false
 
 
-func _input(event):
-	pass
-
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if(Input.is_action_pressed("ball_hit")&&shot_ready):
