@@ -24,7 +24,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5es4"]
-radius = 25.019981
+radius = 20.0
 
 [node name="EightBall" type="RigidBody2D"]
 physics_material_override = ExtResource("1_712ic")
@@ -35,7 +35,7 @@ sprite_path = NodePath("Hollowball")
 metadata/_custom_type_script = "uid://bu48frm47bqx2"
 
 [node name="Hollowball" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.075, 0.075)
+scale = Vector2(0.06, 0.06)
 sprite_frames = SubResource("SpriteFrames_v6toh")
 autoplay = "default"
 frame_progress = 0.8289112
