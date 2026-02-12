@@ -5,6 +5,7 @@ class_name CueBall extends BaseBall
 @export var rapid_fire: bool = false
 @export var infinite_shots: bool = false
 @export var shot_count = 0
+@export var charge_rate = 40
 # initial shot number that is incremented for each type of shot. 
 # when it is greater than number of level shots the level triggers failstate
 
@@ -35,10 +36,10 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if(Input.is_action_pressed("ball_hit")&&shot_ready):
-		%ProgressBar.show()
+		%ProgressBar.show()   
 		if(shot_power < MAX_HOLD):
-			shot_power += 1
-		%ProgressBar.value = shot_power 
+			shot_power += charge_rate * delta
+		%ProgressBar.value = shot_power
 	if(Input.is_action_just_released("ball_hit")&&shot_ready):
 		try_shoot.emit()
 		%ProgressBar.hide()

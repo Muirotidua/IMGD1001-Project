@@ -36,10 +36,10 @@ visible = false
 z_index = -1
 
 [node name="CueBall" parent="." instance=ExtResource("6_brhlk")]
-position = Vector2(1004, 774)
+position = Vector2(1014, 539)
 
 [node name="EightBall" parent="." instance=ExtResource("7_c43tx")]
-position = Vector2(981, 913)
+position = Vector2(965, 662)
 
 [node name="PausedButton" parent="." instance=ExtResource("8_ibewu")]
 process_mode = 3

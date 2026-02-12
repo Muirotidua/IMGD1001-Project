@@ -34,16 +34,22 @@ a = Vector2(54.75464, 56.346497)
 b = Vector2(-42.012207, 46.728745)
 
 [node name="Boundary_Table" type="Node2D"]
+position = Vector2(200, 0)
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_wl8ks")
 
 [node name="Visuals" type="CanvasLayer" parent="."]
 layer = -1
+offset = Vector2(200, 0)
+scale = Vector2(0.8, 0.8)
+transform = Transform2D(0.8, 0, 0, 0.8, 200, 0)
 
 [node name="Background" type="ColorRect" parent="Visuals"]
 z_index = -10
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = -0.13671874
+anchor_right = 1.1289061
+anchor_bottom = 1.2777777
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
