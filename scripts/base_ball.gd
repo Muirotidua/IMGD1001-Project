@@ -53,6 +53,7 @@ func _physics_process(delta: float) -> void:
 		motion_label.text = "TRUE"
 	if pocketing:
 		sprite.set_scale(sprite.get_scale() - Vector2(0.2, 0.2) * delta)
+		linear_damp = 1000 ##if this causes any problems
 		if sprite.scale.length() <= 0.01:
 			pocket()
 
@@ -76,6 +77,7 @@ func unpocket():
 	show()
 	collision_layer = 0
 	collision_mask = 0
+	linear_damp = 1
 
 func rewind():
 	linear_velocity = Vector2.ZERO
