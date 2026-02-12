@@ -71,10 +71,12 @@ func on_shoot():
 
 func reset():
 	shot_count = 0
+	shot_power = 0
 	super.reset()
 	
 func rewind():
 	if !rewinded:
 		shot_count -= 1
 	rewinded = true
+	shot_power = 0
 	super.rewind()

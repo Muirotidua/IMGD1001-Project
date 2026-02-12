@@ -43,9 +43,9 @@ func unlock_level(level_id: int):
 		level10_unlocked = true
 
 func switch_level(level_id: int):
+	print("Level " + str(level_id))
 	if level_id == 1:
 		get_tree().change_scene_to_file("res://scenes/level_one.tscn")
-		print("Level 1")
 	elif level_id == 2 && level2_unlocked:
 		get_tree().change_scene_to_file("res://scenes/level_two.tscn")
 	elif level_id == 3 && level3_unlocked:
@@ -65,5 +65,5 @@ func switch_level(level_id: int):
 	elif level_id == 10 && level10_unlocked:
 		get_tree().change_scene_to_file("res://scenes/level_template.tscn")
 	else:
-		#level not unlocked stuff here
+		print("Level does not exist or is not unlocked")
 		pass

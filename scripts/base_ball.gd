@@ -82,7 +82,7 @@ func rewind():
 	angular_velocity = 0
 	if pocketing:
 		pocket()
-	elif pocketed:
+	if pocketed:
 		if tabled_last_shot:
 			unpocket()
 			teleport(last_pos)
@@ -117,7 +117,7 @@ func teleport(pos: Vector2):
 	collision_layer = 0
 	collision_mask = 0
 	global_position = pos
-	print("Ball moved to position at %d,%d" % [global_position.x, global_position.y]) 
+	print("Ball moved to position at            %d,%d" % [global_position.x, global_position.y]) 
 	call_deferred("enable_collisions")
 	
 func enable_collisions():
