@@ -100,6 +100,7 @@ func reset():
 	tabled_last_shot = true
 	pocketing = false
 	pocketed = false
+	last_pos = def_pos
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0
 	teleport(last_pos)
