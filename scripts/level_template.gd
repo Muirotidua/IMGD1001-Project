@@ -74,6 +74,7 @@ func moving_balls() -> bool: # ??? Need to ensure that this is looking at the cu
 func reset_table():
 	if paused:
 		return
+	fail_ready = false
 	for ball: BaseBall in all_balls:
 		ball.reset()
 	lost.clear()
@@ -82,6 +83,7 @@ func reset_table():
 func rewind_shot():
 	if paused:
 		return
+	fail_ready = false
 	for ball: BaseBall in all_balls:
 		ball.rewind()
 	lost.clear()
@@ -141,7 +143,6 @@ func _on_paused_button_pressed() -> void:
 
 
 func lose() -> void:
-	fail_ready = false
 	get_tree().paused = true
 	lost.visible = true
 
