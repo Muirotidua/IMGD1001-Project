@@ -33,17 +33,18 @@ func _ready():
 
 
 func _input(event):
-	if(event.is_action("ball_hit")&&shot_ready):
+	pass
+
+func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
+	if(Input.is_action_pressed("ball_hit")&&shot_ready):
 		%ProgressBar.show()
 		if(shot_power < MAX_HOLD):
 			shot_power += 1
 		%ProgressBar.value = shot_power 
-		
-	if(event.is_action_released("ball_hit")&&shot_ready):
+	if(Input.is_action_just_released("ball_hit")&&shot_ready):
 		try_shoot.emit()
 		%ProgressBar.hide()
-
-
 
 func _process(_delta: float) -> void:
 	pointer.set_point_position(1, get_local_mouse_position())
