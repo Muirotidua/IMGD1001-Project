@@ -12,6 +12,8 @@ class_name CueBall extends BaseBall
 var rewinded: bool = false
 var shot_power = 0;
 var MAX_HOLD = 50
+var pool_stick_ref = preload("res://scenes/pool_stick.tscn")
+var pool_cue : PoolStick
 
 @onready var count_label: Label = $NonRotate/CountLabel
 @onready var pointer = $PointerLine
@@ -29,20 +31,29 @@ func _ready():
 	pointer.add_point(Vector2.ZERO)
 	pointer.add_point(get_local_mouse_position())
 	type = GlobalEnums.BallType.CUE_BALL
-	%ProgressBar.visible = false
-	%PoolStick.visible = false
+	%ProgressBar.visible = false 
 
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
+
+	if(Input.is_action_just_pressed("ball_hit")&&shot_ready):
+		pool_cue = pool_stick_ref.instantiate()
+		pool_cue.ball_target = self
+		get_tree().current_scene.add_child(pool_cue)
 	if(Input.is_action_pressed("ball_hit")&&shot_ready):
 		%ProgressBar.show()   
 		if(shot_power < MAX_HOLD):
 			shot_power += charge_rate * delta
 		%ProgressBar.value = shot_power
+		
+		#%PoolStick.show() 
+		pool_cue.distance = shot_power
 	if(Input.is_action_just_released("ball_hit")&&shot_ready):
 		try_shoot.emit()
 		%ProgressBar.hide()
+		pool_cue.reset()
+		
 
 func _process(_delta: float) -> void:
 	pointer.set_point_position(1, get_local_mouse_position())
@@ -69,6 +80,9 @@ func on_shoot():
 	if !infinite_shots:
 		shot_count += 1 # no ++ operator :(
 	rewinded = false
+	
+	#%PoolStick.visible = false
+	
 
 func reset():
 	shot_count = 0

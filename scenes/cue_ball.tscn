@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3ypj135jxvjd"]
+[gd_scene load_steps=11 format=3 uid="uid://c3ypj135jxvjd"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cnfo7swlk8npp" path="res://scenes/ball_physics_material.tres" id="1_c01jm"]
 [ext_resource type="Script" uid="uid://djt8v3mxy0ylo" path="res://scripts/cue_ball.gd" id="1_tbouf"]
@@ -7,9 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://b3x7bm371vark" path="res://visuals/cueball-filled/Untitled-1_0001_Layer-1-copy-2.png" id="4_li0g8"]
 [ext_resource type="Texture2D" uid="uid://du3a6oavwejf8" path="res://visuals/cueball-filled/Untitled-1_0002_Layer-1-copy.png" id="5_h5tuf"]
 [ext_resource type="Script" uid="uid://bitk0caq6f2sd" path="res://scripts/progress_bar.gd" id="7_li0g8"]
-[ext_resource type="Texture2D" uid="uid://h5twy65whfri" path="res://visuals/poolstick/Untitled-1_0000_Layer-5.png" id="8_8jwt0"]
-[ext_resource type="Texture2D" uid="uid://dvvil3luvwjx0" path="res://visuals/poolstick/Untitled-1_0001_Layer-4.png" id="9_57eu7"]
-[ext_resource type="Texture2D" uid="uid://c84tseqlpio8y" path="res://visuals/poolstick/Untitled-1_0002_Layer-3.png" id="10_ic216"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5bgfd"]
 animations = [{
@@ -33,23 +30,6 @@ radius = 20.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nkrrx"]
 blend_mode = 1
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_nka7q"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_8jwt0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_57eu7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_ic216")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="CueBall" type="RigidBody2D"]
 physics_material_override = ExtResource("1_c01jm")
@@ -75,13 +55,6 @@ texture_mode = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collide_with_areas = true
-
-[node name="PoolStick" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
-visible = false
-position = Vector2(-734, -7.999999)
-scale = Vector2(0.7574257, 0.7574257)
-sprite_frames = SubResource("SpriteFrames_nka7q")
 
 [node name="NonRotate" type="Node2D" parent="."]
 
