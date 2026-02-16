@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dsr4uau6ubum8"]
 
-[ext_resource type="Script" uid="uid://dqsoyeqe66eia" path="res://pool_stick.gd" id="1_sbpun"]
+[ext_resource type="Script" uid="uid://dqsoyeqe66eia" path="res://scripts/pool_stick.gd" id="1_sbpun"]
 [ext_resource type="Texture2D" uid="uid://h5twy65whfri" path="res://visuals/poolstick/Untitled-1_0000_Layer-5.png" id="2_6ykqj"]
 [ext_resource type="Texture2D" uid="uid://dvvil3luvwjx0" path="res://visuals/poolstick/Untitled-1_0001_Layer-4.png" id="3_krcxu"]
 [ext_resource type="Texture2D" uid="uid://c84tseqlpio8y" path="res://visuals/poolstick/Untitled-1_0002_Layer-3.png" id="4_asd4s"]
@@ -27,5 +27,6 @@ script = ExtResource("1_sbpun")
 
 [node name="PoolStickSpr" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-926, 0)
+position = Vector2(-927, -13)
 sprite_frames = SubResource("SpriteFrames_snpxv")
+frame_progress = 0.50987077

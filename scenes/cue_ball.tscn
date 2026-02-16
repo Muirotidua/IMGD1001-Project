@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3ypj135jxvjd"]
+[gd_scene load_steps=13 format=3 uid="uid://c3ypj135jxvjd"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cnfo7swlk8npp" path="res://scenes/ball_physics_material.tres" id="1_c01jm"]
 [ext_resource type="Script" uid="uid://djt8v3mxy0ylo" path="res://scripts/cue_ball.gd" id="1_tbouf"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://reh0mkbm5u42" path="res://visuals/ball/Dotted-Line Texture.png" id="4_datkq"]
 [ext_resource type="Texture2D" uid="uid://b3x7bm371vark" path="res://visuals/cueball-filled/Untitled-1_0001_Layer-1-copy-2.png" id="4_li0g8"]
 [ext_resource type="Texture2D" uid="uid://du3a6oavwejf8" path="res://visuals/cueball-filled/Untitled-1_0002_Layer-1-copy.png" id="5_h5tuf"]
-[ext_resource type="Script" uid="uid://bitk0caq6f2sd" path="res://scripts/progress_bar.gd" id="7_li0g8"]
+[ext_resource type="PackedScene" uid="uid://dsr4uau6ubum8" path="res://scenes/pool_stick.tscn" id="7_h5tuf"]
+[ext_resource type="Script" path="res://scripts/progress_bar.gd" id="7_li0g8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5bgfd"]
 animations = [{
@@ -60,6 +61,9 @@ texture_mode = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collide_with_areas = true
+
+[node name="PoolStick" parent="." instance=ExtResource("7_h5tuf")]
+visible = false
 
 [node name="NonRotate" type="Node2D" parent="."]
 

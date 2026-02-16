@@ -103,7 +103,7 @@ func check_final():
 		state = State.WON
 		win()
 		return
-	elif cue.shot_count>=shot_limit: #fuck you elif!!
+	elif cue.shot_count >= shot_limit: #fuck you elif!!
 		state = State.LOST
 		lose()
 		return

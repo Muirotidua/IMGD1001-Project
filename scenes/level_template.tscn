@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/boundary_table.tscn" id="1_6lum8"]
 [ext_resource type="Script" uid="uid://1orqlroorufl" path="res://scripts/level_template.gd" id="1_iw5l3"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/cue_ball.tscn" id="1_mm7tu"]
-[ext_resource type="PackedScene" uid="uid://crehjvhkkw34v" path="res://scenes/level_paused.tscn" id="2_770am"]
+[ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/level_paused.tscn" id="2_770am"]
 [ext_resource type="PackedScene" uid="uid://c4whyrvxyjn6u" path="res://scenes/level_lost.tscn" id="2_cdatj"]
 [ext_resource type="PackedScene" uid="uid://ceuyvfckkp75l" path="res://scenes/level_won.tscn" id="3_un07w"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/eight_ball.tscn" id="4_iw5l3"]
-[ext_resource type="PackedScene" uid="uid://cntusl124bfgw" path="res://scenes/pause_button.tscn" id="6_770am"]
+[ext_resource type="PackedScene" uid="uid://cw8aac2atgqxf" path="res://scenes/pause_button.tscn" id="6_770am"]
 [ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_0ra3k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
@@ -36,12 +36,6 @@ z_index = -1
 
 [node name="CueBall" parent="." instance=ExtResource("1_mm7tu")]
 position = Vector2(970, 294)
-lm = null
-rapid_fire = null
-infinite_shots = null
-shot_count = null
-charge_rate = null
-debug_labels = null
 
 [node name="Ball" parent="." instance=ExtResource("4_iw5l3")]
 position = Vector2(1223, 406)
