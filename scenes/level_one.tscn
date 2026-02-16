@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cx0vsar1injtx"]
+[gd_scene load_steps=16 format=3 uid="uid://cx0vsar1injtx"]
 
 [ext_resource type="Script" uid="uid://dleqkbjtonrqa" path="res://scripts/level_one.gd" id="1_4p75b"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/boundary_table.tscn" id="2_r4wdr"]
@@ -42,10 +42,10 @@ visible = false
 z_index = -1
 
 [node name="CueBall" parent="." instance=ExtResource("3_bhu28")]
-position = Vector2(972, 381)
+position = Vector2(977, 478)
 
 [node name="EightBall" parent="." instance=ExtResource("4_5rfim")]
-position = Vector2(964, 706)
+position = Vector2(974, 708)
 
 [node name="PausedButton" parent="." instance=ExtResource("6_y8ti4")]
 process_mode = 3
@@ -61,9 +61,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_t0jqh")
 text = ""
 icon = ExtResource("7_astit")
 flat = true
-
-[node name="PoolBall" parent="." instance=ExtResource("10_o5wbv")]
-position = Vector2(1073, 676)
 
 [node name="ShotCountDisplay" type="Label" parent="."]
 offset_left = 1525.0
