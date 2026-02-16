@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dih2bhghs70xg"]
+[gd_scene load_steps=16 format=3 uid="uid://dih2bhghs70xg"]
 
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/boundary_table.tscn" id="1_6lum8"]
 [ext_resource type="Script" uid="uid://1orqlroorufl" path="res://scripts/level_template.gd" id="1_iw5l3"]
@@ -17,6 +17,12 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_un07w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0jqh"]
+
+[sub_resource type="SystemFont" id="SystemFont_un07w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t0jqh"]
+font = SubResource("SystemFont_un07w")
+font_size = 72
 
 [node name="Level_Template" type="Node2D"]
 process_mode = 3
@@ -54,5 +60,13 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_t0jqh")
 text = ""
 icon = ExtResource("7_0ra3k")
 flat = true
+
+[node name="ShotCountDisplay" type="Label" parent="."]
+offset_left = 1483.0
+offset_top = 961.0
+offset_right = 1874.0
+offset_bottom = 1068.0
+text = "0"
+label_settings = SubResource("LabelSettings_t0jqh")
 
 [connection signal="pressed" from="PausedButton" to="." method="_on_paused_button_pressed"]

@@ -18,6 +18,12 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0jqh"]
 
+[sub_resource type="SystemFont" id="SystemFont_un07w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o5wbv"]
+font = SubResource("SystemFont_un07w")
+font_size = 72
+
 [node name="Level_One" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_4p75b")
@@ -55,5 +61,16 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_t0jqh")
 text = ""
 icon = ExtResource("7_astit")
 flat = true
+
+[node name="PoolBall" parent="." instance=ExtResource("10_o5wbv")]
+position = Vector2(1073, 676)
+
+[node name="ShotCountDisplay" type="Label" parent="."]
+offset_left = 1525.0
+offset_top = 944.0
+offset_right = 1916.0
+offset_bottom = 1051.0
+text = "0"
+label_settings = SubResource("LabelSettings_o5wbv")
 
 [connection signal="pressed" from="PausedButton" to="." method="_on_paused_button_pressed"]
