@@ -11,6 +11,7 @@ enum State{ WON, LOST, PLAYING }
 @onready var pause: Node2D = $LevelPaused
 @onready var lost: Node2D = $LevelLost
 @onready var won: Node2D = $LevelWon
+@onready var shot_display: Label = $ShotCountDisplay
 
 var all_balls: Array[BaseBall] = []
 var rewinded: bool = false
@@ -48,6 +49,7 @@ func _physics_process(_delta: float) -> void:
 		cue.shot_ready = (state == State.PLAYING)
 	elif !cue.rapid_fire:
 		cue.shot_ready = false
+	update_shot_display()
 	
 
 func on_pocket(ball, _pocket): 
@@ -165,3 +167,10 @@ func is_eight_last_ball():
 			pocket_count += 1
 	if pocket_count != all_balls.size() - 2:
 		fail_ready = true
+
+func update_shot_display():
+	if((shot_limit-cue.shot_count) == 1):
+		shot_display.text = "1 shot left!!"
+	else:
+		shot_display.text = (str((shot_limit-cue.shot_count))+" shots left.")
+	
