@@ -1,14 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1wa8qq60femv"]
+[gd_scene load_steps=15 format=3 uid="uid://cx0vsar1injtx"]
 
-[ext_resource type="Script" uid="uid://dleqkbjtonrqa" path="res://scripts/level_one.gd" id="1_4p75b"]
+[ext_resource type="Script" path="res://scripts/level_one.gd" id="1_4p75b"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/boundary_table.tscn" id="2_r4wdr"]
 [ext_resource type="PackedScene" uid="uid://ceuyvfckkp75l" path="res://scenes/level_won.tscn" id="3_astit"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/cue_ball.tscn" id="3_bhu28"]
 [ext_resource type="PackedScene" uid="uid://c4whyrvxyjn6u" path="res://scenes/level_lost.tscn" id="3_y8ti4"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/eight_ball.tscn" id="4_5rfim"]
-[ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/level_paused.tscn" id="5_r4wdr"]
-[ext_resource type="PackedScene" uid="uid://cw8aac2atgqxf" path="res://scenes/pause_button.tscn" id="6_y8ti4"]
+[ext_resource type="PackedScene" uid="uid://crehjvhkkw34v" path="res://scenes/level_paused.tscn" id="5_r4wdr"]
+[ext_resource type="PackedScene" uid="uid://cntusl124bfgw" path="res://scenes/pause_button.tscn" id="6_y8ti4"]
 [ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_astit"]
+[ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/pool_ball.tscn" id="10_o5wbv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
 
@@ -55,5 +56,8 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_t0jqh")
 text = ""
 icon = ExtResource("7_astit")
 flat = true
+
+[node name="PoolBall" parent="." instance=ExtResource("10_o5wbv")]
+position = Vector2(1073, 676)
 
 [connection signal="pressed" from="PausedButton" to="." method="_on_paused_button_pressed"]
