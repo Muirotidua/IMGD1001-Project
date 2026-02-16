@@ -43,15 +43,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if(Input.is_action_just_pressed("switch_type")):
-<<<<<<< Updated upstream
-		switch_type()
-=======
 		switch_type()  
-	if(Input.is_action_just_pressed("ball_hit")&&shot_ready):
-		pool_cue = pool_stick_ref.instantiate()
-		pool_cue.ball_target = self
-		get_tree().current_scene.add_child(pool_cue)
->>>>>>> Stashed changes
 	if(Input.is_action_pressed("ball_hit")&&shot_ready):
 		if debug_labels:
 			%ProgressBar.show()   

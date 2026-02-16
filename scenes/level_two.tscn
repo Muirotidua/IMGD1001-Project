@@ -1,13 +1,13 @@
 [gd_scene load_steps=17 format=3 uid="uid://djdeofpa286qq"]
 
-[ext_resource type="Script" path="res://scripts/level_two.gd" id="1_1e7uk"]
-[ext_resource type="PackedScene" uid="uid://crehjvhkkw34v" path="res://scenes/level_paused.tscn" id="2_ubnpl"]
+[ext_resource type="Script" uid="uid://bu55h3e3g8bmc" path="res://scripts/level_two.gd" id="1_1e7uk"]
+[ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/level_paused.tscn" id="2_ubnpl"]
 [ext_resource type="PackedScene" uid="uid://ceuyvfckkp75l" path="res://scenes/level_won.tscn" id="3_4br1q"]
 [ext_resource type="PackedScene" uid="uid://c4whyrvxyjn6u" path="res://scenes/level_lost.tscn" id="4_sw5gm"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/boundary_table.tscn" id="5_05hhi"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/cue_ball.tscn" id="6_brhlk"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/eight_ball.tscn" id="7_c43tx"]
-[ext_resource type="PackedScene" uid="uid://cntusl124bfgw" path="res://scenes/pause_button.tscn" id="8_ibewu"]
+[ext_resource type="PackedScene" uid="uid://cw8aac2atgqxf" path="res://scenes/pause_button.tscn" id="8_ibewu"]
 [ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="9_8imr8"]
 [ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/pool_ball.tscn" id="10_ubnpl"]
 
@@ -56,6 +56,14 @@ text = ""
 icon = ExtResource("9_8imr8")
 flat = true
 
+[node name="ShotCountDisplay" type="Label" parent="."]
+offset_left = 1525.0
+offset_top = 944.0
+offset_right = 1916.0
+offset_bottom = 1051.0
+text = "0"
+label_settings = SubResource("LabelSettings_ubnpl")
+
 [node name="CueBall" parent="." instance=ExtResource("6_brhlk")]
 position = Vector2(791, 440)
 
@@ -67,13 +75,5 @@ position = Vector2(1347, 418)
 
 [node name="PoolBall2" parent="." instance=ExtResource("10_ubnpl")]
 position = Vector2(1344, 463)
-
-[node name="ShotCountDisplay" type="Label" parent="."]
-offset_left = 1525.0
-offset_top = 944.0
-offset_right = 1916.0
-offset_bottom = 1051.0
-text = "0"
-label_settings = SubResource("LabelSettings_ubnpl")
 
 [connection signal="pressed" from="PausedButton" to="." method="_on_paused_button_pressed"]
