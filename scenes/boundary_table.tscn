@@ -77,7 +77,7 @@ position = Vector2(0, -17)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TL Pocket"]
-position = Vector2(101.24998, 84.49999)
+position = Vector2(111.24998, 104.5)
 rotation = 0.7853982
 shape = SubResource("RectangleShape2D_v02g2")
 
@@ -85,7 +85,7 @@ shape = SubResource("RectangleShape2D_v02g2")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BL Pocket"]
-position = Vector2(106.25004, 1038.25)
+position = Vector2(118.75, 1024.4999)
 rotation = 0.7853982
 shape = SubResource("RectangleShape2D_v02g2")
 
@@ -93,7 +93,7 @@ shape = SubResource("RectangleShape2D_v02g2")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BR Pocket"]
-position = Vector2(1825, 1037.0001)
+position = Vector2(1803.75, 1023.25006)
 rotation = 0.7853982
 shape = SubResource("RectangleShape2D_v02g2")
 
@@ -101,7 +101,7 @@ shape = SubResource("RectangleShape2D_v02g2")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TR Pocket"]
-position = Vector2(1822.5, 85.749985)
+position = Vector2(1805, 101.99998)
 rotation = 0.7853982
 shape = SubResource("RectangleShape2D_v02g2")
 
@@ -109,14 +109,14 @@ shape = SubResource("RectangleShape2D_v02g2")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TC Pocket"]
-position = Vector2(958.75, 34.5)
+position = Vector2(965, 58.25)
 shape = SubResource("RectangleShape2D_v02g2")
 
 [node name="BC Pocket" type="Area2D" parent="Pockets"]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BC Pocket"]
-position = Vector2(961.24994, 1079.4999)
+position = Vector2(961.25, 1063.25)
 shape = SubResource("RectangleShape2D_v02g2")
 
 [connection signal="area_entered" from="Pockets/TL Pocket" to="." method="_on_tl_pocket_area_entered"]
