@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 	else:
 		global_rotation = freeze_rotation
 	
-
+  
 func reset():
 	distance = 0;
 	paused = true
