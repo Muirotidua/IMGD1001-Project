@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3ypj135jxvjd"]
+[gd_scene load_steps=14 format=3 uid="uid://c3ypj135jxvjd"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cnfo7swlk8npp" path="res://scenes/ball_physics_material.tres" id="1_c01jm"]
 [ext_resource type="Script" uid="uid://djt8v3mxy0ylo" path="res://scripts/cue_ball.gd" id="1_tbouf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://reh0mkbm5u42" path="res://visuals/ball/Dotted-Line Texture.png" id="4_datkq"]
 [ext_resource type="Texture2D" uid="uid://b3x7bm371vark" path="res://visuals/cueball-filled/Untitled-1_0001_Layer-1-copy-2.png" id="4_li0g8"]
 [ext_resource type="Texture2D" uid="uid://du3a6oavwejf8" path="res://visuals/cueball-filled/Untitled-1_0002_Layer-1-copy.png" id="5_h5tuf"]
+[ext_resource type="Texture2D" uid="uid://dqpk4i4u2espd" path="res://visuals/ball/BombBall.png" id="6_5bgfd"]
 [ext_resource type="PackedScene" uid="uid://dsr4uau6ubum8" path="res://scenes/pool_stick.tscn" id="7_h5tuf"]
 [ext_resource type="Script" path="res://scripts/progress_bar.gd" id="7_li0g8"]
 
@@ -23,6 +24,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5bgfd")
+}],
+"loop": true,
+"name": &"explosion_ball",
 "speed": 5.0
 }]
 
@@ -47,7 +56,6 @@ sprite_path = NodePath("FullBall")
 scale = Vector2(0.06, 0.06)
 sprite_frames = SubResource("SpriteFrames_5bgfd")
 autoplay = "default"
-frame_progress = 0.818606
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nkrrx")

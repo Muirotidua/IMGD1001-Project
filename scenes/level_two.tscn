@@ -41,12 +41,6 @@ visible = false
 [node name="Boundary_Table" parent="." instance=ExtResource("5_05hhi")]
 z_index = -1
 
-[node name="CueBall" parent="." instance=ExtResource("6_brhlk")]
-position = Vector2(973, 541)
-
-[node name="EightBall" parent="." instance=ExtResource("7_c43tx")]
-position = Vector2(965, 662)
-
 [node name="PausedButton" parent="." instance=ExtResource("8_ibewu")]
 process_mode = 3
 offset_left = 19.0
@@ -62,8 +56,17 @@ text = ""
 icon = ExtResource("9_8imr8")
 flat = true
 
+[node name="CueBall" parent="." instance=ExtResource("6_brhlk")]
+position = Vector2(791, 440)
+
+[node name="EightBall" parent="." instance=ExtResource("7_c43tx")]
+position = Vector2(1312, 438)
+
 [node name="PoolBall" parent="." instance=ExtResource("10_ubnpl")]
-position = Vector2(954, 167)
+position = Vector2(1347, 418)
+
+[node name="PoolBall2" parent="." instance=ExtResource("10_ubnpl")]
+position = Vector2(1344, 463)
 
 [node name="ShotCountDisplay" type="Label" parent="."]
 offset_left = 1525.0

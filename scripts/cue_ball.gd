@@ -37,6 +37,7 @@ func _ready():
 	type = GlobalEnums.BallType.CUE_BALL
 	%ProgressBar.visible = false 
 	ball_type = BallType.NORMAL
+	sprite.play("default")
 
 
 func _physics_process(delta: float) -> void:
@@ -117,6 +118,8 @@ func _on_body_entered(_body: Node) -> void:
 func switch_type():
 	if (ball_type == BallType.NORMAL):
 		ball_type = BallType.EXPLOSION
+		sprite.play("explosion_ball")
 	else:
 		ball_type = BallType.NORMAL
+		sprite.play("default")
 	print(ball_type)
