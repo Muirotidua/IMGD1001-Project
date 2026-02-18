@@ -49,21 +49,21 @@ func switch_level(level_id: int):
 	elif level_id == 2 && level2_unlocked:
 		get_tree().change_scene_to_file("res://scenes/level_two.tscn")
 	elif level_id == 3 && level3_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_template.tscn")
+		get_tree().change_scene_to_file("res://scenes/level_three.tscn")
 	elif level_id == 4 && level4_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_template.tscn")
+		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
 	elif level_id == 5 && level5_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_template.tscn")
+		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
 	elif level_id == 6 && level6_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_template.tscn")
+		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
 	elif level_id == 7 && level7_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_template.tscn")
+		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
 	elif level_id == 8 && level8_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_template.tscn")
+		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
 	elif level_id == 9 && level9_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_template.tscn")
+		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
 	elif level_id == 10 && level10_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_template.tscn")
+		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
 	else:
 		print("Level does not exist or is not unlocked")
 		pass

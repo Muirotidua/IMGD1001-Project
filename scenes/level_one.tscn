@@ -41,12 +41,6 @@ visible = false
 [node name="Boundary_Table" parent="." instance=ExtResource("2_r4wdr")]
 z_index = -1
 
-[node name="CueBall" parent="." instance=ExtResource("3_bhu28")]
-position = Vector2(977, 478)
-
-[node name="EightBall" parent="." instance=ExtResource("4_5rfim")]
-position = Vector2(974, 708)
-
 [node name="PausedButton" parent="." instance=ExtResource("6_y8ti4")]
 process_mode = 3
 offset_left = 19.0
@@ -69,5 +63,11 @@ offset_right = 1916.0
 offset_bottom = 1051.0
 text = "0"
 label_settings = SubResource("LabelSettings_o5wbv")
+
+[node name="CueBall" parent="." instance=ExtResource("3_bhu28")]
+position = Vector2(977, 478)
+
+[node name="EightBall" parent="." instance=ExtResource("4_5rfim")]
+position = Vector2(974, 708)
 
 [connection signal="pressed" from="PausedButton" to="." method="_on_paused_button_pressed"]

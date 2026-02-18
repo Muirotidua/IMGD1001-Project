@@ -28,6 +28,8 @@ font_size = 72
 [node name="Level_Two" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_1e7uk")
+shot_limit = 8
+level_id = 2
 
 [node name="LevelPaused" parent="." instance=ExtResource("2_ubnpl")]
 visible = false
