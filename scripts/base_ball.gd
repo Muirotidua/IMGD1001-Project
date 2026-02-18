@@ -7,7 +7,7 @@ class_name BaseBall extends RigidBody2D
 @onready var speed_label: Label = $NonRotate/SpeedLabel
 @onready var sprite: AnimatedSprite2D = get_node(sprite_path)
 
-const DEFAULT_SCALE: Vector2 = Vector2(0.06, 0.06)
+@export var default_scale: Vector2 = Vector2(0.06, 0.06)
 
 var inmotion: bool = false
 var speed: float = 0.0
@@ -26,7 +26,7 @@ var type: GlobalEnums.BallType = GlobalEnums.BallType.GENERIC_BALL
 
 
 func _ready():
-	sprite.set_scale(DEFAULT_SCALE)
+	sprite.set_scale(default_scale)
 	if debug_labels:
 		speed_label.show()
 		motion_label.show()
@@ -66,7 +66,7 @@ func pocket():
 	pocketing = false
 	pocketed = true
 	hide()
-	sprite.set_scale(DEFAULT_SCALE)
+	sprite.set_scale(default_scale)
 	collision_layer = 0
 	collision_mask = 0
 
