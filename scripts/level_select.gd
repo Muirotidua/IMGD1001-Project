@@ -17,9 +17,9 @@ const LOCKED: Color = Color(0.5, 0.5, 0.5)
 
 func _ready() -> void:
 	if !LevelManager.level2_unlocked:
-		lev2.modulate = LOCKED
+		lev2.modulate = LOCKED 
 	if !LevelManager.level3_unlocked:
-		lev3.modulate = LOCKED
+		lev3.modulate = LOCKED 
 	if !LevelManager.level4_unlocked:
 		lev4.modulate = LOCKED
 	if !LevelManager.level5_unlocked:
@@ -35,8 +35,6 @@ func _ready() -> void:
 	if !LevelManager.level10_unlocked:
 		lev10.modulate = LOCKED
 		
-	
-
 
 func _on_back_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
