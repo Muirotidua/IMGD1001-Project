@@ -1,14 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci5cown6qsyjp"]
+[gd_scene load_steps=8 format=3 uid="uid://ci5cown6qsyjp"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cnfo7swlk8npp" path="res://scenes/ball_physics_material.tres" id="1_712ic"]
 [ext_resource type="Script" uid="uid://cil2w44gkmxcp" path="res://scripts/eight_ball.gd" id="2_712ic"]
-[ext_resource type="Texture2D" uid="uid://ddp7m0ktqrbjc" path="res://visuals/ball/EightBall.png" id="3_4sh07"]
+[ext_resource type="Texture2D" uid="uid://br2qjvu441jhi" path="res://visuals/ball/8ball/Untitled-1-Recovered-Recovered_0001_Layer-12-copy-2.png" id="3_jl446"]
+[ext_resource type="Texture2D" uid="uid://dfasssg4e3qqu" path="res://visuals/ball/8ball/Untitled-1-Recovered-Recovered_0002_Layer-12-copy.png" id="4_h6wdm"]
+[ext_resource type="Texture2D" uid="uid://cg5x3j1xn1i3i" path="res://visuals/ball/8ball/Untitled-1-Recovered-Recovered_0003_Layer-12.png" id="5_os32q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_712ic"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_4sh07")
+"texture": ExtResource("3_jl446")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h6wdm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_os32q")
 }],
 "loop": true,
 "name": &"default",
@@ -27,9 +35,11 @@ sprite_path = NodePath("EightBall")
 metadata/_custom_type_script = "uid://bu48frm47bqx2"
 
 [node name="EightBall" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4.7683716e-07, -9.536743e-07)
-scale = Vector2(0.067, 0.067)
+position = Vector2(-5.364418e-07, 2.0861626e-06)
+scale = Vector2(0.046242774, 0.047337286)
 sprite_frames = SubResource("SpriteFrames_712ic")
+autoplay = "default"
+frame_progress = 0.6833113
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5258788e-05, 3.814697e-06)
