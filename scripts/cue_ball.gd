@@ -4,7 +4,6 @@ class_name CueBall extends BaseBall
 @export var lm: float = 20
 @export var rapid_fire: bool = false
 @export var infinite_shots: bool = false
-@export var shot_count = 0
 @export var charge_rate = 40
 # initial shot number that is incremented for each type of shot. 
 # when it is greater than number of level shots the level triggers failstate
@@ -15,6 +14,7 @@ var MAX_HOLD = 50
 enum BallType{NORMAL, EXPLOSION}
 var ball_type : BallType
 
+@onready var shot_count = 0
 @onready var count_label: Label = $NonRotate/CountLabel
 @onready var pointer: Line2D = $PointerLine
 @onready var pool_cue: PoolStick = $PoolStick
