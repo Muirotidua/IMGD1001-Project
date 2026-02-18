@@ -32,14 +32,15 @@ gravity_scale = 0.0
 linear_damp = 1.0
 script = ExtResource("2_712ic")
 sprite_path = NodePath("EightBall")
+default_scale = Vector2(0.046, 0.048)
 metadata/_custom_type_script = "uid://bu48frm47bqx2"
 
 [node name="EightBall" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5.364418e-07, 2.0861626e-06)
-scale = Vector2(0.046242774, 0.047337286)
+scale = Vector2(0.046, 0.048)
 sprite_frames = SubResource("SpriteFrames_712ic")
 autoplay = "default"
-frame_progress = 0.6833113
+frame_progress = 0.7887918
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5258788e-05, 3.814697e-06)

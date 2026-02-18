@@ -1,5 +1,4 @@
-class_name PoolStick
-extends Node2D 
+class_name PoolStick extends Node2D 
 
 var distance = 0 # distance from center
 var paused: bool = false
