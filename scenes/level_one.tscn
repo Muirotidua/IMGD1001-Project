@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cx0vsar1injtx"]
+[gd_scene load_steps=18 format=3 uid="uid://cx0vsar1injtx"]
 
 [ext_resource type="Script" uid="uid://dleqkbjtonrqa" path="res://scripts/level_one.gd" id="1_4p75b"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/boundary_table.tscn" id="2_r4wdr"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/level_paused.tscn" id="5_r4wdr"]
 [ext_resource type="PackedScene" uid="uid://cw8aac2atgqxf" path="res://scenes/pause_button.tscn" id="6_y8ti4"]
 [ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_astit"]
+[ext_resource type="PackedScene" uid="uid://cwlxqek67067h" path="res://scenes/swapball.tscn" id="10_s6ikc"]
+[ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/swap_ball_button.tscn" id="11_s6ikc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
 
@@ -70,4 +72,20 @@ position = Vector2(977, 478)
 [node name="EightBall" parent="." instance=ExtResource("4_5rfim")]
 position = Vector2(974, 708)
 
+[node name="Swap_Ball" parent="." node_paths=PackedStringArray("swap_ball_button") instance=ExtResource("10_s6ikc")]
+visible = false
+offset_left = -8.0
+offset_top = -24.0
+offset_right = -8.0
+offset_bottom = -24.0
+swap_ball_button = NodePath("../Swap_Ball_Button")
+
+[node name="Swap_Ball_Button" parent="." instance=ExtResource("11_s6ikc")]
+z_index = 4
+offset_left = 32.0
+offset_top = 792.0
+offset_right = 240.0
+offset_bottom = 1019.80005
+
 [connection signal="pressed" from="PausedButton" to="." method="_on_paused_button_pressed"]
+[connection signal="pressed" from="Swap_Ball_Button" to="." method="_on_swap_ball_button_pressed"]

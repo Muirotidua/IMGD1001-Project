@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://ptp6coop1tmo"]
+
+[ext_resource type="Texture2D" uid="uid://unfatubegi3u" path="res://visuals/ball/fullball.png" id="1_6cbbr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6cbbr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4xsm0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cfict"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ag0wi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtnyt"]
+
+[node name="Swap_Ball_Button" type="Button"]
+anchors_preset = -1
+anchor_bottom = 0.015000001
+offset_left = 8.0
+offset_top = 704.0
+offset_right = 392.0
+offset_bottom = 1059.8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6cbbr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4xsm0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cfict")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ag0wi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qtnyt")
+icon = ExtResource("1_6cbbr")
+flat = true
+expand_icon = true
