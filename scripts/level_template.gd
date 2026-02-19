@@ -12,6 +12,8 @@ enum State{ WON, LOST, PLAYING }
 @onready var lost: Node2D = $LevelLost
 @onready var won: Node2D = $LevelWon
 @onready var shot_display: Label = $ShotCountDisplay
+@onready var swap_ball: Control = $Swap_Ball
+@onready var swap_ball_button: Button = $Swap_Ball_Button
 
 var all_balls: Array[BaseBall] = []
 var rewinded: bool = false
@@ -173,4 +175,13 @@ func update_shot_display():
 		shot_display.text = "1 shot left!!"
 	else:
 		shot_display.text = (str((shot_limit-cue.shot_count))+" shots left.")
-	
+		
+		
+		
+
+func swap():
+	get_tree().paused = true
+	swap_ball.visible = true
+
+func _on_swap_ball_button_pressed() -> void:
+	swap()
