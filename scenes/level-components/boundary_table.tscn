@@ -1,0 +1,135 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddqqcgxtevmw2"]
+
+[ext_resource type="Script" uid="uid://ovlry8chmr8m" path="res://scripts/level-components/boundary_table.gd" id="1_wl8ks"]
+[ext_resource type="Texture2D" uid="uid://nt45ir4ggoco" path="res://visuals/table/table_0000_Layer-7.png" id="2_katkb"]
+[ext_resource type="Texture2D" uid="uid://pfpfgktdj0v8" path="res://visuals/table/table_0001_Layer-6.png" id="3_02eu2"]
+[ext_resource type="Texture2D" uid="uid://btic2bjvhj83w" path="res://visuals/table/table_0002_Layer-5.png" id="4_gxrqy"]
+[ext_resource type="Texture2D" uid="uid://dwi5mrtha4al3" path="res://visuals/table/table_0003_Layer-4.png" id="5_6fwsf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t5bve"]
+animations = [{
+"frames": [{
+"duration": 1.71,
+"texture": ExtResource("2_katkb")
+}, {
+"duration": 1.71,
+"texture": ExtResource("3_02eu2")
+}, {
+"duration": 1.71,
+"texture": ExtResource("4_gxrqy")
+}, {
+"duration": 1.71,
+"texture": ExtResource("5_6fwsf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v02g2"]
+size = Vector2(100, 100)
+
+[node name="Boundary_Table" type="Node2D"]
+position = Vector2(200, 0)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_wl8ks")
+
+[node name="Visuals" type="CanvasLayer" parent="."]
+layer = -1
+offset = Vector2(200, 0)
+scale = Vector2(0.8, 0.8)
+transform = Transform2D(0.8, 0, 0, 0.8, 200, 0)
+
+[node name="Background" type="ColorRect" parent="Visuals"]
+z_index = -10
+anchors_preset = -1
+anchor_left = -0.13671874
+anchor_right = 1.1289061
+anchor_bottom = 1.2777777
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="SuperTemporaryPoolTable!" type="AnimatedSprite2D" parent="Visuals"]
+position = Vector2(960.1532, 541)
+scale = Vector2(1.2729518, 1.2561576)
+sprite_frames = SubResource("SpriteFrames_t5bve")
+autoplay = "default"
+frame = 2
+frame_progress = 0.3121109
+
+[node name="Table_Boundaries" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(85, 108)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table_Boundaries"]
+polygon = PackedVector2Array(67, 64, 10, -8, 53, -50, 123, 3, 826, 1, 839, -27, 845, -69, 898, -76, 914, -25, 927, 4, 1626, 3, 1698, -51, 1741, -8, 1683, 70, 1688, 799, 1842, 817, 1842.8582, -18.931534, 1843, -157, -83, -147, -74, 517, 65, 798)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Table_Boundaries"]
+position = Vector2(1750, 863)
+rotation = -3.1415927
+polygon = PackedVector2Array(68, 64, 10, 0, 57, -45, 126, -1.999939, 823.99994, 0.00012207031, 840.99994, -25.999878, 841, -70, 908, -70, 909.99994, -26.999878, 922.99994, -0.9998779, 1626, -1.9998169, 1698, -51, 1741, -8, 1686, 58.000183, 1686.9999, 806.0002, 1824.9999, 802.0002, 1843, -157, -76, -167, -64.00012, 811, 67.99988, 790)
+
+[node name="Pockets" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, -17)
+
+[node name="TL Pocket" type="Area2D" parent="Pockets"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TL Pocket"]
+position = Vector2(111.24998, 104.5)
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_v02g2")
+
+[node name="BL Pocket" type="Area2D" parent="Pockets"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BL Pocket"]
+position = Vector2(118.75, 1024.4999)
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_v02g2")
+
+[node name="BR Pocket" type="Area2D" parent="Pockets"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BR Pocket"]
+position = Vector2(1803.75, 1023.25006)
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_v02g2")
+
+[node name="TR Pocket" type="Area2D" parent="Pockets"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TR Pocket"]
+position = Vector2(1805, 101.99998)
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_v02g2")
+
+[node name="TC Pocket" type="Area2D" parent="Pockets"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/TC Pocket"]
+position = Vector2(965, 58.25)
+shape = SubResource("RectangleShape2D_v02g2")
+
+[node name="BC Pocket" type="Area2D" parent="Pockets"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/BC Pocket"]
+position = Vector2(961.25, 1063.25)
+shape = SubResource("RectangleShape2D_v02g2")
+
+[connection signal="area_entered" from="Pockets/TL Pocket" to="." method="_on_tl_pocket_area_entered"]
+[connection signal="body_entered" from="Pockets/TL Pocket" to="." method="_on_tl_pocket_body_entered"]
+[connection signal="area_entered" from="Pockets/BL Pocket" to="." method="_on_bl_pocket_area_entered"]
+[connection signal="body_entered" from="Pockets/BL Pocket" to="." method="_on_bl_pocket_body_entered"]
+[connection signal="area_entered" from="Pockets/BR Pocket" to="." method="_on_br_pocket_area_entered"]
+[connection signal="body_entered" from="Pockets/BR Pocket" to="." method="_on_br_pocket_body_entered"]
+[connection signal="area_entered" from="Pockets/TR Pocket" to="." method="_on_tr_pocket_area_entered"]
+[connection signal="body_entered" from="Pockets/TR Pocket" to="." method="_on_tr_pocket_body_entered"]
+[connection signal="area_entered" from="Pockets/TC Pocket" to="." method="_on_tc_pocket_area_entered"]
+[connection signal="body_entered" from="Pockets/TC Pocket" to="." method="_on_tc_pocket_body_entered"]
+[connection signal="area_entered" from="Pockets/BC Pocket" to="." method="_on_bc_pocket_area_entered"]
+[connection signal="body_entered" from="Pockets/BC Pocket" to="." method="_on_bc_pocket_body_entered"]

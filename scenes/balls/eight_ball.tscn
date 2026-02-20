@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://ci5cown6qsyjp"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cnfo7swlk8npp" path="res://scenes/ball-components/ball_physics_material.tres" id="1_712ic"]
+[ext_resource type="Script" uid="uid://cil2w44gkmxcp" path="res://scripts/balls/eight_ball.gd" id="2_712ic"]
+[ext_resource type="Texture2D" uid="uid://br2qjvu441jhi" path="res://visuals/eightball/8ball/Untitled-1-Recovered-Recovered_0001_Layer-12-copy-2.png" id="3_jl446"]
+[ext_resource type="Texture2D" uid="uid://dfasssg4e3qqu" path="res://visuals/eightball/8ball/Untitled-1-Recovered-Recovered_0002_Layer-12-copy.png" id="4_h6wdm"]
+[ext_resource type="Texture2D" uid="uid://cg5x3j1xn1i3i" path="res://visuals/eightball/8ball/Untitled-1-Recovered-Recovered_0003_Layer-12.png" id="5_os32q"]
+
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_712ic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jl446")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h6wdm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_os32q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w5es4"]
+radius = 20.0
+
+[node name="EightBall" type="RigidBody2D"]
+physics_material_override = ExtResource("1_712ic")
+gravity_scale = 0.0
+linear_damp = 1.0
+script = ExtResource("2_712ic")
+sprite_path = NodePath("EightBall")
+default_scale = Vector2(0.046, 0.048)
+metadata/_custom_type_script = "uid://bu48frm47bqx2"
+
+[node name="EightBall" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5.364418e-07, 2.0861626e-06)
+scale = Vector2(0.046, 0.048)
+sprite_frames = SubResource("SpriteFrames_712ic")
+autoplay = "default"
+frame_progress = 0.7887918
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5258788e-05, 3.814697e-06)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("CircleShape2D_w5es4")
+
+[node name="NonRotate" type="Node2D" parent="."]
+
+[node name="MotionLabel" type="Label" parent="NonRotate"]
+visible = false
+offset_left = -40.0
+offset_top = -56.0
+offset_right = 40.0
+offset_bottom = -32.0
+text = "FALSE"
+horizontal_alignment = 1
+
+[node name="SpeedLabel" type="Label" parent="NonRotate"]
+visible = false
+offset_left = -320.0
+offset_top = -80.0
+offset_right = 320.0
+offset_bottom = -56.0
+text = "0.00"
+horizontal_alignment = 1
