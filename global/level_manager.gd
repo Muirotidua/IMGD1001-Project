@@ -1,69 +1,43 @@
 extends Node
 
-var level2_unlocked: bool = false
-var level3_unlocked: bool = false
-var level4_unlocked: bool = false
-var level5_unlocked: bool = false
-var level6_unlocked: bool = false
-var level7_unlocked: bool = false
-var level8_unlocked: bool = false
-var level9_unlocked: bool = false
-var level10_unlocked: bool = false
+const level_count = 10
+var level_unlocked: Array[bool]
+var level_stars: Array[int]
 
-#if we do stars
-var level1_stars = 0
-var level2_stars = 0
-var level3_stars = 0
-var level4_stars = 0
-var level5_stars = 0
-var level6_stars = 0
-var level7_stars = 0
-var level8_stars = 0
-var level9_stars = 0
-var level10_stars = 0
+func _ready() -> void:
+	for i in range(level_count):
+		level_unlocked.append(false)
+		level_stars.append(0)
+	level_unlocked[0] = true
 
 func unlock_level(level_id: int):
-	if level_id == 2:
-		level2_unlocked = true
-	elif level_id == 3:
-		level3_unlocked = true
-	elif level_id == 4:
-		level4_unlocked = true
-	elif level_id == 5:
-		level5_unlocked = true
-	if level_id == 6:
-		level6_unlocked = true
-	if level_id == 7:
-		level7_unlocked = true
-	if level_id == 8:
-		level8_unlocked = true
-	if level_id == 9:
-		level9_unlocked = true
-	if level_id == 10:
-		level10_unlocked = true
+	if level_id > level_count:
+		print("Level ID too high")
+		return
+	level_unlocked[level_id - 1] = true
+
+func set_stars(level_id:int, star_count: int):
+	if level_id > level_count:
+		print("Level ID too high")
+		return
+	if star_count > level_stars[level_id - 1]:
+		level_stars[level_id - 1] = star_count
 
 func switch_level(level_id: int):
+	if level_id > level_count:
+		print("Level ID too high")
+		return
 	print("Level " + str(level_id))
+	if !level_unlocked[level_id - 1]:
+		print("Level is not unlocked")
+		return
 	if level_id == 1:
-		get_tree().change_scene_to_file("res://scenes/level_one.tscn")
-	elif level_id == 2 && level2_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_two.tscn")
-	elif level_id == 3 && level3_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_three.tscn")
-	elif level_id == 4 && level4_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
-	elif level_id == 5 && level5_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
-	elif level_id == 6 && level6_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
-	elif level_id == 7 && level7_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
-	elif level_id == 8 && level8_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
-	elif level_id == 9 && level9_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
-	elif level_id == 10 && level10_unlocked:
-		get_tree().change_scene_to_file("res://scenes/level_select.tscn")
+		get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
+	elif level_id == 2:
+		get_tree().change_scene_to_file("res://scenes/levels/level2.tscn")
+	elif level_id == 3:
+		get_tree().change_scene_to_file("res://scenes/levels/level3.tscn")
 	else:
-		print("Level does not exist or is not unlocked")
-		pass
+		print("Level does not exist")
+		get_tree().change_scene_to_file("res://scenes/menus/level_select.tscn")
+	return
