@@ -15,7 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="12_rcqid"]
 [ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="13_1ajci"]
 
-
 [sub_resource type="LabelSettings" id="LabelSettings_rcqid"]
 font = ExtResource("12_flqon")
 font_size = 50
@@ -102,8 +101,9 @@ offset_left = 1756.0
 offset_top = 23.0
 offset_right = 1900.0
 offset_bottom = 107.0
-text = "v0.4.3"
+text = "v0.5"
 label_settings = SubResource("LabelSettings_rcqid")
+horizontal_alignment = 2
 
 [node name="StartSelect" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
