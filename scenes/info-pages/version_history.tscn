@@ -4,7 +4,6 @@
 [ext_resource type="FontFile" uid="uid://cp3v0aybpc3jl" path="res://Fonts/rubik/Rubik-Bold.ttf" id="1_cikha"]
 [ext_resource type="FontFile" uid="uid://dvpvovkqfuk3s" path="res://Fonts/rubik/Rubik-Medium.ttf" id="2_4leat"]
 
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4leat"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xbik1"]
@@ -33,7 +32,12 @@ offset_right = 1728.0
 offset_bottom = 949.0
 theme_override_fonts/normal_font = ExtResource("2_4leat")
 theme_override_font_sizes/normal_font_size = 80
-text = "v0.4.3
+text = "v0.5
+-Added Star System to Game
+-Redid File / Level Directories
+-Improved Internal Managers
+
+v0.4.3
 -Added Explosion Ball
 -Added Level 3
 
