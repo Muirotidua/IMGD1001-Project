@@ -42,26 +42,21 @@ level_id = 3
 [node name="Menus" type="Node" parent="."]
 
 [node name="LevelPaused" parent="Menus" instance=ExtResource("2_ah4rv")]
-unique_name_in_owner = true
 visible = false
 
 [node name="LevelWon" parent="Menus" instance=ExtResource("3_522sc")]
-unique_name_in_owner = true
 visible = false
 
 [node name="LevelLost" parent="Menus" instance=ExtResource("4_a82vw")]
-unique_name_in_owner = true
 visible = false
 
 [node name="SwapBall" parent="Menus" node_paths=PackedStringArray("swap_ball_button") instance=ExtResource("5_t14x3")]
-unique_name_in_owner = true
 visible = false
 swap_ball_button = NodePath("../../Buttons/SwapBallButton")
 
 [node name="Buttons" type="Node" parent="."]
 
 [node name="PausedButton" parent="Buttons" instance=ExtResource("6_ahaer")]
-unique_name_in_owner = true
 process_mode = 3
 offset_left = 19.0
 offset_top = 19.0
@@ -77,7 +72,6 @@ icon = ExtResource("7_wt4k6")
 flat = true
 
 [node name="SwapBallButton" parent="Buttons" instance=ExtResource("8_wo5bm")]
-unique_name_in_owner = true
 offset_left = 56.0
 offset_top = 872.0
 offset_right = 214.0
@@ -86,7 +80,6 @@ offset_bottom = 1021.97235
 [node name="Display" type="Node" parent="."]
 
 [node name="ShotCountDisplay" type="Label" parent="Display"]
-unique_name_in_owner = true
 offset_left = 1483.0
 offset_top = 961.0
 offset_right = 1874.0
@@ -97,16 +90,13 @@ label_settings = SubResource("LabelSettings_txau4")
 [node name="Stars" type="Node" parent="Display"]
 
 [node name="Star1" parent="Display/Stars" instance=ExtResource("9_ah4rv")]
-unique_name_in_owner = true
 position = Vector2(130.32985, 181)
 
 [node name="Star2" parent="Display/Stars" instance=ExtResource("9_ah4rv")]
-unique_name_in_owner = true
 position = Vector2(127.32985, 337)
 frame = 1
 
 [node name="Star3" parent="Display/Stars" instance=ExtResource("9_ah4rv")]
-unique_name_in_owner = true
 position = Vector2(129.32985, 490)
 frame = 2
 
@@ -117,7 +107,6 @@ unique_name_in_owner = true
 z_index = -1
 
 [node name="CueBall" parent="." instance=ExtResource("10_022ip")]
-unique_name_in_owner = true
 position = Vector2(940, 458)
 
 [node name="Ball" parent="." instance=ExtResource("11_hl16f")]

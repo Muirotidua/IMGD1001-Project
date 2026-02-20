@@ -8,17 +8,17 @@ enum State{ WON, LOST, PLAYING }
 @export var three_star_limit = 1
 @export var level_id = 0
 
-@onready var cue: CueBall = %CueBall
-@onready var table: Node2D = %Boundary_Table
-@onready var pause: Node2D = %LevelPaused
-@onready var lost: Node2D = %LevelLost
-@onready var won: Node2D = %LevelWon
-@onready var shot_display: Label = %ShotCountDisplay
-@onready var swap_ball: Control = %SwapBall
-@onready var swap_ball_button: Button = %SwapBallButton
-@onready var star1: AnimatedSprite2D = %Star1
-@onready var star2: AnimatedSprite2D = %Star2
-@onready var star3: AnimatedSprite2D = %Star3
+@onready var cue: CueBall = $CueBall
+@onready var table: Node2D = $Other/Boundary_Table
+@onready var pause: Node2D = $Menus/LevelPaused
+@onready var lost: Node2D = $Menus/LevelLost
+@onready var won: Node2D = $Menus/LevelWon
+@onready var shot_display: Label = $Display/ShotCountDisplay
+@onready var swap_ball: Control = $Menus/SwapBall
+@onready var swap_ball_button: Button = $Buttons/SwapBallButton
+@onready var star1: AnimatedSprite2D = $Display/Stars/Star1
+@onready var star2: AnimatedSprite2D = $Display/Stars/Star2
+@onready var star3: AnimatedSprite2D = $Display/Stars/Star3
 
 var all_balls: Array[BaseBall] = []
 var rewinded: bool = false

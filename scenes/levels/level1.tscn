@@ -35,26 +35,21 @@ level_id = 1
 [node name="Menus" type="Node" parent="."]
 
 [node name="LevelPaused" parent="Menus" instance=ExtResource("2_nfihu")]
-unique_name_in_owner = true
 visible = false
 
 [node name="LevelWon" parent="Menus" instance=ExtResource("3_lgguw")]
-unique_name_in_owner = true
 visible = false
 
 [node name="LevelLost" parent="Menus" instance=ExtResource("4_jprdt")]
-unique_name_in_owner = true
 visible = false
 
 [node name="SwapBall" parent="Menus" node_paths=PackedStringArray("swap_ball_button") instance=ExtResource("5_ps2vj")]
-unique_name_in_owner = true
 visible = false
-swap_ball_button = NodePath("../../Buttons/SwapBallButton2")
+swap_ball_button = NodePath("../../Buttons/SwapBallButton")
 
 [node name="Buttons" type="Node" parent="."]
 
 [node name="PausedButton" parent="Buttons" instance=ExtResource("6_sbmf2")]
-unique_name_in_owner = true
 process_mode = 3
 offset_left = 19.0
 offset_top = 19.0
@@ -69,8 +64,7 @@ text = ""
 icon = ExtResource("7_1xax6")
 flat = true
 
-[node name="SwapBallButton2" parent="Buttons" instance=ExtResource("8_g7tkf")]
-unique_name_in_owner = true
+[node name="SwapBallButton" parent="Buttons" instance=ExtResource("8_g7tkf")]
 offset_left = 56.0
 offset_top = 872.0
 offset_right = 214.0
@@ -79,7 +73,6 @@ offset_bottom = 1021.97235
 [node name="Display" type="Node" parent="."]
 
 [node name="ShotCountDisplay" type="Label" parent="Display"]
-unique_name_in_owner = true
 offset_left = 1483.0
 offset_top = 961.0
 offset_right = 1874.0
@@ -90,31 +83,26 @@ label_settings = SubResource("LabelSettings_4i3tx")
 [node name="Stars" type="Node" parent="Display"]
 
 [node name="Star1" parent="Display/Stars" instance=ExtResource("9_nfihu")]
-unique_name_in_owner = true
 position = Vector2(130.32985, 181)
 
 [node name="Star2" parent="Display/Stars" instance=ExtResource("9_nfihu")]
-unique_name_in_owner = true
 position = Vector2(127.32985, 337)
 frame = 1
 
 [node name="Star3" parent="Display/Stars" instance=ExtResource("9_nfihu")]
-unique_name_in_owner = true
 position = Vector2(129.32985, 490)
 frame = 2
 
 [node name="Other" type="Node" parent="."]
 
 [node name="Boundary_Table" parent="Other" instance=ExtResource("9_4fww7")]
-unique_name_in_owner = true
 z_index = -1
 
 [node name="CueBall" parent="." instance=ExtResource("10_gvm5i")]
-unique_name_in_owner = true
 position = Vector2(977, 478)
 
 [node name="EightBall" parent="." instance=ExtResource("11_jrfo0")]
 position = Vector2(974, 708)
 
 [connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
-[connection signal="pressed" from="Buttons/SwapBallButton2" to="." method="_on_swap_ball_button_pressed"]
+[connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]
