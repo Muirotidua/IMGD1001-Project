@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dih2bhghs70xg"]
+[gd_scene load_steps=21 format=3 uid="uid://dih2bhghs70xg"]
 
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="1_6lum8"]
 [ext_resource type="Script" uid="uid://1orqlroorufl" path="res://scripts/levels/level_template.gd" id="1_iw5l3"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="4_iw5l3"]
 [ext_resource type="PackedScene" uid="uid://cw8aac2atgqxf" path="res://scenes/level-components/pause_button.tscn" id="6_770am"]
 [ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_0ra3k"]
+[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_g1ai2"]
 [ext_resource type="PackedScene" uid="uid://cwlxqek67067h" path="res://scenes/in-level-menus/swapball.tscn" id="10_hj7jb"]
+[ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_fwulr"]
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="11_hj7jb"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="12_h2vd2"]
 
@@ -92,16 +94,33 @@ frame = 1
 position = Vector2(129.32985, 490)
 frame = 2
 
+[node name="Tutorial" parent="Display" instance=ExtResource("10_g1ai2")]
+modulate = Color(0.2903535, 0.2903535, 0.29035345, 1)
+z_index = -2
+position = Vector2(975.99994, 257.99997)
+scale = Vector2(0.29035875, 0.29035875)
+
+[node name="LevelName" type="Label" parent="Display"]
+offset_left = 314.0
+offset_top = 969.0
+offset_right = 1241.0
+offset_bottom = 1053.0
+theme_override_fonts/font = ExtResource("11_fwulr")
+theme_override_font_sizes/font_size = 70
+text = "Level _: Level Description"
+
 [node name="Other" type="Node" parent="."]
 
 [node name="Boundary_Table" parent="Other" instance=ExtResource("1_6lum8")]
+visible = false
 z_index = -1
+metadata/_edit_lock_ = true
 
 [node name="CueBall" parent="." instance=ExtResource("1_mm7tu")]
-position = Vector2(970, 294)
+position = Vector2(678, 461)
 
 [node name="Ball" parent="." instance=ExtResource("4_iw5l3")]
-position = Vector2(1223, 406)
+position = Vector2(1279, 458)
 
 [connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
 [connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://djdeofpa286qq"]
+[gd_scene load_steps=22 format=3 uid="uid://djdeofpa286qq"]
 
 [ext_resource type="Script" uid="uid://bu55h3e3g8bmc" path="res://scripts/levels/level2.gd" id="1_8i1lk"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_hgky1"]
@@ -10,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="8_4eecq"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="9_b3p8y"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_hgky1"]
+[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_b4tpv"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="10_bxuut"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="11_g04qb"]
+[ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_hkuam"]
 [ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="12_ida7w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8imr8"]
@@ -97,10 +99,26 @@ frame = 1
 position = Vector2(129.32985, 490)
 frame = 2
 
+[node name="Tutorial" parent="Display" instance=ExtResource("10_b4tpv")]
+modulate = Color(0.2903535, 0.2903535, 0.29035345, 1)
+z_index = -2
+position = Vector2(975.99994, 257.99997)
+scale = Vector2(0.29035875, 0.29035875)
+
+[node name="LevelName" type="Label" parent="Display"]
+offset_left = 317.0
+offset_top = 974.0
+offset_right = 1244.0
+offset_bottom = 1058.0
+theme_override_fonts/font = ExtResource("11_hkuam")
+theme_override_font_sizes/font_size = 70
+text = "Level 2: Three's Company"
+
 [node name="Other" type="Node" parent="."]
 
 [node name="Boundary_Table" parent="Other" instance=ExtResource("9_b3p8y")]
 z_index = -1
+metadata/_edit_lock_ = true
 
 [node name="CueBall" parent="." instance=ExtResource("10_bxuut")]
 position = Vector2(791, 440)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjam3v857ixvp"]
+
+[ext_resource type="Texture2D" uid="uid://dh8efdrdti6t1" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0004_Layer-8.png" id="1_rdhte"]
+[ext_resource type="Texture2D" uid="uid://82g0plycrb07" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0003_Layer-9.png" id="2_c3rkq"]
+[ext_resource type="Texture2D" uid="uid://en4bt0xq20u5" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0002_Layer-10.png" id="3_hiisl"]
+[ext_resource type="Texture2D" uid="uid://c40su7danwyna" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0001_Layer-11.png" id="4_tt1lc"]
+[ext_resource type="Texture2D" uid="uid://b14c4pshebclh" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0000_Layer-9-copy.png" id="5_nmrbx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ir7bu"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rdhte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_c3rkq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hiisl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tt1lc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nmrbx")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}]
+
+[node name="Tutorial" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ir7bu")
+animation = &"0"
