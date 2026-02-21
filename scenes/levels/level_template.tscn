@@ -44,9 +44,8 @@ visible = false
 [node name="LevelLost" parent="Menus" instance=ExtResource("2_cdatj")]
 visible = false
 
-[node name="SwapBall" parent="Menus" node_paths=PackedStringArray("swap_ball_button") instance=ExtResource("10_hj7jb")]
+[node name="SwapBall" parent="Menus" instance=ExtResource("10_hj7jb")]
 visible = false
-swap_ball_button = NodePath("../../Buttons/SwapBallButton")
 
 [node name="Buttons" type="Node" parent="."]
 
@@ -66,10 +65,10 @@ icon = ExtResource("7_0ra3k")
 flat = true
 
 [node name="SwapBallButton" parent="Buttons" instance=ExtResource("11_hj7jb")]
-offset_left = 56.0
-offset_top = 872.0
-offset_right = 214.0
-offset_bottom = 1021.97235
+offset_left = 44.0
+offset_top = 853.0
+offset_right = 39.079987
+offset_bottom = 847.92
 
 [node name="Display" type="Node" parent="."]
 
@@ -121,6 +120,3 @@ position = Vector2(678, 461)
 
 [node name="Ball" parent="." instance=ExtResource("4_iw5l3")]
 position = Vector2(1279, 458)
-
-[connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
-[connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]

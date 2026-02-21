@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://44xiejg5nsq6"]
+
+[ext_resource type="Texture2D" uid="uid://df7ixmmvqhnjd" path="res://visuals/poolball-filled/Untitled-1_0000_Layer-1-copy-3.png" id="1_sbrny"]
+[ext_resource type="Texture2D" uid="uid://b3x7bm371vark" path="res://visuals/poolball-filled/Untitled-1_0001_Layer-1-copy-2.png" id="2_ahcpy"]
+[ext_resource type="Texture2D" uid="uid://du3a6oavwejf8" path="res://visuals/poolball-filled/Untitled-1_0002_Layer-1-copy.png" id="3_dcwj2"]
+[ext_resource type="Texture2D" uid="uid://dqpk4i4u2espd" path="res://visuals/temp/BombBall.png" id="4_6y4if"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5bgfd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sbrny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ahcpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dcwj2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6y4if")
+}],
+"loop": true,
+"name": &"explosion_ball",
+"speed": 5.0
+}]
+
+[node name="FullBall" type="AnimatedSprite2D"]
+scale = Vector2(0.06, 0.06)
+sprite_frames = SubResource("SpriteFrames_5bgfd")
+autoplay = "default"

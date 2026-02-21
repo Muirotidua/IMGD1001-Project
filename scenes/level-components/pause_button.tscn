@@ -7,5 +7,3 @@ offset_right = 151.0
 offset_bottom = 132.0
 theme_override_fonts/font = ExtResource("1_5rmv1")
 text = "Pause"
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]

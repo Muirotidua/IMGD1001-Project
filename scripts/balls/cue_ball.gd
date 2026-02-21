@@ -6,6 +6,7 @@ class_name CueBall extends BaseBall
 @export var curr_ball: BallType = BallType.NORMAL
 @export var rapid_fire: bool = false
 @export var infinite_shots: bool = false
+@export var change_anytime: bool = false
 @export var charge_rate = 40
 # initial shot number that is incremented for each type of shot. 
 # when it is greater than number of level shots the level triggers failstate
@@ -13,8 +14,9 @@ class_name CueBall extends BaseBall
 var rewinded: bool = false
 var shot_power = 0;
 var MAX_HOLD = 50
-enum BallType{NORMAL, EXPLOSION}
-var ball_type : BallType
+var ball_type : GlobalEnums.BallType
+var ball_type_list: Array[GlobalEnums.BallType] = [GlobalEnums.BallType.NORMAL, GlobalEnums.BallType.EXPLOSION]
+var ball_sprite_list: Array[String] = ["default", "explosion_ball"]
 
 @onready var shot_count = 0
 @onready var count_label: Label = $NonRotate/CountLabel
@@ -26,6 +28,7 @@ var ball_type : BallType
 var shot_ready:bool  = true
 
 signal try_shoot()
+signal swapped_ball()
 
 func _ready():
 	super._ready()
@@ -36,16 +39,17 @@ func _ready():
 		count_label.hide()
 	pointer.add_point(Vector2.ZERO)
 	pointer.add_point(get_local_mouse_position())
-	type = GlobalEnums.BallType.CUE_BALL
 	%ProgressBar.visible = false 
-	ball_type = BallType.NORMAL
+	ball_type = GlobalEnums.BallType.NORMAL
 	sprite.play("default")
 
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
-	if(Input.is_action_just_pressed("switch_type")):
-		switch_type()  
+	if(Input.is_action_just_pressed("switch_type_left")):
+		switch_type_dir("l")
+	if(Input.is_action_just_pressed("switch_type_right")):
+		switch_type_dir("r")
 	if(Input.is_action_pressed("ball_hit")&&shot_ready):
 		if debug_labels:
 			%ProgressBar.show()   
@@ -58,7 +62,7 @@ func _physics_process(delta: float) -> void:
 	if(Input.is_action_just_released("ball_hit")&&shot_ready):
 		try_shoot.emit()
 		%ProgressBar.hide()
-		pool_cue.reset()  
+		pool_cue.reset()
 		print("Ball Type:", ball_type )
 
 
@@ -101,19 +105,32 @@ func rewind():
 	super.rewind()
 
 func _on_body_entered(_body: Node) -> void:
-	if(ball_type == BallType.EXPLOSION):
+	if(ball_type == GlobalEnums.BallType.EXPLOSION):
 		var balls = %ExplosionArea.get_overlapping_bodies()
 		print(balls)
 		for ball in balls:
 			if (ball is PoolBall || ball is EightBall):
 				var impulse = ball.position-position 
-				ball.apply_impulse(impulse*impulse_multiplier)
+				ball.apply_impulse(impulse*10)
+		switch_type_spc(GlobalEnums.BallType.NORMAL)
 
-func switch_type():
-	if (ball_type == BallType.NORMAL):
-		ball_type = BallType.EXPLOSION
-		sprite.play("explosion_ball")
+func switch_type_dir(dir):
+	if !shot_ready || change_anytime:
+		return
+	if dir == "l":
+		if ball_type - 1 < 0:
+			ball_type = ball_type_list[ball_type_list.size() - 1]
+		else: 
+			ball_type = ball_type_list[ball_type - 1]
 	else:
-		ball_type = BallType.NORMAL
-		sprite.play("default")
-	print(ball_type)
+		if ball_type + 1 >= ball_type_list.size():
+			ball_type = ball_type_list[0]
+		else:
+			ball_type = ball_type_list[ball_type + 1]
+	sprite.play(ball_sprite_list[ball_type])
+	swapped_ball.emit()
+
+func switch_type_spc(new_type: GlobalEnums.BallType):
+	ball_type = new_type
+	sprite.play(ball_sprite_list[ball_type])
+	swapped_ball.emit()
