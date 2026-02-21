@@ -2,6 +2,7 @@ class_name CueBall extends BaseBall
 
 # Launch Multiplier
 @export var lm: float = 20
+@export var impluse_multiplier: float = 40
 @export var rapid_fire: bool = false
 @export var infinite_shots: bool = false
 @export var charge_rate = 40
@@ -105,7 +106,7 @@ func _on_body_entered(_body: Node) -> void:
 		for ball in balls:
 			if (ball is PoolBall || ball is EightBall):
 				var impulse = ball.position-position 
-				ball.apply_impulse(impulse*10)
+				ball.apply_impulse(impulse*impluse_multiplier)
 
 func switch_type():
 	if (ball_type == BallType.NORMAL):
