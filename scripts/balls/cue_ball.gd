@@ -3,18 +3,17 @@ class_name CueBall extends BaseBall
 # Launch Multiplier
 @export var lm: float = 20
 @export var impulse_multiplier: float = 40
-@export var curr_ball: BallType = BallType.NORMAL
 @export var rapid_fire: bool = false
 @export var infinite_shots: bool = false
 @export var change_anytime: bool = false
 @export var charge_rate = 40
+@export var ball_type: GlobalEnums.BallType = GlobalEnums.BallType.NORMAL
 # initial shot number that is incremented for each type of shot. 
 # when it is greater than number of level shots the level triggers failstate
 
 var rewinded: bool = false
 var shot_power = 0;
 var MAX_HOLD = 50
-var ball_type : GlobalEnums.BallType
 var ball_type_list: Array[GlobalEnums.BallType] = [GlobalEnums.BallType.NORMAL, GlobalEnums.BallType.EXPLOSION]
 var ball_sprite_list: Array[String] = ["default", "explosion_ball"]
 
@@ -40,8 +39,7 @@ func _ready():
 	pointer.add_point(Vector2.ZERO)
 	pointer.add_point(get_local_mouse_position())
 	%ProgressBar.visible = false 
-	ball_type = GlobalEnums.BallType.NORMAL
-	sprite.play("default")
+	switch_type_spc(ball_type)
 
 
 func _physics_process(delta: float) -> void:
