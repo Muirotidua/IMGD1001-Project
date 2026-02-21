@@ -34,6 +34,8 @@ signal shoot()
 
 func _ready():
 	get_tree().paused = false
+	swap_ball.swap_cue.connect(swap_cue_type)
+	swap_ball_button.pressed.connect(_on_swap_ball_button_pressed)
 	table.pocketed_ball.connect(on_pocket)
 	cue.try_shoot.connect(on_try_shoot)
 	cue.swapped_ball.connect(update_swap_ball_sprite)
@@ -44,9 +46,8 @@ func _ready():
 	won.restart.connect(reset_table)
 	won.next_lev.connect(onward)
 	shoot.connect(cue.on_shoot)
-	swap_ball.swap_cue.connect(swap_cue_type)
 	paused_button.pressed.connect(_on_paused_button_pressed)
-	swap_ball_button.pressed.connect(_on_swap_ball_button_pressed)
+	update_swap_ball_sprite()
 	star1.play("full")
 	star2.play("full")
 	star3.play("full")
