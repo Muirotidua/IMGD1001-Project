@@ -11,21 +11,21 @@ func _ready() -> void:
 	level_unlocked[0] = true
 
 func unlock_level(level_id: int):
-	if level_id > level_count:
-		print("Level ID too high")
+	if level_id > level_count || level_id <= 0:
+		print("Level ID out of range")
 		return
 	level_unlocked[level_id - 1] = true
 
 func set_stars(level_id:int, star_count: int):
-	if level_id > level_count:
-		print("Level ID too high")
+	if level_id > level_count || level_id <= 0:
+		print("Level ID out of range")
 		return
 	if star_count > level_stars[level_id - 1]:
 		level_stars[level_id - 1] = star_count
 
 func switch_level(level_id: int):
-	if level_id > level_count:
-		print("Level ID too high")
+	if level_id > level_count || level_id <= 0:
+		print("Level ID out of range")
 		return
 	print("Level " + str(level_id))
 	if !level_unlocked[level_id - 1]:
