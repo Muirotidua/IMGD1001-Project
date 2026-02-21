@@ -120,7 +120,7 @@ metadata/_edit_lock_ = true
 position = Vector2(678, 461)
 
 [node name="Ball" parent="." instance=ExtResource("14_vyr3h")]
-position = Vector2(1279, 458)
+position = Vector2(918, 458)
 
 [connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
 [connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]
