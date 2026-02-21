@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cx0vsar1injtx"]
+[gd_scene load_steps=21 format=3 uid="uid://cx0vsar1injtx"]
 
 [ext_resource type="Script" uid="uid://dleqkbjtonrqa" path="res://scripts/levels/level1.gd" id="1_nkeig"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_nfihu"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="9_4fww7"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_nfihu"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="10_gvm5i"]
+[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_lgguw"]
+[ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_jprdt"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="11_jrfo0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlxio"]
@@ -93,10 +95,26 @@ frame = 1
 position = Vector2(129.32985, 490)
 frame = 2
 
+[node name="Tutorial" parent="Display" instance=ExtResource("10_lgguw")]
+modulate = Color(0.2903535, 0.2903535, 0.29035345, 1)
+z_index = -2
+position = Vector2(975.99994, 257.99997)
+scale = Vector2(0.29035875, 0.29035875)
+
+[node name="LevelName" type="Label" parent="Display"]
+offset_left = 314.0
+offset_top = 969.0
+offset_right = 1241.0
+offset_bottom = 1053.0
+theme_override_fonts/font = ExtResource("11_jprdt")
+theme_override_font_sizes/font_size = 70
+text = "Level 1: The First One"
+
 [node name="Other" type="Node" parent="."]
 
 [node name="Boundary_Table" parent="Other" instance=ExtResource("9_4fww7")]
 z_index = -1
+metadata/_edit_lock_ = true
 
 [node name="CueBall" parent="." instance=ExtResource("10_gvm5i")]
 position = Vector2(977, 478)

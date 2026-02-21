@@ -19,6 +19,7 @@ enum State{ WON, LOST, PLAYING }
 @onready var star1: AnimatedSprite2D = $Display/Stars/Star1
 @onready var star2: AnimatedSprite2D = $Display/Stars/Star2
 @onready var star3: AnimatedSprite2D = $Display/Stars/Star3
+@onready var tutorial: AnimatedSprite2D = $Display/Tutorial
 
 var all_balls: Array[BaseBall] = []
 var rewinded: bool = false
@@ -43,6 +44,11 @@ func _ready():
 	star1.play("full")
 	star2.play("full")
 	star3.play("full")
+	if tutorial.sprite_frames.has_animation(str(level_id)):
+		tutorial.show()
+		tutorial.play(str(level_id))
+	else:
+		tutorial.hide()
 	for child: Node in get_children():
 		if child is BaseBall:
 			all_balls.append(child)
@@ -74,8 +80,9 @@ func on_pocket(ball, _pocket):
 func on_try_shoot(): # ?
 	for ball: BaseBall in all_balls:
 		ball.updateLastPos()
+	tutorial.stop()
+	tutorial.hide()
 	shoot.emit()
-		
 
 # False if no balls are moving. True otherwise
 func moving_balls() -> bool: # ??? Need to ensure that this is looking at the cue ball moving, ask Liam when he's back.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ds2cod5qbgbga"]
+[gd_scene load_steps=23 format=3 uid="uid://ds2cod5qbgbga"]
 
 [ext_resource type="Script" uid="uid://bh5plyxawx74" path="res://scripts/levels/level3.gd" id="1_wb0vq"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_ah4rv"]
@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_ah4rv"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="9_edoqj"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="10_022ip"]
+[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_522sc"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="11_hl16f"]
 [ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="12_v6yyo"]
+[ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="15_a82vw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pcq6o"]
 
@@ -100,11 +102,26 @@ frame = 1
 position = Vector2(129.32985, 490)
 frame = 2
 
+[node name="Tutorial" parent="Display" instance=ExtResource("10_522sc")]
+modulate = Color(0.2903535, 0.2903535, 0.29035345, 1)
+z_index = -2
+position = Vector2(975.99994, 257.99997)
+scale = Vector2(0.29035875, 0.29035875)
+
+[node name="LevelName" type="Label" parent="Display"]
+offset_left = 317.0
+offset_top = 974.0
+offset_right = 1244.0
+offset_bottom = 1058.0
+theme_override_fonts/font = ExtResource("15_a82vw")
+theme_override_font_sizes/font_size = 70
+text = "Level 3: Dodgin' Walls"
+
 [node name="Other" type="Node" parent="."]
 
 [node name="Boundary_Table" parent="Other" instance=ExtResource("9_edoqj")]
-unique_name_in_owner = true
 z_index = -1
+metadata/_edit_lock_ = true
 
 [node name="CueBall" parent="." instance=ExtResource("10_022ip")]
 position = Vector2(940, 458)
