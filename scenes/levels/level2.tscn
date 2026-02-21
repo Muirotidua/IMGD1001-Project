@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="8_4eecq"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="9_b3p8y"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_hgky1"]
-[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_b4tpv"]
+[ext_resource type="PackedScene" path="res://scenes/level-components/tutorial.tscn" id="10_b4tpv"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="10_bxuut"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="11_g04qb"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_hkuam"]
@@ -121,6 +121,7 @@ metadata/_edit_lock_ = true
 
 [node name="CueBall" parent="." instance=ExtResource("10_bxuut")]
 position = Vector2(791, 440)
+curr_ball = 1
 
 [node name="EightBall" parent="." instance=ExtResource("11_g04qb")]
 position = Vector2(1303, 438)

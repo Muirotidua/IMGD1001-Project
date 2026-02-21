@@ -67,6 +67,8 @@ func _physics_process(_delta: float) -> void:
 		rewind_shot()
 	if Input.is_action_just_pressed("print_info"):
 		print_info()
+	if Input.is_action_just_pressed("pause"):
+		_on_paused_button_pressed()
 	if !moving_balls():
 		check_final() 
 		cue.shot_ready = (state == State.PLAYING)
