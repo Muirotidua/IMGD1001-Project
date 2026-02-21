@@ -3,6 +3,7 @@ class_name CueBall extends BaseBall
 # Launch Multiplier
 @export var lm: float = 20
 @export var impulse_multiplier: float = 40
+@export var curr_ball: BallType = BallType.NORMAL
 @export var rapid_fire: bool = false
 @export var infinite_shots: bool = false
 @export var charge_rate = 40

@@ -107,7 +107,7 @@ offset_right = 1241.0
 offset_bottom = 1053.0
 theme_override_fonts/font = ExtResource("11_ngf84")
 theme_override_font_sizes/font_size = 70
-text = "Level _: Level Description"
+text = "Level 5: Bombs Away!"
 
 [node name="Other" type="Node" parent="."]
 
