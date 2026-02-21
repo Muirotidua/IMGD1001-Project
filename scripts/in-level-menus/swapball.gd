@@ -1,24 +1,24 @@
 extends Control
-@export var swap_ball_button : Button
 @onready var ball_label = $"BallNameLabel"
 @onready var ball_desc = $BallDescription
 
+signal swap_cue(new_type: GlobalEnums.BallType)
 
 func _on_fullball_button_pressed() -> void:
 	get_tree().paused = false
 	visible = false
-	swap_ball_button.icon = $"FullballImage".texture.duplicate()
+	swap_cue.emit(GlobalEnums.BallType.NORMAL)
 
 
 func _on_hollowball_button_pressed() -> void:
 	get_tree().paused = false
 	visible = false
-	swap_ball_button.icon = $"Hollowball_Image".texture.duplicate()
+	swap_cue.emit(GlobalEnums.BallType.NORMAL)
 
 func _on_icon_button_pressed() -> void:
 	get_tree().paused = false
 	visible = false
-	swap_ball_button.icon = $"Icon_Image".texture.duplicate()
+	swap_cue.emit(GlobalEnums.BallType.EXPLOSION)
 
 
 func _on_icon_button_mouse_entered() -> void:

@@ -1,29 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://ptp6coop1tmo"]
+[gd_scene load_steps=2 format=3 uid="uid://ptp6coop1tmo"]
 
-[ext_resource type="Texture2D" uid="uid://unfatubegi3u" path="res://visuals/ball/fullball.png" id="1_6cbbr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6cbbr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4xsm0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cfict"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ag0wi"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtnyt"]
+[ext_resource type="PackedScene" uid="uid://44xiejg5nsq6" path="res://scenes/ball-components/cue_sprite.tscn" id="1_pfnpp"]
 
 [node name="Swap_Ball_Button" type="Button"]
 anchors_preset = -1
-anchor_bottom = 0.015000001
-offset_left = 8.0
-offset_top = 704.0
-offset_right = 392.0
-offset_bottom = 1059.8
-theme_override_styles/normal = SubResource("StyleBoxEmpty_6cbbr")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_4xsm0")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_cfict")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ag0wi")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qtnyt")
-icon = ExtResource("1_6cbbr")
+anchor_right = 0.101
+anchor_bottom = 0.17600001
+offset_left = 1.0
+offset_top = 4.0
+offset_right = -2.9200134
+offset_bottom = -1.0800171
 flat = true
 expand_icon = true
+
+[node name="Sprite" parent="." instance=ExtResource("1_pfnpp")]
+z_index = 1
+position = Vector2(91.58825, 92.437515)
+scale = Vector2(0.26833326, 0.26833326)

@@ -14,8 +14,10 @@ enum State{ WON, LOST, PLAYING }
 @onready var lost: Node2D = $Menus/LevelLost
 @onready var won: Node2D = $Menus/LevelWon
 @onready var shot_display: Label = $Display/ShotCountDisplay
+@onready var paused_button: Button = $Buttons/PausedButton
 @onready var swap_ball: Control = $Menus/SwapBall
 @onready var swap_ball_button: Button = $Buttons/SwapBallButton
+@onready var swap_ball_button_sprite: AnimatedSprite2D = $Buttons/SwapBallButton/Sprite
 @onready var star1: AnimatedSprite2D = $Display/Stars/Star1
 @onready var star2: AnimatedSprite2D = $Display/Stars/Star2
 @onready var star3: AnimatedSprite2D = $Display/Stars/Star3
@@ -34,6 +36,7 @@ func _ready():
 	get_tree().paused = false
 	table.pocketed_ball.connect(on_pocket)
 	cue.try_shoot.connect(on_try_shoot)
+	cue.swapped_ball.connect(update_swap_ball_sprite)
 	pause.restart.connect(reset_table)
 	pause.resume.connect(resume_play)
 	lost.restart.connect(reset_table)
@@ -41,6 +44,9 @@ func _ready():
 	won.restart.connect(reset_table)
 	won.next_lev.connect(onward)
 	shoot.connect(cue.on_shoot)
+	swap_ball.swap_cue.connect(swap_cue_type)
+	paused_button.pressed.connect(_on_paused_button_pressed)
+	swap_ball_button.pressed.connect(_on_swap_ball_button_pressed)
 	star1.play("full")
 	star2.play("full")
 	star3.play("full")
@@ -209,13 +215,17 @@ func update_shot_display():
 		shot_display.text = "1 shot left!!"
 	else:
 		shot_display.text = (str((shot_limit-cue.shot_count))+" shots left.")
-		
-		
-		
 
 func swap():
 	get_tree().paused = true
 	swap_ball.visible = true
 
 func _on_swap_ball_button_pressed() -> void:
-	swap()
+	if cue.shot_ready:
+		swap()
+
+func swap_cue_type(new_type: GlobalEnums.BallType):
+	cue.switch_type_spc(new_type)
+	
+func update_swap_ball_sprite():
+	swap_ball_button_sprite.play(cue.ball_sprite_list[cue.ball_type])

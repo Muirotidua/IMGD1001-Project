@@ -19,7 +19,6 @@ var ignore_pocket: bool = false
 
 var def_state: String = "default"
 var state: String = "default"
-var type: GlobalEnums.BallType = GlobalEnums.BallType.GENERIC_BALL
 
 @onready var last_pos: Vector2 = global_position
 @onready var def_pos: Vector2 = global_position
