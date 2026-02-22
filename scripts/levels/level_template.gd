@@ -7,6 +7,8 @@ enum State{ WON, LOST, PLAYING }
 @export var two_star_limit = 2
 @export var three_star_limit = 1
 @export var level_id = 0
+@export var normal_available: bool = true
+@export var explosion_available: bool = false
 
 @onready var cue: CueBall = $CueBall
 @onready var table: Node2D = $Other/Boundary_Table
@@ -35,7 +37,6 @@ signal shoot()
 func _ready():
 	get_tree().paused = false
 	swap_ball.swap_cue.connect(swap_cue_type)
-	swap_ball_button.pressed.connect(_on_swap_ball_button_pressed)
 	table.pocketed_ball.connect(on_pocket)
 	cue.try_shoot.connect(on_try_shoot)
 	cue.swapped_ball.connect(update_swap_ball_sprite)
@@ -46,11 +47,32 @@ func _ready():
 	won.restart.connect(reset_table)
 	won.next_lev.connect(onward)
 	shoot.connect(cue.on_shoot)
-	paused_button.pressed.connect(_on_paused_button_pressed)
+	if !swap_ball_button.pressed.is_connected(_on_swap_ball_button_pressed):
+		swap_ball_button.pressed.connect(_on_swap_ball_button_pressed)
+	if !paused_button.pressed.is_connected(_on_paused_button_pressed):
+		paused_button.pressed.connect(_on_paused_button_pressed)
 	update_swap_ball_sprite()
 	star1.play("full")
 	star2.play("full")
 	star3.play("full")
+	if normal_available:
+		cue.available_types.append(GlobalEnums.BallType.NORMAL)
+		cue.available_sprites.append("default")
+	if explosion_available:
+		cue.available_types.append(GlobalEnums.BallType.EXPLOSION)
+		cue.available_sprites.append("explosion_ball")
+	if cue.available_types.size() == 0:
+		# Force at least 1 ball to exist
+		cue.available_types.append(GlobalEnums.BallType.NORMAL)
+		cue.available_sprites.append("default")
+	for i in range(GlobalEnums.BallType.size()):
+		if cue.available_types.has(GlobalEnums.BallType.values()[i - 1]):
+			LevelManager.type_discovered[i - 1] = true
+			swap_ball.ball_availability[i - 1] = GlobalEnums.BallAvailability.AVAILABLE
+		elif LevelManager.type_discovered[i - 1]:
+			swap_ball.ball_availability[i - 1] = GlobalEnums.BallAvailability.UNAVAILABLE
+	cue.switch_type_spc(cue.ball_type)
+	swap_ball.color()
 	if tutorial.sprite_frames.has_animation(str(level_id)):
 		tutorial.show()
 		tutorial.play(str(level_id))
