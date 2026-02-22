@@ -14,8 +14,7 @@
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="12_y661n"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="13_ie8wy"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="14_h4dr5"]
-[ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="15_cmwrw"]
-[ext_resource type="PackedScene" uid="uid://ccsleuuk05i5x" path="res://scenes/obstacles/boundaryunlock.tscn" id="16_hseji"]
+[ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="17_hseji"]
 [ext_resource type="PackedScene" uid="uid://dvfyb1ha6dsvv" path="res://scenes/obstacles/boundary_obstacle.tscn" id="17_km634"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
@@ -45,6 +44,8 @@ font_size = 72
 [node name="Level6" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_3mgnq")
+shot_limit = 5
+two_star_limit = 3
 level_id = 6
 
 [node name="Menus" type="Node" parent="."]
@@ -128,7 +129,7 @@ offset_right = 1251.0
 offset_bottom = 994.0
 theme_override_fonts/font = ExtResource("12_y661n")
 theme_override_font_sizes/font_size = 70
-text = "Level 6: The Reckoning"
+text = "Level 6: Open Sesame"
 
 [node name="Other" type="Node" parent="."]
 
@@ -138,38 +139,41 @@ z_index = -1
 metadata/_edit_lock_ = true
 
 [node name="CueBall" parent="." instance=ExtResource("14_h4dr5")]
-position = Vector2(381, 154)
-
-[node name="Ball" parent="." instance=ExtResource("15_cmwrw")]
-position = Vector2(1279, 458)
-
-[node name="BoundaryUnlock" parent="." instance=ExtResource("16_hseji")]
-position = Vector2(1286, 89)
+position = Vector2(976, 448)
+ball_type = 1
 
 [node name="BoundaryObstacle" parent="." instance=ExtResource("17_km634")]
-position = Vector2(1602, 107)
-rotation = -5.2458324
+position = Vector2(1591, 117.00006)
+rotation = -2.3051717
 
 [node name="BoundaryObstacle2" parent="." instance=ExtResource("17_km634")]
-position = Vector2(335, 761)
-rotation = -5.2458324
+position = Vector2(1589, 751.0001)
+rotation = -0.86753047
 
 [node name="BoundaryObstacle3" parent="." instance=ExtResource("17_km634")]
-position = Vector2(1603, 762)
-rotation = -0.7613551
+position = Vector2(350.0001, 745.00006)
+rotation = -5.497146
+active = false
 
 [node name="BoundaryObstacle4" parent="." instance=ExtResource("17_km634")]
-position = Vector2(336, 107)
-rotation = -0.7613551
+position = Vector2(354, 116.99999)
+rotation = 2.4083378
+active = false
 
 [node name="BoundaryObstacle5" parent="." instance=ExtResource("17_km634")]
-position = Vector2(968, 80)
+position = Vector2(972, 94.00001)
+rotation = -3.12821
+active = false
 
 [node name="BoundaryObstacle6" parent="." instance=ExtResource("17_km634")]
-position = Vector2(968, 786)
+position = Vector2(968, 770)
+active = false
+
+[node name="PoolBall" parent="." instance=ExtResource("17_hseji")]
+position = Vector2(1218, 470)
+
+[node name="PoolBall2" parent="." instance=ExtResource("17_hseji")]
+position = Vector2(1217, 427)
 
 [connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
 [connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]
-[connection signal="body_entered" from="BoundaryUnlock/Area2D" to="." method="_on_area_2d_body_entered"]
-
-[editable path="BoundaryUnlock"]
