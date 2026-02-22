@@ -3,12 +3,17 @@ extends Node
 const level_count = 10
 var level_unlocked: Array[bool]
 var level_stars: Array[int]
+var type_discovered: Array[bool]
+var unlock_all = true
 
 func _ready() -> void:
 	for i in range(level_count):
-		level_unlocked.append(false)
+		level_unlocked.append(unlock_all)
 		level_stars.append(0)
 	level_unlocked[0] = true
+	for i in range(GlobalEnums.BallType.size()):
+		type_discovered.append(false)
+	type_discovered[0] = true
 
 func unlock_level(level_id: int):
 	if level_id > level_count || level_id <= 0:

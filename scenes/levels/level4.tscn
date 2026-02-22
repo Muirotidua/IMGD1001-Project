@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://n1wjtf3828ep"]
+[gd_scene load_steps=22 format=3 uid="uid://dn8rl3ud35nf"]
 
 [ext_resource type="Script" uid="uid://1orqlroorufl" path="res://scripts/levels/level_template.gd" id="1_ov8fk"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_pmra4"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_05se8"]
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="8_12cdj"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_r3huh"]
-[ext_resource type="PackedScene" path="res://scenes/level-components/tutorial.tscn" id="10_lc5pf"]
+[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_lc5pf"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_0n65g"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_uyomx"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_io455"]
@@ -37,6 +37,7 @@ shot_limit = 10
 two_star_limit = 7
 three_star_limit = 3
 level_id = 4
+explosion_available = true
 
 [node name="Menus" type="Node" parent="."]
 

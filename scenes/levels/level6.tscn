@@ -1,6 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://dofoxcoar5oog"]
+[gd_scene load_steps=29 format=3 uid="uid://3pr3rvkh2kar"]
 
-[ext_resource type="Script" uid="uid://dyxx1460gfb5" path="res://scripts/levels/level_6.gd" id="1_3mgnq"]
+[ext_resource type="Script" path="res://scripts/levels/level_6.gd" id="1_3mgnq"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_uc8rk"]
 [ext_resource type="PackedScene" uid="uid://ceuyvfckkp75l" path="res://scenes/in-level-menus/level_won.tscn" id="3_hseji"]
 [ext_resource type="PackedScene" uid="uid://c4whyrvxyjn6u" path="res://scenes/in-level-menus/level_lost.tscn" id="4_km634"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="8_7xq2f"]
 [ext_resource type="Texture2D" uid="uid://unfatubegi3u" path="res://visuals/temp/fullball.png" id="9_xmmsn"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="10_vjdek"]
-[ext_resource type="PackedScene" path="res://scenes/level-components/tutorial.tscn" id="11_qw2ud"]
+[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="11_qw2ud"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="12_y661n"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="13_ie8wy"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="14_h4dr5"]

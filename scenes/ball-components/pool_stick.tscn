@@ -30,3 +30,8 @@ unique_name_in_owner = true
 position = Vector2(-927, -13)
 sprite_frames = SubResource("SpriteFrames_snpxv")
 frame_progress = 0.50987077
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -11,20 +11,22 @@ class_name CueBall extends BaseBall
 # initial shot number that is incremented for each type of shot. 
 # when it is greater than number of level shots the level triggers failstate
 
-var rewinded: bool = false
+var rewinded: bool = true
 var shot_power = 0;
 var MAX_HOLD = 50
-var ball_type_list: Array[GlobalEnums.BallType] = [GlobalEnums.BallType.NORMAL, GlobalEnums.BallType.EXPLOSION]
 var ball_sprite_list: Array[String] = ["default", "explosion_ball"]
+var available_types: Array[GlobalEnums.BallType]
+var available_sprites: Array[String]
 
 @onready var shot_count = 0
 @onready var count_label: Label = $NonRotate/CountLabel
 @onready var pointer: Line2D = $PointerLine
-@onready var pool_cue: PoolStick = $PoolStick
+@onready var pool_stick: PoolStick = $PoolStick
 
 @onready var stick_pos: Vector2 = global_position
 
 var shot_ready:bool  = true
+var charging: bool = false
 
 signal try_shoot()
 signal swapped_ball()
@@ -39,7 +41,6 @@ func _ready():
 	pointer.add_point(Vector2.ZERO)
 	pointer.add_point(get_local_mouse_position())
 	%ProgressBar.visible = false 
-	switch_type_spc(ball_type)
 
 
 func _physics_process(delta: float) -> void:
@@ -49,19 +50,22 @@ func _physics_process(delta: float) -> void:
 	if(Input.is_action_just_pressed("switch_type_right")):
 		switch_type_dir("r")
 	if(Input.is_action_pressed("ball_hit")&&shot_ready):
+		charging = true
+		pool_stick.pausable = true
 		if debug_labels:
 			%ProgressBar.show()   
 		if(shot_power < MAX_HOLD):
 			shot_power += charge_rate * delta
 		%ProgressBar.value = shot_power
-		pool_cue.distance = shot_power
-		pool_cue.show()
+		pool_stick.distance = shot_power
+		pool_stick.show()
 		stick_pos = global_position
-	if(Input.is_action_just_released("ball_hit")&&shot_ready):
+	elif charging:
+		charging = false
 		try_shoot.emit()
-		%ProgressBar.hide()
-		pool_cue.reset()
-		print("Ball Type:", ball_type )
+		%ProgressBar.hide()                                                                
+		pool_stick.reset()                                               
+		print("Ball Type: ", ball_type)
 
 
 func _process(_delta: float) -> void:
@@ -75,7 +79,7 @@ func _process(_delta: float) -> void:
 		pointer.show()
 	else:
 		pointer.hide()
-	pool_cue.global_position = stick_pos
+	pool_stick.global_position = stick_pos
 
 func on_shoot():
 	var direction = global_position.direction_to(get_global_mouse_position())
@@ -93,6 +97,7 @@ func on_shoot():
 func reset():
 	shot_count = 0
 	shot_power = 0
+	pool_stick._on_timer_timeout()
 	super.reset()
 
 func rewind():
@@ -100,6 +105,7 @@ func rewind():
 		shot_count -= 1
 	rewinded = true
 	shot_power = 0
+	pool_stick._on_timer_timeout()
 	super.rewind()
 
 func _on_body_entered(_body: Node) -> void:
@@ -117,15 +123,15 @@ func switch_type_dir(dir):
 		return
 	if dir == "l":
 		if ball_type - 1 < 0:
-			ball_type = ball_type_list[ball_type_list.size() - 1]
+			ball_type = available_types[available_types.size() - 1]
 		else: 
-			ball_type = ball_type_list[ball_type - 1]
+			ball_type = available_types[ball_type - 1]
 	else:
-		if ball_type + 1 >= ball_type_list.size():
-			ball_type = ball_type_list[0]
+		if ball_type + 1 >= available_types.size():
+			ball_type = available_types[0]
 		else:
-			ball_type = ball_type_list[ball_type + 1]
-	sprite.play(ball_sprite_list[ball_type])
+			ball_type = available_types[ball_type + 1]
+	sprite.play(available_sprites[ball_type])
 	swapped_ball.emit()
 
 func switch_type_spc(new_type: GlobalEnums.BallType):
