@@ -70,6 +70,8 @@ func _physics_process(_delta: float) -> void:
 		print_info()
 	if Input.is_action_just_pressed("pause"):
 		_on_paused_button_pressed()
+	if Input.is_action_just_pressed("swap_ball"):
+		_on_swap_ball_button_pressed()
 	if !moving_balls():
 		check_final() 
 		cue.shot_ready = (state == State.PLAYING)
@@ -81,7 +83,7 @@ func _physics_process(_delta: float) -> void:
 func on_pocket(ball, _pocket): 
 	if ball is BaseBall:
 		if !ball.ignore_pocket:
-			ball.pocketing = true
+			ball.pocketing = true 
 	if ball is EightBall:
 		is_eight_last_ball()
 
@@ -179,7 +181,11 @@ func print_info():
 		
 
 func _on_paused_button_pressed() -> void:
-	if state == State.PLAYING:
+	if pause.visible:
+		get_tree().paused = false
+		pause.visible = false
+		paused = false
+	elif state == State.PLAYING && !paused:
 		get_tree().paused = true
 		pause.visible = true
 		paused = true
@@ -220,14 +226,21 @@ func update_shot_display():
 		shot_display.text = (str((shot_limit-cue.shot_count))+" shots left.")
 
 func swap():
-	get_tree().paused = true
-	swap_ball.visible = true
+	if !paused:
+		paused = true
+		get_tree().paused = true
+		swap_ball.visible = true 
 
 func _on_swap_ball_button_pressed() -> void:
-	if cue.shot_ready:
+	if swap_ball.visible:
+		get_tree().paused = false
+		swap_ball.visible = false
+		paused = false
+	elif cue.shot_ready:
 		swap()
 
 func swap_cue_type(new_type: GlobalEnums.BallType):
+	paused = false
 	cue.switch_type_spc(new_type)
 	
 func update_swap_ball_sprite():

@@ -1,8 +1,9 @@
 class_name PoolStick extends Node2D 
 
 var distance = 0 # distance from center
-var paused: bool = false
-var freeze_rotation: float
+var paused: bool = false # if the stick is paused in place after shooting
+var freeze_rotation: float 
+var pausable: bool = true # if the stick should pause after shooting (for use with rewind / reset)
 
 func _ready():
 	%PoolStickSpr.play()
@@ -16,9 +17,16 @@ func _process(_delta: float) -> void:
 	
   
 func reset():
+	# The modification of this code was important trust
+	if !pausable:
+		return
 	distance = 0;
 	paused = true
 	freeze_rotation = global_rotation
-	await get_tree().create_timer(1).timeout
+	%Timer.start()
+
+func _on_timer_timeout() -> void:
+	%Timer.stop()
 	paused = false
 	hide()
+	pausable = false

@@ -4,20 +4,21 @@ extends Control
 
 signal swap_cue(new_type: GlobalEnums.BallType)
 
-func _on_fullball_button_pressed() -> void:
+func close():
 	get_tree().paused = false
 	visible = false
+
+func _on_fullball_button_pressed() -> void:
+	close()
 	swap_cue.emit(GlobalEnums.BallType.NORMAL)
 
 
 func _on_hollowball_button_pressed() -> void:
-	get_tree().paused = false
-	visible = false
+	close()
 	swap_cue.emit(GlobalEnums.BallType.NORMAL)
 
 func _on_icon_button_pressed() -> void:
-	get_tree().paused = false
-	visible = false
+	close()
 	swap_cue.emit(GlobalEnums.BallType.EXPLOSION)
 
 

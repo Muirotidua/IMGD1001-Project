@@ -17,6 +17,7 @@ blend_mode = 1
 radius = 93.00538
 
 [node name="CueBall" type="RigidBody2D"]
+process_mode = 1
 physics_material_override = ExtResource("1_c01jm")
 gravity_scale = 0.0
 contact_monitor = true
