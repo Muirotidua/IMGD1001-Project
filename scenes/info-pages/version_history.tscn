@@ -36,6 +36,10 @@ text = "v0.5.2
 -Pause bugfixes
 -Pause and SwapBall can now be closed with their respective buttons
 
+v0.5.1
+-Added Levels 4 and 5
+-Added Level 6 (Beta)
+
 v0.5
 -Added Star System to Game
 -Redid File / Level Directories
