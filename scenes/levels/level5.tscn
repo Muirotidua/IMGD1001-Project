@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bymd2y45slikj"]
+[gd_scene load_steps=22 format=3 uid="uid://bymd2y45slikj"]
 
 [ext_resource type="Script" uid="uid://1ltrdrtsaw5a" path="res://scripts/levels/level5.gd" id="1_2eb3b"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_kykwg"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_d75b2"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_snswl"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="14_vyr3h"]
+[ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="15_kykwg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
 
@@ -32,6 +33,10 @@ font_size = 72
 [node name="Level5" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_2eb3b")
+shot_limit = 8
+two_star_limit = 5
+three_star_limit = 3
+level_id = 5
 
 [node name="Menus" type="Node" parent="."]
 
@@ -118,9 +123,28 @@ metadata/_edit_lock_ = true
 
 [node name="CueBall" parent="." instance=ExtResource("13_snswl")]
 position = Vector2(678, 461)
+impulse_multiplier = 50.0
 
 [node name="Ball" parent="." instance=ExtResource("14_vyr3h")]
-position = Vector2(918, 458)
+position = Vector2(976, 461)
+
+[node name="PoolBall" parent="." instance=ExtResource("15_kykwg")]
+position = Vector2(1580, 129)
+
+[node name="PoolBall2" parent="." instance=ExtResource("15_kykwg")]
+position = Vector2(1588, 747)
+
+[node name="PoolBall3" parent="." instance=ExtResource("15_kykwg")]
+position = Vector2(1023, 441)
+
+[node name="PoolBall6" parent="." instance=ExtResource("15_kykwg")]
+position = Vector2(1023, 481)
+
+[node name="PoolBall7" parent="." instance=ExtResource("15_kykwg")]
+position = Vector2(929, 441)
+
+[node name="PoolBall8" parent="." instance=ExtResource("15_kykwg")]
+position = Vector2(929, 481)
 
 [connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
 [connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]

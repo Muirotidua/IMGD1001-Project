@@ -102,6 +102,7 @@ flat = true
 expand_icon = true
 
 [node name="FullballImage" type="Sprite2D" parent="."]
+visible = false
 z_index = 2
 position = Vector2(471.99997, 455.99997)
 scale = Vector2(0.43666103, 0.44085562)
@@ -140,18 +141,21 @@ flat = true
 expand_icon = true
 
 [node name="Hollowball_Image" type="Sprite2D" parent="."]
+visible = false
 z_index = 2
 position = Vector2(471.99997, 456.00003)
 scale = Vector2(0.44861582, 0.44064593)
 texture = ExtResource("3_jb5e6")
 
 [node name="Icon_Image" type="Sprite2D" parent="."]
+visible = false
 z_index = 2
 position = Vector2(480.00003, 448)
 scale = Vector2(0.51235366, 0.51579255)
 texture = ExtResource("5_r6g8w")
 
 [node name="BallNameLabel" type="Label" parent="."]
+visible = false
 z_index = 2
 layout_mode = 0
 offset_left = 280.0
@@ -165,6 +169,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="BallDescription" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 760.0
 offset_top = 656.0
