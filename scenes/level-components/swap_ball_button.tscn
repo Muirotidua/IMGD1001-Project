@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://ptp6coop1tmo"]
+[gd_scene load_steps=7 format=3 uid="uid://ptp6coop1tmo"]
 
 [ext_resource type="PackedScene" uid="uid://44xiejg5nsq6" path="res://scenes/ball-components/cue_sprite.tscn" id="1_pfnpp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfnpp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwuwj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qvh60"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qdxtk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5t14n"]
 
 [node name="Swap_Ball_Button" type="Button"]
 anchors_preset = -1
@@ -10,6 +20,11 @@ offset_left = 1.0
 offset_top = 4.0
 offset_right = -2.9200134
 offset_bottom = -1.0800171
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pfnpp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iwuwj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qvh60")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qdxtk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5t14n")
 flat = true
 expand_icon = true
 
