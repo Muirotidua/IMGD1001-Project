@@ -12,4 +12,10 @@ enum Pocket {
 enum BallType{
 	NORMAL = 0, 
 	EXPLOSION
-	}
+}
+
+enum BallAvailability{
+	AVAILABLE,
+	UNAVAILABLE,
+	UNDISCOVERED
+}
