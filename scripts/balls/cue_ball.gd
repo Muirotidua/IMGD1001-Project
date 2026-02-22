@@ -109,7 +109,7 @@ func _on_body_entered(_body: Node) -> void:
 		for ball in balls:
 			if (ball is PoolBall || ball is EightBall):
 				var impulse = ball.position-position 
-				ball.apply_impulse(impulse*10)
+				ball.apply_impulse(impulse*impulse_multiplier)
 		switch_type_spc(GlobalEnums.BallType.NORMAL)
 
 func switch_type_dir(dir):

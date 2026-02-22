@@ -37,6 +37,12 @@ func switch_level(level_id: int):
 		get_tree().change_scene_to_file("res://scenes/levels/level2.tscn")
 	elif level_id == 3:
 		get_tree().change_scene_to_file("res://scenes/levels/level3.tscn")
+	elif level_id == 4:
+		get_tree().change_scene_to_file("res://scenes/levels/level4.tscn")
+	elif level_id == 5:
+		get_tree().change_scene_to_file("res://scenes/levels/level5.tscn")
+	elif level_id == 6:
+		get_tree().change_scene_to_file("res://scenes/levels/level6.tscn")
 	else:
 		print("Level does not exist")
 		get_tree().change_scene_to_file("res://scenes/menus/level_select.tscn")
