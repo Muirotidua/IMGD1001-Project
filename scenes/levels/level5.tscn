@@ -38,6 +38,7 @@ two_star_limit = 5
 three_star_limit = 3
 level_id = 5
 explosion_available = true
+pocket_available = true
 
 [node name="Menus" type="Node" parent="."]
 
