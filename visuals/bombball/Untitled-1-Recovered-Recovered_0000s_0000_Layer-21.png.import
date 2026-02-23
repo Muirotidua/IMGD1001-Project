@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckr1nslj0kg2c"
-path="res://.godot/imported/Untitled-1-Recovered-Recovered_0000s_0000_Layer-21.png-c6e844c13825260fb5944e981d8bf055.ctex"
+path="res://.godot/imported/Untitled-1-Recovered-Recovered_0000s_0000_Layer-21.png-458abaf52ce9a36544076ee4f526af03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bombball/Untitled-1-Recovered-Recovered_0000s_0000_Layer-21.png"
-dest_files=["res://.godot/imported/Untitled-1-Recovered-Recovered_0000s_0000_Layer-21.png-c6e844c13825260fb5944e981d8bf055.ctex"]
+source_file="res://visuals/bombball/Untitled-1-Recovered-Recovered_0000s_0000_Layer-21.png"
+dest_files=["res://.godot/imported/Untitled-1-Recovered-Recovered_0000s_0000_Layer-21.png-458abaf52ce9a36544076ee4f526af03.ctex"]
 
 [params]
 
