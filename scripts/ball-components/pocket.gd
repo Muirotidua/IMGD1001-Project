@@ -4,6 +4,13 @@ class_name Pocket
 var active = false
 var bodies = []
 var pocket_ready = false
+var tabled_last_shot = false
+const rot_speed = 40
+
+signal remove(pocket: Pocket)
+
+func _ready():
+	$Sprite2D.play()
 
 func _physics_process(_delta: float):
 	if(pocket_ready):
@@ -21,7 +28,15 @@ func _physics_process(_delta: float):
 			# print(bodies)
 			active = true
 		
+func _process(delta: float):
+	$Sprite2D.rotation_degrees += rot_speed * delta
+		
 func _pocket_ready():
 	if(!pocket_ready):
 		await get_tree().create_timer(.1).timeout
 		pocket_ready = true
+
+func rewind():
+	if !tabled_last_shot:
+		remove.emit(self)
+		
