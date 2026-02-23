@@ -13,7 +13,6 @@ enum BallType{
 	NORMAL = 0, 
 	EXPLOSION,
 	POCKET
-	}
 }
 
 enum BallAvailability{

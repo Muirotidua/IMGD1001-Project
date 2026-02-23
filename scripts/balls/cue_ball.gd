@@ -19,6 +19,7 @@ var ball_sprite_list: Array[String] = ["default", "explosion_ball", "default"] #
 var available_types: Array[GlobalEnums.BallType]
 var available_sprites: Array[String]
 var pocket_spawn = preload("res://scenes/ball-components/pocket.tscn")
+var explosion_spawn = preload("res://scenes/ball-components/explosion_animation.tscn")
 
 @onready var shot_count = 0
 @onready var count_label: Label = $NonRotate/CountLabel
@@ -120,6 +121,9 @@ func _on_body_entered(_body: Node) -> void:
 			if (ball is PoolBall || ball is EightBall):
 				var impulse = ball.position-position 
 				ball.apply_impulse(impulse*impulse_multiplier)
+		var e = explosion_spawn.instantiate()
+		e.global_position = global_position
+		self.get_parent().add_child(e)
 		switch_type_spc(GlobalEnums.BallType.NORMAL)
 	if(ball_type == GlobalEnums.BallType.POCKET):
 		var p = pocket_spawn.instantiate()
