@@ -14,8 +14,9 @@ class_name CueBall extends BaseBall
 var rewinded: bool = true
 var shot_power = 0;
 var MAX_HOLD = 50
-var ball_type_list: Array[GlobalEnums.BallType] = [GlobalEnums.BallType.NORMAL, GlobalEnums.BallType.EXPLOSION]
-var ball_sprite_list: Array[String] = ["default", "explosion_ball"]
+var ball_type_list: Array[GlobalEnums.BallType] = [GlobalEnums.BallType.NORMAL, GlobalEnums.BallType.EXPLOSION, GlobalEnums.BallType.POCKET]
+var ball_sprite_list: Array[String] = ["default", "explosion_ball", "default"]
+var pocket_spawn = preload("res://scenes/ball-components/pocket.tscn")
 
 @onready var shot_count = 0
 @onready var count_label: Label = $NonRotate/CountLabel
@@ -29,6 +30,7 @@ var charging: bool = false
 
 signal try_shoot()
 signal swapped_ball()
+signal pocket_ready()
 
 func _ready():
 	super._ready()
@@ -44,6 +46,7 @@ func _ready():
 
 
 func _physics_process(delta: float) -> void:
+	
 	super._physics_process(delta)
 	if(Input.is_action_just_pressed("switch_type_left")):
 		switch_type_dir("l")
@@ -117,6 +120,13 @@ func _on_body_entered(_body: Node) -> void:
 				var impulse = ball.position-position 
 				ball.apply_impulse(impulse*impulse_multiplier)
 		switch_type_spc(GlobalEnums.BallType.NORMAL)
+	if(ball_type == GlobalEnums.BallType.POCKET):
+		var p = pocket_spawn.instantiate()
+		p.global_position = global_position
+		self.get_parent().add_child(p)
+		pocket_ready.connect(p._pocket_ready)
+		switch_type_spc(GlobalEnums.BallType.NORMAL)
+		pocket_ready.emit() 
 
 func switch_type_dir(dir):
 	if !shot_ready || change_anytime:

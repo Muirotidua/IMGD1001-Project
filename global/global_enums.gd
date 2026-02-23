@@ -11,5 +11,6 @@ enum Pocket {
 
 enum BallType{
 	NORMAL = 0, 
-	EXPLOSION
+	EXPLOSION,
+	POCKET
 	}

@@ -1,26 +1,18 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0y4hctgaq5dl"]
+[gd_scene load_steps=6 format=3 uid="uid://d0y4hctgaq5dl"]
 
-[ext_resource type="PhysicsMaterial" path="res://scenes/ball_physics_material.tres" id="1_c01jm"]
-[ext_resource type="Script" path="res://scripts/cue_ball.gd" id="1_tbouf"]
-[ext_resource type="Texture2D" path="res://visuals/cueball-filled/Untitled-1_0000_Layer-1-copy-3.png" id="3_datkq"]
-[ext_resource type="Texture2D" path="res://visuals/ball/Dotted-Line Texture.png" id="4_datkq"]
-[ext_resource type="Texture2D" path="res://visuals/cueball-filled/Untitled-1_0001_Layer-1-copy-2.png" id="4_li0g8"]
-[ext_resource type="Texture2D" path="res://visuals/cueball-filled/Untitled-1_0002_Layer-1-copy.png" id="5_h5tuf"]
-[ext_resource type="Texture2D" path="res://visuals/ball/BombBall.png" id="6_5bgfd"]
-[ext_resource type="PackedScene" path="res://scenes/pool_stick.tscn" id="7_h5tuf"]
-[ext_resource type="Script" path="res://scripts/progress_bar.gd" id="7_li0g8"]
+[ext_resource type="PackedScene" uid="uid://bad70x8l0cwdj" path="res://scenes/pool_stick.tscn" id="7_h5tuf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5bgfd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_datkq")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_li0g8")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_h5tuf")
+"texture": null
 }],
 "loop": true,
 "name": &"default",
@@ -28,7 +20,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_5bgfd")
+"texture": null
 }],
 "loop": true,
 "name": &"explosion_ball",
@@ -45,12 +37,9 @@ blend_mode = 1
 radius = 93.00538
 
 [node name="CueBall" type="RigidBody2D"]
-physics_material_override = ExtResource("1_c01jm")
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("1_tbouf")
-sprite_path = NodePath("FullBall")
 
 [node name="FullBall" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.06, 0.06)
@@ -64,7 +53,6 @@ shape = SubResource("CircleShape2D_nkrrx")
 texture_repeat = 2
 material = SubResource("CanvasItemMaterial_nkrrx")
 width = 75.0
-texture = ExtResource("4_datkq")
 texture_mode = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -72,6 +60,7 @@ collide_with_areas = true
 
 [node name="PoolStick" parent="." instance=ExtResource("7_h5tuf")]
 visible = false
+script = null
 
 [node name="NonRotate" type="Node2D" parent="."]
 
@@ -110,7 +99,6 @@ offset_top = 29.0
 offset_right = 129.0
 offset_bottom = 56.0
 max_value = 50.0
-script = ExtResource("7_li0g8")
 
 [node name="ExplosionArea" type="Area2D" parent="."]
 unique_name_in_owner = true
