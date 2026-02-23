@@ -15,7 +15,9 @@ var rewinded: bool = true
 var shot_power = 0;
 var MAX_HOLD = 50
 var ball_type_list: Array[GlobalEnums.BallType] = [GlobalEnums.BallType.NORMAL, GlobalEnums.BallType.EXPLOSION, GlobalEnums.BallType.POCKET]
-var ball_sprite_list: Array[String] = ["default", "explosion_ball", "default"]
+var ball_sprite_list: Array[String] = ["default", "explosion_ball", "default"] #change last default to be pocket ball sprite when added
+var available_types: Array[GlobalEnums.BallType]
+var available_sprites: Array[String]
 var pocket_spawn = preload("res://scenes/ball-components/pocket.tscn")
 
 @onready var shot_count = 0
@@ -42,7 +44,6 @@ func _ready():
 	pointer.add_point(Vector2.ZERO)
 	pointer.add_point(get_local_mouse_position())
 	%ProgressBar.visible = false 
-	switch_type_spc(ball_type)
 
 
 func _physics_process(delta: float) -> void:
@@ -133,15 +134,15 @@ func switch_type_dir(dir):
 		return
 	if dir == "l":
 		if ball_type - 1 < 0:
-			ball_type = ball_type_list[ball_type_list.size() - 1]
+			ball_type = available_types[available_types.size() - 1]
 		else: 
-			ball_type = ball_type_list[ball_type - 1]
+			ball_type = available_types[ball_type - 1]
 	else:
-		if ball_type + 1 >= ball_type_list.size():
-			ball_type = ball_type_list[0]
+		if ball_type + 1 >= available_types.size():
+			ball_type = available_types[0]
 		else:
-			ball_type = ball_type_list[ball_type + 1]
-	sprite.play(ball_sprite_list[ball_type])
+			ball_type = available_types[ball_type + 1]
+	sprite.play(available_sprites[ball_type])
 	swapped_ball.emit()
 
 func switch_type_spc(new_type: GlobalEnums.BallType):

@@ -126,10 +126,10 @@ expand_icon = true
 
 [node name="Icon_Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1392.0
-offset_top = 280.0
-offset_right = 1482.6667
-offset_bottom = 371.66672
+offset_left = 1400.0
+offset_top = 304.26468
+offset_right = 1469.3334
+offset_bottom = 374.36273
 scale = Vector2(3, 3)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_4duod")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1auk")
@@ -151,7 +151,7 @@ texture = ExtResource("3_jb5e6")
 visible = false
 z_index = 2
 position = Vector2(480.00003, 448)
-scale = Vector2(0.51235366, 0.51579255)
+scale = Vector2(0.39968434, 0.40236703)
 texture = ExtResource("5_r6g8w")
 
 [node name="BallNameLabel" type="Label" parent="."]

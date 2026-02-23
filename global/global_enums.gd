@@ -14,3 +14,10 @@ enum BallType{
 	EXPLOSION,
 	POCKET
 	}
+}
+
+enum BallAvailability{
+	AVAILABLE,
+	UNAVAILABLE,
+	UNDISCOVERED
+}
