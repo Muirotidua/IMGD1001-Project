@@ -125,7 +125,7 @@ func _on_body_entered(body: Node) -> void:
 	if(ball_type == GlobalEnums.BallType.POCKET):
 		call_deferred("spawn_pocket")
 		switch_type_spc(GlobalEnums.BallType.NORMAL)
-		pocket_ready.emit() 
+		#pocket_ready.emit() 
 	if((body.global_position.x <= global_position.x) && body is BaseBall): #check here so that only one plays the sound
 		AudioManager.ball_hit()
 	else:
