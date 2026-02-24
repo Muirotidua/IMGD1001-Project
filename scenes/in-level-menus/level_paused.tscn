@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://buup85tgdgbwc" path="res://visuals/UI/lvlselectbutton.png" id="5_8del4"]
 [ext_resource type="Texture2D" uid="uid://domm770sqmeli" path="res://visuals/UI/menubutton.png" id="6_dqo46"]
 
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yh2wt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nx4k5"]
@@ -44,6 +43,7 @@
 [node name="LevelPaused" type="Node2D"]
 process_mode = 3
 top_level = true
+z_index = 2
 script = ExtResource("1_yh2wt")
 metadata/_edit_lock_ = true
 

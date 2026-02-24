@@ -11,6 +11,7 @@ signal remove(pocket: Pocket)
 
 func _ready():
 	$Sprite2D.play()
+	modulate = Color(0.2, 0.2, 0.2)
 
 func _physics_process(_delta: float):
 	if(pocket_ready):
@@ -27,9 +28,11 @@ func _physics_process(_delta: float):
 		if(!contains_cue):
 			# print(bodies)
 			active = true
+			modulate = Color(1, 1, 1)
 		
 func _process(delta: float):
-	$Sprite2D.rotation_degrees += rot_speed * delta
+	if active:
+		$Sprite2D.rotation_degrees += rot_speed * delta
 		
 func _pocket_ready():
 	if(!pocket_ready):

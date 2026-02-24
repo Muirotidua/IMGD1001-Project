@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cqk8lnow3mr7b" path="res://visuals/pocketball/Untitled-1-Recovered-Recovered_0002_Layer-24.png" id="4_rl5ni"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ijb5o"]
-radius = 41.0
+radius = 34.132095
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e8icv"]
 animations = [{
@@ -26,6 +26,7 @@ animations = [{
 }]
 
 [node name="Pocket" type="Area2D"]
+z_index = -1
 script = ExtResource("1_ix6pn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -33,6 +34,6 @@ shape = SubResource("CircleShape2D_ijb5o")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1.9073486e-06)
-scale = Vector2(0.128, 0.128)
+scale = Vector2(0.14403293, 0.14403293)
 sprite_frames = SubResource("SpriteFrames_e8icv")
 frame_progress = 0.39580706
