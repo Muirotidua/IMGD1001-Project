@@ -15,10 +15,10 @@ var rewinded: bool = true
 var shot_power = 0;
 var MAX_HOLD = 50
 var ball_type_list: Array[GlobalEnums.BallType] = [GlobalEnums.BallType.NORMAL, GlobalEnums.BallType.EXPLOSION, GlobalEnums.BallType.POCKET]
-var ball_sprite_list: Array[String] = ["default", "explosion_ball", "default"] #change last default to be pocket ball sprite when added
+var ball_sprite_list: Array[String] = ["default", "explosion_ball", "pocket_ball"]
 var available_types: Array[GlobalEnums.BallType]
 var available_sprites: Array[String]
-var pocket_spawn = preload("res://scenes/ball-components/pocket.tscn")
+var explosion_spawn = preload("res://scenes/ball-components/explosion_animation.tscn")
 
 @onready var shot_count = 0
 @onready var count_label: Label = $NonRotate/CountLabel
@@ -32,7 +32,7 @@ var charging: bool = false
 
 signal try_shoot()
 signal swapped_ball()
-signal pocket_ready()
+signal spawning_pocket(pos: Vector2)
 
 func _ready():
 	super._ready()
@@ -120,18 +120,17 @@ func _on_body_entered(body: Node) -> void:
 			if (ball is PoolBall || ball is EightBall):
 				var impulse = ball.position-position 
 				ball.apply_impulse(impulse*impulse_multiplier)
+		call_deferred("spawn_explosion")
 		switch_type_spc(GlobalEnums.BallType.NORMAL)
 	if(ball_type == GlobalEnums.BallType.POCKET):
-		var p = pocket_spawn.instantiate()
-		p.global_position = global_position
-		self.get_parent().add_child(p)
-		pocket_ready.connect(p._pocket_ready)
+		call_deferred("spawn_pocket")
 		switch_type_spc(GlobalEnums.BallType.NORMAL)
 		pocket_ready.emit() 
 	if((body.global_position.x <= global_position.x) && body is BaseBall): #check here so that only one plays the sound
 		AudioManager.ball_hit()
 	else:
 		AudioManager.wall_hit()
+
 
 func switch_type_dir(dir):
 	if !shot_ready || change_anytime:
@@ -153,3 +152,11 @@ func switch_type_spc(new_type: GlobalEnums.BallType):
 	ball_type = new_type
 	sprite.play(ball_sprite_list[ball_type])
 	swapped_ball.emit()
+
+func spawn_pocket():
+	spawning_pocket.emit(global_position)
+
+func spawn_explosion():
+	var e = explosion_spawn.instantiate()
+	e.global_position = global_position
+	get_tree().current_scene.add_child(e)

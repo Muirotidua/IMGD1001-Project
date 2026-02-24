@@ -9,6 +9,7 @@ enum State{ WON, LOST, PLAYING }
 @export var level_id = 0
 @export var normal_available: bool = true
 @export var explosion_available: bool = false
+@export var pocket_available: bool = false
 
 @onready var cue: CueBall = $CueBall
 @onready var table: Node2D = $Other/Boundary_Table
@@ -25,6 +26,7 @@ enum State{ WON, LOST, PLAYING }
 @onready var star3: AnimatedSprite2D = $Display/Stars/Star3
 @onready var tutorial: AnimatedSprite2D = $Display/Tutorial
 
+var pocket_spawn = preload("res://scenes/ball-components/pocket.tscn")
 var all_balls: Array[BaseBall] = []
 var rewinded: bool = false
 var state: State = State.PLAYING
@@ -32,6 +34,7 @@ var paused: bool = false
 var fail_ready: bool = false
 var star_count: int = 3
 var complete: bool = false
+var pockets: Array[Pocket] = []
 
 signal shoot()
 
@@ -41,6 +44,7 @@ func _ready():
 	table.pocketed_ball.connect(on_pocket)
 	cue.try_shoot.connect(on_try_shoot)
 	cue.swapped_ball.connect(update_swap_ball_sprite)
+	cue.spawning_pocket.connect(spawn_pocket)
 	pause.restart.connect(reset_table)
 	pause.resume.connect(resume_play)
 	lost.restart.connect(reset_table)
@@ -58,10 +62,13 @@ func _ready():
 	star3.play("full")
 	if normal_available:
 		cue.available_types.append(GlobalEnums.BallType.NORMAL)
-		cue.available_sprites.append("default")
+		cue.available_sprites.append(cue.ball_sprite_list[0])
 	if explosion_available:
 		cue.available_types.append(GlobalEnums.BallType.EXPLOSION)
-		cue.available_sprites.append("explosion_ball")
+		cue.available_sprites.append(cue.ball_sprite_list[1])
+	if pocket_available:
+		cue.available_types.append(GlobalEnums.BallType.POCKET)
+		cue.available_sprites.append(cue.ball_sprite_list[2])
 	if cue.available_types.size() == 0:
 		# Force at least 1 ball to exist
 		cue.available_types.append(GlobalEnums.BallType.NORMAL)
@@ -82,6 +89,8 @@ func _ready():
 	for child: Node in get_children():
 		if child is BaseBall:
 			all_balls.append(child)
+		elif child is Pocket:
+			pockets.append(child)
 
 
 func _physics_process(_delta: float) -> void:
@@ -114,6 +123,8 @@ func on_pocket(ball, _pocket):
 func on_try_shoot(): # ?
 	for ball: BaseBall in all_balls:
 		ball.updateLastPos()
+	for pocket: Pocket in pockets:
+		pocket.tabled_last_shot = true
 	tutorial.stop()
 	tutorial.hide()
 	shoot.emit()
@@ -131,6 +142,9 @@ func reset_table():
 	fail_ready = false
 	for ball: BaseBall in all_balls:
 		ball.reset()
+	# Iterate backwards as it modifies an array it reads
+	for i in range(pockets.size() - 1, -1, -1):
+		pockets[i].remove.emit(pockets[i])
 	lost.clear()
 	won.clear()
 	complete = false
@@ -141,6 +155,8 @@ func rewind_shot():
 	fail_ready = false
 	for ball: BaseBall in all_balls:
 		ball.rewind()
+	for i in range(pockets.size() - 1, -1, -1):
+		pockets[i].rewind()
 	lost.clear()
 	won.clear()
 	complete = false
@@ -276,3 +292,16 @@ func swap_cue_type(new_type: GlobalEnums.BallType):
 	
 func update_swap_ball_sprite():
 	swap_ball_button_sprite.play(cue.ball_sprite_list[cue.ball_type])
+
+func spawn_pocket(pos: Vector2):
+	var p = pocket_spawn.instantiate()
+	p.global_position = pos
+	get_tree().current_scene.add_child(p)
+	p._pocket_ready()
+	p.remove.connect(remove_pocket)
+	pockets.append(p)
+
+func remove_pocket(pocket: Pocket):
+	if pockets.has(pocket):
+		pockets.erase(pocket)
+	pocket.queue_free()

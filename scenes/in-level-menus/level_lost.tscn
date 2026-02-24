@@ -43,6 +43,7 @@
 [node name="LevelLost" type="Node2D"]
 process_mode = 3
 top_level = true
+z_index = 2
 script = ExtResource("1_1d2hc")
 metadata/_edit_lock_ = true
 

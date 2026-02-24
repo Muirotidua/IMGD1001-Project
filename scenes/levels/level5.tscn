@@ -24,10 +24,10 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0jqh"]
 
-[sub_resource type="SystemFont" id="SystemFont_un07w"]
+[sub_resource type="SystemFont" id="SystemFont_kykwg"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_t0jqh"]
-font = SubResource("SystemFont_un07w")
+[sub_resource type="LabelSettings" id="LabelSettings_iyn63"]
+font = SubResource("SystemFont_kykwg")
 font_size = 72
 
 [node name="Level5" type="Node2D"]
@@ -38,6 +38,7 @@ two_star_limit = 5
 three_star_limit = 3
 level_id = 5
 explosion_available = true
+pocket_available = true
 
 [node name="Menus" type="Node" parent="."]
 
@@ -78,14 +79,6 @@ offset_bottom = 1021.97235
 
 [node name="Display" type="Node" parent="."]
 
-[node name="ShotCountDisplay" type="Label" parent="Display"]
-offset_left = 1483.0
-offset_top = 961.0
-offset_right = 1874.0
-offset_bottom = 1068.0
-text = "0"
-label_settings = SubResource("LabelSettings_t0jqh")
-
 [node name="Stars" type="Node" parent="Display"]
 
 [node name="Star1" parent="Display/Stars" instance=ExtResource("9_4r5lo")]
@@ -105,14 +98,23 @@ z_index = -2
 position = Vector2(975.99994, 257.99997)
 scale = Vector2(0.29035875, 0.29035875)
 
+[node name="ShotCountDisplay" type="Label" parent="Display"]
+offset_left = 1237.0
+offset_top = 909.0
+offset_right = 1874.0
+offset_bottom = 1016.0
+text = "0"
+label_settings = SubResource("LabelSettings_iyn63")
+horizontal_alignment = 2
+
 [node name="LevelName" type="Label" parent="Display"]
-offset_left = 314.0
-offset_top = 969.0
-offset_right = 1241.0
-offset_bottom = 1053.0
+offset_left = 331.0
+offset_top = 909.0
+offset_right = 1270.0
+offset_bottom = 993.0
 theme_override_fonts/font = ExtResource("11_ngf84")
 theme_override_font_sizes/font_size = 70
-text = "Level 5: Bombs Away!"
+text = "Level 5: Bomb's Away"
 
 [node name="Other" type="Node" parent="."]
 

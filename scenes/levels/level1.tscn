@@ -23,10 +23,10 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lgrt7"]
 
-[sub_resource type="SystemFont" id="SystemFont_un07w"]
+[sub_resource type="SystemFont" id="SystemFont_jprdt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4i3tx"]
-font = SubResource("SystemFont_un07w")
+font = SubResource("SystemFont_jprdt")
 font_size = 72
 
 [node name="Level1" type="Node2D"]
@@ -74,12 +74,13 @@ offset_bottom = 847.92
 [node name="Display" type="Node" parent="."]
 
 [node name="ShotCountDisplay" type="Label" parent="Display"]
-offset_left = 1483.0
-offset_top = 961.0
+offset_left = 1237.0
+offset_top = 909.0
 offset_right = 1874.0
-offset_bottom = 1068.0
+offset_bottom = 1016.0
 text = "0"
 label_settings = SubResource("LabelSettings_4i3tx")
+horizontal_alignment = 2
 
 [node name="Stars" type="Node" parent="Display"]
 
@@ -101,10 +102,10 @@ position = Vector2(975.99994, 257.99997)
 scale = Vector2(0.29035875, 0.29035875)
 
 [node name="LevelName" type="Label" parent="Display"]
-offset_left = 314.0
-offset_top = 969.0
-offset_right = 1241.0
-offset_bottom = 1053.0
+offset_left = 331.0
+offset_top = 909.0
+offset_right = 1270.0
+offset_bottom = 993.0
 theme_override_fonts/font = ExtResource("11_jprdt")
 theme_override_font_sizes/font_size = 70
 text = "Level 1: The First One"

@@ -1,8 +1,9 @@
-[gd_scene load_steps=65 format=3 uid="uid://bbq6youfuvnjk"]
+[gd_scene load_steps=66 format=3 uid="uid://bbq6youfuvnjk"]
 
 [ext_resource type="Script" uid="uid://gxwvtxc6ed7c" path="res://scripts/menus/level_select.gd" id="1_1g16o"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="2_25yo6"]
 [ext_resource type="PackedScene" uid="uid://bip0ukhvo06uf" path="res://scenes/menu-components/level_button.tscn" id="3_vgm8m"]
+[ext_resource type="Script" uid="uid://dejrk4uft21n2" path="res://scripts/menu-components/freeplay_button.gd" id="4_25yo6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r77uv"]
 
@@ -346,4 +347,13 @@ text = "10"
 flat = true
 icon_alignment = 1
 
+[node name="FreeplayButton" type="Button" parent="."]
+offset_left = 501.0
+offset_top = 884.0
+offset_right = 896.0
+offset_bottom = 1032.0
+text = "Freeplay"
+script = ExtResource("4_25yo6")
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="FreeplayButton" to="FreeplayButton" method="_on_pressed"]

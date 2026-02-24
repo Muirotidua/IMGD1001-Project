@@ -1,11 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://cwlxqek67067h"]
+[gd_scene load_steps=22 format=3 uid="uid://cwlxqek67067h"]
 
 [ext_resource type="Script" uid="uid://deip0qaahy3n7" path="res://scripts/in-level-menus/swapball.gd" id="1_15up4"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="1_dlxuq"]
-[ext_resource type="Texture2D" uid="uid://unfatubegi3u" path="res://visuals/temp/fullball.png" id="1_nwt1c"]
-[ext_resource type="Texture2D" uid="uid://b3aaf016qqi4s" path="res://visuals/temp/hollowball.png" id="3_jb5e6"]
 [ext_resource type="FontFile" uid="uid://cp3v0aybpc3jl" path="res://Fonts/rubik/Rubik-Bold.ttf" id="4_jb5e6"]
-[ext_resource type="Texture2D" uid="uid://dqpk4i4u2espd" path="res://visuals/temp/BombBall.png" id="5_r6g8w"]
+[ext_resource type="PackedScene" uid="uid://44xiejg5nsq6" path="res://scenes/ball-components/cue_sprite.tscn" id="4_twxsr"]
+[ext_resource type="Texture2D" uid="uid://bo3p06rxk0cvm" path="res://visuals/UI/swapball/UnavailableLock.png" id="5_iqmp6"]
 
 [sub_resource type="Theme" id="Theme_15up4"]
 
@@ -49,6 +48,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_15up4")
 
+[node name="Main Background" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0.5)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="SelectBackground" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 168.0
@@ -83,52 +92,49 @@ offset_top = 216.0
 offset_right = 688.0
 offset_bottom = 792.0
 theme = SubResource("Theme_15up4")
-color = Color(0, 0, 0, 1)
+color = Color(0.08274146, 0.08274145, 0.08274143, 1)
 
 [node name="FullballButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 768.0
-offset_top = 299.0
+offset_top = 311.0
 offset_right = 1434.6665
-offset_bottom = 993.0
+offset_bottom = 965.0
 scale = Vector2(0.3, 0.3)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_15up4")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_r6g8w")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_lw622")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_6u81k")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fp2gv")
-icon = ExtResource("1_nwt1c")
 flat = true
 expand_icon = true
 
-[node name="FullballImage" type="Sprite2D" parent="."]
+[node name="FullBall" parent="." instance=ExtResource("4_twxsr")]
 visible = false
 z_index = 2
-position = Vector2(471.99997, 455.99997)
-scale = Vector2(0.43666103, 0.44085562)
-texture = ExtResource("1_nwt1c")
+position = Vector2(473.0883, 458.375)
+scale = Vector2(0.4166667, 0.4166667)
 
 [node name="HollowballButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1072.0
-offset_top = 299.00003
-offset_right = 1792.0
-offset_bottom = 1035.6665
+offset_left = 1412.0
+offset_top = 307.0
+offset_right = 2092.0
+offset_bottom = 990.3333
 scale = Vector2(0.3, 0.3)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_xxlv8")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8ngix")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_7lk11")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_lga63")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2c307")
-icon = ExtResource("3_jb5e6")
 flat = true
 expand_icon = true
 
 [node name="Icon_Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1400.0
+offset_left = 1080.0
 offset_top = 304.26468
-offset_right = 1469.3334
+offset_right = 1149.3334
 offset_bottom = 374.36273
 scale = Vector2(3, 3)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_4duod")
@@ -136,23 +142,8 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1auk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8ylg6")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_vgsdf")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ntbxe")
-icon = ExtResource("5_r6g8w")
 flat = true
 expand_icon = true
-
-[node name="Hollowball_Image" type="Sprite2D" parent="."]
-visible = false
-z_index = 2
-position = Vector2(471.99997, 456.00003)
-scale = Vector2(0.44861582, 0.44064593)
-texture = ExtResource("3_jb5e6")
-
-[node name="Icon_Image" type="Sprite2D" parent="."]
-visible = false
-z_index = 2
-position = Vector2(480.00003, 448)
-scale = Vector2(0.39968434, 0.40236703)
-texture = ExtResource("5_r6g8w")
 
 [node name="BallNameLabel" type="Label" parent="."]
 visible = false
@@ -179,6 +170,39 @@ theme_override_font_sizes/font_size = 65
 text = "Caution: Explodes On Contact!"
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="Normal" parent="." instance=ExtResource("4_twxsr")]
+position = Vector2(868.39667, 410.46503)
+scale = Vector2(0.29448223, 0.29448223)
+animation = &"default"
+
+[node name="Explosion" parent="." instance=ExtResource("4_twxsr")]
+position = Vector2(1184, 408)
+scale = Vector2(0.29448223, 0.29448223)
+animation = &"explosion_ball"
+
+[node name="Pocket" parent="." instance=ExtResource("4_twxsr")]
+position = Vector2(1512, 407.99997)
+scale = Vector2(0.29448223, 0.29448223)
+animation = &"default"
+
+[node name="Lock_N" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(872, 408)
+texture = ExtResource("5_iqmp6")
+
+[node name="Lock_E" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(1184, 408)
+texture = ExtResource("5_iqmp6")
+
+[node name="Lock_P" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(1512, 408)
+texture = ExtResource("5_iqmp6")
 
 [connection signal="mouse_entered" from="FullballButton" to="." method="_on_fullball_button_mouse_entered"]
 [connection signal="mouse_exited" from="FullballButton" to="." method="_on_fullball_button_mouse_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dih2bhghs70xg"]
+[gd_scene load_steps=21 format=3 uid="uid://dih2bhghs70xg"]
 
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="1_6lum8"]
 [ext_resource type="Script" uid="uid://1orqlroorufl" path="res://scripts/levels/level_template.gd" id="1_iw5l3"]
@@ -14,7 +14,6 @@
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_fwulr"]
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="11_hj7jb"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="12_h2vd2"]
-[ext_resource type="PackedScene" uid="uid://deir56fp1ms5" path="res://scenes/ball-components/pocket.tscn" id="15_i403b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
 
@@ -24,15 +23,17 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0jqh"]
 
-[sub_resource type="SystemFont" id="SystemFont_un07w"]
+[sub_resource type="SystemFont" id="SystemFont_fwulr"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_t0jqh"]
-font = SubResource("SystemFont_un07w")
+[sub_resource type="LabelSettings" id="LabelSettings_i403b"]
+font = SubResource("SystemFont_fwulr")
 font_size = 72
 
 [node name="Level_Template" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_iw5l3")
+explosion_available = true
+pocket_available = true
 
 [node name="Menus" type="Node" parent="."]
 
@@ -73,14 +74,6 @@ offset_bottom = 847.92
 
 [node name="Display" type="Node" parent="."]
 
-[node name="ShotCountDisplay" type="Label" parent="Display"]
-offset_left = 1483.0
-offset_top = 961.0
-offset_right = 1874.0
-offset_bottom = 1068.0
-text = "0"
-label_settings = SubResource("LabelSettings_t0jqh")
-
 [node name="Stars" type="Node" parent="Display"]
 
 [node name="Star1" parent="Display/Stars" instance=ExtResource("12_h2vd2")]
@@ -101,13 +94,22 @@ position = Vector2(975.99994, 257.99997)
 scale = Vector2(0.29035875, 0.29035875)
 
 [node name="LevelName" type="Label" parent="Display"]
-offset_left = 314.0
-offset_top = 969.0
-offset_right = 1241.0
-offset_bottom = 1053.0
+offset_left = 331.0
+offset_top = 909.0
+offset_right = 1270.0
+offset_bottom = 993.0
 theme_override_fonts/font = ExtResource("11_fwulr")
 theme_override_font_sizes/font_size = 70
 text = "Level _: Level Description"
+
+[node name="ShotCountDisplay" type="Label" parent="Display"]
+offset_left = 1237.0
+offset_top = 909.0
+offset_right = 1874.0
+offset_bottom = 1016.0
+text = "0"
+label_settings = SubResource("LabelSettings_i403b")
+horizontal_alignment = 2
 
 [node name="Other" type="Node" parent="."]
 
@@ -121,6 +123,3 @@ position = Vector2(678, 461)
 
 [node name="Ball" parent="." instance=ExtResource("4_iw5l3")]
 position = Vector2(1279, 458)
-
-[node name="Pocket" parent="." instance=ExtResource("15_i403b")]
-position = Vector2(1180, 553)
