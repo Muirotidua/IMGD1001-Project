@@ -33,6 +33,9 @@ font_size = 72
 [node name="Billiards" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_chn2m")
+shot_limit = -1
+two_star_limit = 40
+three_star_limit = 20
 explosion_available = true
 pocket_available = true
 
