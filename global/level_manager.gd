@@ -49,6 +49,8 @@ func switch_level(level_id: int):
 		get_tree().change_scene_to_file("res://scenes/levels/level5.tscn")
 	elif level_id == 6:
 		get_tree().change_scene_to_file("res://scenes/levels/level6.tscn")
+	elif level_id == 7:
+		get_tree().change_scene_to_file("res://scenes/levels/level7.tscn")
 	elif level_id == 11:
 		get_tree().change_scene_to_file("res://scenes/levels/billiards.tscn")
 	else:

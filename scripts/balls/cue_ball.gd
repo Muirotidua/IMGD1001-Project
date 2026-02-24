@@ -145,7 +145,7 @@ func switch_type_dir(dir):
 			ball_type = available_types[0]
 		else:
 			ball_type = available_types[ball_type + 1]
-	sprite.play(available_sprites[ball_type])
+	sprite.play(ball_sprite_list[ball_type])
 	swapped_ball.emit()
 
 func switch_type_spc(new_type: GlobalEnums.BallType):

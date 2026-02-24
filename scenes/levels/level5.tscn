@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_72xjh"]
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="8_xrw0o"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_4r5lo"]
-[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_po1mw"]
+[ext_resource type="PackedScene" path="res://scenes/level-components/tutorial.tscn" id="10_po1mw"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_ngf84"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_d75b2"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_snswl"]
@@ -38,7 +38,6 @@ two_star_limit = 5
 three_star_limit = 3
 level_id = 5
 explosion_available = true
-pocket_available = true
 
 [node name="Menus" type="Node" parent="."]
 
