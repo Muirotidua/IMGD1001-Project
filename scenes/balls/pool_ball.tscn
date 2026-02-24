@@ -29,6 +29,8 @@ radius = 20.0
 [node name="PoolBall" type="RigidBody2D"]
 physics_material_override = ExtResource("1_w5es4")
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 100
 linear_damp = 1.0
 script = ExtResource("2_kji1i")
 sprite_path = NodePath("Hollowball")
@@ -65,3 +67,5 @@ offset_bottom = -56.0
 text = "0.00"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d0y4hctgaq5dl"]
 
-[ext_resource type="PackedScene" uid="uid://bad70x8l0cwdj" path="res://scenes/pool_stick.tscn" id="7_h5tuf"]
+[ext_resource type="PackedScene" uid="uid://dsr4uau6ubum8" path="res://scenes/ball-components/pool_stick.tscn" id="1_it4ph"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5bgfd"]
 animations = [{
@@ -58,9 +58,7 @@ texture_mode = 1
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collide_with_areas = true
 
-[node name="PoolStick" parent="." instance=ExtResource("7_h5tuf")]
-visible = false
-script = null
+[node name="PoolStick" parent="." instance=ExtResource("1_it4ph")]
 
 [node name="NonRotate" type="Node2D" parent="."]
 

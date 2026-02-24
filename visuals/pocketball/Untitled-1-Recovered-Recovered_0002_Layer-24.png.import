@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqk8lnow3mr7b"
-path="res://.godot/imported/Untitled-1-Recovered-Recovered_0002_Layer-24.png-5455d86e58fd12c11e6433230b7701b1.ctex"
+path="res://.godot/imported/Untitled-1-Recovered-Recovered_0002_Layer-24.png-64630a11c55c4942ec7755d774ca6782.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pocketball/Untitled-1-Recovered-Recovered_0002_Layer-24.png"
-dest_files=["res://.godot/imported/Untitled-1-Recovered-Recovered_0002_Layer-24.png-5455d86e58fd12c11e6433230b7701b1.ctex"]
+source_file="res://visuals/pocketball/Untitled-1-Recovered-Recovered_0002_Layer-24.png"
+dest_files=["res://.godot/imported/Untitled-1-Recovered-Recovered_0002_Layer-24.png-64630a11c55c4942ec7755d774ca6782.ctex"]
 
 [params]
 

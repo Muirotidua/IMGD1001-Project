@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xuhgnsknjws0"
-path="res://.godot/imported/Untitled-1-Recovered-Recovered_0000s_0002_Layer-19.png-0390290ef146e18023202df8e657fcb8.ctex"
+uid="uid://doifv3774bjon"
+path="res://.godot/imported/ENLARGEDPOOLTABLE.png-0cf068a459b16a7c54ea5bd1c11cf6db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visuals/bombball/Untitled-1-Recovered-Recovered_0000s_0002_Layer-19.png"
-dest_files=["res://.godot/imported/Untitled-1-Recovered-Recovered_0000s_0002_Layer-19.png-0390290ef146e18023202df8e657fcb8.ctex"]
+source_file="res://visuals/table/ENLARGEDPOOLTABLE.png"
+dest_files=["res://.godot/imported/ENLARGEDPOOLTABLE.png-0cf068a459b16a7c54ea5bd1c11cf6db.ctex"]
 
 [params]
 

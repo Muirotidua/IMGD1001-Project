@@ -59,6 +59,7 @@ func _physics_process(delta: float) -> void:
 
 
 func pocket():
+	AudioManager.ball_sink() 
 	inmotion = false
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0

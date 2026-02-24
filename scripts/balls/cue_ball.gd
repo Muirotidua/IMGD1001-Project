@@ -112,7 +112,7 @@ func rewind():
 	pool_stick._on_timer_timeout()
 	super.rewind()
 
-func _on_body_entered(_body: Node) -> void:
+func _on_body_entered(body: Node) -> void:
 	if(ball_type == GlobalEnums.BallType.EXPLOSION):
 		var balls = %ExplosionArea.get_overlapping_bodies()
 		print(balls)
@@ -128,6 +128,10 @@ func _on_body_entered(_body: Node) -> void:
 		pocket_ready.connect(p._pocket_ready)
 		switch_type_spc(GlobalEnums.BallType.NORMAL)
 		pocket_ready.emit() 
+	if((body.global_position.x <= global_position.x) && body is BaseBall): #check here so that only one plays the sound
+		AudioManager.ball_hit()
+	else:
+		AudioManager.wall_hit()
 
 func switch_type_dir(dir):
 	if !shot_ready || change_anytime:

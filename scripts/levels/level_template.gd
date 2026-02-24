@@ -31,6 +31,7 @@ var state: State = State.PLAYING
 var paused: bool = false
 var fail_ready: bool = false
 var star_count: int = 3
+var complete: bool = false
 
 signal shoot()
 
@@ -132,6 +133,7 @@ func reset_table():
 		ball.reset()
 	lost.clear()
 	won.clear()
+	complete = false
 		
 func rewind_shot():
 	if paused:
@@ -141,6 +143,7 @@ func rewind_shot():
 		ball.rewind()
 	lost.clear()
 	won.clear()
+	complete = false
 
 func check_final():
 	var pocket_count: int = 0
@@ -217,6 +220,9 @@ func lose() -> void:
 	star1.play("empty")
 	star2.play("empty")
 	star3.play("empty")
+	if(!complete):
+		AudioManager.level_complete(0)
+		complete = true
 	get_tree().paused = true
 	lost.visible = true
 
@@ -224,6 +230,9 @@ func win() -> void:
 	# Unlock next level
 	LevelManager.unlock_level(level_id + 1)
 	LevelManager.set_stars(level_id, star_count)
+	if(!complete):
+		complete = true
+		AudioManager.level_complete(star_count)
 	get_tree().paused = true
 	won.visible = true
 
