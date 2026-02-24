@@ -14,10 +14,8 @@ class_name CueBall extends BaseBall
 var rewinded: bool = true
 var shot_power = 0;
 var MAX_HOLD = 50
-var ball_type_list: Array[GlobalEnums.BallType] = [GlobalEnums.BallType.NORMAL, GlobalEnums.BallType.EXPLOSION, GlobalEnums.BallType.POCKET]
 var ball_sprite_list: Array[String] = ["default", "explosion_ball", "pocket_ball"]
 var available_types: Array[GlobalEnums.BallType]
-var available_sprites: Array[String]
 var explosion_spawn = preload("res://scenes/ball-components/explosion_animation.tscn")
 
 @onready var shot_count = 0

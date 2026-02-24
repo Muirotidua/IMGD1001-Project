@@ -62,17 +62,13 @@ func _ready():
 	star3.play("full")
 	if normal_available:
 		cue.available_types.append(GlobalEnums.BallType.NORMAL)
-		cue.available_sprites.append(cue.ball_sprite_list[0])
 	if explosion_available:
 		cue.available_types.append(GlobalEnums.BallType.EXPLOSION)
-		cue.available_sprites.append(cue.ball_sprite_list[1])
 	if pocket_available:
 		cue.available_types.append(GlobalEnums.BallType.POCKET)
-		cue.available_sprites.append(cue.ball_sprite_list[2])
 	if cue.available_types.size() == 0:
 		# Force at least 1 ball to exist
 		cue.available_types.append(GlobalEnums.BallType.NORMAL)
-		cue.available_sprites.append("default")
 	for i in range(GlobalEnums.BallType.size()):
 		if cue.available_types.has(GlobalEnums.BallType.values()[i - 1]):
 			LevelManager.type_discovered[i - 1] = true
