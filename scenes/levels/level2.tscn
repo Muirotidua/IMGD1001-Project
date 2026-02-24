@@ -35,7 +35,7 @@ process_mode = 3
 script = ExtResource("1_8i1lk")
 shot_limit = 8
 two_star_limit = 5
-three_star_limit = 3
+three_star_limit = 2
 level_id = 2
 
 [node name="Menus" type="Node" parent="."]
