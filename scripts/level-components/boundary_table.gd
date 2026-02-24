@@ -1,4 +1,4 @@
-extends Node2D
+class_name Boundary extends Node2D
 
 
 	

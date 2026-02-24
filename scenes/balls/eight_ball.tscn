@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dfasssg4e3qqu" path="res://visuals/eightball/8ball/Untitled-1-Recovered-Recovered_0002_Layer-12-copy.png" id="4_h6wdm"]
 [ext_resource type="Texture2D" uid="uid://cg5x3j1xn1i3i" path="res://visuals/eightball/8ball/Untitled-1-Recovered-Recovered_0003_Layer-12.png" id="5_os32q"]
 
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_712ic"]
 animations = [{
 "frames": [{
@@ -67,3 +66,5 @@ offset_right = 320.0
 offset_bottom = -56.0
 text = "0.00"
 horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
