@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://3pr3rvkh2kar"]
+[gd_scene load_steps=27 format=3 uid="uid://3pr3rvkh2kar"]
 
-[ext_resource type="Script" path="res://scripts/levels/level_6.gd" id="1_3mgnq"]
+[ext_resource type="Script" uid="uid://dyxx1460gfb5" path="res://scripts/levels/level_6.gd" id="1_3mgnq"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_uc8rk"]
 [ext_resource type="PackedScene" uid="uid://ceuyvfckkp75l" path="res://scenes/in-level-menus/level_won.tscn" id="3_hseji"]
 [ext_resource type="PackedScene" uid="uid://c4whyrvxyjn6u" path="res://scenes/in-level-menus/level_lost.tscn" id="4_km634"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cw8aac2atgqxf" path="res://scenes/level-components/pause_button.tscn" id="6_rx4po"]
 [ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_e257y"]
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="8_7xq2f"]
-[ext_resource type="Texture2D" uid="uid://unfatubegi3u" path="res://visuals/temp/fullball.png" id="9_xmmsn"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="10_vjdek"]
 [ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="11_qw2ud"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="12_y661n"]
@@ -35,10 +34,10 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtnyt"]
 
-[sub_resource type="SystemFont" id="SystemFont_un07w"]
+[sub_resource type="SystemFont" id="SystemFont_uc8rk"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_t0jqh"]
-font = SubResource("SystemFont_un07w")
+[sub_resource type="LabelSettings" id="LabelSettings_hseji"]
+font = SubResource("SystemFont_uc8rk")
 font_size = 72
 
 [node name="Level6" type="Node2D"]
@@ -91,17 +90,8 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_4xsm0")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_cfict")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ag0wi")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qtnyt")
-icon = ExtResource("9_xmmsn")
 
 [node name="Display" type="Node" parent="."]
-
-[node name="ShotCountDisplay" type="Label" parent="Display"]
-offset_left = 1483.0
-offset_top = 961.0
-offset_right = 1874.0
-offset_bottom = 1068.0
-text = "0"
-label_settings = SubResource("LabelSettings_t0jqh")
 
 [node name="Stars" type="Node" parent="Display"]
 
@@ -122,11 +112,20 @@ z_index = -2
 position = Vector2(975.99994, 257.99997)
 scale = Vector2(0.29035875, 0.29035875)
 
+[node name="ShotCountDisplay" type="Label" parent="Display"]
+offset_left = 1237.0
+offset_top = 909.0
+offset_right = 1874.0
+offset_bottom = 1016.0
+text = "0"
+label_settings = SubResource("LabelSettings_hseji")
+horizontal_alignment = 2
+
 [node name="LevelName" type="Label" parent="Display"]
-offset_left = 324.0
-offset_top = 910.0
-offset_right = 1251.0
-offset_bottom = 994.0
+offset_left = 331.0
+offset_top = 909.0
+offset_right = 1270.0
+offset_bottom = 993.0
 theme_override_fonts/font = ExtResource("12_y661n")
 theme_override_font_sizes/font_size = 70
 text = "Level 6: Open Sesame"
@@ -140,7 +139,6 @@ metadata/_edit_lock_ = true
 
 [node name="CueBall" parent="." instance=ExtResource("14_h4dr5")]
 position = Vector2(976, 448)
-ball_type = 1
 
 [node name="BoundaryObstacle" parent="." instance=ExtResource("17_km634")]
 position = Vector2(1591, 117.00006)
