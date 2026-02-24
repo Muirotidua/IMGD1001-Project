@@ -42,4 +42,3 @@ func _pocket_ready():
 func rewind():
 	if !tabled_last_shot:
 		remove.emit(self)
-		

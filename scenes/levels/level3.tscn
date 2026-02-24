@@ -24,10 +24,10 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rk0s8"]
 
-[sub_resource type="SystemFont" id="SystemFont_5m81o"]
+[sub_resource type="SystemFont" id="SystemFont_a82vw"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_txau4"]
-font = SubResource("SystemFont_5m81o")
+[sub_resource type="LabelSettings" id="LabelSettings_t14x3"]
+font = SubResource("SystemFont_a82vw")
 font_size = 72
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3r28"]
@@ -80,14 +80,6 @@ offset_bottom = 847.92
 
 [node name="Display" type="Node" parent="."]
 
-[node name="ShotCountDisplay" type="Label" parent="Display"]
-offset_left = 1483.0
-offset_top = 961.0
-offset_right = 1874.0
-offset_bottom = 1068.0
-text = "0"
-label_settings = SubResource("LabelSettings_txau4")
-
 [node name="Stars" type="Node" parent="Display"]
 
 [node name="Star1" parent="Display/Stars" instance=ExtResource("9_ah4rv")]
@@ -107,11 +99,20 @@ z_index = -2
 position = Vector2(975.99994, 257.99997)
 scale = Vector2(0.29035875, 0.29035875)
 
+[node name="ShotCountDisplay" type="Label" parent="Display"]
+offset_left = 1237.0
+offset_top = 909.0
+offset_right = 1874.0
+offset_bottom = 1016.0
+text = "0"
+label_settings = SubResource("LabelSettings_t14x3")
+horizontal_alignment = 2
+
 [node name="LevelName" type="Label" parent="Display"]
-offset_left = 317.0
-offset_top = 974.0
-offset_right = 1244.0
-offset_bottom = 1058.0
+offset_left = 331.0
+offset_top = 909.0
+offset_right = 1270.0
+offset_bottom = 993.0
 theme_override_fonts/font = ExtResource("15_a82vw")
 theme_override_font_sizes/font_size = 70
 text = "Level 3: Dodgin' Walls"

@@ -1,10 +1,11 @@
 extends Node
 
-const level_count = 10
+const level_count = 11
 var level_unlocked: Array[bool]
 var level_stars: Array[int]
 var type_discovered: Array[bool]
 var unlock_all = true
+var billiards_record: int = 0
 
 func _ready() -> void:
 	for i in range(level_count):
@@ -48,6 +49,8 @@ func switch_level(level_id: int):
 		get_tree().change_scene_to_file("res://scenes/levels/level5.tscn")
 	elif level_id == 6:
 		get_tree().change_scene_to_file("res://scenes/levels/level6.tscn")
+	elif level_id == 11:
+		get_tree().change_scene_to_file("res://scenes/levels/billiards.tscn")
 	else:
 		print("Level does not exist")
 		get_tree().change_scene_to_file("res://scenes/menus/level_select.tscn")

@@ -141,8 +141,9 @@ func reset_table():
 	fail_ready = false
 	for ball: BaseBall in all_balls:
 		ball.reset()
-	for pocket: Pocket in pockets:
-		pocket.remove.emit(pocket)
+	# Iterate backwards as it modifies an array it reads
+	for i in range(pockets.size() - 1, -1, -1):
+		pockets[i].remove.emit(pockets[i])
 	lost.clear()
 	won.clear()
 		
@@ -152,8 +153,8 @@ func rewind_shot():
 	fail_ready = false
 	for ball: BaseBall in all_balls:
 		ball.rewind()
-	for pocket: Pocket in pockets:
-		pocket.rewind()
+	for i in range(pockets.size() - 1, -1, -1):
+		pockets[i].rewind()
 	lost.clear()
 	won.clear()
 
