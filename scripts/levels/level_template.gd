@@ -42,10 +42,13 @@ var pockets: Array[Pocket] = []
 var pockets_shot_pocketed = 0
 var start_explo_value : bool
 var start_pock_value : bool
+var swapping: bool = false
 
 signal shoot()
 
 func _ready():
+	swap_ball_button.focus_mode = Control.FOCUS_NONE
+	paused_button.focus_mode = Control.FOCUS_NONE
 	get_tree().paused = false
 	swap_ball.swap_cue.connect(swap_cue_type)
 	table.pocketed_ball.connect(on_pocket)
@@ -136,6 +139,8 @@ func on_pocket(ball, pocket):
 
 # 
 func on_try_shoot(): # ?
+	if paused || swapping:
+		return
 	for ball: BaseBall in all_balls:
 		ball.updateLastPos()
 	for pocket: Pocket in pockets:
@@ -299,25 +304,31 @@ func update_shot_display():
 		shot_display.text = (str((shot_limit-cue.shot_count))+" shots left.")
 
 func swap():
+	if swapping:
+		return
+	swapping = true
 	arrow_anim.stop()
 	arrow_bounce.stop()
 	arrow.hide()
-	if !paused:
-		paused = true
-		get_tree().paused = true
-		swap_ball.visible = true 
+	paused = true
+	get_tree().paused = true
+	swap_ball.visible = true 
 
 func _on_swap_ball_button_pressed() -> void:
-	if swap_ball.visible:
-		get_tree().paused = false
-		swap_ball.visible = false
-		paused = false
+	if swapping:
+		stop_swap()
 	elif cue.shot_ready:
 		swap()
 
-func swap_cue_type(new_type: GlobalEnums.BallType):
+func stop_swap():
+	swapping = false
+	get_tree().paused = false
+	swap_ball.visible = false
 	paused = false
+
+func swap_cue_type(new_type: GlobalEnums.BallType):
 	cue.switch_type_spc(new_type)
+	stop_swap()
 	
 func update_swap_ball_sprite():
 	swap_ball_button_sprite.play(cue.ball_sprite_list[cue.ball_type])
@@ -345,8 +356,6 @@ func check_pockets():
 func check_ball_availability():
 	if (rewinded == true):
 		return
-	
-	
 	if (explosion_available && !cue.available_types.has(GlobalEnums.BallType.EXPLOSION)):
 		cue.available_types.insert(1, GlobalEnums.BallType.EXPLOSION)
 		#cue.ball_sprite_list.insert(1, )
