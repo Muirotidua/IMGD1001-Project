@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://3pr3rvkh2kar"]
+[gd_scene load_steps=28 format=3 uid="uid://3pr3rvkh2kar"]
 
 [ext_resource type="Script" uid="uid://dyxx1460gfb5" path="res://scripts/levels/level_6.gd" id="1_3mgnq"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_uc8rk"]
@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_e257y"]
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="8_7xq2f"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="10_vjdek"]
-[ext_resource type="PackedScene" path="res://scenes/level-components/tutorial.tscn" id="11_qw2ud"]
+[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="11_qw2ud"]
+[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_uc8rk"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="12_y661n"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="13_ie8wy"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="14_h4dr5"]
@@ -130,6 +131,10 @@ offset_bottom = 993.0
 theme_override_fonts/font = ExtResource("12_y661n")
 theme_override_font_sizes/font_size = 70
 text = "Level 6: Open Sesame"
+
+[node name="Arrow" parent="Display" instance=ExtResource("12_uc8rk")]
+visible = false
+position = Vector2(135, 766)
 
 [node name="Other" type="Node" parent="."]
 

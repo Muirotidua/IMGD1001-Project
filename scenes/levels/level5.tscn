@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bymd2y45slikj"]
+[gd_scene load_steps=23 format=3 uid="uid://bymd2y45slikj"]
 
 [ext_resource type="Script" uid="uid://1ltrdrtsaw5a" path="res://scripts/levels/level5.gd" id="1_2eb3b"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_kykwg"]
@@ -9,9 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_72xjh"]
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="8_xrw0o"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_4r5lo"]
-[ext_resource type="PackedScene" path="res://scenes/level-components/tutorial.tscn" id="10_po1mw"]
+[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_po1mw"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_ngf84"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_d75b2"]
+[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_iyn63"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_snswl"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="14_vyr3h"]
 [ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="15_kykwg"]
@@ -114,6 +115,10 @@ offset_bottom = 993.0
 theme_override_fonts/font = ExtResource("11_ngf84")
 theme_override_font_sizes/font_size = 70
 text = "Level 5: Bomb's Away"
+
+[node name="Arrow" parent="Display" instance=ExtResource("12_iyn63")]
+visible = false
+position = Vector2(135, 766)
 
 [node name="Other" type="Node" parent="."]
 
