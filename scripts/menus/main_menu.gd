@@ -5,6 +5,8 @@ var clicked = null;
 func _ready() -> void:
 	$"Fade/Fade Timer".start()
 	$Fade/AnimationPlayer.play("fade_out_black")
+	if(!AudioManager.music.playing):
+		AudioManager.music.play()
 	
 
 func _on_start_pressed() -> void:
