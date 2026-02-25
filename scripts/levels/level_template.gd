@@ -39,6 +39,7 @@ var fail_ready: bool = false
 var star_count: int = 3
 var complete: bool = false
 var pockets: Array[Pocket] = []
+var pockets_shot_pocketed = 0
 var start_explo_value : bool
 var start_pock_value : bool
 
@@ -123,10 +124,13 @@ func _physics_process(_delta: float) -> void:
 	update_shot_display()
 	
 
-func on_pocket(ball, _pocket): 
+func on_pocket(ball, pocket): 
 	if ball is BaseBall:
-		if !ball.ignore_pocket:
+		if !ball.ignore_pocket && !ball.pocketed:
 			ball.pocketing = true 
+	if pocket == GlobalEnums.Pocket.SPAWNED && !ball.counted && ball.pocketing:
+		ball.counted = true
+		cue.shot_count -= 1
 	if ball is EightBall:
 		is_eight_last_ball()
 
@@ -152,11 +156,11 @@ func reset_table():
 	if paused:
 		return
 	fail_ready = false
-	for ball: BaseBall in all_balls:
-		ball.reset()
 	# Iterate backwards as it modifies an array it reads
 	for i in range(pockets.size() - 1, -1, -1):
 		pockets[i].remove.emit(pockets[i])
+	for ball: BaseBall in all_balls:
+		ball.reset()
 	lost.clear()
 	won.clear()
 	complete = false
@@ -167,12 +171,15 @@ func reset_table():
 func rewind_shot():
 	if paused:
 		return
+	check_pockets()
+	cue.shot_count += pockets_shot_pocketed
+	pockets_shot_pocketed = 0
 	rewinded = true
 	fail_ready = false
-	for ball: BaseBall in all_balls:
-		ball.rewind()
 	for i in range(pockets.size() - 1, -1, -1):
 		pockets[i].rewind()
+	for ball: BaseBall in all_balls:
+		ball.rewind()
 	lost.clear()
 	won.clear()
 	complete = false
@@ -321,12 +328,19 @@ func spawn_pocket(pos: Vector2):
 	get_tree().current_scene.add_child(p)
 	p._pocket_ready()
 	p.remove.connect(remove_pocket)
+	p.pocketed.connect(on_pocket)
 	pockets.append(p)
 
 func remove_pocket(pocket: Pocket):
 	if pockets.has(pocket):
 		pockets.erase(pocket)
 	pocket.queue_free()
+
+func check_pockets():
+	pockets_shot_pocketed = 0
+	for pocket: Pocket in pockets:
+		pockets_shot_pocketed += pocket.pocketed_count
+		pocket.pocketed_count = 0
 	
 func check_ball_availability():
 	if (rewinded == true):

@@ -7,8 +7,10 @@ var pocket_ready = false
 var tabled_last_shot = false
 
 const rot_speed = 40
+var pocketed_count = 0
 
 signal remove(pocket: Pocket)
+signal pocketed(ball: BaseBall, location)
 
 func _ready():
 	$Sprite2D.play()
@@ -20,13 +22,12 @@ func _physics_process(_delta: float):
 		var contains_cue = false
 		print(active)
 		print(bodies)
-		
 		for ball in bodies:
 			if (ball is CueBall):
 				contains_cue = true
-			if (ball is BaseBall && active):
-				ball.pocketing = true
-				
+			if (ball is BaseBall && active && !ball.counted):
+				pocketed_count += 1
+				pocketed.emit(ball, GlobalEnums.Pocket.SPAWNED)
 		if(!contains_cue):
 			# print(bodies)
 			active = true
