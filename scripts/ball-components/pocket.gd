@@ -25,7 +25,7 @@ func _physics_process(_delta: float):
 		for ball in bodies:
 			if (ball is CueBall):
 				contains_cue = true
-			if (ball is BaseBall && active && !ball.counted):
+			if (ball is BaseBall && active && !ball.counted && !ball.pocketed):
 				pocketed_count += 1
 				pocketed.emit(ball, GlobalEnums.Pocket.SPAWNED)
 		if(!contains_cue):
