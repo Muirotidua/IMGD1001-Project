@@ -10,6 +10,7 @@ enum State{ WON, LOST, PLAYING }
 @export var normal_available: bool = true
 @export var explosion_available: bool = false
 @export var pocket_available: bool = false
+@export var show_arrow: bool = false
 
 @onready var cue: CueBall = $CueBall
 @onready var table: Node2D = $Other/Boundary_Table
@@ -25,6 +26,9 @@ enum State{ WON, LOST, PLAYING }
 @onready var star2: AnimatedSprite2D = $Display/Stars/Star2
 @onready var star3: AnimatedSprite2D = $Display/Stars/Star3
 @onready var tutorial: AnimatedSprite2D = $Display/Tutorial
+@onready var arrow: Node2D = $Display/Arrow
+@onready var arrow_bounce: AnimationPlayer = $Display/Arrow/AnimationPlayer
+@onready var arrow_anim: AnimatedSprite2D = $Display/Arrow/AnimatedSprite2D
 
 var pocket_spawn = preload("res://scenes/ball-components/pocket.tscn")
 var all_balls: Array[BaseBall] = []
@@ -84,6 +88,12 @@ func _ready():
 		tutorial.play(str(level_id))
 	else:
 		tutorial.hide()
+	if show_arrow:
+		arrow.show()
+		arrow_anim.play("default")
+		arrow_bounce.play("bounce")
+	else:
+		arrow.hide()
 	for child: Node in get_children():
 		if child is BaseBall:
 			all_balls.append(child)
@@ -282,6 +292,9 @@ func update_shot_display():
 		shot_display.text = (str((shot_limit-cue.shot_count))+" shots left.")
 
 func swap():
+	arrow_anim.stop()
+	arrow_bounce.stop()
+	arrow.hide()
 	if !paused:
 		paused = true
 		get_tree().paused = true

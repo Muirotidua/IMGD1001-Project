@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjam3v857ixvp"]
+[gd_scene load_steps=10 format=3 uid="uid://bjam3v857ixvp"]
 
 [ext_resource type="Texture2D" uid="uid://dh8efdrdti6t1" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0004_Layer-8.png" id="1_rdhte"]
 [ext_resource type="Texture2D" uid="uid://82g0plycrb07" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0003_Layer-9.png" id="2_c3rkq"]
 [ext_resource type="Texture2D" uid="uid://en4bt0xq20u5" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0002_Layer-10.png" id="3_hiisl"]
 [ext_resource type="Texture2D" uid="uid://c40su7danwyna" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0001_Layer-11.png" id="4_tt1lc"]
 [ext_resource type="Texture2D" uid="uid://b14c4pshebclh" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0000_Layer-9-copy.png" id="5_nmrbx"]
+[ext_resource type="Texture2D" uid="uid://dqbjudvgque1e" path="res://visuals/UI/level2_anim1/mainworkdoc_0000_Layer-40.png" id="6_tt1lc"]
+[ext_resource type="Texture2D" uid="uid://djr0tgx5lrenv" path="res://visuals/UI/level2_anim1/mainworkdoc_0001_Layer-39.png" id="7_nmrbx"]
+[ext_resource type="Texture2D" uid="uid://efrveagwbc8p" path="res://visuals/UI/level2_anim1/mainworkdoc_0002_Layer-38.png" id="8_ir7bu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir7bu"]
 animations = [{
@@ -31,6 +34,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_tt1lc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nmrbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ir7bu")
+}],
+"loop": true,
+"name": &"2",
 "speed": 5.0
 }]
 

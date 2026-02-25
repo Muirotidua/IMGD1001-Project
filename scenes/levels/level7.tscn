@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cjqoyw1k6aqso"]
+[gd_scene load_steps=28 format=3 uid="uid://cjqoyw1k6aqso"]
 
 [ext_resource type="Script" uid="uid://cdfhnwsscjccq" path="res://scripts/levels/level_7.gd" id="1_vnwci"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_4u223"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_hckfr"]
 [ext_resource type="PackedScene" path="res://scenes/level-components/tutorial.tscn" id="10_ubfq5"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_08qf2"]
+[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_4u223"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_vxsie"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_yi5iu"]
 [ext_resource type="PackedScene" uid="uid://dvfyb1ha6dsvv" path="res://scenes/obstacles/boundary_obstacle.tscn" id="14_7716e"]
@@ -127,6 +128,10 @@ offset_bottom = 993.0
 theme_override_fonts/font = ExtResource("11_08qf2")
 theme_override_font_sizes/font_size = 70
 text = "Level 7: No Way Out"
+
+[node name="Arrow" parent="Display" instance=ExtResource("12_4u223")]
+visible = false
+position = Vector2(135, 766)
 
 [node name="Other" type="Node" parent="."]
 
