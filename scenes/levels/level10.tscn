@@ -1,13 +1,15 @@
-[gd_scene load_steps=30 format=3 uid="uid://rkudqy8yhh3r"]
+[gd_scene load_steps=36 format=3 uid="uid://rkudqy8yhh3r"]
 
 [ext_resource type="Script" uid="uid://cbnaxl7p5c6b" path="res://scripts/levels/level_10.gd" id="1_ysxgg"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_634p2"]
-[ext_resource type="PackedScene" uid="uid://ceuyvfckkp75l" path="res://scenes/in-level-menus/level_won.tscn" id="3_21itu"]
+[ext_resource type="Script" uid="uid://n2g1hfxvj7pn" path="res://scripts/in-level-menus/level_won_10.gd" id="3_a0e7p"]
 [ext_resource type="PackedScene" uid="uid://c4whyrvxyjn6u" path="res://scenes/in-level-menus/level_lost.tscn" id="4_x1flq"]
+[ext_resource type="Texture2D" uid="uid://bic53cemvhvfu" path="res://visuals/UI/continuebutton.png" id="5_otn3r"]
 [ext_resource type="PackedScene" uid="uid://cwlxqek67067h" path="res://scenes/in-level-menus/swapball.tscn" id="5_w4xpj"]
 [ext_resource type="PackedScene" uid="uid://cw8aac2atgqxf" path="res://scenes/level-components/pause_button.tscn" id="6_sa2bg"]
 [ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_4ji8w"]
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="8_k056o"]
+[ext_resource type="FontFile" uid="uid://c7xlihre0ua45" path="res://Fonts/rubik/Rubik-BlackItalic.ttf" id="9_272pl"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_a0e7p"]
 [ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_otn3r"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_u8rrv"]
@@ -18,6 +20,14 @@
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="15_6tq2a"]
 [ext_resource type="PackedScene" uid="uid://bgxy7icocb42t" path="res://scenes/obstacles/wall_obstacle.tscn" id="17_21itu"]
 [ext_resource type="PackedScene" uid="uid://dvfyb1ha6dsvv" path="res://scenes/obstacles/boundary_obstacle.tscn" id="18_x1flq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yh2wt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nx4k5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3mhhc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0fylh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
 
@@ -46,6 +56,7 @@ font_size = 72
 [node name="Level10" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_ysxgg")
+shot_limit = 20
 level_id = 10
 
 [node name="Menus" type="Node" parent="."]
@@ -53,8 +64,54 @@ level_id = 10
 [node name="LevelPaused" parent="Menus" instance=ExtResource("2_634p2")]
 visible = false
 
-[node name="LevelWon" parent="Menus" instance=ExtResource("3_21itu")]
-visible = false
+[node name="LevelWon" type="Node2D" parent="Menus"]
+process_mode = 3
+top_level = true
+z_index = 2
+script = ExtResource("3_a0e7p")
+metadata/_edit_lock_ = true
+
+[node name="LevelWonBG" type="ColorRect" parent="Menus/LevelWon"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -52.0
+offset_right = 2629.0
+offset_bottom = 1505.3334
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="Continue" type="Button" parent="Menus/LevelWon"]
+offset_left = 834.0
+offset_top = 427.0
+offset_right = 1078.0
+offset_bottom = 747.0
+theme_override_fonts/font = ExtResource("11_u8rrv")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yh2wt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nx4k5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3mhhc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0fylh")
+text = "Continue"
+icon = ExtResource("5_otn3r")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="LevelWonLabel" type="Label" parent="Menus/LevelWon"]
+offset_left = 611.0
+offset_top = 158.0
+offset_right = 1298.0
+offset_bottom = 277.0
+theme_override_fonts/font = ExtResource("9_272pl")
+theme_override_font_sizes/font_size = 100
+text = "Victory!"
+horizontal_alignment = 1
 
 [node name="LevelLost" parent="Menus" instance=ExtResource("4_x1flq")]
 visible = false
@@ -218,5 +275,6 @@ position = Vector2(1532, 322)
 [node name="PoolBall17" parent="." instance=ExtResource("14_272pl")]
 position = Vector2(1453, 386)
 
+[connection signal="pressed" from="Menus/LevelWon/Continue" to="Menus/LevelWon" method="_on_continue_pressed"]
 [connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
 [connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]

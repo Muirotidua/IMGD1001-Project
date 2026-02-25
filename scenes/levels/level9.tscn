@@ -135,7 +135,7 @@ theme_override_fonts/font = ExtResource("11_qf72o")
 theme_override_font_sizes/font_size = 70
 text = "Level 9: Chaotic Playground"
 
-[node name="Arrow" parent="." instance=ExtResource("12_xntys")]
+[node name="Arrow" parent="Display" instance=ExtResource("12_xntys")]
 
 [node name="Other" type="Node" parent="."]
 
