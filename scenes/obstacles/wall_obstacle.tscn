@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgxy7icocb42t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3r28"]
+size = Vector2(358.88858, 39.30771)
+
+[node name="WallObstacle" type="StaticBody2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 108.99999
+offset_top = -137.0
+offset_right = 467.88904
+offset_bottom = -97.81102
+rotation = 2.1345377
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.9999995, 3.9999998)
+rotation = 2.1345377
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_l3r28")

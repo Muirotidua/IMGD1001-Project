@@ -1,0 +1,222 @@
+[gd_scene load_steps=30 format=3 uid="uid://rkudqy8yhh3r"]
+
+[ext_resource type="Script" uid="uid://cbnaxl7p5c6b" path="res://scripts/levels/level_10.gd" id="1_ysxgg"]
+[ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_634p2"]
+[ext_resource type="PackedScene" uid="uid://ceuyvfckkp75l" path="res://scenes/in-level-menus/level_won.tscn" id="3_21itu"]
+[ext_resource type="PackedScene" uid="uid://c4whyrvxyjn6u" path="res://scenes/in-level-menus/level_lost.tscn" id="4_x1flq"]
+[ext_resource type="PackedScene" uid="uid://cwlxqek67067h" path="res://scenes/in-level-menus/swapball.tscn" id="5_w4xpj"]
+[ext_resource type="PackedScene" uid="uid://cw8aac2atgqxf" path="res://scenes/level-components/pause_button.tscn" id="6_sa2bg"]
+[ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_4ji8w"]
+[ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="8_k056o"]
+[ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_a0e7p"]
+[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_otn3r"]
+[ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_u8rrv"]
+[ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_08hg2"]
+[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_634p2"]
+[ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_xya0h"]
+[ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="14_272pl"]
+[ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="15_6tq2a"]
+[ext_resource type="PackedScene" uid="uid://bgxy7icocb42t" path="res://scenes/obstacles/wall_obstacle.tscn" id="17_21itu"]
+[ext_resource type="PackedScene" uid="uid://dvfyb1ha6dsvv" path="res://scenes/obstacles/boundary_obstacle.tscn" id="18_x1flq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdatj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_un07w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0jqh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6cbbr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4xsm0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cfict"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ag0wi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtnyt"]
+
+[sub_resource type="SystemFont" id="SystemFont_uc8rk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hseji"]
+font = SubResource("SystemFont_uc8rk")
+font_size = 72
+
+[node name="Level10" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_ysxgg")
+level_id = 10
+
+[node name="Menus" type="Node" parent="."]
+
+[node name="LevelPaused" parent="Menus" instance=ExtResource("2_634p2")]
+visible = false
+
+[node name="LevelWon" parent="Menus" instance=ExtResource("3_21itu")]
+visible = false
+
+[node name="LevelLost" parent="Menus" instance=ExtResource("4_x1flq")]
+visible = false
+
+[node name="SwapBall" parent="Menus" instance=ExtResource("5_w4xpj")]
+visible = false
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="PausedButton" parent="Buttons" instance=ExtResource("6_sa2bg")]
+process_mode = 3
+offset_left = 19.0
+offset_top = 19.0
+offset_right = 127.0
+offset_bottom = 127.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ra3k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cdatj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_un07w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t0jqh")
+text = ""
+icon = ExtResource("7_4ji8w")
+flat = true
+
+[node name="SwapBallButton" parent="Buttons" instance=ExtResource("8_k056o")]
+anchor_right = 0.0
+anchor_bottom = 0.015000001
+offset_left = 56.0
+offset_top = 872.0
+offset_right = 214.0
+offset_bottom = 1021.97235
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6cbbr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4xsm0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cfict")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ag0wi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qtnyt")
+
+[node name="Display" type="Node" parent="."]
+
+[node name="Stars" type="Node" parent="Display"]
+
+[node name="Star1" parent="Display/Stars" instance=ExtResource("9_a0e7p")]
+position = Vector2(130.32985, 181)
+
+[node name="Star2" parent="Display/Stars" instance=ExtResource("9_a0e7p")]
+position = Vector2(127.32985, 337)
+frame = 1
+
+[node name="Star3" parent="Display/Stars" instance=ExtResource("9_a0e7p")]
+position = Vector2(129.32985, 490)
+frame = 2
+
+[node name="Tutorial" parent="Display" instance=ExtResource("10_otn3r")]
+modulate = Color(0.2903535, 0.2903535, 0.29035345, 1)
+z_index = -2
+position = Vector2(975.99994, 257.99997)
+scale = Vector2(0.29035875, 0.29035875)
+
+[node name="ShotCountDisplay" type="Label" parent="Display"]
+offset_left = 1237.0
+offset_top = 909.0
+offset_right = 1874.0
+offset_bottom = 1016.0
+text = "0"
+label_settings = SubResource("LabelSettings_hseji")
+horizontal_alignment = 2
+
+[node name="LevelName" type="Label" parent="Display"]
+offset_left = 331.0
+offset_top = 909.0
+offset_right = 1270.0
+offset_bottom = 993.0
+theme_override_fonts/font = ExtResource("11_u8rrv")
+theme_override_font_sizes/font_size = 70
+text = "Level 10: The Gauntlet"
+
+[node name="Arrow" parent="Display" instance=ExtResource("12_634p2")]
+
+[node name="Other" type="Node" parent="."]
+
+[node name="Boundary_Table" parent="Other" instance=ExtResource("12_08hg2")]
+visible = false
+z_index = -1
+metadata/_edit_lock_ = true
+
+[node name="CueBall" parent="." instance=ExtResource("13_xya0h")]
+position = Vector2(464, 562)
+ball_type = 2
+
+[node name="PoolBall" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(1016, 207)
+
+[node name="PoolBall2" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(409, 299)
+
+[node name="EightBall" parent="." instance=ExtResource("15_6tq2a")]
+position = Vector2(1473, 324)
+
+[node name="PoolBall3" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(951, 203)
+
+[node name="WallObstacle" parent="." instance=ExtResource("17_21itu")]
+position = Vector2(688, 438)
+rotation = 0.5235988
+scale = Vector2(1.8011891, -1.9879824)
+
+[node name="WallObstacle2" parent="." instance=ExtResource("17_21itu")]
+position = Vector2(1257.9999, 446.99997)
+rotation = 0.5235988
+scale = Vector2(1.8011891, -1.9879824)
+
+[node name="PoolBall4" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(951, 355)
+
+[node name="PoolBall5" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(485, 355)
+
+[node name="PoolBall6" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(401, 207)
+
+[node name="PoolBall7" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(951, 283)
+
+[node name="PoolBall8" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(1016, 280)
+
+[node name="BoundaryObstacle" parent="." instance=ExtResource("18_x1flq")]
+position = Vector2(343, 108.99999)
+rotation = 2.3561945
+active = false
+
+[node name="BoundaryObstacle2" parent="." instance=ExtResource("18_x1flq")]
+position = Vector2(354.00003, 747.0001)
+rotation = 0.7853982
+active = false
+
+[node name="PoolBall9" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(551, 300)
+
+[node name="PoolBall10" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(560, 207)
+
+[node name="PoolBall11" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(1453, 223)
+
+[node name="PoolBall12" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(1513, 207)
+
+[node name="PoolBall13" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(1405, 275)
+
+[node name="PoolBall14" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(1405, 340)
+
+[node name="PoolBall15" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(1529, 380)
+
+[node name="PoolBall16" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(1532, 322)
+
+[node name="PoolBall17" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(1453, 386)
+
+[connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
+[connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]

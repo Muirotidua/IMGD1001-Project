@@ -1,0 +1,202 @@
+[gd_scene load_steps=29 format=3 uid="uid://d01nr6vlwblpg"]
+
+[ext_resource type="Script" uid="uid://cskrkf0smxfpl" path="res://scripts/levels/level_9.gd" id="1_ace8g"]
+[ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_xntys"]
+[ext_resource type="PackedScene" uid="uid://ceuyvfckkp75l" path="res://scenes/in-level-menus/level_won.tscn" id="3_iek1g"]
+[ext_resource type="PackedScene" uid="uid://c4whyrvxyjn6u" path="res://scenes/in-level-menus/level_lost.tscn" id="4_a25dg"]
+[ext_resource type="PackedScene" uid="uid://cwlxqek67067h" path="res://scenes/in-level-menus/swapball.tscn" id="5_2p0ou"]
+[ext_resource type="PackedScene" uid="uid://cw8aac2atgqxf" path="res://scenes/level-components/pause_button.tscn" id="6_gblyi"]
+[ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_8x1us"]
+[ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="8_hfx0x"]
+[ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_7g6pv"]
+[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_1ypmt"]
+[ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_qf72o"]
+[ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_nea2l"]
+[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_xntys"]
+[ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_hy5p4"]
+[ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="14_nsw56"]
+[ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="15_h65go"]
+[ext_resource type="PackedScene" uid="uid://dvfyb1ha6dsvv" path="res://scenes/obstacles/boundary_obstacle.tscn" id="17_iek1g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdatj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_un07w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0jqh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6cbbr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4xsm0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cfict"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ag0wi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtnyt"]
+
+[sub_resource type="SystemFont" id="SystemFont_uc8rk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hseji"]
+font = SubResource("SystemFont_uc8rk")
+font_size = 72
+
+[node name="Level9" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_ace8g")
+shot_limit = 15
+two_star_limit = 5
+three_star_limit = 5
+level_id = 9
+explosion_available = true
+pocket_available = true
+
+[node name="Menus" type="Node" parent="."]
+
+[node name="LevelPaused" parent="Menus" instance=ExtResource("2_xntys")]
+visible = false
+
+[node name="LevelWon" parent="Menus" instance=ExtResource("3_iek1g")]
+visible = false
+
+[node name="LevelLost" parent="Menus" instance=ExtResource("4_a25dg")]
+visible = false
+
+[node name="SwapBall" parent="Menus" instance=ExtResource("5_2p0ou")]
+visible = false
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="PausedButton" parent="Buttons" instance=ExtResource("6_gblyi")]
+process_mode = 3
+offset_left = 19.0
+offset_top = 19.0
+offset_right = 127.0
+offset_bottom = 127.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ra3k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cdatj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_un07w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t0jqh")
+text = ""
+icon = ExtResource("7_8x1us")
+flat = true
+
+[node name="SwapBallButton" parent="Buttons" instance=ExtResource("8_hfx0x")]
+anchor_right = 0.0
+anchor_bottom = 0.015000001
+offset_left = 56.0
+offset_top = 872.0
+offset_right = 214.0
+offset_bottom = 1021.97235
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6cbbr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4xsm0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cfict")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ag0wi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qtnyt")
+
+[node name="Display" type="Node" parent="."]
+
+[node name="Stars" type="Node" parent="Display"]
+
+[node name="Star1" parent="Display/Stars" instance=ExtResource("9_7g6pv")]
+position = Vector2(130.32985, 181)
+
+[node name="Star2" parent="Display/Stars" instance=ExtResource("9_7g6pv")]
+position = Vector2(127.32985, 337)
+frame = 1
+
+[node name="Star3" parent="Display/Stars" instance=ExtResource("9_7g6pv")]
+position = Vector2(129.32985, 490)
+frame = 2
+
+[node name="Tutorial" parent="Display" instance=ExtResource("10_1ypmt")]
+modulate = Color(0.2903535, 0.2903535, 0.29035345, 1)
+z_index = -2
+position = Vector2(975.99994, 257.99997)
+scale = Vector2(0.29035875, 0.29035875)
+
+[node name="ShotCountDisplay" type="Label" parent="Display"]
+offset_left = 1237.0
+offset_top = 909.0
+offset_right = 1874.0
+offset_bottom = 1016.0
+text = "0"
+label_settings = SubResource("LabelSettings_hseji")
+horizontal_alignment = 2
+
+[node name="LevelName" type="Label" parent="Display"]
+offset_left = 331.0
+offset_top = 909.0
+offset_right = 1270.0
+offset_bottom = 993.0
+theme_override_fonts/font = ExtResource("11_qf72o")
+theme_override_font_sizes/font_size = 70
+text = "Level 9: Chaotic Playground"
+
+[node name="Arrow" parent="." instance=ExtResource("12_xntys")]
+
+[node name="Other" type="Node" parent="."]
+
+[node name="Boundary_Table" parent="Other" instance=ExtResource("12_nea2l")]
+visible = false
+z_index = -1
+metadata/_edit_lock_ = true
+
+[node name="CueBall" parent="." instance=ExtResource("13_hy5p4")]
+position = Vector2(956, 411)
+ball_type = 2
+
+[node name="EightBall" parent="." instance=ExtResource("15_h65go")]
+position = Vector2(667, 355)
+
+[node name="PoolBall4" parent="." instance=ExtResource("14_nsw56")]
+position = Vector2(627, 277)
+
+[node name="PoolBall5" parent="." instance=ExtResource("14_nsw56")]
+position = Vector2(571, 355)
+
+[node name="BoundaryObstacle" parent="." instance=ExtResource("17_iek1g")]
+position = Vector2(347, 111.99999)
+rotation = 2.3561945
+
+[node name="BoundaryObstacle2" parent="." instance=ExtResource("17_iek1g")]
+position = Vector2(967, 86)
+rotation = 3.1415927
+
+[node name="BoundaryObstacle3" parent="." instance=ExtResource("17_iek1g")]
+position = Vector2(967, 771)
+
+[node name="BoundaryObstacle4" parent="." instance=ExtResource("17_iek1g")]
+position = Vector2(352, 747)
+rotation = 0.7853982
+
+[node name="BoundaryObstacle5" parent="." instance=ExtResource("17_iek1g")]
+position = Vector2(1589, 111.00006)
+rotation = 3.926991
+
+[node name="BoundaryObstacle6" parent="." instance=ExtResource("17_iek1g")]
+position = Vector2(1581, 746.99994)
+rotation = -0.7853982
+
+[node name="PoolBall6" parent="." instance=ExtResource("14_nsw56")]
+position = Vector2(1296, 277)
+
+[node name="PoolBall8" parent="." instance=ExtResource("14_nsw56")]
+position = Vector2(1334, 352)
+
+[node name="PoolBall9" parent="." instance=ExtResource("14_nsw56")]
+position = Vector2(1236, 352)
+
+[node name="PoolBall12" parent="." instance=ExtResource("14_nsw56")]
+position = Vector2(768, 588)
+
+[node name="PoolBall15" parent="." instance=ExtResource("14_nsw56")]
+position = Vector2(1118, 576)
+
+[node name="PoolBall16" parent="." instance=ExtResource("14_nsw56")]
+position = Vector2(942, 656)
+
+[connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
+[connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]

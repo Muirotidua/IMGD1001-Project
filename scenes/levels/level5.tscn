@@ -130,6 +130,7 @@ metadata/_edit_lock_ = true
 [node name="CueBall" parent="." instance=ExtResource("13_snswl")]
 position = Vector2(678, 461)
 impulse_multiplier = 50.0
+rapid_fire = true
 
 [node name="Ball" parent="." instance=ExtResource("14_vyr3h")]
 position = Vector2(976, 461)

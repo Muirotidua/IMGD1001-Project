@@ -86,8 +86,8 @@ func _on_hollowball_button_mouse_entered() -> void:
 	hover_icon.modulate = colors[ball_availability[GlobalEnums.BallType.POCKET]]
 	hover_icon.visible = true
 	hover_icon.play("pocket_ball")
-	ball_label.text = "Hollow Cue"
-	ball_desc.text = "Lighter than a Feather."
+	ball_label.text = "Pocket Ball"
+	ball_desc.text = "I think you dropped something!"
 	if ball_availability[GlobalEnums.BallType.POCKET] == GlobalEnums.BallAvailability.UNDISCOVERED:
 		ball_label.text = UD_LABEL
 		ball_desc.text = UD_DESC
