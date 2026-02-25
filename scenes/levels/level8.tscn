@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://baxibnsvs5jc"]
+[gd_scene load_steps=28 format=3 uid="uid://baxibnsvs5jc"]
 
 [ext_resource type="Script" uid="uid://ccfavtmj74ls4" path="res://scripts/levels/level_8.gd" id="1_5v622"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_ofvo0"]
@@ -9,9 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_o4j2a"]
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="8_7kkvr"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_iiwue"]
-[ext_resource type="PackedScene" path="res://scenes/level-components/tutorial.tscn" id="10_1dg3w"]
+[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_1dg3w"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_k12p4"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_75nnh"]
+[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_ofvo0"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_cydy4"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="15_5v622"]
 [ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="15_b8bg4"]
@@ -129,6 +130,8 @@ theme_override_fonts/font = ExtResource("11_k12p4")
 theme_override_font_sizes/font_size = 70
 text = "Level 8: Back and Better"
 
+[node name="Arrow" parent="Display" instance=ExtResource("12_ofvo0")]
+
 [node name="Other" type="Node" parent="."]
 
 [node name="Boundary_Table" parent="Other" instance=ExtResource("12_75nnh")]
@@ -141,7 +144,7 @@ position = Vector2(968, 418)
 ball_type = 2
 
 [node name="PoolBall" parent="." instance=ExtResource("15_b8bg4")]
-position = Vector2(1298, 418)
+position = Vector2(1318, 418)
 
 [node name="PoolBall2" parent="." instance=ExtResource("15_b8bg4")]
 position = Vector2(615, 418)

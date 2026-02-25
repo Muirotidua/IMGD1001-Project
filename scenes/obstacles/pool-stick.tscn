@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs8mfev00ep1n"]
+
+[ext_resource type="Texture2D" uid="uid://h5twy65whfri" path="res://visuals/poolstick/Untitled-1_0000_Layer-5.png" id="1_m0rke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0rke"]
+size = Vector2(1822.5352, 86.92152)
+
+[node name="PoolStickObstacle" type="StaticBody2D"]
+rotation = -0.5890734
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8.000002, -4.7683716e-07)
+rotation = -0.9644826
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_m0rke")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 2.1653564
+texture = ExtResource("1_m0rke")

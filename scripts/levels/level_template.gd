@@ -97,7 +97,8 @@ func _ready():
 		arrow_anim.play("default")
 		arrow_bounce.play("bounce")
 	else:
-		arrow.hide()
+		await get_tree().create_timer(0.1).timeout
+		#arrow.hide()
 	for child: Node in get_children():
 		if child is BaseBall:
 			all_balls.append(child)
@@ -365,3 +366,10 @@ func check_ball_availability():
 		cue.available_types.remove_at(1)
 	if (!pocket_available && cue.available_types.has(GlobalEnums.BallType.POCKET)):
 		cue.available_types.pop_back()
+		
+	for i in range(GlobalEnums.BallType.size()):
+		if cue.available_types.has(GlobalEnums.BallType.values()[i - 1]):
+			LevelManager.type_discovered[i - 1] = true
+			swap_ball.ball_availability[i - 1] = GlobalEnums.BallAvailability.AVAILABLE
+		elif LevelManager.type_discovered[i - 1]:
+			swap_ball.ball_availability[i - 1] = GlobalEnums.BallAvailability.UNAVAILABLE

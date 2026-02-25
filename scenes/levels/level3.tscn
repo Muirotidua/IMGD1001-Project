@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_t14x3"]
 [ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="12_v6yyo"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="15_a82vw"]
+[ext_resource type="PackedScene" uid="uid://bgxy7icocb42t" path="res://scenes/obstacles/wall_obstacle.tscn" id="17_ahaer"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pcq6o"]
 
@@ -31,9 +32,6 @@
 font = SubResource("SystemFont_a82vw")
 font_size = 72
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3r28"]
-size = Vector2(358.88858, 39.18946)
-
 [node name="Level3" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_wb0vq")
@@ -41,6 +39,7 @@ shot_limit = 10
 two_star_limit = 7
 three_star_limit = 4
 level_id = 3
+pocket_available = true
 
 [node name="Menus" type="Node" parent="."]
 
@@ -72,6 +71,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_rk0s8")
 text = ""
 icon = ExtResource("7_wt4k6")
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="SwapBallButton" parent="Buttons" instance=ExtResource("8_wo5bm")]
 offset_left = 44.0
@@ -140,17 +140,5 @@ position = Vector2(742, 676)
 [node name="PoolBall2" parent="." instance=ExtResource("12_v6yyo")]
 position = Vector2(1227, 280)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = 799.0
-offset_top = 236.99998
-offset_right = 1157.889
-offset_bottom = 276.18896
-rotation = 2.1345377
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(687, 379)
-rotation = 2.1345377
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_l3r28")
+[node name="WallObstacle" parent="." instance=ExtResource("17_ahaer")]
+position = Vector2(653, 376)
