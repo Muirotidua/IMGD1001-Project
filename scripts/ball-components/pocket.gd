@@ -5,6 +5,7 @@ var active = false
 var bodies = []
 var pocket_ready = false
 var tabled_last_shot = false
+
 const rot_speed = 40
 
 signal remove(pocket: Pocket)
@@ -25,6 +26,7 @@ func _physics_process(_delta: float):
 				contains_cue = true
 			if (ball is BaseBall && active):
 				ball.pocketing = true
+				
 		if(!contains_cue):
 			# print(bodies)
 			active = true
