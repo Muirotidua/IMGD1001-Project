@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dih2bhghs70xg"]
+[gd_scene load_steps=22 format=3 uid="uid://dih2bhghs70xg"]
 
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="1_6lum8"]
 [ext_resource type="Script" uid="uid://1orqlroorufl" path="res://scripts/levels/level_template.gd" id="1_iw5l3"]
@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_fwulr"]
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="11_hj7jb"]
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="12_h2vd2"]
+[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_i403b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
 
@@ -110,6 +111,10 @@ offset_bottom = 1016.0
 text = "0"
 label_settings = SubResource("LabelSettings_i403b")
 horizontal_alignment = 2
+
+[node name="Arrow" parent="Display" instance=ExtResource("12_i403b")]
+visible = false
+position = Vector2(135, 766)
 
 [node name="Other" type="Node" parent="."]
 

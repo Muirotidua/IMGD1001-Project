@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d32bbho1jyji2"]
+[gd_scene load_steps=23 format=3 uid="uid://d32bbho1jyji2"]
 
 [ext_resource type="Script" uid="uid://c1ddsky4vkth" path="res://scripts/levels/billiards.gd" id="1_chn2m"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_4mqxy"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_wlrpq"]
 [ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_lpmbf"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_wvm3e"]
+[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_ps4pl"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_xb1h8"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_fiydi"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="14_vjl8a"]
@@ -117,6 +118,10 @@ offset_bottom = 1053.0
 theme_override_fonts/font = ExtResource("11_wvm3e")
 theme_override_font_sizes/font_size = 70
 text = "Freeplay"
+
+[node name="Arrow" parent="Display" instance=ExtResource("12_ps4pl")]
+visible = false
+position = Vector2(135, 766)
 
 [node name="Other" type="Node" parent="."]
 
