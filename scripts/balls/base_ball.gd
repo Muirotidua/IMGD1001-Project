@@ -11,7 +11,7 @@ class_name BaseBall extends RigidBody2D
 
 var inmotion: bool = false
 var speed: float = 0.0
-
+var counted: bool = false
 var pocketing: bool = false
 var pocketed: bool = false
 var tabled_last_shot: bool = true
@@ -65,6 +65,7 @@ func pocket():
 	angular_velocity = 0
 	pocketing = false
 	pocketed = true
+	counted = false
 	hide()
 	sprite.set_scale(default_scale)
 	collision_layer = 0
