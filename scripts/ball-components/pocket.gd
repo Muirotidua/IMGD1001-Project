@@ -5,6 +5,7 @@ var active = false
 var bodies = []
 var pocket_ready = false
 var tabled_last_shot = false
+
 const rot_speed = 40
 var pocketed_count = 0
 
