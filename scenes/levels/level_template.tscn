@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="4_iw5l3"]
 [ext_resource type="PackedScene" uid="uid://cw8aac2atgqxf" path="res://scenes/level-components/pause_button.tscn" id="6_770am"]
 [ext_resource type="Texture2D" uid="uid://bj82t5dd6pp7y" path="res://visuals/UI/pausebutton.png" id="7_0ra3k"]
-[ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_g1ai2"]
+[ext_resource type="PackedScene" path="res://scenes/level-components/tutorial.tscn" id="10_g1ai2"]
 [ext_resource type="PackedScene" uid="uid://cwlxqek67067h" path="res://scenes/in-level-menus/swapball.tscn" id="10_hj7jb"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_fwulr"]
 [ext_resource type="PackedScene" uid="uid://ptp6coop1tmo" path="res://scenes/level-components/swap_ball_button.tscn" id="11_hj7jb"]
@@ -32,6 +32,7 @@ font_size = 72
 [node name="Level_Template" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_iw5l3")
+two_star_limit = 1
 explosion_available = true
 pocket_available = true
 
@@ -120,6 +121,7 @@ metadata/_edit_lock_ = true
 
 [node name="CueBall" parent="." instance=ExtResource("1_mm7tu")]
 position = Vector2(678, 461)
+ball_type = 1
 
 [node name="Ball" parent="." instance=ExtResource("4_iw5l3")]
 position = Vector2(1279, 458)

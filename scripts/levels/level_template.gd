@@ -35,6 +35,8 @@ var fail_ready: bool = false
 var star_count: int = 3
 var complete: bool = false
 var pockets: Array[Pocket] = []
+var start_explo_value : bool
+var start_pock_value : bool
 
 signal shoot()
 
@@ -87,6 +89,9 @@ func _ready():
 			all_balls.append(child)
 		elif child is Pocket:
 			pockets.append(child)
+	await get_tree().create_timer(0.1).timeout
+	start_explo_value = explosion_available
+	start_pock_value = pocket_available
 
 
 func _physics_process(_delta: float) -> void:
@@ -124,6 +129,7 @@ func on_try_shoot(): # ?
 	tutorial.stop()
 	tutorial.hide()
 	shoot.emit()
+	rewinded = false
 
 # False if no balls are moving. True otherwise
 func moving_balls() -> bool: # ??? Need to ensure that this is looking at the cue ball moving, ask Liam when he's back.
@@ -144,10 +150,14 @@ func reset_table():
 	lost.clear()
 	won.clear()
 	complete = false
+	await get_tree().create_timer(0.1).timeout
+	explosion_available = start_explo_value
+	pocket_available = start_pock_value
 		
 func rewind_shot():
 	if paused:
 		return
+	rewinded = true
 	fail_ready = false
 	for ball: BaseBall in all_balls:
 		ball.rewind()
@@ -176,6 +186,9 @@ func check_final():
 		lose()
 		return
 	state = State.PLAYING
+	if ((shot_limit-cue.shot_count) < 2):
+		explosion_available = false
+	check_ball_availability()
 	if cue.shot_count < three_star_limit:
 		star_count = 3
 		star1.play("full")
@@ -301,3 +314,18 @@ func remove_pocket(pocket: Pocket):
 	if pockets.has(pocket):
 		pockets.erase(pocket)
 	pocket.queue_free()
+	
+func check_ball_availability():
+	if (rewinded == true):
+		return
+	
+	
+	if (explosion_available && !cue.available_types.has(GlobalEnums.BallType.EXPLOSION)):
+		cue.available_types.insert(1, GlobalEnums.BallType.EXPLOSION)
+		#cue.ball_sprite_list.insert(1, )
+	if (pocket_available && !cue.available_types.has(GlobalEnums.BallType.POCKET)):
+		cue.available_types.append(GlobalEnums.BallType.POCKET)
+	if (!explosion_available && cue.available_types.has(GlobalEnums.BallType.EXPLOSION)):
+		cue.available_types.remove_at(1)
+	if (!pocket_available && cue.available_types.has(GlobalEnums.BallType.POCKET)):
+		cue.available_types.pop_back()
