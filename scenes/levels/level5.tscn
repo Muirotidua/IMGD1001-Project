@@ -72,10 +72,10 @@ icon = ExtResource("7_72xjh")
 flat = true
 
 [node name="SwapBallButton" parent="Buttons" instance=ExtResource("8_xrw0o")]
-offset_left = 56.0
-offset_top = 872.0
-offset_right = 214.0
-offset_bottom = 1021.97235
+offset_left = 44.0
+offset_top = 853.0
+offset_right = 39.079987
+offset_bottom = 847.92
 
 [node name="Display" type="Node" parent="."]
 
@@ -130,7 +130,6 @@ metadata/_edit_lock_ = true
 [node name="CueBall" parent="." instance=ExtResource("13_snswl")]
 position = Vector2(678, 461)
 impulse_multiplier = 50.0
-rapid_fire = true
 
 [node name="Ball" parent="." instance=ExtResource("14_vyr3h")]
 position = Vector2(976, 461)

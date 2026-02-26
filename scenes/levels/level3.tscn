@@ -39,7 +39,6 @@ shot_limit = 10
 two_star_limit = 7
 three_star_limit = 4
 level_id = 3
-pocket_available = true
 
 [node name="Menus" type="Node" parent="."]
 

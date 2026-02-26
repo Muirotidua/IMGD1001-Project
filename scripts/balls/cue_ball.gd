@@ -20,6 +20,7 @@ var explosion_spawn = preload("res://scenes/ball-components/explosion_animation.
 var shot_count_track = 0
 var start_available_types: Array[GlobalEnums.BallType]
 var last_available_types: Array[GlobalEnums.BallType]
+var spec_pock_last_shot: bool = true
 
 @onready var shot_count = 0
 @onready var count_label: Label = $NonRotate/CountLabel
@@ -114,6 +115,7 @@ func on_shoot():
 func reset():
 	shot_count = 0
 	shot_power = 0
+	shot_count_track = 0
 	available_types = start_available_types.duplicate()
 	pool_stick._on_timer_timeout()
 	super.reset()
@@ -121,7 +123,8 @@ func reset():
 
 func rewind():
 	if !rewinded:
-		shot_count -= shot_count_track
+		if (!(spec_pock_last_shot)):
+			shot_count -= shot_count_track
 	rewinded = true
 	available_types = last_available_types.duplicate(true)
 	shot_power = 0
@@ -143,6 +146,7 @@ func _on_body_entered(body: Node) -> void:
 		(switch_type_spc(GlobalEnums.BallType.NORMAL))
 	if(ball_type == GlobalEnums.BallType.POCKET):
 		call_deferred("spawn_pocket")
+		await get_tree().create_timer(0.1).timeout
 		switch_type_spc(GlobalEnums.BallType.NORMAL)
 		#pocket_ready.emit() 
 	if((body.global_position.x <= global_position.x) && body is BaseBall): #check here so that only one plays the sound

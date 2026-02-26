@@ -5,6 +5,7 @@ var active = false
 var bodies = []
 var pocket_ready = false
 var tabled_last_shot = false
+var pocket_trigger = false
 
 const rot_speed = 40
 var pocketed_count = 0
@@ -20,14 +21,15 @@ func _physics_process(_delta: float):
 	if(pocket_ready):
 		bodies = get_overlapping_bodies()
 		var contains_cue = false
-		print(active)
-		print(bodies)
+		#print(active)
+		#print(bodies)
 		for ball in bodies:
 			if (ball is CueBall):
 				contains_cue = true
 			if (ball is BaseBall && active && !ball.counted && !ball.pocketed):
 				pocketed_count += 1
 				pocketed.emit(ball, GlobalEnums.Pocket.SPAWNED)
+				pocket_trigger = true
 		if(!contains_cue):
 			# print(bodies)
 			active = true

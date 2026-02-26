@@ -135,6 +135,7 @@ func on_pocket(ball, pocket):
 	if pocket == GlobalEnums.Pocket.SPAWNED && !ball.counted && ball.pocketing:
 		ball.counted = true
 		cue.shot_count -= 1
+		cue.spec_pock_last_shot = true
 	if ball is EightBall:
 		is_eight_last_ball()
 
@@ -150,6 +151,8 @@ func on_try_shoot(): # ?
 	tutorial.hide()
 	shoot.emit()
 	rewinded = false
+	await get_tree().create_timer(0.1).timeout
+	cue.spec_pock_last_shot = false
 
 # False if no balls are moving. True otherwise
 func moving_balls() -> bool: # ??? Need to ensure that this is looking at the cue ball moving, ask Liam when he's back.
@@ -178,7 +181,7 @@ func rewind_shot():
 	if paused:
 		return
 	check_pockets()
-	cue.shot_count += pockets_shot_pocketed
+	#cue.shot_count -= pockets_shot_pocketed #NO
 	pockets_shot_pocketed = 0
 	rewinded = true
 	fail_ready = false

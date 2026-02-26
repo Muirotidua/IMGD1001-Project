@@ -81,10 +81,10 @@ flat = true
 [node name="SwapBallButton" parent="Buttons" instance=ExtResource("8_7kkvr")]
 anchor_right = 0.0
 anchor_bottom = 0.015000001
-offset_left = 56.0
-offset_top = 872.0
-offset_right = 214.0
-offset_bottom = 1021.97235
+offset_left = 44.0
+offset_top = 853.0
+offset_right = 233.0
+offset_bottom = 1021.8
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6cbbr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4xsm0")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_cfict")
@@ -141,7 +141,6 @@ metadata/_edit_lock_ = true
 
 [node name="CueBall" parent="." instance=ExtResource("13_cydy4")]
 position = Vector2(968, 418)
-ball_type = 2
 
 [node name="PoolBall" parent="." instance=ExtResource("15_b8bg4")]
 position = Vector2(1318, 418)
