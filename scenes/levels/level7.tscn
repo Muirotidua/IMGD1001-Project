@@ -44,7 +44,9 @@ font_size = 72
 [node name="Level7" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_vnwci")
+level_id = 7
 pocket_available = true
+show_arrow = true
 
 [node name="Menus" type="Node" parent="."]
 
@@ -80,10 +82,10 @@ flat = true
 [node name="SwapBallButton" parent="Buttons" instance=ExtResource("8_co2u6")]
 anchor_right = 0.0
 anchor_bottom = 0.015000001
-offset_left = 56.0
-offset_top = 872.0
-offset_right = 214.0
-offset_bottom = 1021.97235
+offset_left = 44.0
+offset_top = 853.0
+offset_right = 233.0
+offset_bottom = 1021.8
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6cbbr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4xsm0")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_cfict")
