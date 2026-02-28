@@ -59,6 +59,7 @@ visible = false
 
 [node name="LevelWon" type="Node2D" parent="Menus"]
 process_mode = 3
+visible = false
 top_level = true
 z_index = 2
 script = ExtResource("3_a0e7p")
