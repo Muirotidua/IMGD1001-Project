@@ -180,6 +180,7 @@ animation = &"default"
 position = Vector2(1184, 408)
 scale = Vector2(0.29448223, 0.29448223)
 animation = &"explosion_ball"
+frame_progress = 0.10971659
 
 [node name="Pocket" parent="." instance=ExtResource("4_twxsr")]
 position = Vector2(1512, 407.99997)
