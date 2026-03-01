@@ -5,6 +5,8 @@ var level_unlocked: Array[bool]
 var level_stars: Array[int]
 var type_discovered: Array[bool]
 var unlock_all = true
+
+
 var billiards_record: int = 0
 
 func _ready() -> void:

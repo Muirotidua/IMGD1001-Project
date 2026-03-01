@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bymd2y45slikj"]
+[gd_scene load_steps=29 format=3 uid="uid://bymd2y45slikj"]
 
 [ext_resource type="Script" uid="uid://1ltrdrtsaw5a" path="res://scripts/levels/level5.gd" id="1_2eb3b"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_kykwg"]
@@ -14,8 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_d75b2"]
 [ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_iyn63"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_snswl"]
-[ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="14_vyr3h"]
 [ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="15_kykwg"]
+[ext_resource type="Script" uid="uid://b1iinl1eawlk8" path="res://scripts/obstacles/wall_obstacle.gd" id="16_4x4hb"]
+[ext_resource type="PackedScene" uid="uid://bgxy7icocb42t" path="res://scenes/obstacles/wall_obstacle.tscn" id="17_1ix84"]
+[ext_resource type="PackedScene" uid="uid://dvfyb1ha6dsvv" path="res://scenes/obstacles/boundary_obstacle.tscn" id="17_4x4hb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
 
@@ -30,6 +32,47 @@
 [sub_resource type="LabelSettings" id="LabelSettings_iyn63"]
 font = SubResource("SystemFont_kykwg")
 font_size = 72
+
+[sub_resource type="Animation" id="Animation_iyn63"]
+resource_name = "moving"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(302, 744), Vector2(1298, 744)]
+}
+
+[sub_resource type="Animation" id="Animation_1ix84"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1296, 744)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4x4hb"]
+_data = {
+&"RESET": SubResource("Animation_1ix84"),
+&"moving": SubResource("Animation_iyn63")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4x4hb"]
+size = Vector2(206.00002, 284)
 
 [node name="Level5" type="Node2D"]
 process_mode = 3
@@ -128,29 +171,60 @@ z_index = -1
 metadata/_edit_lock_ = true
 
 [node name="CueBall" parent="." instance=ExtResource("13_snswl")]
-position = Vector2(678, 461)
+position = Vector2(967, 136)
 impulse_multiplier = 50.0
 
-[node name="Ball" parent="." instance=ExtResource("14_vyr3h")]
-position = Vector2(976, 461)
+[node name="MovingObstacle" parent="." instance=ExtResource("17_1ix84")]
+position = Vector2(1296, 744)
+rotation = 1.5707964
+script = ExtResource("16_4x4hb")
+
+[node name="ColorRect" parent="MovingObstacle" index="0"]
+offset_left = 6.67572e-05
+offset_top = -310.40002
+offset_right = 284.34506
+offset_bottom = -274.299
+
+[node name="CollisionShape2D" parent="MovingObstacle" index="1"]
+position = Vector2(-17.33606, -167)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingObstacle"]
+libraries = {
+&"": SubResource("AnimationLibrary_4x4hb")
+}
+autoplay = "moving"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MovingObstacle"]
+position = Vector2(68.99988, -165)
+rotation = -3.1415925
+shape = SubResource("RectangleShape2D_4x4hb")
+debug_color = Color(0.949042, 0.07317846, 0.53693414, 0.41960785)
+
+[node name="BoundaryObstacle" parent="." instance=ExtResource("17_4x4hb")]
+position = Vector2(972, 83)
+rotation = 3.1415927
+active = false
+
+[node name="BoundaryObstacle2" parent="." instance=ExtResource("17_4x4hb")]
+position = Vector2(345, 110)
+rotation = 2.3561945
+active = false
+
+[node name="BoundaryObstacle3" parent="." instance=ExtResource("17_4x4hb")]
+position = Vector2(1593, 114.99994)
+rotation = 3.9269907
+active = false
 
 [node name="PoolBall" parent="." instance=ExtResource("15_kykwg")]
-position = Vector2(1580, 129)
+position = Vector2(967, 238)
 
 [node name="PoolBall2" parent="." instance=ExtResource("15_kykwg")]
-position = Vector2(1588, 747)
+position = Vector2(925, 219)
 
 [node name="PoolBall3" parent="." instance=ExtResource("15_kykwg")]
-position = Vector2(1023, 441)
-
-[node name="PoolBall6" parent="." instance=ExtResource("15_kykwg")]
-position = Vector2(1023, 481)
-
-[node name="PoolBall7" parent="." instance=ExtResource("15_kykwg")]
-position = Vector2(929, 441)
-
-[node name="PoolBall8" parent="." instance=ExtResource("15_kykwg")]
-position = Vector2(929, 481)
+position = Vector2(1011, 220)
 
 [connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
 [connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]
+
+[editable path="MovingObstacle"]
