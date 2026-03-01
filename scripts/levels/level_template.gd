@@ -146,7 +146,7 @@ func on_try_shoot(): # ?
 	for ball: BaseBall in all_balls:
 		ball.updateLastPos()
 	for pocket: Pocket in pockets:
-		pocket.tabled_last_shot = true
+		pocket.update()
 	tutorial.stop()
 	tutorial.hide()
 	shoot.emit()
