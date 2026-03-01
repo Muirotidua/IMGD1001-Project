@@ -46,7 +46,7 @@ font_size = 72
 process_mode = 3
 script = ExtResource("1_ace8g")
 shot_limit = 15
-two_star_limit = 5
+two_star_limit = 10
 three_star_limit = 5
 level_id = 9
 explosion_available = true
@@ -145,17 +145,13 @@ z_index = -1
 metadata/_edit_lock_ = true
 
 [node name="CueBall" parent="." instance=ExtResource("13_hy5p4")]
-position = Vector2(956, 411)
-ball_type = 2
+position = Vector2(969, 411)
 
 [node name="EightBall" parent="." instance=ExtResource("15_h65go")]
-position = Vector2(667, 355)
+position = Vector2(591, 242)
 
 [node name="PoolBall4" parent="." instance=ExtResource("14_nsw56")]
-position = Vector2(627, 277)
-
-[node name="PoolBall5" parent="." instance=ExtResource("14_nsw56")]
-position = Vector2(571, 355)
+position = Vector2(591, 597)
 
 [node name="BoundaryObstacle" parent="." instance=ExtResource("17_iek1g")]
 position = Vector2(347, 111.99999)
@@ -181,22 +177,10 @@ position = Vector2(1581, 746.99994)
 rotation = -0.7853982
 
 [node name="PoolBall6" parent="." instance=ExtResource("14_nsw56")]
-position = Vector2(1296, 277)
+position = Vector2(1352, 242)
 
-[node name="PoolBall8" parent="." instance=ExtResource("14_nsw56")]
-position = Vector2(1334, 352)
-
-[node name="PoolBall9" parent="." instance=ExtResource("14_nsw56")]
-position = Vector2(1236, 352)
-
-[node name="PoolBall12" parent="." instance=ExtResource("14_nsw56")]
-position = Vector2(768, 588)
-
-[node name="PoolBall15" parent="." instance=ExtResource("14_nsw56")]
-position = Vector2(1118, 576)
-
-[node name="PoolBall16" parent="." instance=ExtResource("14_nsw56")]
-position = Vector2(942, 656)
+[node name="PoolBall" parent="." instance=ExtResource("14_nsw56")]
+position = Vector2(1352, 597)
 
 [connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
 [connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]

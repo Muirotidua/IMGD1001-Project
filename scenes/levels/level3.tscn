@@ -141,3 +141,4 @@ position = Vector2(1227, 280)
 
 [node name="WallObstacle" parent="." instance=ExtResource("17_ahaer")]
 position = Vector2(653, 376)
+rotation = 0.5864306

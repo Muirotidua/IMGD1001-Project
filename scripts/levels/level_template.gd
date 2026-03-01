@@ -43,6 +43,7 @@ var pockets_shot_pocketed = 0
 var start_explo_value : bool
 var start_pock_value : bool
 var swapping: bool = false
+var pocket_track: int = 0
 
 signal shoot()
 
@@ -193,13 +194,16 @@ func rewind_shot():
 
 func check_final():
 	var pocket_count: int = 0
+	pocket_track = 0
 	if (cue.pocketed || cue.pocketing) || fail_ready:
 		state = State.LOST
+		print ("Cue")
 		lose()
 		return
 	for ball: BaseBall in all_balls:
 		if ball is not CueBall && (ball.pocketed || ball.pocketing):
 			pocket_count += 1
+			pocket_track += 1
 	# If all balls pocketed except for cueball
 	if pocket_count == all_balls.size() - 1:
 		state = State.WON
