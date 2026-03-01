@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6lyjus5mvcej"]
+
+[ext_resource type="Script" uid="uid://df8dsg6gcv0fe" path="res://scripts/obstacles/anim_wall_obstacle.gd" id="1_g1lu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3r28"]
+resource_local_to_scene = true
+size = Vector2(691.80914, 104.401405)
+
+[sub_resource type="Animation" id="Animation_1qn7j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:shape:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(691.80914, 104.401405)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 166)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(691.80914, 104.401405)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50.4292, -180)]
+}
+
+[sub_resource type="Animation" id="Animation_g1lu2"]
+resource_name = "unlock"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:shape:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(691.80914, 104.401405), Vector2(0, 104.401)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2, 166), Vector2(-2, 511.905)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(691.80914, 104.401405), Vector2(0, 104.40143)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50.4292, -180), Vector2(50.42917, 511.80914)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y2uea"]
+_data = {
+&"RESET": SubResource("Animation_1qn7j"),
+&"unlock": SubResource("Animation_g1lu2")
+}
+
+[node name="AnimWallObstacle" type="AnimatableBody2D"]
+script = ExtResource("1_g1lu2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 50.4292
+offset_top = -180.0
+offset_right = 742.23834
+offset_bottom = -75.598595
+rotation = 1.5707964
+mouse_filter = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 166)
+rotation = 1.5707964
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_l3r28")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y2uea")
+}

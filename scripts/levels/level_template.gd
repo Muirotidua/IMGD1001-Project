@@ -372,3 +372,4 @@ func check_ball_availability():
 			swap_ball.ball_availability[i - 1] = GlobalEnums.BallAvailability.AVAILABLE
 		elif LevelManager.type_discovered[i - 1]:
 			swap_ball.ball_availability[i - 1] = GlobalEnums.BallAvailability.UNAVAILABLE
+	swap_ball.color()

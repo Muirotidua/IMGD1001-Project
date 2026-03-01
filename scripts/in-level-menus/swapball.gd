@@ -27,6 +27,7 @@ func color():
 	if ball_availability[GlobalEnums.BallType.NORMAL] != GlobalEnums.BallAvailability.UNDISCOVERED:
 		normal_img.play("default")
 		normal_img.modulate = colors[ball_availability[GlobalEnums.BallType.NORMAL]]
+		$Lock_N.visible = false
 		if ball_availability[GlobalEnums.BallType.NORMAL] == GlobalEnums.BallAvailability.UNAVAILABLE:
 			$Lock_N.visible = true
 	else:
@@ -34,6 +35,7 @@ func color():
 	if ball_availability[GlobalEnums.BallType.EXPLOSION] != GlobalEnums.BallAvailability.UNDISCOVERED:
 		explosion_img.play("explosion_ball")
 		explosion_img.modulate = colors[ball_availability[GlobalEnums.BallType.EXPLOSION]]
+		$Lock_E.visible = false
 		if ball_availability[GlobalEnums.BallType.EXPLOSION] == GlobalEnums.BallAvailability.UNAVAILABLE:
 			$Lock_E.visible = true
 	else:
@@ -41,6 +43,7 @@ func color():
 	if ball_availability[GlobalEnums.BallType.POCKET] != GlobalEnums.BallAvailability.UNDISCOVERED:
 		pocket_img.play("pocket_ball")
 		pocket_img.modulate = colors[ball_availability[GlobalEnums.BallType.POCKET]]
+		$Lock_P.visible = false
 		if ball_availability[GlobalEnums.BallType.POCKET] == GlobalEnums.BallAvailability.UNAVAILABLE:
 			$Lock_P.visible = true
 	else:

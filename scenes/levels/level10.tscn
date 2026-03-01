@@ -1,6 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://rkudqy8yhh3r"]
+[gd_scene load_steps=30 format=3 uid="uid://dduc4mcqnx83e"]
 
-[ext_resource type="Script" uid="uid://cbnaxl7p5c6b" path="res://scripts/levels/level_10.gd" id="1_ysxgg"]
+[ext_resource type="Script" uid="uid://dirwhxryueirg" path="res://scripts/levels/level_10.gd" id="1_21itu"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_634p2"]
 [ext_resource type="PackedScene" uid="uid://c4whyrvxyjn6u" path="res://scenes/in-level-menus/level_lost.tscn" id="4_x1flq"]
 [ext_resource type="PackedScene" uid="uid://cwlxqek67067h" path="res://scenes/in-level-menus/swapball.tscn" id="5_w4xpj"]
@@ -13,10 +13,10 @@
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_u8rrv"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_08hg2"]
 [ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_634p2"]
+[ext_resource type="PackedScene" uid="uid://b6lyjus5mvcej" path="res://scenes/obstacles/animated_wall_obstacle.tscn" id="13_x1flq"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_xya0h"]
 [ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="14_272pl"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="15_6tq2a"]
-[ext_resource type="PackedScene" uid="uid://bgxy7icocb42t" path="res://scenes/obstacles/wall_obstacle.tscn" id="17_21itu"]
 [ext_resource type="PackedScene" uid="uid://dvfyb1ha6dsvv" path="res://scenes/obstacles/boundary_obstacle.tscn" id="18_x1flq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
@@ -43,256 +43,12 @@
 font = SubResource("SystemFont_uc8rk")
 font_size = 72
 
-[sub_resource type="Animation" id="Animation_w4xpj"]
-resource_name = "Unlock"
-length = 1.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-1.3883057, 4.210037), Vector2(1.3947487e-05, -167.51767)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:shape:size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(347.10895, 40.539948), Vector2(0.00024414063, 40.539948)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../ColorRect:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(349.16693, 39.18898), Vector2(0, 39.18898)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("..:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1, 1.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(688, 438), Vector2(688, 837)]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("..")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
-
-[sub_resource type="Animation" id="Animation_sa2bg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1.3883057, 4.210037)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:shape:size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(347.10895, 40.539948)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../ColorRect:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(349.16693, 39.18898)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("..:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(688, 438)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("..:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ji8w"]
-_data = {
-&"RESET": SubResource("Animation_sa2bg"),
-&"Unlock": SubResource("Animation_w4xpj")
-}
-
-[sub_resource type="Animation" id="Animation_k056o"]
-resource_name = "unlock"
-length = 1.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D2:shape:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(348.09167, 41.084015), Vector2(0, 41.084015)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-1.1104736, 3.5211487), Vector2(-9.870529e-05, -177.56699)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(348.09167, 41.084015), Vector2(0, 39.188995)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1, 1.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1237.0001, 438.99997), Vector2(1270.0001, 872)]
-}
-
-[sub_resource type="Animation" id="Animation_a0e7p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D2:shape:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(348.09167, 41.084015)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1.1104736, 3.5211487)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(348.09167, 41.084015)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1237.0001, 438.99997)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_otn3r"]
-_data = {
-&"RESET": SubResource("Animation_a0e7p"),
-&"unlock": SubResource("Animation_k056o")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8rrv"]
-size = Vector2(348.09167, 41.084015)
-
 [node name="Level10" type="Node2D"]
 process_mode = 3
-script = ExtResource("1_ysxgg")
+script = ExtResource("1_21itu")
 shot_limit = 10
-two_star_limit = 7
-three_star_limit = 5
+two_star_limit = 5
+three_star_limit = 8
 level_id = 10
 explosion_available = true
 pocket_available = true
@@ -302,27 +58,13 @@ pocket_available = true
 [node name="LevelPaused" parent="Menus" instance=ExtResource("2_634p2")]
 visible = false
 
-[node name="LevelWon" type="Node2D" parent="Menus"]
-process_mode = 3
+[node name="LevelWon" parent="Menus" instance=ExtResource("7_sa2bg")]
 visible = false
-top_level = true
-z_index = 2
-script = ExtResource("3_a0e7p")
-metadata/_edit_lock_ = true
-
-[node name="LevelWonBG" parent="Menus/LevelWon" instance=ExtResource("4_w4xpj")]
-offset_left = -10.0
-offset_top = 0.0
-offset_right = 2658.0
-offset_bottom = 1557.3334
 
 [node name="LevelLost" parent="Menus" instance=ExtResource("4_x1flq")]
 visible = false
 
 [node name="SwapBall" parent="Menus" instance=ExtResource("5_w4xpj")]
-visible = false
-
-[node name="LevelWon" parent="Menus" instance=ExtResource("7_sa2bg")]
 visible = false
 
 [node name="Buttons" type="Node" parent="."]
@@ -395,6 +137,7 @@ theme_override_font_sizes/font_size = 70
 text = "Level 10: The Gauntlet"
 
 [node name="Arrow" parent="Display" instance=ExtResource("12_634p2")]
+visible = false
 
 [node name="Other" type="Node" parent="."]
 
@@ -404,93 +147,47 @@ z_index = -1
 metadata/_edit_lock_ = true
 
 [node name="CueBall" parent="." instance=ExtResource("13_xya0h")]
-position = Vector2(593, 418)
-ball_type = 2
-
-[node name="PoolBall2" parent="." instance=ExtResource("14_272pl")]
-position = Vector2(401, 418)
+position = Vector2(647, 440)
 
 [node name="EightBall" parent="." instance=ExtResource("15_6tq2a")]
-position = Vector2(1453, 419)
-
-[node name="PoolBall3" parent="." instance=ExtResource("14_272pl")]
-position = Vector2(1133, 191)
-
-[node name="WallObstacle" parent="." instance=ExtResource("17_21itu")]
-position = Vector2(688, 438)
-scale = Vector2(1.8006941, -1.98785)
-
-[node name="ColorRect" parent="WallObstacle" index="0"]
-offset_top = -170.2779
-offset_right = 368.16693
-offset_bottom = -131.08891
-
-[node name="CollisionShape2D" parent="WallObstacle" index="1"]
-position = Vector2(-1.3883057, 4.210037)
-scale = Vector2(0.99999875, 0.9999999)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="WallObstacle"]
-process_mode = 3
-root_node = NodePath("../CollisionShape2D")
-callback_mode_process = 0
-libraries = {
-&"": SubResource("AnimationLibrary_4ji8w")
-}
-
-[node name="WallObstacle2" parent="." instance=ExtResource("17_21itu")]
-position = Vector2(1237.0001, 438.99997)
-scale = Vector2(1.8011891, -1.9879824)
-
-[node name="ColorRect" parent="WallObstacle2" index="0"]
-offset_left = 19.986702
-offset_top = -170.02164
-offset_right = 368.07837
-offset_bottom = -128.93762
-
-[node name="CollisionShape2D" parent="WallObstacle2" index="1"]
-visible = false
-position = Vector2(0, 3.0181274)
-scale = Vector2(0.9999999, 1)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="WallObstacle2"]
-callback_mode_process = 0
-libraries = {
-&"": SubResource("AnimationLibrary_otn3r")
-}
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallObstacle2"]
-position = Vector2(-1.1104736, 3.5211487)
-rotation = 1.5707964
-scale = Vector2(0.9999999, 1)
-shape = SubResource("RectangleShape2D_u8rrv")
+position = Vector2(1445, 381)
 
 [node name="PoolBall4" parent="." instance=ExtResource("14_272pl")]
-position = Vector2(875, 643)
-
-[node name="PoolBall5" parent="." instance=ExtResource("14_272pl")]
-position = Vector2(389, 659)
-
-[node name="PoolBall6" parent="." instance=ExtResource("14_272pl")]
-position = Vector2(401, 207)
-
-[node name="PoolBall7" parent="." instance=ExtResource("14_272pl")]
-position = Vector2(813, 311)
-
-[node name="PoolBall" parent="." instance=ExtResource("14_272pl")]
-position = Vector2(1165, 510)
+position = Vector2(421, 656)
 
 [node name="BoundaryObstacle" parent="." instance=ExtResource("18_x1flq")]
-position = Vector2(331, 100.99999)
+position = Vector2(347, 111.99999)
 rotation = 2.3561945
 active = false
 
-[node name="BoundaryObstacle2" parent="." instance=ExtResource("18_x1flq")]
-position = Vector2(336.00003, 761)
+[node name="BoundaryObstacle4" parent="." instance=ExtResource("18_x1flq")]
+position = Vector2(352, 747)
 rotation = 0.7853982
 active = false
 
+[node name="PoolBall6" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(1081, 224)
+
+[node name="PoolBall" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(851, 310)
+
+[node name="AnimWallObstacle" parent="." instance=ExtResource("13_x1flq")]
+position = Vector2(737, 266)
+
+[node name="SecondAnimWallObstacle2" parent="." instance=ExtResource("13_x1flq")]
+position = Vector2(1237, 266)
+
+[node name="PoolBall2" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(417, 224)
+
+[node name="PoolBall3" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(418, 440)
+
+[node name="PoolBall5" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(1081, 544)
+
+[node name="PoolBall7" parent="." instance=ExtResource("14_272pl")]
+position = Vector2(851, 617)
+
 [connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
 [connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]
-
-[editable path="WallObstacle"]
-[editable path="WallObstacle2"]
