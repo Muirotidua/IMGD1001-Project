@@ -159,16 +159,19 @@ func _on_body_entered(body: Node) -> void:
 func switch_type_dir(dir):
 	if !shot_ready || change_anytime:
 		return
+	if !available_types.has(ball_type):
+		ball_type = available_types[0]
+		return
 	if dir == "l":
-		if ball_type - 1 < 0:
+		if available_types.find(ball_type) - 1 < 0:
 			ball_type = available_types[available_types.size() - 1]
-		else: 
-			ball_type = available_types[ball_type - 1]
+		else:
+			ball_type = available_types[available_types.find(ball_type) - 1]
 	else:
-		if ball_type + 1 >= available_types.size():
+		if available_types.find(ball_type) + 1 >= available_types.size():
 			ball_type = available_types[0]
 		else:
-			ball_type = available_types[ball_type + 1]
+			ball_type = available_types[available_types.find(ball_type) + 1]
 	sprite.play(ball_sprite_list[ball_type])
 	swapped_ball.emit()
 
