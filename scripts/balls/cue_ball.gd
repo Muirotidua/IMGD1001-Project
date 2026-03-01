@@ -21,6 +21,7 @@ var shot_count_track = 0
 var start_available_types: Array[GlobalEnums.BallType]
 var last_available_types: Array[GlobalEnums.BallType]
 var spec_pock_last_shot: bool = true
+var shot_count_last = 0
 
 @onready var shot_count = 0
 @onready var count_label: Label = $NonRotate/CountLabel
@@ -90,6 +91,7 @@ func _process(_delta: float) -> void:
 	pool_stick.global_position = stick_pos
 
 func on_shoot():
+	shot_count_last = shot_count
 	var direction = global_position.direction_to(get_global_mouse_position())
 	#var s = global_position.distance_to(get_global_mouse_position())
 	var power_multiplier = shot_power * 2
@@ -114,6 +116,7 @@ func on_shoot():
 
 func reset():
 	shot_count = 0
+	shot_count_last = 0
 	shot_power = 0
 	shot_count_track = 0
 	available_types = start_available_types.duplicate()
@@ -122,9 +125,7 @@ func reset():
 	
 
 func rewind():
-	if !rewinded:
-		if (!(spec_pock_last_shot)):
-			shot_count -= shot_count_track
+	shot_count = shot_count_last
 	rewinded = true
 	available_types = last_available_types.duplicate(true)
 	shot_power = 0

@@ -136,7 +136,6 @@ func on_pocket(ball, pocket):
 	if pocket == GlobalEnums.Pocket.SPAWNED && !ball.counted && ball.pocketing:
 		ball.counted = true
 		cue.shot_count -= 1
-		cue.spec_pock_last_shot = true
 	if ball is EightBall:
 		is_eight_last_ball()
 
@@ -168,6 +167,7 @@ func reset_table():
 	fail_ready = false
 	# Iterate backwards as it modifies an array it reads
 	for i in range(pockets.size() - 1, -1, -1):
+		pockets[i].active = false
 		pockets[i].remove.emit(pockets[i])
 	for ball: BaseBall in all_balls:
 		ball.reset()
@@ -181,12 +181,10 @@ func reset_table():
 func rewind_shot():
 	if paused:
 		return
-	check_pockets()
-	#cue.shot_count -= pockets_shot_pocketed #NO
-	pockets_shot_pocketed = 0
 	rewinded = true
 	fail_ready = false
 	for i in range(pockets.size() - 1, -1, -1):
+		pockets[i].active = false
 		pockets[i].rewind()
 	for ball: BaseBall in all_balls:
 		ball.rewind()
@@ -354,18 +352,12 @@ func remove_pocket(pocket: Pocket):
 	if pockets.has(pocket):
 		pockets.erase(pocket)
 	pocket.queue_free()
-
-func check_pockets():
-	pockets_shot_pocketed = 0
-	for pocket: Pocket in pockets:
-		pockets_shot_pocketed += pocket.pocketed_count
-		pocket.pocketed_count = 0
 	
 func check_ball_availability():
 	if (rewinded == true):
 		return
 	if (explosion_available && !cue.available_types.has(GlobalEnums.BallType.EXPLOSION)):
-		cue.available_types.insert(1, GlobalEnums.BallType.EXPLOSION)
+		cue.available_types.append(GlobalEnums.BallType.EXPLOSION)
 		#cue.ball_sprite_list.insert(1, )
 	if (pocket_available && !cue.available_types.has(GlobalEnums.BallType.POCKET)):
 		cue.available_types.append(GlobalEnums.BallType.POCKET)
