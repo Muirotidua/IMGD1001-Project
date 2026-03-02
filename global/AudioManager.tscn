@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://bu7vl2f3774w5" path="res://sounds/music/UPG.mp3" id="2_wc3te"]
 [ext_resource type="Script" uid="uid://cv2w6s8jxy4eu" path="res://global/AudioStreamPlayer.gd" id="3_20mit"]
 [ext_resource type="AudioStream" uid="uid://l4irfn7o8pci" path="res://sounds/sfx/ball-ball-hit-high.wav" id="3_wc3te"]
-[ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="4_1juyv"]
+[ext_resource type="AudioStream" uid="uid://qh6dxw780m4k" path="res://sounds/sfx/billiard-break.wav" id="5_20mit"]
 [ext_resource type="AudioStream" uid="uid://tcnu6h3cp4sw" path="res://sounds/sfx/level-three-star.wav" id="5_wc3te"]
 [ext_resource type="AudioStream" uid="uid://c1rdb220cxxx6" path="res://sounds/sfx/wall-hit.wav" id="6_axni5"]
 [ext_resource type="AudioStream" uid="uid://c1ywm6sovmcxq" path="res://sounds/sfx/stick-hit.wav" id="7_20mit"]
@@ -28,7 +28,7 @@ script = ExtResource("3_20mit")
 type = "MUSIC"
 
 [node name="BallBreak" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_1juyv")
+stream = ExtResource("5_20mit")
 script = ExtResource("3_20mit")
 
 [node name="LevelComplete" type="AudioStreamPlayer" parent="."]

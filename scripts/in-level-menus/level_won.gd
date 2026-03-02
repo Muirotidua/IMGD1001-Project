@@ -7,17 +7,21 @@ signal next_lev()
 
 
 func _on_continue_pressed() -> void:
+	AudioManager.ball_hit(1)
 	next_lev.emit()
 
 func _on_restart_pressed() -> void:
+	AudioManager.ball_hit(1)
 	restart.emit()
 
 
 func _on_level_select_pressed() -> void:
+	AudioManager.ball_hit(1)
 	get_tree().change_scene_to_file("res://scenes/menus/level_select.tscn")
 
 
 func _on_main_menu_pressed() -> void:
+	AudioManager.ball_hit(1)
 	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
 
 func clear() -> void:
