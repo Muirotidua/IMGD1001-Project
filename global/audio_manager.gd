@@ -24,11 +24,14 @@ func setvol(newvol: float): #sets the volume of all audio players to the given v
 							#it's basically a float where 1 is 0db and 0 is silent and it's made to convert from a linear value into db
 							#so the slider should be able to just send what percent full it is and be fine
 	var players = self.get_children()
+	max_volume = newvol
 	for player: AudioStreamPlayer in players:
 		player.volume_linear = newvol
 
 func setsfxvol(newvol: float):
+	
 	var players = self.get_children()
+	max_volume = newvol # only applies to sfx
 	for player: AudioStreamPlayer in players:
 		if(player.type == "SFX"):
 			player.volume_linear = newvol
@@ -48,7 +51,7 @@ func ball_hit(speed):
 	if(speed > SPEED_MAX_VOLUME): # clamp max speed (don't need to clamp in other direction since speed > 0
 		speed = SPEED_MAX_VOLUME
 	print(speed)
-	var volume = speed/SPEED_MAX_VOLUME
+	var volume = speed/SPEED_MAX_VOLUME*max_volume
 	print(volume)
 	
 	$BallHit.volume_linear = volume*max_volume
@@ -69,7 +72,7 @@ func wall_hit(speed):
 	if(speed > SPEED_MAX_VOLUME): # clamp max speed (don't need to clamp in other direction since speed > 0
 		speed = SPEED_MAX_VOLUME
 	print(speed)
-	var volume = speed/SPEED_MAX_VOLUME
+	var volume = speed/SPEED_MAX_VOLUME*max_volume
 	print(volume)
 	
 	$WallHit.volume_linear = volume
@@ -80,7 +83,7 @@ func stick_hit(power):
 	if(power > POWER_MAX_VOLUME): # clamp max speed (don't need to clamp in other direction since speed > 0
 		power = POWER_MAX_VOLUME
 	print(power)
-	var volume = power/POWER_MAX_VOLUME
+	var volume = power/POWER_MAX_VOLUME*max_volume
 	print(volume)
 	
 	$StickHit.volume_linear = volume
