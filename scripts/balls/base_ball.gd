@@ -11,7 +11,7 @@ class_name BaseBall extends RigidBody2D
 
 var inmotion: bool = false
 var speed: float = 0.0
-
+var counted: bool = false
 var pocketing: bool = false
 var pocketed: bool = false
 var tabled_last_shot: bool = true
@@ -65,6 +65,7 @@ func pocket():
 	angular_velocity = 0
 	pocketing = false
 	pocketed = true
+	counted = false
 	hide()
 	sprite.set_scale(default_scale)
 	collision_layer = 0
@@ -91,6 +92,7 @@ func rewind():
 			teleport(last_pos)
 			call_deferred("teleport", last_pos)
 	else:
+		teleport(last_pos)
 		call_deferred("teleport", last_pos)
 
 	
@@ -121,7 +123,7 @@ func teleport(pos: Vector2):
 	collision_layer = 0
 	collision_mask = 0
 	global_position = pos
-	print("Ball moved to position at            %d,%d" % [global_position.x, global_position.y]) 
+	#print("Ball moved to position at            %d,%d" % [global_position.x, global_position.y]) 
 	call_deferred("enable_collisions")
 	
 func enable_collisions():

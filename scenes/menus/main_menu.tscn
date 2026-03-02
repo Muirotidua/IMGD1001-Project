@@ -101,7 +101,7 @@ offset_left = 1756.0
 offset_top = 23.0
 offset_right = 1900.0
 offset_bottom = 107.0
-text = "v0.5.2"
+text = "v0.5.5"
 label_settings = SubResource("LabelSettings_rcqid")
 horizontal_alignment = 2
 

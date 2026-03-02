@@ -6,7 +6,8 @@ enum Pocket {
 	TR, 
 	BR, 
 	TC, 
-	BC
+	BC,
+	SPAWNED
 } 
 
 enum BallType{

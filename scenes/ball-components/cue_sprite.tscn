@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://44xiejg5nsq6"]
+[gd_scene load_steps=12 format=3 uid="uid://44xiejg5nsq6"]
 
 [ext_resource type="Texture2D" uid="uid://df7ixmmvqhnjd" path="res://visuals/poolball-filled/Untitled-1_0000_Layer-1-copy-3.png" id="1_sbrny"]
 [ext_resource type="Texture2D" uid="uid://b3x7bm371vark" path="res://visuals/poolball-filled/Untitled-1_0001_Layer-1-copy-2.png" id="2_ahcpy"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://xuhgnsknjws0" path="res://visuals/bombball/Untitled-1-Recovered-Recovered_0000s_0002_Layer-19.png" id="4_dcwj2"]
 [ext_resource type="Texture2D" uid="uid://b6pvb1qyj2o87" path="res://visuals/bombball/Untitled-1-Recovered-Recovered_0000s_0001_Layer-20.png" id="5_6y4if"]
 [ext_resource type="Texture2D" uid="uid://ckr1nslj0kg2c" path="res://visuals/bombball/Untitled-1-Recovered-Recovered_0000s_0000_Layer-21.png" id="6_lse25"]
-[ext_resource type="Texture2D" uid="uid://pqa0sx3x3qoh" path="res://visuals/temp/PocketBall.png" id="7_6y4if"]
+[ext_resource type="Texture2D" uid="uid://dig0gqsunm56r" path="res://visuals/spiralball/mainworkdoc_0003s_0002_Layer-30.png" id="7_xaf00"]
+[ext_resource type="Texture2D" uid="uid://bk6yvy7qhsb6c" path="res://visuals/spiralball/mainworkdoc_0003s_0001_Layer-32.png" id="8_jk8lb"]
 [ext_resource type="Texture2D" uid="uid://cthu0nm5bre8r" path="res://visuals/temp/Questionaball.png" id="8_lse25"]
+[ext_resource type="Texture2D" uid="uid://c282ionksyngs" path="res://visuals/spiralball/mainworkdoc_0003s_0000_Layer-33.png" id="9_dsb4f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5bgfd"]
 animations = [{
@@ -41,7 +43,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_6y4if")
+"texture": ExtResource("7_xaf00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jk8lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dsb4f")
 }],
 "loop": true,
 "name": &"pocket_ball",
@@ -59,5 +67,5 @@ animations = [{
 [node name="FullBall" type="AnimatedSprite2D"]
 scale = Vector2(0.06, 0.06)
 sprite_frames = SubResource("SpriteFrames_5bgfd")
-animation = &"undiscovered"
+animation = &"pocket_ball"
 autoplay = "default"

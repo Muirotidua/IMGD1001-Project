@@ -1,6 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dvfyb1ha6dsvv"]
 
-[ext_resource type="Script" uid="uid://cdkfnsjjji6ve" path="res://scenes/obstacles/boundary_obstacle.gd" id="1_3amev"]
+[ext_resource type="Script" uid="uid://cdkfnsjjji6ve" path="res://scripts/obstacles/boundary_obstacle.gd" id="1_3amev"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtmcu"]
 size = Vector2(89, 70)

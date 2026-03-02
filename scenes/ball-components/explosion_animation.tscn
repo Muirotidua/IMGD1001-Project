@@ -1,8 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://ct5dpq52as5nq"]
+[gd_scene load_steps=23 format=3 uid="uid://ct5dpq52as5nq"]
 
 [ext_resource type="Texture2D" uid="uid://tjla1oq2oj8i" path="res://visuals/explosion1/frame_08_delay-0.1s.png" id="1_2xli8"]
+[ext_resource type="Texture2D" uid="uid://bbf6dbjg2vmy5" path="res://visuals/explosion/explo/mainworkdoc_0002s_0002_Layer-35.png" id="1_mlv81"]
+[ext_resource type="Texture2D" uid="uid://ptavuhs00bob" path="res://visuals/explosion/explo/mainworkdoc_0002s_0001_Layer-36.png" id="2_fjnct"]
 [ext_resource type="Texture2D" uid="uid://c4i6v0ypaiuud" path="res://visuals/explosion1/frame_09_delay-0.1s.png" id="2_gtqex"]
 [ext_resource type="Texture2D" uid="uid://dxrrd0vtpebsh" path="res://visuals/explosion1/frame_10_delay-0.1s.png" id="3_03rgr"]
+[ext_resource type="Texture2D" uid="uid://bpty1hgkawure" path="res://visuals/explosion/explo/mainworkdoc_0002s_0000_Layer-37.png" id="3_nadd2"]
 [ext_resource type="Texture2D" uid="uid://gukywiacg12h" path="res://visuals/explosion1/frame_11_delay-0.1s.png" id="4_yf7vn"]
 [ext_resource type="Texture2D" uid="uid://btem3agtmuvmo" path="res://visuals/explosion1/frame_12_delay-0.1s.png" id="5_exvtu"]
 [ext_resource type="Texture2D" uid="uid://b65yivylrv87c" path="res://visuals/explosion1/frame_13_delay-0.1s.png" id="6_vhsnf"]
@@ -21,6 +24,26 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3n6u5"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mlv81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fjnct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nadd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fjnct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_mlv81")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_2xli8")
@@ -74,13 +97,13 @@ animations = [{
 "texture": ExtResource("17_i1nq3")
 }],
 "loop": false,
-"name": &"default",
+"name": &"epic",
 "speed": 30.0
 }]
 
 [node name="explosion_animation" type="AnimatedSprite2D"]
 z_index = -5
-scale = Vector2(0.54545456, 0.5454545)
+scale = Vector2(0.22133332, 0.22133335)
 sprite_frames = SubResource("SpriteFrames_3n6u5")
 script = ExtResource("18_u2mma")
 

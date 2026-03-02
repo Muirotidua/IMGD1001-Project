@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://10cvjb0uqjeh"]
+
+[ext_resource type="Texture2D" uid="uid://5tb08ba1inba" path="res://visuals/UI/ui_arrow/mainworkdoc_0000s_0000_Layer-43.png" id="1_k7p5v"]
+[ext_resource type="Texture2D" uid="uid://btl8h3ewx2qgr" path="res://visuals/UI/ui_arrow/mainworkdoc_0000s_0001_Layer-42.png" id="2_tsso5"]
+[ext_resource type="Texture2D" uid="uid://dadhjr0uhxxt4" path="res://visuals/UI/ui_arrow/mainworkdoc_0000s_0002_Layer-41.png" id="3_k6pdq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mvorh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k7p5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tsso5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k6pdq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_k7p5v"]
+resource_name = "bounce"
+loop_mode = 1
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"new_marker",
+"time": 0.04
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tsso5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -20)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tsso5"]
+_data = {
+&"RESET": SubResource("Animation_tsso5"),
+&"bounce": SubResource("Animation_k7p5v")
+}
+
+[node name="Arrow" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -20)
+rotation = -3.1415927
+scale = Vector2(0.21419771, 0.2141978)
+sprite_frames = SubResource("SpriteFrames_mvorh")
+frame = 1
+frame_progress = 0.25552547
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatedSprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_tsso5")
+}

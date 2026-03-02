@@ -1,9 +1,10 @@
-[gd_scene load_steps=66 format=3 uid="uid://bbq6youfuvnjk"]
+[gd_scene load_steps=72 format=3 uid="uid://bbq6youfuvnjk"]
 
 [ext_resource type="Script" uid="uid://gxwvtxc6ed7c" path="res://scripts/menus/level_select.gd" id="1_1g16o"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="2_25yo6"]
 [ext_resource type="PackedScene" uid="uid://bip0ukhvo06uf" path="res://scenes/menu-components/level_button.tscn" id="3_vgm8m"]
-[ext_resource type="Script" uid="uid://dejrk4uft21n2" path="res://scripts/menu-components/freeplay_button.gd" id="4_25yo6"]
+[ext_resource type="Script" path="res://scripts/menu-components/freeplay_button.gd" id="4_25yo6"]
+[ext_resource type="Texture2D" uid="uid://fiukvx34slgy" path="res://visuals/UI/freeplaybutton(text).png" id="4_vgm8m"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r77uv"]
 
@@ -126,6 +127,16 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4kr5t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qus5x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vgm8m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p7c2r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pwdrg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tnwi7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tyig4"]
 
 [node name="Level Select" type="Node2D"]
 process_mode = 3
@@ -348,11 +359,18 @@ flat = true
 icon_alignment = 1
 
 [node name="FreeplayButton" type="Button" parent="."]
-offset_left = 501.0
-offset_top = 884.0
-offset_right = 896.0
-offset_bottom = 1032.0
-text = "Freeplay"
+offset_left = 1385.0
+offset_top = 746.0
+offset_right = 1893.0
+offset_bottom = 1108.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vgm8m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_p7c2r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pwdrg")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tnwi7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tyig4")
+icon = ExtResource("4_vgm8m")
+flat = true
+icon_alignment = 1
 script = ExtResource("4_25yo6")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
