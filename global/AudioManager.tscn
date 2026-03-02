@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8awlpufvfhkk"]
+[gd_scene load_steps=12 format=3 uid="uid://b8awlpufvfhkk"]
 
 [ext_resource type="Script" uid="uid://ct60y56rryqoj" path="res://global/audio_manager.gd" id="1_ap5g2"]
 [ext_resource type="AudioStream" uid="uid://bu7vl2f3774w5" path="res://sounds/music/UPG.mp3" id="2_wc3te"]
+[ext_resource type="Script" uid="uid://cv2w6s8jxy4eu" path="res://global/AudioStreamPlayer.gd" id="3_20mit"]
 [ext_resource type="AudioStream" uid="uid://l4irfn7o8pci" path="res://sounds/sfx/ball-ball-hit-high.wav" id="3_wc3te"]
 [ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="4_1juyv"]
 [ext_resource type="AudioStream" uid="uid://tcnu6h3cp4sw" path="res://sounds/sfx/level-three-star.wav" id="5_wc3te"]
@@ -18,29 +19,39 @@ script = ExtResource("1_ap5g2")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wc3te")
 parameters/looping = true
+script = ExtResource("3_20mit")
 
 [node name="BallHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_wc3te")
 max_polyphony = 100
+script = ExtResource("3_20mit")
+type = "MUSIC"
 
 [node name="BallBreak" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_1juyv")
+script = ExtResource("3_20mit")
 
 [node name="LevelComplete" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wc3te")
+script = ExtResource("3_20mit")
 
 [node name="WallHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_axni5")
+script = ExtResource("3_20mit")
 
 [node name="StickHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_20mit")
+script = ExtResource("3_20mit")
 
 [node name="BallSink" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_1ruox")
+script = ExtResource("3_20mit")
 
 [node name="Pocket" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_axni5")
 parameters/looping = true
+script = ExtResource("3_20mit")
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_20mit")
+script = ExtResource("3_20mit")

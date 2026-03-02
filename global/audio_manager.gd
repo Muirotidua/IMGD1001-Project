@@ -27,6 +27,17 @@ func setvol(newvol: float): #sets the volume of all audio players to the given v
 	for player: AudioStreamPlayer in players:
 		player.volume_linear = newvol
 
+func setsfxvol(newvol: float):
+	var players = self.get_children()
+	for player: AudioStreamPlayer in players:
+		if(player.type == "SFX"):
+			player.volume_linear = newvol
+
+func setmusicvol(newvol: float):
+	var players = self.get_children()
+	for player: AudioStreamPlayer in players:
+		if(player.type == "MUSIC"):
+			player.volume_linear = newvol
 
 func volmod(player: AudioStreamPlayer):
 	var mod: float = rng.randf()*.1
