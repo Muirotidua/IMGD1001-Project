@@ -17,9 +17,9 @@ func _process(_delta: float) -> void:
 	
   
 func reset():
-	# The modification of this code was important trust
+	# The modification of this code was important  trust
 	# I beleieve you they were calling me Mario after I pushed the last version
-	AudioManager.stick_hit()
+	AudioManager.stick_hit(distance)
 	if !pausable:
 		return
 	distance = 0;

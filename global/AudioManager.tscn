@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8awlpufvfhkk"]
+[gd_scene load_steps=11 format=3 uid="uid://b8awlpufvfhkk"]
 
 [ext_resource type="Script" uid="uid://ct60y56rryqoj" path="res://global/audio_manager.gd" id="1_ap5g2"]
 [ext_resource type="AudioStream" uid="uid://bu7vl2f3774w5" path="res://sounds/music/UPG.mp3" id="2_wc3te"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://c1rdb220cxxx6" path="res://sounds/sfx/wall-hit.wav" id="6_axni5"]
 [ext_resource type="AudioStream" uid="uid://c1ywm6sovmcxq" path="res://sounds/sfx/stick-hit.wav" id="7_20mit"]
 [ext_resource type="AudioStream" uid="uid://cykkkxquvtpew" path="res://sounds/sfx/ball-sink-1.wav" id="8_1ruox"]
+[ext_resource type="AudioStream" uid="uid://bplo4n8k3lc37" path="res://sounds/sfx/pocket_drone.mp3" id="9_axni5"]
+[ext_resource type="AudioStream" uid="uid://c12yov6xnct4n" path="res://sounds/sfx/explosion.wav" id="10_20mit"]
 
 [node name="AudioManager" type="Node"]
 process_mode = 3
@@ -15,6 +17,7 @@ script = ExtResource("1_ap5g2")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wc3te")
+parameters/looping = true
 
 [node name="BallHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_wc3te")
@@ -34,3 +37,10 @@ stream = ExtResource("7_20mit")
 
 [node name="BallSink" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_1ruox")
+
+[node name="Pocket" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_axni5")
+parameters/looping = true
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_20mit")

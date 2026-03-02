@@ -1,5 +1,9 @@
 extends Node
 
+const SPEED_MAX_VOLUME = 1000; # lowest speed for volume to be set to it's maximum (ball hit, wall hit)
+const POWER_MAX_VOLUME = 50; # lowest shot power for valume to be set to it's maximum (stick hit)
+const VOL_RANGE = 18; # volume range, placed from -(VOL_RANGE) to 0 db
+var max_volume = 1
 
 @onready var music: AudioStreamPlayer = $Music
 var fail = preload("res://sounds/sfx/level-fail.wav")
@@ -14,7 +18,31 @@ var ballsinksounds = [preload("res://sounds/sfx/ball-sink-1.wav"),preload("res:/
 # having all of these as helper functions should make the in-script calls less complex, 
 # and allow for intermediate steps between the call being made and playing the audio
 # i will NOT be re-learning wwise for this project
-func ball_hit():
+
+func setvol(newvol: float): #sets the volume of all audio players to the given value (between 0 and 1)
+							#this is in godot's linear volume thing so it's confusing if you're used to db but
+							#it's basically a float where 1 is 0db and 0 is silent and it's made to convert from a linear value into db
+							#so the slider should be able to just send what percent full it is and be fine
+	var players = self.get_children()
+	for player: AudioStreamPlayer in players:
+		player.volume_linear = newvol
+
+
+func volmod(player: AudioStreamPlayer):
+	var mod: float = rng.randf()*.1
+	player.volume_linear -= mod
+
+func ball_hit(speed):
+	#$BallHit.volume_db = 0
+	if(speed > SPEED_MAX_VOLUME): # clamp max speed (don't need to clamp in other direction since speed > 0
+		speed = SPEED_MAX_VOLUME
+	print(speed)
+	var volume = speed/SPEED_MAX_VOLUME
+	print(volume)
+	
+	$BallHit.volume_linear = volume*max_volume
+	print($BallHit.volume_db)
+	volmod($BallHit)
 	$BallHit.play()
 
 func ball_break():
@@ -26,13 +54,36 @@ func level_complete(_type: int): # based on number, hopefully can be set in scri
 	$LevelComplete.stream = completesounds[_type]
 	$LevelComplete.play()
 
-func wall_hit():
+func wall_hit(speed):
+	if(speed > SPEED_MAX_VOLUME): # clamp max speed (don't need to clamp in other direction since speed > 0
+		speed = SPEED_MAX_VOLUME
+	print(speed)
+	var volume = speed/SPEED_MAX_VOLUME
+	print(volume)
+	
+	$WallHit.volume_linear = volume
+	volmod($WallHit)
 	$WallHit.play()
 
-func stick_hit():
+func stick_hit(power):
+	if(power > POWER_MAX_VOLUME): # clamp max speed (don't need to clamp in other direction since speed > 0
+		power = POWER_MAX_VOLUME
+	print(power)
+	var volume = power/POWER_MAX_VOLUME
+	print(volume)
+	
+	$StickHit.volume_linear = volume
+	volmod($StickHit)
 	$StickHit.play()
 
 func ball_sink(): #should randomize between the three available takes ideally. Important for this sound b/c it's crunchy
 	var soundnum: int = rng.randi_range(0,2)
 	$BallSink.stream = ballsinksounds[soundnum]
 	$BallSink.play()
+	
+func pocket_drone():
+	if(!$Pocket.playing):
+		$Pocket.play()
+
+func explosion():
+	$Explosion.play()

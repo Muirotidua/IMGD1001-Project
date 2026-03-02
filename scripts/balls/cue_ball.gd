@@ -113,6 +113,12 @@ func rewind():
 	super.rewind()
 
 func _on_body_entered(body: Node) -> void:
+	if((body.global_position.x <= global_position.x) && body is BaseBall): #check here so that only one plays the sound
+		AudioManager.ball_hit(speed+body.speed)
+	elif (!(body is BaseBall)):
+		AudioManager.wall_hit(speed)
+	
+	
 	if(ball_type == GlobalEnums.BallType.EXPLOSION):
 		var balls = %ExplosionArea.get_overlapping_bodies()
 		print(balls)
@@ -122,14 +128,14 @@ func _on_body_entered(body: Node) -> void:
 				ball.apply_impulse(impulse*impulse_multiplier)
 		call_deferred("spawn_explosion")
 		switch_type_spc(GlobalEnums.BallType.NORMAL)
+		AudioManager.explosion()
 	if(ball_type == GlobalEnums.BallType.POCKET):
 		call_deferred("spawn_pocket")
 		switch_type_spc(GlobalEnums.BallType.NORMAL)
 		#pocket_ready.emit() 
-	if((body.global_position.x <= global_position.x) && body is BaseBall): #check here so that only one plays the sound
-		AudioManager.ball_hit()
-	else:
-		AudioManager.wall_hit()
+		AudioManager.pocket_drone()
+	
+		
 
 
 func switch_type_dir(dir):

@@ -29,6 +29,8 @@ radius = 20.0
 [node name="EightBall" type="RigidBody2D"]
 physics_material_override = ExtResource("1_712ic")
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
 linear_damp = 1.0
 script = ExtResource("2_712ic")
 sprite_path = NodePath("EightBall")
