@@ -7,7 +7,7 @@ func _ready() -> void:
 	$Fade/AnimationPlayer.play("fade_out_black")
 	if(!AudioManager.music.playing):
 		AudioManager.music.play()
-	
+
 
 func _on_start_pressed() -> void:
 	if clicked == null:
@@ -25,7 +25,7 @@ func _on_version_notes_pressed() -> void:
 		$Fade.show()
 		$"Fade/Fade Timer".start()
 		$Fade/AnimationPlayer.play("fade_in_black")
-		%OptionSelect.play()
+		AudioManager.ball_hit(1)
 
 
 func _on_credits_pressed() -> void:
@@ -34,7 +34,7 @@ func _on_credits_pressed() -> void:
 		$Fade.show()
 		$"Fade/Fade Timer".start()
 		$Fade/AnimationPlayer.play("fade_in_black")
-		%OptionSelect.play()
+		AudioManager.ball_hit(1)
 
 
 func _on_quit_pressed() -> void:

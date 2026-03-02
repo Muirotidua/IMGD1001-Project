@@ -39,4 +39,5 @@ func _ready() -> void:
 		freeplay.hide()
 
 func _on_back_button_pressed() -> void:
+	AudioManager.ball_hit(1)
 	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")

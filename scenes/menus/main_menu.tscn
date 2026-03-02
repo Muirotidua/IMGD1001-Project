@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dl1shq1p0uaq8"]
+[gd_scene load_steps=14 format=3 uid="uid://dl1shq1p0uaq8"]
 
 [ext_resource type="Script" uid="uid://cmqdpq5sqt7dv" path="res://scripts/menus/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/assorted/fade.tscn" id="2_ekxnf"]
@@ -12,8 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dm81aslku2w2h" path="res://visuals/main_menu/QuitButton.blank.png" id="9_5pajh"]
 [ext_resource type="Texture2D" uid="uid://dof6s7uiihjti" path="res://visuals/main_menu/QuitButton.fill.png" id="10_j7ex8"]
 [ext_resource type="FontFile" uid="uid://c1g6gofkf5f8s" path="res://Fonts/rubik/Rubik-Regular.ttf" id="12_flqon"]
-[ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="12_rcqid"]
-[ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="13_1ajci"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rcqid"]
 font = ExtResource("12_flqon")
@@ -104,14 +102,6 @@ offset_bottom = 107.0
 text = "v0.5.5"
 label_settings = SubResource("LabelSettings_rcqid")
 horizontal_alignment = 2
-
-[node name="StartSelect" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("12_rcqid")
-
-[node name="OptionSelect" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("13_1ajci")
 
 [connection signal="timeout" from="Fade/Fade Timer" to="." method="_on_fade_timer_timeout"]
 [connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
