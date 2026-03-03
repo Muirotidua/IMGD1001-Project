@@ -4,6 +4,8 @@ const SPEED_MAX_VOLUME = 1000; # lowest speed for volume to be set to it's maxim
 const POWER_MAX_VOLUME = 50; # lowest shot power for valume to be set to it's maximum (stick hit)
 const VOL_RANGE = 18; # volume range, placed from -(VOL_RANGE) to 0 db
 var max_volume = 1
+var max_sfx_volume = 1
+var max_music_volume = 1
 
 @onready var music: AudioStreamPlayer = $Music
 var fail = preload("res://sounds/sfx/level-fail.wav")
@@ -26,38 +28,47 @@ func setvol(newvol: float): #sets the volume of all audio players to the given v
 	var players = self.get_children()
 	max_volume = newvol
 	for player: AudioStreamPlayer in players:
-		player.volume_linear = newvol
+		if(player.type == "SFX"):
+			player.volume_linear = max_volume*max_sfx_volume
+		elif(player.type == "MUSIC"):
+			player.volume_linear = max_volume*max_music_volume
 
 func setsfxvol(newvol: float):
 	
 	var players = self.get_children()
-	max_volume = newvol # only applies to sfx
+	max_sfx_volume = newvol # only applies to sfx
 	for player: AudioStreamPlayer in players:
 		if(player.type == "SFX"):
-			player.volume_linear = newvol
+			player.volume_linear = newvol*max_volume
+			
 
 func setmusicvol(newvol: float):
 	var players = self.get_children()
+	max_music_volume = newvol #only applies to music
 	for player: AudioStreamPlayer in players:
 		if(player.type == "MUSIC"):
-			player.volume_linear = newvol
+			player.volume_linear = newvol*max_volume
 
 func volmod(player: AudioStreamPlayer):
 	var mod: float = rng.randf()*.1
-	player.volume_linear -= mod
+	player.volume_linear = max(player.volume_linear - mod, 0.0)
 
 func ball_hit(speed):
 	#$BallHit.volume_db = 0
 	if(speed > SPEED_MAX_VOLUME): # clamp max speed (don't need to clamp in other direction since speed > 0
 		speed = SPEED_MAX_VOLUME
 	print(speed)
-	var volume = speed/SPEED_MAX_VOLUME*max_volume
+	var volume = speed/SPEED_MAX_VOLUME*max_volume*max_sfx_volume
 	print(volume)
 	
 	$BallHit.volume_linear = volume*max_volume
 	print($BallHit.volume_db)
 	volmod($BallHit)
 	$BallHit.play()
+	
+func ball_hit_menu():
+	$StickHit.volume_linear = max_volume
+	$StickHit.play()
 
 func ball_break():
 	$BallBreak.play()

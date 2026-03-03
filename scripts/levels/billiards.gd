@@ -21,3 +21,6 @@ func check_final():
 		win()
 		return
 	state = State.PLAYING
+	
+func next() -> void:
+	get_tree().change_scene_to_file("res://scenes/info-pages/credits.tscn")

@@ -95,6 +95,5 @@ func reset_table():
 	second_wall_just_opened = false
 	super.reset_table()
 	
-	
-		
-	
+func next() -> void:
+	get_tree().change_scene_to_file("res://scenes/info-pages/credits.tscn")

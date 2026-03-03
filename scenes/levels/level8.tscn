@@ -131,6 +131,10 @@ theme_override_font_sizes/font_size = 70
 text = "Level 8: Back and Better"
 
 [node name="Arrow" parent="Display" instance=ExtResource("12_ofvo0")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="Display"]
+anchor_mode = 0
 
 [node name="Other" type="Node" parent="."]
 
@@ -138,6 +142,12 @@ text = "Level 8: Back and Better"
 visible = false
 z_index = -1
 metadata/_edit_lock_ = true
+
+[node name="Startup" type="Timer" parent="Other"]
+one_shot = true
+
+[node name="Substartup" type="Timer" parent="Other"]
+wait_time = 1.5
 
 [node name="CueBall" parent="." instance=ExtResource("13_cydy4")]
 position = Vector2(968, 418)
