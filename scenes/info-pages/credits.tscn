@@ -1,14 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbaury2loemd3"]
+[gd_scene load_steps=13 format=3 uid="uid://cbaury2loemd3"]
 
 [ext_resource type="Script" uid="uid://clwb6fvehmvpy" path="res://scripts/info-pages/credits.gd" id="1_2ckv8"]
 [ext_resource type="FontFile" uid="uid://cp3v0aybpc3jl" path="res://Fonts/rubik/Rubik-Bold.ttf" id="3_8gwij"]
-
+[ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/assorted/fade.tscn" id="3_kh7y6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kyhnv"]
 
 [sub_resource type="Animation" id="Animation_kyhnv"]
 resource_name = "Credit_Scroll"
-length = 2.5
+length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -16,10 +16,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
+"times": PackedFloat32Array(0, 30),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(160, 1114), Vector2(160, 86)]
+"values": [Vector2(160, 1552), Vector2(160, -6033)]
 }
 
 [sub_resource type="Animation" id="Animation_ooihk"]
@@ -68,33 +68,64 @@ color = Color(0, 0, 0, 1)
 offset_left = 160.0
 offset_top = 1114.0
 offset_right = 1527.0
-offset_bottom = 2006.0
+offset_bottom = 7778.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_selected_color = Color(1, 1, 1, 0)
 theme_override_colors/selection_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_8gwij")
 theme_override_font_sizes/normal_font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_kyhnv")
-text = "Designer: Liam Blackwell
+text = "Untitled Pool Game
 
-Designer: Max B
 
-Designer: E Hanford
-
-Designer: Eric Farquharson
-
-Wow You can Scrolll!!!
-
+A Game By:
+Liam Blackwell
+Max Brady
+E Hanford
+Eric Farquharson
 
 
 
+Programming:
+Liam Blackwell
+E Hanford
+Eric Farquharson
+
+Art:
+Max Brady
+
+Audio Developer:
+E Hanford
+
+Sound Effects:
+E Hanford
+
+Music:
+Eric Farquharson
+
+Voices:
+Liam Blackwell
+E Hanford
+Eric Farquharson
+
+Level Design:
+Max Brady
+Eric Farquharson
+
+Production:
+Liam Blackwell
+
+Additional Sound Effects:
+Explosion 1.wav by theplax -- https://freesound.org/s/560580/ -- License: Attribution 4.0
+about_billiard_ball.wav by rzSHI -- https://freesound.org/s/268767/ -- License: Attribution 4.0
 
 
 
 
 
 
-"
+Thank you for playing!"
+fit_content = true
 scroll_active = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
@@ -123,6 +154,15 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8gwij")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mah5v")
 text = "Back"
 
+[node name="Fade" parent="." instance=ExtResource("3_kh7y6")]
+visible = false
+top_level = true
+z_index = 100
+
+[node name="Fade Timer" type="Timer" parent="Fade"]
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="timeout" from="Fade/Fade Timer" to="." method="_on_fade_timer_timeout"]
