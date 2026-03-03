@@ -77,8 +77,8 @@ func unpocket():
 	tabled_last_shot = true
 	ignore_pocket = false
 	show()
-	collision_layer = 0
-	collision_mask = 0
+	collision_layer = 1
+	collision_mask = 1
 	linear_damp = 1
 
 func rewind():
@@ -120,14 +120,10 @@ func updateLastPos():
 func teleport(pos: Vector2):
 	freeze_mode = RigidBody2D.FREEZE_MODE_STATIC
 	freeze = true
-	collision_layer = 0
-	collision_mask = 0
 	global_position = pos
 	#print("Ball moved to position at            %d,%d" % [global_position.x, global_position.y]) 
 	call_deferred("enable_collisions")
 	
 func enable_collisions():
 	freeze = false
-	collision_layer = 1
-	collision_mask = 1
 	sleeping = true

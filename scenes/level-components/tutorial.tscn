@@ -184,4 +184,4 @@ animations = [{
 
 [node name="Tutorial" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_ir7bu")
-animation = &"7"
+animation = &"0"
