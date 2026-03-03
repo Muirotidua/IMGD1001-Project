@@ -142,10 +142,19 @@ visible = false
 [node name="Camera2D" type="Camera2D" parent="Display"]
 anchor_mode = 0
 
+[node name="ColorRect" type="ColorRect" parent="Display/Camera2D"]
+z_index = -1000
+z_as_relative = false
+offset_left = -39.0
+offset_top = -52.0
+offset_right = 1962.0
+offset_bottom = 1147.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Other" type="Node" parent="."]
 
 [node name="Boundary_Table" parent="Other" instance=ExtResource("12_08hg2")]
-visible = false
 z_index = -1
 metadata/_edit_lock_ = true
 
@@ -163,16 +172,6 @@ position = Vector2(1445, 381)
 
 [node name="PoolBall4" parent="." instance=ExtResource("14_272pl")]
 position = Vector2(421, 656)
-
-[node name="BoundaryObstacle" parent="." instance=ExtResource("18_x1flq")]
-position = Vector2(347, 111.99999)
-rotation = 2.3561945
-active = false
-
-[node name="BoundaryObstacle4" parent="." instance=ExtResource("18_x1flq")]
-position = Vector2(352, 747)
-rotation = 0.7853982
-active = false
 
 [node name="PoolBall6" parent="." instance=ExtResource("14_272pl")]
 position = Vector2(1081, 224)
@@ -197,6 +196,16 @@ position = Vector2(1081, 544)
 
 [node name="PoolBall7" parent="." instance=ExtResource("14_272pl")]
 position = Vector2(851, 617)
+
+[node name="BoundaryObstacle" parent="." instance=ExtResource("18_x1flq")]
+position = Vector2(339, 753)
+rotation = 0.9498298
+active = false
+
+[node name="BoundaryObstacle2" parent="." instance=ExtResource("18_x1flq")]
+position = Vector2(341, 106.999985)
+rotation = 2.3269129
+active = false
 
 [connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
 [connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]

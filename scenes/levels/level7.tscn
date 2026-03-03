@@ -138,10 +138,19 @@ position = Vector2(135, 766)
 [node name="Camera2D" type="Camera2D" parent="Display"]
 anchor_mode = 0
 
+[node name="ColorRect" type="ColorRect" parent="Display/Camera2D"]
+z_index = -1000
+z_as_relative = false
+offset_left = -39.0
+offset_top = -52.0
+offset_right = 1962.0
+offset_bottom = 1147.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Other" type="Node" parent="."]
 
 [node name="Boundary_Table" parent="Other" instance=ExtResource("12_vxsie")]
-visible = false
 z_index = -1
 metadata/_edit_lock_ = true
 
@@ -155,31 +164,37 @@ wait_time = 1.5
 position = Vector2(712, 448)
 
 [node name="BoundaryObstacle" parent="." instance=ExtResource("14_7716e")]
-position = Vector2(1591, 117.00006)
+z_index = -4
+position = Vector2(1591.0001, 116)
 rotation = -2.3051717
 active = false
 
 [node name="BoundaryObstacle2" parent="." instance=ExtResource("14_7716e")]
+z_index = -4
 position = Vector2(1589, 751.0001)
 rotation = -0.86753047
 active = false
 
 [node name="BoundaryObstacle3" parent="." instance=ExtResource("14_7716e")]
+z_index = -4
 position = Vector2(350.0001, 745.00006)
 rotation = -5.497146
 active = false
 
 [node name="BoundaryObstacle4" parent="." instance=ExtResource("14_7716e")]
+z_index = -4
 position = Vector2(354, 116.99999)
 rotation = 2.4083378
 active = false
 
 [node name="BoundaryObstacle5" parent="." instance=ExtResource("14_7716e")]
-position = Vector2(972, 94.00001)
+z_index = -4
+position = Vector2(972.00006, 96.00001)
 rotation = -3.12821
 active = false
 
 [node name="BoundaryObstacle6" parent="." instance=ExtResource("14_7716e")]
+z_index = -4
 position = Vector2(968, 770)
 active = false
 

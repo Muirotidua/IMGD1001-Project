@@ -142,9 +142,6 @@ offset_left = 1590.0
 offset_top = 880.0
 offset_right = 1885.0
 offset_bottom = 1027.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.22352941, 0.5019608, 0.078431375, 1)
-theme_override_colors/font_hover_color = Color(0.22352941, 0.49803922, 0.078431375, 1)
 theme_override_fonts/font = ExtResource("3_8gwij")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2ckv8")
@@ -163,6 +160,5 @@ z_index = 100
 one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="timeout" from="Fade/Fade Timer" to="." method="_on_fade_timer_timeout"]

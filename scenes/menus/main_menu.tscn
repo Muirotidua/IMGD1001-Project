@@ -1,27 +1,74 @@
-[gd_scene load_steps=26 format=3 uid="uid://dl1shq1p0uaq8"]
+[gd_scene load_steps=49 format=3 uid="uid://dl1shq1p0uaq8"]
 
 [ext_resource type="Script" uid="uid://cmqdpq5sqt7dv" path="res://scripts/menus/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/assorted/fade.tscn" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://h1ly20rdymnx" path="res://visuals/main_menu/TempMainMenu.png" id="2_lgwnu"]
-[ext_resource type="Texture2D" uid="uid://taexxjetixtl" path="res://visuals/main_menu/StartButton.blank.png" id="3_5dd4i"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="3_8hoqd"]
-[ext_resource type="Texture2D" uid="uid://wvb2ivtojtdh" path="res://visuals/main_menu/StartButton.fill.png" id="4_lgwnu"]
-[ext_resource type="Texture2D" uid="uid://c652bip0rbdyy" path="res://visuals/main_menu/VHButton.blank.png" id="5_flqon"]
-[ext_resource type="Texture2D" uid="uid://b1s4xk7hxxk1m" path="res://visuals/main_menu/VHButton.fill.png" id="6_rcqid"]
-[ext_resource type="Texture2D" uid="uid://doie1qm3eamth" path="res://visuals/main_menu/CreditButton.blank.png" id="7_1ajci"]
-[ext_resource type="Texture2D" uid="uid://d02d41mgacpcf" path="res://visuals/main_menu/CreditButton.fill.png" id="8_7b55j"]
-[ext_resource type="Texture2D" uid="uid://dm81aslku2w2h" path="res://visuals/main_menu/QuitButton.blank.png" id="9_5pajh"]
-[ext_resource type="Texture2D" uid="uid://dof6s7uiihjti" path="res://visuals/main_menu/QuitButton.fill.png" id="10_j7ex8"]
+[ext_resource type="PackedScene" uid="uid://cmb1wfpo4iugb" path="res://scenes/menus/settings.tscn" id="8_1hnlc"]
 [ext_resource type="FontFile" uid="uid://c1g6gofkf5f8s" path="res://Fonts/rubik/Rubik-Regular.ttf" id="12_flqon"]
 [ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="12_rcqid"]
 [ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="13_1ajci"]
 [ext_resource type="Texture2D" uid="uid://cktvwisdyjuhm" path="res://visuals/poolball-basic/Untitled-1_0000_Layer-1-copy-3.png" id="16_555wk"]
+[ext_resource type="Texture2D" uid="uid://dqghiysf4o833" path="res://visuals/UI/titleanim/mainworkdoc-Recovered.psd_0004s_0003_Layer-49.png" id="16_nkawv"]
 [ext_resource type="Texture2D" uid="uid://i4bgn5mwk4l5" path="res://visuals/poolball-basic/Untitled-1_0001_Layer-1-copy-2.png" id="17_awvna"]
+[ext_resource type="Texture2D" uid="uid://djtulgvmbawg4" path="res://visuals/UI/titleanim/mainworkdoc-Recovered.psd_0004s_0002_Layer-50.png" id="17_w32d4"]
+[ext_resource type="Texture2D" uid="uid://gcy3ucis0bi" path="res://visuals/UI/titleanim/mainworkdoc-Recovered.psd_0004s_0001_Layer-51.png" id="18_287l7"]
 [ext_resource type="Texture2D" uid="uid://bgpgtdbg61x6t" path="res://visuals/poolball-basic/Untitled-1_0002_Layer-1-copy.png" id="18_jygr6"]
+[ext_resource type="Texture2D" uid="uid://bhla66ycskdoq" path="res://visuals/UI/titleanim/mainworkdoc-Recovered.psd_0004s_0000_Layer-52.png" id="19_8hoqd"]
 [ext_resource type="Texture2D" uid="uid://unfatubegi3u" path="res://visuals/temp/fullball.png" id="19_n8vdk"]
 [ext_resource type="Texture2D" uid="uid://h5twy65whfri" path="res://visuals/poolstick/Untitled-1_0000_Layer-5.png" id="20_6imgi"]
 [ext_resource type="Texture2D" uid="uid://dvvil3luvwjx0" path="res://visuals/poolstick/Untitled-1_0001_Layer-4.png" id="21_1hq2q"]
 [ext_resource type="Texture2D" uid="uid://c84tseqlpio8y" path="res://visuals/poolstick/Untitled-1_0002_Layer-3.png" id="22_wxcro"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r73w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hnlc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50h1w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_euy4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bre17"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a3hrp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25m6f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkawv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w32d4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_287l7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_88kup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bh4e2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3w8rc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxao6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vr0hv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hoqd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_555wk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awvna"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jygr6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n8vdk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6imgi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hq2q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wxcro"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4gey"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ykxr0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y4gey"]
 animations = [{
@@ -61,22 +108,48 @@ animations = [{
 font = ExtResource("12_flqon")
 font_size = 50
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_555wk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_nkawv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_w32d4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_287l7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_8hoqd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Main Menu" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_l6cm7")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
 z_index = -10
+z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -24.0
 offset_top = -16.0
 offset_right = 1936.0
-offset_bottom = 1096.0
+offset_bottom = 1144.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="TempMainMenu" type="Sprite2D" parent="."]
 visible = false
@@ -102,56 +175,98 @@ offset_bottom = 1080.0
 size_flags_horizontal = 8
 metadata/_edit_lock_ = true
 
-[node name="Start" type="TextureButton" parent="Buttons"]
+[node name="Start" type="Button" parent="Buttons"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 624.0
-offset_top = 124.0
-offset_right = 895.0
-offset_bottom = 220.0
+offset_left = 587.5
+offset_top = -129.0
+offset_right = 901.5
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("3_5dd4i")
-texture_hover = ExtResource("4_lgwnu")
+theme_override_fonts/font = ExtResource("3_8hoqd")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8r73w")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1hnlc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_50h1w")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_euy4r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bre17")
+text = "Break"
+flat = true
 
-[node name="Version Notes" type="TextureButton" parent="Buttons"]
+[node name="Quit" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 1632.0
+offset_top = 539.0
+offset_right = 1864.0
+offset_bottom = 666.0
+theme_override_fonts/font = ExtResource("3_8hoqd")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a3hrp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_25m6f")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nkawv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w32d4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_287l7")
+text = "Quit"
+flat = true
+
+[node name="Credits" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 1472.0
+offset_top = 666.0
+offset_right = 1870.0
+offset_bottom = 793.0
+theme_override_fonts/font = ExtResource("3_8hoqd")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_88kup")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bh4e2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3w8rc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uxao6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vr0hv")
+text = "Credits"
+flat = true
+
+[node name="Settings" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 1408.0
+offset_top = 793.0
+offset_right = 1872.0
+offset_bottom = 920.0
+theme_override_fonts/font = ExtResource("3_8hoqd")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8hoqd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_555wk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_awvna")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jygr6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n8vdk")
+text = "Settings"
+flat = true
+
+[node name="Version Notes" type="Button" parent="Buttons"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.2140625
-anchor_top = 0.75324076
-anchor_right = 0.48020834
-anchor_bottom = 0.7976852
+anchor_left = 0.15989584
+anchor_top = 0.7236111
+anchor_right = 0.49270833
+anchor_bottom = 0.79675925
 offset_left = 741.0
 offset_top = 138.5
 offset_right = 933.0
 offset_bottom = 186.5
-texture_normal = ExtResource("5_flqon")
-texture_hover = ExtResource("6_rcqid")
-stretch_mode = 0
+theme_override_fonts/font = ExtResource("3_8hoqd")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6imgi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1hq2q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wxcro")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y4gey")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ykxr0")
+text = "Version History"
+flat = true
 metadata/_edit_use_anchors_ = true
-
-[node name="Credits" type="TextureButton" parent="Buttons"]
-layout_mode = 0
-offset_left = 1528.0
-offset_top = 856.0
-offset_right = 1857.0
-offset_bottom = 952.0
-texture_normal = ExtResource("7_1ajci")
-texture_hover = ExtResource("8_7b55j")
-stretch_mode = 4
-
-[node name="Quit" type="TextureButton" parent="Buttons"]
-layout_mode = 0
-offset_left = 1664.0
-offset_top = 760.0
-offset_right = 1858.0
-offset_bottom = 856.0
-texture_normal = ExtResource("9_5pajh")
-texture_hover = ExtResource("10_j7ex8")
 
 [node name="StartSelect" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -160,6 +275,13 @@ stream = ExtResource("12_rcqid")
 [node name="OptionSelect" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("13_1ajci")
+
+[node name="Settings" parent="." instance=ExtResource("8_1hnlc")]
+visible = false
+offset_left = -24.0
+offset_top = 8.0
+offset_right = -24.0
+offset_bottom = 8.0
 
 [node name="Node" type="Node" parent="."]
 
@@ -194,29 +316,24 @@ frame_progress = 0.7105668
 
 [node name="TitleTexts" type="Node2D" parent="."]
 
-[node name="Title" type="Label" parent="TitleTexts"]
-offset_left = 374.0
-offset_top = 41.0
-offset_right = 1577.0
-offset_bottom = 219.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("3_8hoqd")
-theme_override_font_sizes/font_size = 120
-text = "Untitled Pool Game"
-
 [node name="Version" type="Label" parent="TitleTexts"]
 offset_left = 1756.0
 offset_top = 23.0
 offset_right = 1900.0
 offset_bottom = 107.0
-text = "v0.5.5"
+text = "v1.0"
 label_settings = SubResource("LabelSettings_rcqid")
 horizontal_alignment = 2
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TitleTexts"]
+position = Vector2(929, 248.00002)
+scale = Vector2(0.69966674, 0.6996667)
+sprite_frames = SubResource("SpriteFrames_555wk")
+frame_progress = 0.44222817
+
 [connection signal="timeout" from="Fade/Fade Timer" to="." method="_on_fade_timer_timeout"]
 [connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Buttons/Version Notes" to="." method="_on_version_notes_pressed"]
-[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/Version Notes" to="." method="_on_version_notes_pressed"]

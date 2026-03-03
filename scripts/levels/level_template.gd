@@ -50,10 +50,12 @@ var swapping: bool = false
 var pocket_track: int = 0
 var starting = true
 var began = false
+var destination = GlobalEnums.Destination.LEVEL_SELECT
 
 signal shoot()
 
 func _ready():
+	cam.make_current()
 	sub.one_shot = true
 	startup.one_shot = true
 	star1.hide()
@@ -68,10 +70,10 @@ func _ready():
 	sub.wait_time = 1.5
 	startup.start()
 	sub.start()
-	cam.global_position.x = -2000
+	cam.position.x = -2000
 	var ctween = create_tween()
 	ctween.set_ease(Tween.EASE_OUT)
-	ctween.set_trans(Tween.TRANS_SINE)
+	ctween.set_trans(Tween.TRANS_CUBIC)
 	ctween.tween_property(cam, "position:x", 0, 1.5)
 	swap_ball_button.focus_mode = Control.FOCUS_NONE
 	paused_button.focus_mode = Control.FOCUS_NONE
@@ -86,7 +88,9 @@ func _ready():
 	lost.restart.connect(reset_table)
 	lost.redo.connect(rewind_shot)
 	won.restart.connect(reset_table)
-	won.next_lev.connect(onward)
+	won.transfer.connect(onward)
+	lost.transfer.connect(onward)
+	pause.transfer.connect(onward)
 	shoot.connect(cue.on_shoot)
 	if !swap_ball_button.pressed.is_connected(_on_swap_ball_button_pressed):
 		swap_ball_button.pressed.connect(_on_swap_ball_button_pressed)
@@ -152,7 +156,6 @@ func _physics_process(_delta: float) -> void:
 	elif !cue.rapid_fire:
 		cue.shot_ready = false
 	update_shot_display()
-	
 
 func on_pocket(ball, pocket): 
 	if ball is BaseBall:
@@ -172,12 +175,15 @@ func on_try_shoot(): # ?
 		ball.updateLastPos()
 	for pocket: Pocket in pockets:
 		pocket.update()
-	tutorial.stop()
-	tutorial.hide()
+	hide_tutorials()
 	shoot.emit()
 	rewinded = false
 	await get_tree().create_timer(0.1).timeout
 	cue.spec_pock_last_shot = false
+
+func hide_tutorials():
+	tutorial.stop()
+	tutorial.hide()
 
 # False if no balls are moving. True otherwise
 func moving_balls() -> bool: # ??? Need to ensure that this is looking at the cue ball moving, ask Liam when he's back.
@@ -314,14 +320,22 @@ func win() -> void:
 	get_tree().paused = true
 	won.visible = true
 
-func onward() -> void:
+func onward(dest: GlobalEnums.Destination) -> void:
+	destination = dest
+	var newpos: Vector2
+	if dest == GlobalEnums.Destination.NEXT:
+		newpos = Vector2(2000, cam.position.y)
+	elif dest == GlobalEnums.Destination.LEVEL_SELECT:
+		newpos = Vector2(-2000, cam.position.y)
+	else:
+		newpos = Vector2(0, -1500)
 	starting = true
 	cue.shot_ready = false
 	startup.start()
 	var ctween = create_tween()
 	ctween.set_ease(Tween.EASE_IN)
-	ctween.set_trans(Tween.TRANS_SINE)
-	ctween.tween_property(cam, "position:x", 2000, 1.5)
+	ctween.set_trans(Tween.TRANS_CUBIC)
+	ctween.tween_property(cam, "position", newpos, 1.5)
 	
 	
 func resume_play():
@@ -396,9 +410,9 @@ func check_ball_availability():
 	if (pocket_available && !cue.available_types.has(GlobalEnums.BallType.POCKET)):
 		cue.available_types.append(GlobalEnums.BallType.POCKET)
 	if (!explosion_available && cue.available_types.has(GlobalEnums.BallType.EXPLOSION)):
-		cue.available_types.remove_at(1)
+		cue.available_types.remove_at(cue.available_types.find(GlobalEnums.BallType.EXPLOSION))
 	if (!pocket_available && cue.available_types.has(GlobalEnums.BallType.POCKET)):
-		cue.available_types.pop_back()
+		cue.available_types.remove_at(cue.available_types.find(GlobalEnums.BallType.POCKET))
 		
 	for i in range(GlobalEnums.BallType.size()):
 		if cue.available_types.has(GlobalEnums.BallType.values()[i - 1]):
@@ -456,4 +470,11 @@ func _on_sub_timeout():
 	atween.tween_property(arrow, "position:x", 140, 0.5)
 	
 func next():
-	LevelManager.switch_level(level_id + 1)
+	if destination == GlobalEnums.Destination.NEXT:
+		LevelManager.switch_level(level_id + 1)
+	elif destination == GlobalEnums.Destination.LEVEL_SELECT:
+		get_tree().change_scene_to_file("res://scenes/menus/level_select.tscn")
+	else:
+		LevelManager.menu_load = GlobalEnums.LoadAnim.SPECIAL
+		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+	

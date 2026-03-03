@@ -32,7 +32,25 @@ offset_right = 1728.0
 offset_bottom = 949.0
 theme_override_fonts/normal_font = ExtResource("2_4leat")
 theme_override_font_sizes/normal_font_size = 80
-text = "v0.5.5
+text = "v1.0
+-Official Release
+-No title
+
+v0.6.1
+-Added transition animations between levels and menus
+-Added voice acting
+-Added more tutorial animations
+
+v0.6.1
+-Added settings scene for audio controls
+-Added control scene in settings to view control
+
+v0.6
+-Level 5, 9, and 10 finalized
+-Explosion and pocket ball sound effects
+-Polish & Bugfixes
+
+v0.5.5
 -Explosion ball costs two shots, pockets return one shot
 -Added arrow indicators to certain levels
 -Added level 8
@@ -123,8 +141,6 @@ offset_left = 1590.0
 offset_top = 880.0
 offset_right = 1940.0
 offset_bottom = 1011.0
-theme_override_colors/font_pressed_color = Color(0.14901961, 0.5764706, 0.078431375, 1)
-theme_override_colors/font_hover_color = Color(0.1764706, 0.6431373, 0.078431375, 1)
 theme_override_fonts/font = ExtResource("1_cikha")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_4leat")
@@ -135,4 +151,27 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_g6662")
 text = "Back"
 flat = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+z_index = -10
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 1936.0
+offset_bottom = 1144.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="Camera2D"]
+one_shot = true
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="timeout" from="Camera2D/Timer" to="." method="_on_timer_timeout"]

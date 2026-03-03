@@ -5,9 +5,8 @@ var level_unlocked: Array[bool]
 var level_stars: Array[int]
 var type_discovered: Array[bool]
 var unlock_all = true
-
-
-var billiards_record: int = 0
+var billiards_record: int = 9999
+var menu_load = GlobalEnums.LoadAnim.FADE
 
 func _ready() -> void:
 	for i in range(level_count):

@@ -1,4 +1,7 @@
 extends ColorRect
 
-func _ready():
-	$AnimationPlayer.play("fade_out_black");
+signal finished
+
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
+	print("Fade Done")
+	finished.emit()

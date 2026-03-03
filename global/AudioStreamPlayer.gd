@@ -1,3 +1,3 @@
 extends AudioStreamPlayer
 
-@export var type = "SFX"
+@export var type = ""
