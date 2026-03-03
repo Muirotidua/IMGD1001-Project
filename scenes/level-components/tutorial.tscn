@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bjam3v857ixvp"]
+[gd_scene load_steps=33 format=3 uid="uid://bjam3v857ixvp"]
 
 [ext_resource type="Texture2D" uid="uid://dh8efdrdti6t1" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0004_Layer-8.png" id="1_rdhte"]
 [ext_resource type="Texture2D" uid="uid://82g0plycrb07" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0003_Layer-9.png" id="2_c3rkq"]
@@ -27,6 +27,10 @@
 [ext_resource type="Texture2D" uid="uid://u0ajsikhoufb" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0002_9-pocketballanim.png" id="25_6dmso"]
 [ext_resource type="Texture2D" uid="uid://dhgqwed3q8nhk" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0001_10-pocketballanim.png" id="26_nq8d0"]
 [ext_resource type="Texture2D" uid="uid://cx2w0rmmayij4" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0000_11-pocketballanim.png" id="27_7gtv4"]
+[ext_resource type="Texture2D" uid="uid://cay5v0frr7gxl" path="res://visuals/UI/pocketball_tutorial/1shot-xperiment-mainworkdoc-Recovered-copy_0000s_0003_11-pocketballanim.png" id="28_331db"]
+[ext_resource type="Texture2D" uid="uid://px8m01wcp2ff" path="res://visuals/UI/pocketball_tutorial/1shot-xperiment-mainworkdoc-Recovered-copy_0000s_0002_Layer-56.png" id="29_1nlbl"]
+[ext_resource type="Texture2D" uid="uid://6bjf0dar2b6j" path="res://visuals/UI/pocketball_tutorial/1shot-xperiment-mainworkdoc-Recovered-copy_0000s_0001_Layer-57.png" id="30_r3ly0"]
+[ext_resource type="Texture2D" uid="uid://btu1mlnnshxc6" path="res://visuals/UI/pocketball_tutorial/1shot-xperiment-mainworkdoc-Recovered-copy_0000s_0000_Layer-58.png" id="31_02s6l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir7bu"]
 animations = [{
@@ -136,6 +140,42 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("27_7gtv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_331db")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_1nlbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_r3ly0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_331db")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_02s6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_1nlbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_r3ly0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_02s6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_331db")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_1nlbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_r3ly0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_02s6l")
 }],
 "loop": true,
 "name": &"7",
@@ -144,4 +184,4 @@ animations = [{
 
 [node name="Tutorial" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_ir7bu")
-animation = &"3a"
+animation = &"7"
