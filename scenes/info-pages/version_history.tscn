@@ -32,7 +32,25 @@ offset_right = 1728.0
 offset_bottom = 949.0
 theme_override_fonts/normal_font = ExtResource("2_4leat")
 theme_override_font_sizes/normal_font_size = 80
-text = "v0.5.5
+text = "v1.0
+-Official Release
+-No title
+
+v0.6.1
+-Added transition animations between levels and menus
+-Added voice acting
+-Added more tutorial animations
+
+v0.6.1
+-Added settings scene for audio controls
+-Added control scene in settings to view control
+
+v0.6
+-Level 5, 9, and 10 finalized
+-Explosion and pocket ball sound effects
+-Polish & Bugfixes
+
+v0.5.5
 -Explosion ball costs two shots, pockets return one shot
 -Added arrow indicators to certain levels
 -Added level 8
