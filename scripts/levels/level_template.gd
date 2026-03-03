@@ -397,9 +397,9 @@ func check_ball_availability():
 	if (pocket_available && !cue.available_types.has(GlobalEnums.BallType.POCKET)):
 		cue.available_types.append(GlobalEnums.BallType.POCKET)
 	if (!explosion_available && cue.available_types.has(GlobalEnums.BallType.EXPLOSION)):
-		cue.available_types.remove_at(1)
+		cue.available_types.remove_at(cue.available_types.find(GlobalEnums.BallType.EXPLOSION))
 	if (!pocket_available && cue.available_types.has(GlobalEnums.BallType.POCKET)):
-		cue.available_types.pop_back()
+		cue.available_types.remove_at(cue.available_types.find(GlobalEnums.BallType.POCKET))
 		
 	for i in range(GlobalEnums.BallType.size()):
 		if cue.available_types.has(GlobalEnums.BallType.values()[i - 1]):

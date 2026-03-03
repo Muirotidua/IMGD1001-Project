@@ -20,38 +20,46 @@ script = ExtResource("1_ap5g2")
 stream = ExtResource("2_wc3te")
 parameters/looping = true
 script = ExtResource("3_20mit")
+type = "MUSIC"
 
 [node name="BallHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_wc3te")
 max_polyphony = 100
 script = ExtResource("3_20mit")
-type = "MUSIC"
+type = "SFX"
 
 [node name="BallBreak" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_20mit")
 script = ExtResource("3_20mit")
+type = "SFX"
 
 [node name="LevelComplete" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wc3te")
 script = ExtResource("3_20mit")
+type = "SFX"
 
 [node name="WallHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_axni5")
 script = ExtResource("3_20mit")
+type = "SFX"
 
 [node name="StickHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_20mit")
 script = ExtResource("3_20mit")
+type = "SFX"
 
 [node name="BallSink" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_1ruox")
 script = ExtResource("3_20mit")
+type = "SFX"
 
 [node name="Pocket" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_axni5")
 parameters/looping = true
 script = ExtResource("3_20mit")
+type = "SFX"
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_20mit")
 script = ExtResource("3_20mit")
+type = "SFX"

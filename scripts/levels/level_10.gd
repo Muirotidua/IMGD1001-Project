@@ -17,12 +17,23 @@ func _ready():
 	super._ready()
 	explosion_available = false
 
+func _physics_process(_delta: float) -> void:
+	super._physics_process(_delta)
+	if (pocket_track > 2):
+		explosion_available = true
+	if (pocket_track > 6):
+		explosion_available = false
+	print("Explo Status:", explosion_available)
+
 func open_boundary():
 	if !(first_wall_has_opened):
 		if (pocket_track == 3):
 			first_wall_has_opened = true
 			pocket_available = false
 			explosion_available = true
+			print (explosion_available)
+			print("Explosion is true")
+			print(pocket_track)
 			#if !(first_wall_anim.is_playing()):
 			#first_is_unlocking = true
 			first_wall_anim.play("unlock")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://dl1shq1p0uaq8"]
+[gd_scene load_steps=35 format=3 uid="uid://dl1shq1p0uaq8"]
 
 [ext_resource type="Script" uid="uid://cmqdpq5sqt7dv" path="res://scripts/menus/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/assorted/fade.tscn" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://h1ly20rdymnx" path="res://visuals/main_menu/TempMainMenu.png" id="2_lgwnu"]
+[ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="4_8r73w"]
+[ext_resource type="PackedScene" uid="uid://cmb1wfpo4iugb" path="res://scenes/menus/settings.tscn" id="8_1hnlc"]
 [ext_resource type="Texture2D" uid="uid://taexxjetixtl" path="res://visuals/main_menu/StartButton.blank.png" id="3_5dd4i"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="3_8hoqd"]
 [ext_resource type="Texture2D" uid="uid://wvb2ivtojtdh" path="res://visuals/main_menu/StartButton.fill.png" id="4_lgwnu"]
@@ -57,6 +59,56 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r73w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hnlc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50h1w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_euy4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bre17"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a3hrp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25m6f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkawv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w32d4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_287l7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_88kup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bh4e2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3w8rc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxao6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vr0hv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hoqd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_555wk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awvna"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jygr6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n8vdk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6imgi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hq2q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wxcro"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4gey"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ykxr0"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_rcqid"]
 font = ExtResource("12_flqon")
 font_size = 50
@@ -102,38 +154,107 @@ offset_bottom = 1080.0
 size_flags_horizontal = 8
 metadata/_edit_lock_ = true
 
-[node name="Start" type="TextureButton" parent="Buttons"]
+[node name="Start" type="Button" parent="Buttons"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 624.0
-offset_top = 124.0
-offset_right = 895.0
-offset_bottom = 220.0
+offset_left = 592.0
+offset_top = -100.0
+offset_right = 897.0
+offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("3_5dd4i")
-texture_hover = ExtResource("4_lgwnu")
+theme_override_fonts/font = ExtResource("4_8r73w")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8r73w")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1hnlc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_50h1w")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_euy4r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bre17")
+text = "Break"
+flat = true
 
-[node name="Version Notes" type="TextureButton" parent="Buttons"]
+[node name="Quit" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 1632.0
+offset_top = 567.0
+offset_right = 1864.0
+offset_bottom = 694.0
+theme_override_fonts/font = ExtResource("4_8r73w")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_a3hrp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_25m6f")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nkawv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w32d4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_287l7")
+text = "Quit"
+flat = true
+
+[node name="Credits" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 1472.0
+offset_top = 672.0
+offset_right = 1870.0
+offset_bottom = 799.0
+theme_override_fonts/font = ExtResource("4_8r73w")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_88kup")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bh4e2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3w8rc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uxao6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vr0hv")
+text = "Credits"
+flat = true
+
+[node name="Settings" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 1408.0
+offset_top = 792.0
+offset_right = 1872.0
+offset_bottom = 919.0
+theme_override_fonts/font = ExtResource("4_8r73w")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8hoqd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_555wk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_awvna")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jygr6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n8vdk")
+text = "Settings"
+flat = true
+
+[node name="Version Notes" type="Button" parent="Buttons"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.2140625
-anchor_top = 0.75324076
-anchor_right = 0.48020834
-anchor_bottom = 0.7976852
+anchor_left = 0.15989584
+anchor_top = 0.7236111
+anchor_right = 0.49270833
+anchor_bottom = 0.79675925
 offset_left = 741.0
 offset_top = 138.5
 offset_right = 933.0
 offset_bottom = 186.5
-texture_normal = ExtResource("5_flqon")
-texture_hover = ExtResource("6_rcqid")
-stretch_mode = 0
+theme_override_fonts/font = ExtResource("4_8r73w")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6imgi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1hq2q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wxcro")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y4gey")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ykxr0")
+text = "Version History"
+flat = true
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="."]
+offset_left = 1756.0
+offset_top = 23.0
+offset_right = 1900.0
+offset_bottom = 107.0
+text = "v0.5.5"
+label_settings = SubResource("LabelSettings_rcqid")
+horizontal_alignment = 2
 [node name="Credits" type="TextureButton" parent="Buttons"]
 layout_mode = 0
 offset_left = 1528.0
@@ -161,6 +282,12 @@ stream = ExtResource("12_rcqid")
 unique_name_in_owner = true
 stream = ExtResource("13_1ajci")
 
+[node name="Settings" parent="." instance=ExtResource("8_1hnlc")]
+visible = false
+offset_left = -24.0
+offset_top = 8.0
+offset_right = -24.0
+offset_bottom = 8.0
 [node name="Node" type="Node" parent="."]
 
 [node name="Ball" type="AnimatedSprite2D" parent="."]
@@ -217,6 +344,7 @@ horizontal_alignment = 2
 
 [connection signal="timeout" from="Fade/Fade Timer" to="." method="_on_fade_timer_timeout"]
 [connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Buttons/Version Notes" to="." method="_on_version_notes_pressed"]
-[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/Version Notes" to="." method="_on_version_notes_pressed"]
