@@ -63,3 +63,11 @@ type = "SFX"
 stream = ExtResource("10_20mit")
 script = ExtResource("3_20mit")
 type = "SFX"
+
+[node name="LevelCompleteVoice" type="AudioStreamPlayer" parent="."]
+script = ExtResource("3_20mit")
+type = "VOICE"
+
+[node name="LevelVoice" type="AudioStreamPlayer" parent="."]
+script = ExtResource("3_20mit")
+type = "VOICE"
