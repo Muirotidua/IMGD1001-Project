@@ -175,12 +175,15 @@ func on_try_shoot(): # ?
 		ball.updateLastPos()
 	for pocket: Pocket in pockets:
 		pocket.update()
-	tutorial.stop()
-	tutorial.hide()
+	hide_tutorials()
 	shoot.emit()
 	rewinded = false
 	await get_tree().create_timer(0.1).timeout
 	cue.spec_pock_last_shot = false
+
+func hide_tutorials():
+	tutorial.stop()
+	tutorial.hide()
 
 # False if no balls are moving. True otherwise
 func moving_balls() -> bool: # ??? Need to ensure that this is looking at the cue ball moving, ask Liam when he's back.

@@ -98,6 +98,7 @@ modulate = Color(0.2903535, 0.2903535, 0.29035345, 1)
 z_index = -2
 position = Vector2(975.99994, 257.99997)
 scale = Vector2(0.29035875, 0.29035875)
+animation = &"3"
 
 [node name="ShotCountDisplay" type="Label" parent="Display"]
 offset_left = 1237.0
@@ -161,3 +162,9 @@ position = Vector2(1227, 280)
 [node name="WallObstacle" parent="." instance=ExtResource("17_ahaer")]
 position = Vector2(653, 376)
 rotation = 0.5864306
+
+[node name="Tutorial2" parent="." instance=ExtResource("10_522sc")]
+modulate = Color(0.2903535, 0.2903535, 0.29035345, 1)
+z_index = -2
+position = Vector2(1380, 621)
+scale = Vector2(0.29035875, 0.29035875)
