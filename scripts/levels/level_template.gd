@@ -346,9 +346,6 @@ func swap():
 	if swapping:
 		return
 	swapping = true
-	arrow_anim.stop()
-	arrow_bounce.stop()
-	arrow.hide()
 	paused = true
 	get_tree().paused = true
 	swap_ball.visible = true 
@@ -372,6 +369,9 @@ func swap_cue_type(new_type: GlobalEnums.BallType):
 	stop_swap()
 	
 func update_swap_ball_sprite():
+	arrow_anim.stop()
+	arrow_bounce.stop()
+	arrow.hide()
 	swap_ball_button_sprite.play(cue.ball_sprite_list[cue.ball_type])
 
 func spawn_pocket(pos: Vector2):
@@ -453,7 +453,7 @@ func _on_sub_timeout():
 	sdtween.tween_property(shot_display, "position:y", 910, 0.5)
 	sbtween.tween_property(swap_ball_button, "position:y", 850, 0.5)
 	pbtween.tween_property(paused_button, "position:y", 19, 0.5)
-	atween.tween_property(arrow, "position:x", 135, 0.5)
+	atween.tween_property(arrow, "position:x", 140, 0.5)
 	
 func next():
 	LevelManager.switch_level(level_id + 1)

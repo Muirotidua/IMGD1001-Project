@@ -46,6 +46,7 @@ pocket_available = true
 visible = false
 
 [node name="LevelWon" parent="Menus" instance=ExtResource("3_ps4pl")]
+visible = false
 
 [node name="LevelLost" parent="Menus" instance=ExtResource("4_e8m12")]
 visible = false
