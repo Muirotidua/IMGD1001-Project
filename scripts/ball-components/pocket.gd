@@ -20,8 +20,8 @@ func _ready():
 	modulate = Color(0.2, 0.2, 0.2)
 
 func _physics_process(_delta: float):
+	bodies = get_overlapping_bodies()
 	if(pocket_ready):
-		bodies = get_overlapping_bodies()
 		contains_cue = false
 		#print(active)
 		#print(bodies)
