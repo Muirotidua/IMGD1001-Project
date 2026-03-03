@@ -34,34 +34,32 @@ position = Vector2(200, 0)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_wl8ks")
 
-[node name="Visuals" type="CanvasLayer" parent="."]
-layer = -1
-offset = Vector2(200, 0)
+[node name="Visuals" type="Node2D" parent="."]
+position = Vector2(359, 0)
 scale = Vector2(0.8, 0.8)
-transform = Transform2D(0.8, 0, 0, 0.8, 200, 0)
-follow_viewport_enabled = true
 
 [node name="Background" type="ColorRect" parent="Visuals"]
 z_index = -10
 anchors_preset = -1
-anchor_left = -2.8587239
-anchor_top = -0.58796316
-anchor_right = 3.772135
-anchor_bottom = 1.7523143
+anchor_left = -0.1946617
+anchor_top = -0.3958338
+anchor_right = 1.1933593
+anchor_bottom = 1.7523141
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="SuperTemporaryPoolTable!" type="AnimatedSprite2D" parent="Visuals"]
-position = Vector2(960.1532, 541)
-scale = Vector2(1.2729518, 1.2561576)
+position = Vector2(750.1908, 676.2499)
+scale = Vector2(1.5911889, 1.5701962)
 sprite_frames = SubResource("SpriteFrames_t5bve")
 autoplay = "default"
 frame = 2
 frame_progress = 0.3121109
 
 [node name="Table_Boundaries" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(85, 108)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table_Boundaries"]

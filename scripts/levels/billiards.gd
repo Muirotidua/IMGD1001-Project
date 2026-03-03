@@ -1,8 +1,7 @@
 extends Level_template
 
 func update_shot_display():
-	
-	shot_display.text = ("Shot " + str(cue.shot_count) + " | Best: " + (str(LevelManager.billiards_record) if LevelManager.billiards_record > 0 else "-"))
+	shot_display.text = ("Shot " + str(cue.shot_count) + " | Best: " + (str(LevelManager.billiards_record) if LevelManager.billiards_record < 9999 else "-"))
 
 func check_final():
 	var pocket_count: int = 0
@@ -24,3 +23,9 @@ func check_final():
 	
 func next() -> void:
 	get_tree().change_scene_to_file("res://scenes/info-pages/credits.tscn")
+
+func _on_sub_timeout():
+	super._on_sub_timeout()
+	star1.hide()
+	star2.hide()
+	star3.hide()

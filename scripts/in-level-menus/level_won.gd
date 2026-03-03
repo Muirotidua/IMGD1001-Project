@@ -3,12 +3,12 @@ extends Node2D
 @onready var current_level = get_tree().current_scene
 
 signal restart()
-signal next_lev()
+signal transfer(dest: GlobalEnums.Destination)
 
 
 func _on_continue_pressed() -> void:
 	AudioManager.ball_hit(1)
-	next_lev.emit()
+	transfer.emit(GlobalEnums.Destination.NEXT)
 
 func _on_restart_pressed() -> void:
 	AudioManager.ball_hit(1)
@@ -18,13 +18,14 @@ func _on_restart_pressed() -> void:
 func _on_level_select_pressed() -> void:
 	get_tree().paused = false
 	AudioManager.ball_hit(1)
-	get_tree().change_scene_to_file("res://scenes/menus/level_select.tscn")
+	transfer.emit(GlobalEnums.Destination.LEVEL_SELECT)
 
 
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false
 	AudioManager.ball_hit(1)
-	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+	transfer.emit(GlobalEnums.Destination.MAIN_MENU)
+	
 
 func clear() -> void:
 	visible = false
