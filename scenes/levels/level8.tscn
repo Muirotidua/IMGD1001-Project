@@ -136,10 +136,19 @@ visible = false
 [node name="Camera2D" type="Camera2D" parent="Display"]
 anchor_mode = 0
 
+[node name="ColorRect" type="ColorRect" parent="Display/Camera2D"]
+z_index = -1000
+z_as_relative = false
+offset_left = -39.0
+offset_top = -52.0
+offset_right = 1962.0
+offset_bottom = 1147.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Other" type="Node" parent="."]
 
 [node name="Boundary_Table" parent="Other" instance=ExtResource("12_75nnh")]
-visible = false
 z_index = -1
 metadata/_edit_lock_ = true
 

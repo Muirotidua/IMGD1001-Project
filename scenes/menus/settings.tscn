@@ -440,6 +440,28 @@ theme_override_font_sizes/font_size = 45
 text = "Charge Shot / Hit Cue Ball"
 horizontal_alignment = 1
 
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+z_index = -10
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 1936.0
+offset_bottom = 1144.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="Camera2D"]
+one_shot = true
+
 [connection signal="pressed" from="Settings Border/AudioTab" to="." method="_on_audio_tab_pressed"]
 [connection signal="pressed" from="Settings Border/ControlsTab" to="." method="_on_controls_tab_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
@@ -452,3 +474,4 @@ horizontal_alignment = 1
 [connection signal="value_changed" from="AudioMenu/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="drag_ended" from="AudioMenu/SFXSlider" to="." method="_on_sfx_slider_drag_ended"]
 [connection signal="value_changed" from="AudioMenu/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="timeout" from="Camera2D/Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba2hi0umofv6w"]
+[gd_scene load_steps=6 format=3 uid="uid://ba2hi0umofv6w"]
+
+[ext_resource type="Script" uid="uid://dyuq6fa1pjwoc" path="res://scripts/assorted/fade.gd" id="1_u4c17"]
 
 [sub_resource type="Animation" id="Animation_76d3x"]
 length = 0.001
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -56,9 +59,12 @@ _data = {
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
+script = ExtResource("1_u4c17")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_2saxh")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

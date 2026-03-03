@@ -21,3 +21,14 @@ enum BallAvailability{
 	UNAVAILABLE,
 	UNDISCOVERED
 }
+
+enum LoadAnim {
+	FADE,
+	SPECIAL
+}
+
+enum Destination {
+	NEXT,
+	MAIN_MENU,
+	LEVEL_SELECT
+}
