@@ -12,7 +12,7 @@ func _ready() -> void:
 	$Stick.global_position = Vector2(-3400, 600)
 	if(!AudioManager.music.playing):
 		AudioManager.music.play()
-	
+
 
 func _on_start_pressed() -> void:
 	if clicked == null:

@@ -284,6 +284,7 @@ func print_info():
 		
 
 func _on_paused_button_pressed() -> void:
+	AudioManager.ball_hit(1)
 	if pause.visible:
 		get_tree().paused = false
 		pause.visible = false
@@ -353,7 +354,9 @@ func swap():
 	swap_ball.visible = true 
 
 func _on_swap_ball_button_pressed() -> void:
+	AudioManager.ball_hit(1)
 	if swapping:
+		
 		stop_swap()
 	elif cue.shot_ready:
 		swap()
