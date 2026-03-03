@@ -1,19 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://dl1shq1p0uaq8"]
+[gd_scene load_steps=44 format=3 uid="uid://dl1shq1p0uaq8"]
 
 [ext_resource type="Script" uid="uid://cmqdpq5sqt7dv" path="res://scripts/menus/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/assorted/fade.tscn" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://h1ly20rdymnx" path="res://visuals/main_menu/TempMainMenu.png" id="2_lgwnu"]
-[ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="4_8r73w"]
-[ext_resource type="PackedScene" uid="uid://cmb1wfpo4iugb" path="res://scenes/menus/settings.tscn" id="8_1hnlc"]
-[ext_resource type="Texture2D" uid="uid://taexxjetixtl" path="res://visuals/main_menu/StartButton.blank.png" id="3_5dd4i"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="3_8hoqd"]
-[ext_resource type="Texture2D" uid="uid://wvb2ivtojtdh" path="res://visuals/main_menu/StartButton.fill.png" id="4_lgwnu"]
-[ext_resource type="Texture2D" uid="uid://c652bip0rbdyy" path="res://visuals/main_menu/VHButton.blank.png" id="5_flqon"]
-[ext_resource type="Texture2D" uid="uid://b1s4xk7hxxk1m" path="res://visuals/main_menu/VHButton.fill.png" id="6_rcqid"]
-[ext_resource type="Texture2D" uid="uid://doie1qm3eamth" path="res://visuals/main_menu/CreditButton.blank.png" id="7_1ajci"]
-[ext_resource type="Texture2D" uid="uid://d02d41mgacpcf" path="res://visuals/main_menu/CreditButton.fill.png" id="8_7b55j"]
-[ext_resource type="Texture2D" uid="uid://dm81aslku2w2h" path="res://visuals/main_menu/QuitButton.blank.png" id="9_5pajh"]
-[ext_resource type="Texture2D" uid="uid://dof6s7uiihjti" path="res://visuals/main_menu/QuitButton.fill.png" id="10_j7ex8"]
+[ext_resource type="PackedScene" uid="uid://cmb1wfpo4iugb" path="res://scenes/menus/settings.tscn" id="8_1hnlc"]
 [ext_resource type="FontFile" uid="uid://c1g6gofkf5f8s" path="res://Fonts/rubik/Rubik-Regular.ttf" id="12_flqon"]
 [ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="12_rcqid"]
 [ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="13_1ajci"]
@@ -24,40 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://h5twy65whfri" path="res://visuals/poolstick/Untitled-1_0000_Layer-5.png" id="20_6imgi"]
 [ext_resource type="Texture2D" uid="uid://dvvil3luvwjx0" path="res://visuals/poolstick/Untitled-1_0001_Layer-4.png" id="21_1hq2q"]
 [ext_resource type="Texture2D" uid="uid://c84tseqlpio8y" path="res://visuals/poolstick/Untitled-1_0002_Layer-3.png" id="22_wxcro"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_y4gey"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_555wk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_awvna")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_jygr6")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ykxr0"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("20_6imgi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_1hq2q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_wxcro")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r73w"]
 
@@ -108,6 +65,40 @@ animations = [{
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4gey"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ykxr0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y4gey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_555wk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_awvna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_jygr6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ykxr0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_6imgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_1hq2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_wxcro")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rcqid"]
 font = ExtResource("12_flqon")
@@ -161,13 +152,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 592.0
-offset_top = -100.0
-offset_right = 897.0
-offset_bottom = 27.0
+offset_left = 587.5
+offset_top = -129.0
+offset_right = 901.5
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_8r73w")
+theme_override_fonts/font = ExtResource("3_8hoqd")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8r73w")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_1hnlc")
@@ -180,10 +171,10 @@ flat = true
 [node name="Quit" type="Button" parent="Buttons"]
 layout_mode = 0
 offset_left = 1632.0
-offset_top = 567.0
+offset_top = 539.0
 offset_right = 1864.0
-offset_bottom = 694.0
-theme_override_fonts/font = ExtResource("4_8r73w")
+offset_bottom = 666.0
+theme_override_fonts/font = ExtResource("3_8hoqd")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_a3hrp")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_25m6f")
@@ -196,10 +187,10 @@ flat = true
 [node name="Credits" type="Button" parent="Buttons"]
 layout_mode = 0
 offset_left = 1472.0
-offset_top = 672.0
+offset_top = 666.0
 offset_right = 1870.0
-offset_bottom = 799.0
-theme_override_fonts/font = ExtResource("4_8r73w")
+offset_bottom = 793.0
+theme_override_fonts/font = ExtResource("3_8hoqd")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_88kup")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_bh4e2")
@@ -212,10 +203,10 @@ flat = true
 [node name="Settings" type="Button" parent="Buttons"]
 layout_mode = 0
 offset_left = 1408.0
-offset_top = 792.0
+offset_top = 793.0
 offset_right = 1872.0
-offset_bottom = 919.0
-theme_override_fonts/font = ExtResource("4_8r73w")
+offset_bottom = 920.0
+theme_override_fonts/font = ExtResource("3_8hoqd")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8hoqd")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_555wk")
@@ -236,7 +227,7 @@ offset_left = 741.0
 offset_top = 138.5
 offset_right = 933.0
 offset_bottom = 186.5
-theme_override_fonts/font = ExtResource("4_8r73w")
+theme_override_fonts/font = ExtResource("3_8hoqd")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6imgi")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_1hq2q")
@@ -246,33 +237,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ykxr0")
 text = "Version History"
 flat = true
 metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="."]
-offset_left = 1756.0
-offset_top = 23.0
-offset_right = 1900.0
-offset_bottom = 107.0
-text = "v0.5.5"
-label_settings = SubResource("LabelSettings_rcqid")
-horizontal_alignment = 2
-[node name="Credits" type="TextureButton" parent="Buttons"]
-layout_mode = 0
-offset_left = 1528.0
-offset_top = 856.0
-offset_right = 1857.0
-offset_bottom = 952.0
-texture_normal = ExtResource("7_1ajci")
-texture_hover = ExtResource("8_7b55j")
-stretch_mode = 4
-
-[node name="Quit" type="TextureButton" parent="Buttons"]
-layout_mode = 0
-offset_left = 1664.0
-offset_top = 760.0
-offset_right = 1858.0
-offset_bottom = 856.0
-texture_normal = ExtResource("9_5pajh")
-texture_hover = ExtResource("10_j7ex8")
 
 [node name="StartSelect" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -288,6 +252,7 @@ offset_left = -24.0
 offset_top = 8.0
 offset_right = -24.0
 offset_bottom = 8.0
+
 [node name="Node" type="Node" parent="."]
 
 [node name="Ball" type="AnimatedSprite2D" parent="."]

@@ -33,7 +33,7 @@ func _on_version_notes_pressed() -> void:
 		clicked = "version_notes";
 		$Fade.show()
 		$"Fade/Fade Timer".start()
-		#$Fade/AnimationPlayer.play("fade_in_black")
+		$Fade/AnimationPlayer.play("fade_in_black")
 		%OptionSelect.play()
 
 
@@ -42,7 +42,7 @@ func _on_credits_pressed() -> void:
 		clicked = "credits";
 		$Fade.show()
 		$"Fade/Fade Timer".start()
-		#$Fade/AnimationPlayer.play("fade_in_black")
+		$Fade/AnimationPlayer.play("fade_in_black")
 		%OptionSelect.play()
 
 
