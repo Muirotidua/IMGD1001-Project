@@ -1,6 +1,9 @@
 extends Node2D
 
+@onready var settings = $Settings
+
 var clicked = null;
+
 
 func _ready() -> void:
 	$"Fade/Fade Timer".start()
@@ -39,6 +42,14 @@ func _on_credits_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+	
+func _on_settings_pressed() -> void:
+	if clicked == null:
+		clicked = "settings";
+		$Fade.show()
+		$"Fade/Fade Timer".start()
+		$Fade/AnimationPlayer.play("fade_in_black")
+		%OptionSelect.play()
 
 func _on_fade_timer_timeout() -> void:
 	if clicked == "start":
@@ -47,3 +58,6 @@ func _on_fade_timer_timeout() -> void:
 		get_tree().change_scene_to_file("res://scenes/info-pages/credits.tscn")
 	if clicked == "version_notes":
 		get_tree().change_scene_to_file("res://scenes/info-pages/version_history.tscn")
+	if clicked == "settings":
+		settings.Location = "Main Menu"
+		get_tree().change_scene_to_file("res://scenes/menus/settings.tscn")
