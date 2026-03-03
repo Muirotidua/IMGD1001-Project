@@ -139,12 +139,21 @@ text = "Level 10: The Gauntlet"
 [node name="Arrow" parent="Display" instance=ExtResource("12_634p2")]
 visible = false
 
+[node name="Camera2D" type="Camera2D" parent="Display"]
+anchor_mode = 0
+
 [node name="Other" type="Node" parent="."]
 
 [node name="Boundary_Table" parent="Other" instance=ExtResource("12_08hg2")]
 visible = false
 z_index = -1
 metadata/_edit_lock_ = true
+
+[node name="Startup" type="Timer" parent="Other"]
+one_shot = true
+
+[node name="Substartup" type="Timer" parent="Other"]
+wait_time = 1.5
 
 [node name="CueBall" parent="." instance=ExtResource("13_xya0h")]
 position = Vector2(647, 440)

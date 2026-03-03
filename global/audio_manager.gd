@@ -44,7 +44,7 @@ func setmusicvol(newvol: float):
 
 func volmod(player: AudioStreamPlayer):
 	var mod: float = rng.randf()*.1
-	player.volume_linear -= mod
+	player.volume_linear = max(player.volume_linear - mod, 0.0)
 
 func ball_hit(speed):
 	#$BallHit.volume_db = 0
@@ -58,6 +58,10 @@ func ball_hit(speed):
 	print($BallHit.volume_db)
 	volmod($BallHit)
 	$BallHit.play()
+	
+func ball_hit_menu():
+	$StickHit.volume_linear = max_volume
+	$StickHit.play()
 
 func ball_break():
 	$BallBreak.play()

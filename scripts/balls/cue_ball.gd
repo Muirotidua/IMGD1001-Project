@@ -22,6 +22,7 @@ var start_available_types: Array[GlobalEnums.BallType]
 var last_available_types: Array[GlobalEnums.BallType]
 var spec_pock_last_shot: bool = true
 var shot_count_last = 0
+var spawned_pock = false
 
 @onready var shot_count = 0
 @onready var count_label: Label = $NonRotate/CountLabel
@@ -30,7 +31,7 @@ var shot_count_last = 0
 
 @onready var stick_pos: Vector2 = global_position
 
-var shot_ready:bool  = true
+var shot_ready:bool  = false
 var charging: bool = false
 
 signal try_shoot()
@@ -91,6 +92,7 @@ func _process(_delta: float) -> void:
 	pool_stick.global_position = stick_pos
 
 func on_shoot():
+	spawned_pock = false
 	shot_count_last = shot_count
 	var direction = global_position.direction_to(get_global_mouse_position())
 	#var s = global_position.distance_to(get_global_mouse_position())
@@ -152,8 +154,9 @@ func _on_body_entered(body: Node) -> void:
 		AudioManager.explosion()
 		await get_tree().create_timer(0.1).timeout
 		(switch_type_spc(GlobalEnums.BallType.NORMAL))
-	if(ball_type == GlobalEnums.BallType.POCKET):
+	if(ball_type == GlobalEnums.BallType.POCKET) && !spawned_pock:
 		call_deferred("spawn_pocket")
+		spawned_pock = true
 		await get_tree().create_timer(0.1).timeout
 		switch_type_spc(GlobalEnums.BallType.NORMAL)
 		#pocket_ready.emit() 

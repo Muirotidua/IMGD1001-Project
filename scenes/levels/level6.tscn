@@ -136,12 +136,21 @@ text = "Level 6: Open Sesame"
 visible = false
 position = Vector2(135, 766)
 
+[node name="Camera2D" type="Camera2D" parent="Display"]
+anchor_mode = 0
+
 [node name="Other" type="Node" parent="."]
 
 [node name="Boundary_Table" parent="Other" instance=ExtResource("13_ie8wy")]
 visible = false
 z_index = -1
 metadata/_edit_lock_ = true
+
+[node name="Startup" type="Timer" parent="Other"]
+one_shot = true
+
+[node name="Substartup" type="Timer" parent="Other"]
+wait_time = 1.5
 
 [node name="CueBall" parent="." instance=ExtResource("14_h4dr5")]
 position = Vector2(976, 448)

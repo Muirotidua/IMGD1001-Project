@@ -29,6 +29,10 @@ enum State{ WON, LOST, PLAYING }
 @onready var arrow: Node2D = $Display/Arrow
 @onready var arrow_bounce: AnimationPlayer = $Display/Arrow/AnimationPlayer
 @onready var arrow_anim: AnimatedSprite2D = $Display/Arrow/AnimatedSprite2D
+@onready var cam: Camera2D = $Display/Camera2D
+@onready var startup: Timer = $Other/Startup
+@onready var sub: Timer = $Other/Substartup
+@onready var lev_name: Label = $Display/LevelName
 
 var pocket_spawn = preload("res://scenes/ball-components/pocket.tscn")
 var all_balls: Array[BaseBall] = []
@@ -44,10 +48,31 @@ var start_explo_value : bool
 var start_pock_value : bool
 var swapping: bool = false
 var pocket_track: int = 0
+var starting = true
+var began = false
 
 signal shoot()
 
 func _ready():
+	sub.one_shot = true
+	startup.one_shot = true
+	star1.hide()
+	star2.hide()
+	star3.hide()
+	lev_name.hide()
+	shot_display.hide()
+	swap_ball_button.hide()
+	paused_button.hide()
+	arrow.hide()
+	startup.wait_time = 2
+	sub.wait_time = 1.5
+	startup.start()
+	sub.start()
+	cam.global_position.x = -2000
+	var ctween = create_tween()
+	ctween.set_ease(Tween.EASE_OUT)
+	ctween.set_trans(Tween.TRANS_SINE)
+	ctween.tween_property(cam, "position:x", 0, 1.5)
 	swap_ball_button.focus_mode = Control.FOCUS_NONE
 	paused_button.focus_mode = Control.FOCUS_NONE
 	get_tree().paused = false
@@ -67,6 +92,10 @@ func _ready():
 		swap_ball_button.pressed.connect(_on_swap_ball_button_pressed)
 	if !paused_button.pressed.is_connected(_on_paused_button_pressed):
 		paused_button.pressed.connect(_on_paused_button_pressed)
+	if !startup.timeout.is_connected(_on_startup_timeout):
+		startup.timeout.connect(_on_startup_timeout)
+	if !sub.timeout.is_connected(_on_sub_timeout):
+		sub.timeout.connect(_on_sub_timeout)
 	update_swap_ball_sprite()
 	star1.play("full")
 	star2.play("full")
@@ -93,13 +122,6 @@ func _ready():
 		tutorial.play(str(level_id))
 	else:
 		tutorial.hide()
-	if show_arrow:
-		arrow.show()
-		arrow_anim.play("default")
-		arrow_bounce.play("bounce")
-	else:
-		await get_tree().create_timer(0.1).timeout
-		#arrow.hide()
 	for child: Node in get_children():
 		if child is BaseBall:
 			all_balls.append(child)
@@ -108,9 +130,12 @@ func _ready():
 	await get_tree().create_timer(0.1).timeout
 	start_explo_value = explosion_available
 	start_pock_value = pocket_available
+	update_shot_display()
 
 
 func _physics_process(_delta: float) -> void:
+	if starting:
+		return
 	if Input.is_action_just_pressed("reset_table"):
 		reset_table()
 	if Input.is_action_just_pressed("rewind_shot"):
@@ -197,7 +222,6 @@ func check_final():
 	pocket_track = 0
 	if (cue.pocketed || cue.pocketing) || fail_ready:
 		state = State.LOST
-		print ("Cue")
 		lose()
 		return
 	for ball: BaseBall in all_balls:
@@ -253,6 +277,7 @@ func print_info():
 			print("\tBall is in motion")
 		if ball.tabled_last_shot:
 			print("\tBall was tabled last shot")
+	print("Total pocketed: " + str(pocket_track))
 	print("-----------------------")
 	
 	
@@ -290,7 +315,14 @@ func win() -> void:
 	won.visible = true
 
 func onward() -> void:
-	LevelManager.switch_level(level_id + 1)
+	starting = true
+	cue.shot_ready = false
+	startup.start()
+	var ctween = create_tween()
+	ctween.set_ease(Tween.EASE_IN)
+	ctween.set_trans(Tween.TRANS_SINE)
+	ctween.tween_property(cam, "position:x", 2000, 1.5)
+	
 	
 func resume_play():
 	paused = false
@@ -373,3 +405,52 @@ func check_ball_availability():
 		elif LevelManager.type_discovered[i - 1]:
 			swap_ball.ball_availability[i - 1] = GlobalEnums.BallAvailability.UNAVAILABLE
 	swap_ball.color()
+
+func _on_startup_timeout():
+	if !began:
+		starting = false
+		began = true
+	else: 
+		next()
+
+func _on_sub_timeout():
+	star1.position.x = -10
+	star2.position.x = -10
+	star3.position.x = -10
+	lev_name.position.y = 1100
+	shot_display.position.y = 1100
+	swap_ball_button.position.y = 1100
+	paused_button.position.y = -10
+	arrow.position.x = -20
+	star1.show() 
+	star2.show()
+	star3.show()
+	lev_name.show()
+	shot_display.show()
+	swap_ball_button.show()
+	paused_button.show()
+	if show_arrow:
+		arrow.show()
+		arrow_anim.play("default")
+		arrow_bounce.play("bounce")
+	else:
+		arrow.hide()
+	var s1tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	var s2tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	var s3tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	var lntween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	var sdtween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	var sbtween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	var pbtween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	var atween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+	s1tween.tween_property(star1, "position:x", 130, 0.5)
+	s2tween.tween_property(star2, "position:x", 130, 0.5)
+	s3tween.tween_property(star3, "position:x", 130, 0.5)
+	lntween.tween_property(lev_name, "position:y", 940, 0.5)
+	sdtween.tween_property(shot_display, "position:y", 910, 0.5)
+	sbtween.tween_property(swap_ball_button, "position:y", 850, 0.5)
+	pbtween.tween_property(paused_button, "position:y", 19, 0.5)
+	atween.tween_property(arrow, "position:x", 135, 0.5)
+	
+func next():
+	LevelManager.switch_level(level_id + 1)
