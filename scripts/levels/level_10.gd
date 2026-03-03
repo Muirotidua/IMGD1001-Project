@@ -19,12 +19,10 @@ func _ready():
 
 func open_boundary():
 	if !(first_wall_has_opened):
-		print(pocket_track)
 		if (pocket_track == 3):
 			first_wall_has_opened = true
 			pocket_available = false
 			explosion_available = true
-			print(pocket_track)
 			#if !(first_wall_anim.is_playing()):
 			#first_is_unlocking = true
 			first_wall_anim.play("unlock")
@@ -86,6 +84,5 @@ func reset_table():
 	second_wall_just_opened = false
 	super.reset_table()
 	
-	
-		
-	
+func next() -> void:
+	get_tree().change_scene_to_file("res://scenes/info-pages/credits.tscn")

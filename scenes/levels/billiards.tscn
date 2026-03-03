@@ -46,7 +46,6 @@ pocket_available = true
 visible = false
 
 [node name="LevelWon" parent="Menus" instance=ExtResource("3_ps4pl")]
-visible = false
 
 [node name="LevelLost" parent="Menus" instance=ExtResource("4_e8m12")]
 visible = false
@@ -123,12 +122,21 @@ text = "Freeplay"
 visible = false
 position = Vector2(135, 766)
 
+[node name="Camera2D" type="Camera2D" parent="Display"]
+anchor_mode = 0
+
 [node name="Other" type="Node" parent="."]
 
 [node name="Boundary_Table" parent="Other" instance=ExtResource("12_xb1h8")]
 visible = false
 z_index = -1
 metadata/_edit_lock_ = true
+
+[node name="Startup" type="Timer" parent="Other"]
+one_shot = true
+
+[node name="Substartup" type="Timer" parent="Other"]
+wait_time = 1.5
 
 [node name="CueBall" parent="." instance=ExtResource("13_fiydi")]
 position = Vector2(615, 416.00003)

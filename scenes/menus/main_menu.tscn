@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dl1shq1p0uaq8"]
+[gd_scene load_steps=26 format=3 uid="uid://dl1shq1p0uaq8"]
 
 [ext_resource type="Script" uid="uid://cmqdpq5sqt7dv" path="res://scripts/menus/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/assorted/fade.tscn" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://h1ly20rdymnx" path="res://visuals/main_menu/TempMainMenu.png" id="2_lgwnu"]
 [ext_resource type="Texture2D" uid="uid://taexxjetixtl" path="res://visuals/main_menu/StartButton.blank.png" id="3_5dd4i"]
+[ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="3_8hoqd"]
 [ext_resource type="Texture2D" uid="uid://wvb2ivtojtdh" path="res://visuals/main_menu/StartButton.fill.png" id="4_lgwnu"]
 [ext_resource type="Texture2D" uid="uid://c652bip0rbdyy" path="res://visuals/main_menu/VHButton.blank.png" id="5_flqon"]
 [ext_resource type="Texture2D" uid="uid://b1s4xk7hxxk1m" path="res://visuals/main_menu/VHButton.fill.png" id="6_rcqid"]
@@ -12,6 +13,49 @@
 [ext_resource type="Texture2D" uid="uid://dm81aslku2w2h" path="res://visuals/main_menu/QuitButton.blank.png" id="9_5pajh"]
 [ext_resource type="Texture2D" uid="uid://dof6s7uiihjti" path="res://visuals/main_menu/QuitButton.fill.png" id="10_j7ex8"]
 [ext_resource type="FontFile" uid="uid://c1g6gofkf5f8s" path="res://Fonts/rubik/Rubik-Regular.ttf" id="12_flqon"]
+[ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="12_rcqid"]
+[ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="13_1ajci"]
+[ext_resource type="Texture2D" uid="uid://cktvwisdyjuhm" path="res://visuals/poolball-basic/Untitled-1_0000_Layer-1-copy-3.png" id="16_555wk"]
+[ext_resource type="Texture2D" uid="uid://i4bgn5mwk4l5" path="res://visuals/poolball-basic/Untitled-1_0001_Layer-1-copy-2.png" id="17_awvna"]
+[ext_resource type="Texture2D" uid="uid://bgpgtdbg61x6t" path="res://visuals/poolball-basic/Untitled-1_0002_Layer-1-copy.png" id="18_jygr6"]
+[ext_resource type="Texture2D" uid="uid://unfatubegi3u" path="res://visuals/temp/fullball.png" id="19_n8vdk"]
+[ext_resource type="Texture2D" uid="uid://h5twy65whfri" path="res://visuals/poolstick/Untitled-1_0000_Layer-5.png" id="20_6imgi"]
+[ext_resource type="Texture2D" uid="uid://dvvil3luvwjx0" path="res://visuals/poolstick/Untitled-1_0001_Layer-4.png" id="21_1hq2q"]
+[ext_resource type="Texture2D" uid="uid://c84tseqlpio8y" path="res://visuals/poolstick/Untitled-1_0002_Layer-3.png" id="22_wxcro"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y4gey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_555wk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_awvna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_jygr6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ykxr0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_6imgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_1hq2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_wxcro")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rcqid"]
 font = ExtResource("12_flqon")
@@ -21,7 +65,21 @@ font_size = 50
 process_mode = 3
 script = ExtResource("1_l6cm7")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -16.0
+offset_right = 1936.0
+offset_bottom = 1096.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="TempMainMenu" type="Sprite2D" parent="."]
+visible = false
 z_index = -70
 position = Vector2(929, 544.00006)
 scale = Vector2(1.0157408, 1.0157408)
@@ -36,12 +94,13 @@ z_index = 100
 one_shot = true
 
 [node name="Buttons" type="Control" parent="."]
-z_index = 37
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 8
+metadata/_edit_lock_ = true
 
 [node name="Start" type="TextureButton" parent="Buttons"]
 layout_mode = 1
@@ -94,7 +153,60 @@ offset_bottom = 856.0
 texture_normal = ExtResource("9_5pajh")
 texture_hover = ExtResource("10_j7ex8")
 
-[node name="Label" type="Label" parent="."]
+[node name="StartSelect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("12_rcqid")
+
+[node name="OptionSelect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_1ajci")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Ball" type="AnimatedSprite2D" parent="."]
+z_index = 15
+position = Vector2(720, 650)
+scale = Vector2(1.145926, 1.1459259)
+sprite_frames = SubResource("SpriteFrames_y4gey")
+
+[node name="Fullball" type="Sprite2D" parent="Ball"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-5, 7)
+scale = Vector2(1.0906041, 1.1040268)
+texture = ExtResource("19_n8vdk")
+
+[node name="ColorRect" type="ColorRect" parent="Ball"]
+z_index = -1
+offset_left = -1899.7737
+offset_top = -375.0243
+offset_right = 33.56079
+offset_bottom = 364.9887
+color = Color(0, 0, 0, 1)
+
+[node name="Stick" type="AnimatedSprite2D" parent="."]
+z_index = 20
+position = Vector2(-3400, 600)
+scale = Vector2(3.9554563, 3.9554567)
+sprite_frames = SubResource("SpriteFrames_ykxr0")
+frame = 2
+frame_progress = 0.7105668
+
+[node name="TitleTexts" type="Node2D" parent="."]
+
+[node name="Title" type="Label" parent="TitleTexts"]
+offset_left = 374.0
+offset_top = 41.0
+offset_right = 1577.0
+offset_bottom = 219.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_8hoqd")
+theme_override_font_sizes/font_size = 120
+text = "Untitled Pool Game"
+
+[node name="Version" type="Label" parent="TitleTexts"]
 offset_left = 1756.0
 offset_top = 23.0
 offset_right = 1900.0

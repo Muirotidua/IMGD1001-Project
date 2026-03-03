@@ -136,6 +136,10 @@ theme_override_font_sizes/font_size = 70
 text = "Level 9: Chaotic Playground"
 
 [node name="Arrow" parent="Display" instance=ExtResource("12_xntys")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="Display"]
+anchor_mode = 0
 
 [node name="Other" type="Node" parent="."]
 
@@ -143,6 +147,12 @@ text = "Level 9: Chaotic Playground"
 visible = false
 z_index = -1
 metadata/_edit_lock_ = true
+
+[node name="Startup" type="Timer" parent="Other"]
+one_shot = true
+
+[node name="Substartup" type="Timer" parent="Other"]
+wait_time = 1.5
 
 [node name="CueBall" parent="." instance=ExtResource("13_hy5p4")]
 position = Vector2(969, 411)
