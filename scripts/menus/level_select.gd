@@ -29,6 +29,7 @@ const LOCKED: Color = Color(0.5, 0.5, 0.5)
 
 
 func _ready() -> void:
+	cam.make_current()
 	cam.global_position = get_viewport_rect().size / 2
 	lev1.switch.connect(button_pressed)
 	lev2.switch.connect(button_pressed)
@@ -41,7 +42,7 @@ func _ready() -> void:
 	lev9.switch.connect(button_pressed)
 	lev10.switch.connect(button_pressed)
 	freeplay.switch.connect(button_pressed)
-	fade_anim.animation_finished.connect(on_anim_end)
+	fade.finished.connect(on_anim_end)
 	$LB.global_position = Vector2(0, -800)
 	var btween: Tween = create_tween()
 	btween.set_ease(Tween.EASE_OUT)
@@ -97,4 +98,4 @@ func _on_fade_timer_timeout() -> void:
 	else: LevelManager.switch_level(clicked)
 
 func on_anim_end():
-	fade_anim.play("RESET")
+	fade_anim.play("fade_in_black")

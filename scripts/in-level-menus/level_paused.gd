@@ -5,6 +5,7 @@ extends Node2D
 
 signal restart()
 signal resume()
+signal transfer(dest: GlobalEnums.Destination)
 
 func _process(_delta: float) -> void:
 	if (settings.visible == true):
@@ -31,13 +32,13 @@ func _on_restart_pressed() -> void:
 func _on_level_select_pressed() -> void:
 	get_tree().paused = false
 	AudioManager.ball_hit(1)
-	get_tree().change_scene_to_file("res://scenes/menus/level_select.tscn")
+	transfer.emit(GlobalEnums.Destination.LEVEL_SELECT)
 
 
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false
 	AudioManager.ball_hit(1)
-	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+	transfer.emit(GlobalEnums.Destination.MAIN_MENU)
 	
 
 
