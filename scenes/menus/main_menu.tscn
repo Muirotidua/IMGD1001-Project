@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dl1shq1p0uaq8"]
+[gd_scene load_steps=49 format=3 uid="uid://dl1shq1p0uaq8"]
 
 [ext_resource type="Script" uid="uid://cmqdpq5sqt7dv" path="res://scripts/menus/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/assorted/fade.tscn" id="2_ekxnf"]
@@ -9,8 +9,12 @@
 [ext_resource type="AudioStream" uid="uid://djb81lyaq4yse" path="res://sounds/sfx/billiard-break.mp3" id="12_rcqid"]
 [ext_resource type="AudioStream" uid="uid://bk23teeapkbd" path="res://sounds/sfx/billiard-hit.mp3" id="13_1ajci"]
 [ext_resource type="Texture2D" uid="uid://cktvwisdyjuhm" path="res://visuals/poolball-basic/Untitled-1_0000_Layer-1-copy-3.png" id="16_555wk"]
+[ext_resource type="Texture2D" uid="uid://dqghiysf4o833" path="res://visuals/UI/titleanim/mainworkdoc-Recovered.psd_0004s_0003_Layer-49.png" id="16_nkawv"]
 [ext_resource type="Texture2D" uid="uid://i4bgn5mwk4l5" path="res://visuals/poolball-basic/Untitled-1_0001_Layer-1-copy-2.png" id="17_awvna"]
+[ext_resource type="Texture2D" uid="uid://djtulgvmbawg4" path="res://visuals/UI/titleanim/mainworkdoc-Recovered.psd_0004s_0002_Layer-50.png" id="17_w32d4"]
+[ext_resource type="Texture2D" uid="uid://gcy3ucis0bi" path="res://visuals/UI/titleanim/mainworkdoc-Recovered.psd_0004s_0001_Layer-51.png" id="18_287l7"]
 [ext_resource type="Texture2D" uid="uid://bgpgtdbg61x6t" path="res://visuals/poolball-basic/Untitled-1_0002_Layer-1-copy.png" id="18_jygr6"]
+[ext_resource type="Texture2D" uid="uid://bhla66ycskdoq" path="res://visuals/UI/titleanim/mainworkdoc-Recovered.psd_0004s_0000_Layer-52.png" id="19_8hoqd"]
 [ext_resource type="Texture2D" uid="uid://unfatubegi3u" path="res://visuals/temp/fullball.png" id="19_n8vdk"]
 [ext_resource type="Texture2D" uid="uid://h5twy65whfri" path="res://visuals/poolstick/Untitled-1_0000_Layer-5.png" id="20_6imgi"]
 [ext_resource type="Texture2D" uid="uid://dvvil3luvwjx0" path="res://visuals/poolstick/Untitled-1_0001_Layer-4.png" id="21_1hq2q"]
@@ -103,6 +107,26 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_rcqid"]
 font = ExtResource("12_flqon")
 font_size = 50
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_555wk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_nkawv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_w32d4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_287l7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_8hoqd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main Menu" type="Node2D"]
 process_mode = 3
@@ -292,18 +316,6 @@ frame_progress = 0.7105668
 
 [node name="TitleTexts" type="Node2D" parent="."]
 
-[node name="Title" type="Label" parent="TitleTexts"]
-offset_left = 374.0
-offset_top = 41.0
-offset_right = 1577.0
-offset_bottom = 219.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("3_8hoqd")
-theme_override_font_sizes/font_size = 120
-text = "Untitled Pool Game"
-
 [node name="Version" type="Label" parent="TitleTexts"]
 offset_left = 1756.0
 offset_top = 23.0
@@ -312,6 +324,12 @@ offset_bottom = 107.0
 text = "v0.5.5"
 label_settings = SubResource("LabelSettings_rcqid")
 horizontal_alignment = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TitleTexts"]
+position = Vector2(929, 248.00002)
+scale = Vector2(0.69966674, 0.6996667)
+sprite_frames = SubResource("SpriteFrames_555wk")
+frame_progress = 0.44222817
 
 [connection signal="timeout" from="Fade/Fade Timer" to="." method="_on_fade_timer_timeout"]
 [connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
