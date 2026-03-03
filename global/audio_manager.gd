@@ -12,10 +12,19 @@ var fail = preload("res://sounds/sfx/level-fail.wav")
 var onestar = preload("res://sounds/sfx/level-one-star.wav")
 var twostar = preload("res://sounds/sfx/level-two-star.wav")
 var threestar = preload("res://sounds/sfx/level-three-star.wav")
-var completesounds = [fail,onestar,twostar,threestar]
+var instrumentcompletesounds = [fail,onestar,twostar,threestar]
+var failvoice = [preload("res://sounds/sfx/VoiceLines/E_Womp_Womp.wav"),preload("res://sounds/sfx/VoiceLines/Liam_I_Hate_You.wav"),preload("res://sounds/sfx/VoiceLines/Eric_Boo.wav")]
+var onestarvoice =[preload("res://sounds/sfx/VoiceLines/E_You_Rock.wav"),preload("res://sounds/sfx/VoiceLines/Liam_Wohoo_Warble.wav"),preload("res://sounds/sfx/VoiceLines/Eric_Woo.wav")]
+var twostarvoice = [preload("res://sounds/sfx/VoiceLines/E_Wohoo.wav"),preload("res://sounds/sfx/VoiceLines/Liam_Yessir.wav"),preload("res://sounds/sfx/VoiceLines/Eric_Lets_Go.wav")]
+var threestarvoice = [preload("res://sounds/sfx/VoiceLines/E_Hell_Yeah.wav"),preload("res://sounds/sfx/VoiceLines/Liam_You_Did_It.wav"),preload("res://sounds/sfx/VoiceLines/Eric_Cheer_Clap.wav")]
+var secretvoice = [preload("res://sounds/sfx/VoiceLines/Liam_ILY.wav"),preload("res://sounds/sfx/VoiceLines/Eric_Blooper.wav"),preload("res://sounds/sfx/VoiceLines/E_Hell_Yeah_Pitched.wav")]
+var voicecompletesounds = [failvoice,onestarvoice,twostarvoice,threestarvoice]
 
 var rng = RandomNumberGenerator.new()
 var ballsinksounds = [preload("res://sounds/sfx/ball-sink-1.wav"),preload("res://sounds/sfx/ball-sink-2.wav"),preload("res://sounds/sfx/ball-sink-3.wav")]
+var levelstartsounds = [preload("res://sounds/sfx/VoiceLines/The_First_One.wav"),preload("res://sounds/sfx/VoiceLines/Three's_Company.wav"),preload("res://sounds/sfx/VoiceLines/Dodging_Walls.wav"),preload("res://sounds/sfx/VoiceLines/Kaboom.wav"),preload("res://sounds/sfx/VoiceLines/Bomb's_Away.wav"),preload("res://sounds/sfx/VoiceLines/Open_Sesame.wav"),preload("res://sounds/sfx/VoiceLines/No_Way_Out.wav"),preload("res://sounds/sfx/VoiceLines/Back_And_Better.wav"),preload("res://sounds/sfx/VoiceLines/Chaotic_Playground.wav"),preload("res://sounds/sfx/VoiceLines/The_Gauntlet.wav"),preload("res://sounds/sfx/VoiceLines/Freeplay.wav")]
+
+
 
 # having all of these as helper functions should make the in-script calls less complex, 
 # and allow for intermediate steps between the call being made and playing the audio
@@ -32,6 +41,8 @@ func setvol(newvol: float): #sets the volume of all audio players to the given v
 			player.volume_linear = max_volume*max_sfx_volume
 		elif(player.type == "MUSIC"):
 			player.volume_linear = max_volume*max_music_volume
+		elif(player.type == "VOICE"):
+			player.volume_linear = max_volume
 
 func setsfxvol(newvol: float):
 	
@@ -76,7 +87,7 @@ func ball_break():
 func level_complete(_type: int): # based on number, hopefully can be set in script and be a single level complete call.
 								 # should be 0 = fail, 1-3 = that many stars
 	print(_type)
-	$LevelComplete.stream = completesounds[_type]
+	$LevelComplete.stream = instrumentcompletesounds[_type]
 	$LevelComplete.play()
 
 func wall_hit(speed):
@@ -112,3 +123,18 @@ func pocket_drone():
 
 func explosion():
 	$Explosion.play()
+
+func level_voice(level: int):
+	$LevelVoice.stream = levelstartsounds[level]
+	$LevelVoice.play()
+
+func complete_voice(_type: int):
+	var soundrand: int = rng.randi_range(0,2)
+	if(_type == 3):
+		var secretrand: int = rng.randi_range(0,100)
+		if(secretrand == 0):
+			$LevelCompleteVoice.stream = secretvoice[soundrand]
+			$LevelCompleteVoice.play()
+	print(voicecompletesounds[_type][soundrand])
+	$LevelCompleteVoice.stream = voicecompletesounds[_type][soundrand]
+	$LevelCompleteVoice.play()

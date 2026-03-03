@@ -294,13 +294,12 @@ func _on_paused_button_pressed() -> void:
 		pause.visible = true
 		paused = true
 
-
 func lose() -> void:
 	star1.play("empty")
 	star2.play("empty")
 	star3.play("empty")
 	if(!complete):
-		AudioManager.level_complete(0)
+		AudioManager.complete_voice(0)
 		complete = true
 	get_tree().paused = true
 	lost.visible = true
@@ -311,7 +310,7 @@ func win() -> void:
 	LevelManager.set_stars(level_id, star_count)
 	if(!complete):
 		complete = true
-		AudioManager.level_complete(star_count)
+		AudioManager.complete_voice(star_count)
 	get_tree().paused = true
 	won.visible = true
 
@@ -413,6 +412,7 @@ func _on_startup_timeout():
 	if !began:
 		starting = false
 		began = true
+		AudioManager.level_voice(level_id-1) #subtract 1 b/c 0 indexing
 	else: 
 		next()
 
