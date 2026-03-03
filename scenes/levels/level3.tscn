@@ -154,7 +154,7 @@ position = Vector2(940, 458)
 position = Vector2(514, 292)
 
 [node name="PoolBall" parent="." instance=ExtResource("12_v6yyo")]
-position = Vector2(742, 676)
+position = Vector2(728, 658)
 
 [node name="PoolBall2" parent="." instance=ExtResource("12_v6yyo")]
 position = Vector2(1227, 280)

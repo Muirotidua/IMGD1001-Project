@@ -16,6 +16,7 @@ func _ready() -> void:
 	else:
 		tween_in()
 	LevelManager.menu_load = GlobalEnums.LoadAnim.FADE
+	$TitleTexts/AnimatedSprite2D.play()
 	$Ball.play()
 	$Ball.global_position = Vector2(720, 650)
 	$Stick.play()
