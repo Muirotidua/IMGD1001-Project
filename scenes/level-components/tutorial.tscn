@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjam3v857ixvp"]
+[gd_scene load_steps=29 format=3 uid="uid://bjam3v857ixvp"]
 
 [ext_resource type="Texture2D" uid="uid://dh8efdrdti6t1" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0004_Layer-8.png" id="1_rdhte"]
 [ext_resource type="Texture2D" uid="uid://82g0plycrb07" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0003_Layer-9.png" id="2_c3rkq"]
@@ -8,6 +8,25 @@
 [ext_resource type="Texture2D" uid="uid://dqbjudvgque1e" path="res://visuals/UI/level2_anim1/mainworkdoc_0000_Layer-40.png" id="6_tt1lc"]
 [ext_resource type="Texture2D" uid="uid://djr0tgx5lrenv" path="res://visuals/UI/level2_anim1/mainworkdoc_0001_Layer-39.png" id="7_nmrbx"]
 [ext_resource type="Texture2D" uid="uid://efrveagwbc8p" path="res://visuals/UI/level2_anim1/mainworkdoc_0002_Layer-38.png" id="8_ir7bu"]
+[ext_resource type="Texture2D" uid="uid://r708b72l2icm" path="res://visuals/UI/redo_anim/experiment-mainworkdoc-Recovered-copy_0007s_0003_Layer-53.png" id="9_0te5r"]
+[ext_resource type="Texture2D" uid="uid://ccjm5idf62qg" path="res://visuals/UI/redo_anim/experiment-mainworkdoc-Recovered-copy_0007s_0004_Layer-44.png" id="10_tf1jb"]
+[ext_resource type="Texture2D" uid="uid://ct4du42ikjtcr" path="res://visuals/UI/redo_anim/experiment-mainworkdoc-Recovered-copy_0007s_0002_Layer-54.png" id="11_gvb0r"]
+[ext_resource type="Texture2D" uid="uid://evk1h2r13h6t" path="res://visuals/UI/redo_anim/experiment-mainworkdoc-Recovered-copy_0007s_0001_Layer-55.png" id="12_p2b2k"]
+[ext_resource type="Texture2D" uid="uid://ce4uijvcycq4a" path="res://visuals/UI/redo_anim/experiment-mainworkdoc-Recovered-copy_0007s_0000_Layer-44-copy-4.png" id="13_331db"]
+[ext_resource type="Texture2D" uid="uid://v6v2le5jqwwp" path="res://visuals/UI/reset_anim/mainworkdoc-Recovered.png" id="14_1nlbl"]
+[ext_resource type="Texture2D" uid="uid://cd4su1knrf70n" path="res://visuals/UI/reset_anim/mainworkdoc-Recovered.psd_0004s_0000_Layer-47.png" id="15_r3ly0"]
+[ext_resource type="Texture2D" uid="uid://kpih5ajap2uu" path="res://visuals/UI/reset_anim/mainworkdoc-Recovered.psd_0004s_0002_Layer-45.png" id="16_02s6l"]
+[ext_resource type="Texture2D" uid="uid://bpcf8j2angko7" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0010_1-pocketballanim.png" id="17_hbg3f"]
+[ext_resource type="Texture2D" uid="uid://dvipj1iw65cm3" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0009_2-pocketballanim.png" id="18_wo6ks"]
+[ext_resource type="Texture2D" uid="uid://1031dwcwahi5" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0008_3-pocketballanim.png" id="19_3edbm"]
+[ext_resource type="Texture2D" uid="uid://dmqhik0w0o11s" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0007_4-pocketballanim.png" id="20_gkisf"]
+[ext_resource type="Texture2D" uid="uid://0arwbd3kvfyd" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0006_5-pocketballanim.png" id="21_8dwwd"]
+[ext_resource type="Texture2D" uid="uid://cl2nidwp45x4d" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0005_6-pocketballanim.png" id="22_3er8x"]
+[ext_resource type="Texture2D" uid="uid://1r4051dcfxdr" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0004_7-pocketballanim.png" id="23_y4dmm"]
+[ext_resource type="Texture2D" uid="uid://cklndxnkd40ao" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0003_8-pocketballanim.png" id="24_bvm0w"]
+[ext_resource type="Texture2D" uid="uid://u0ajsikhoufb" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0002_9-pocketballanim.png" id="25_6dmso"]
+[ext_resource type="Texture2D" uid="uid://dhgqwed3q8nhk" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0001_10-pocketballanim.png" id="26_nq8d0"]
+[ext_resource type="Texture2D" uid="uid://cx2w0rmmayij4" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0000_11-pocketballanim.png" id="27_7gtv4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir7bu"]
 animations = [{
@@ -49,8 +68,81 @@ animations = [{
 "loop": true,
 "name": &"2",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_0te5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tf1jb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gvb0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_p2b2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_331db")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_1nlbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_r3ly0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_02s6l")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_hbg3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_wo6ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3edbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_gkisf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_8dwwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_3er8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_y4dmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_bvm0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_6dmso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_nq8d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_7gtv4")
+}],
+"loop": true,
+"name": &"7",
+"speed": 5.0
 }]
 
 [node name="Tutorial" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_ir7bu")
-animation = &"0"
+animation = &"7"
+frame_progress = 0.7843453
