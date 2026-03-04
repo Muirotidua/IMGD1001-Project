@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cmb1wfpo4iugb"]
+[gd_scene load_steps=37 format=3 uid="uid://cmb1wfpo4iugb"]
 
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="1_del6v"]
 [ext_resource type="Script" uid="uid://do044qj3ix2gb" path="res://scripts/menus/settings.gd" id="1_g2810"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://cp3v0aybpc3jl" path="res://Fonts/rubik/Rubik-Bold.ttf" id="5_swl1s"]
 [ext_resource type="Texture2D" uid="uid://dxypl2rwu2rl8" path="res://visuals/UI/RMBMouseIcon.png" id="5_ynxk2"]
 [ext_resource type="Texture2D" uid="uid://c28b5le5ced5l" path="res://visuals/UI/lmbMouseIcon.png" id="6_12nvk"]
+[ext_resource type="Texture2D" uid="uid://8jvdo742xv4h" path="res://visuals/UI/backspace.png" id="7_12nvk"]
 [ext_resource type="Texture2D" uid="uid://cjn2qdt35bmhu" path="res://visuals/UI/eicon.png" id="7_dbevg"]
 [ext_resource type="Texture2D" uid="uid://cdrbllsdsygqi" path="res://visuals/UI/qicon.png" id="8_5j0ne"]
 [ext_resource type="Texture2D" uid="uid://xcfqfdbc3m5r" path="res://visuals/UI/Ricon.png" id="9_tfgby"]
@@ -123,10 +124,10 @@ color = Color(0, 0, 0, 1)
 modulate = Color(18.892157, 18.892157, 18.892157, 1)
 z_index = 2
 layout_mode = 0
-offset_left = 148.0
-offset_top = 90.0
-offset_right = 1784.0
-offset_bottom = 985.0
+offset_left = 54.0
+offset_top = 44.0
+offset_right = 1873.0
+offset_bottom = 1042.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ynxk2")
 
@@ -135,8 +136,8 @@ z_index = 1
 layout_mode = 0
 offset_left = 42.0
 offset_top = 31.0
-offset_right = 1602.0
-offset_bottom = 870.0
+offset_right = 1779.0
+offset_bottom = 961.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_12nvk")
 
@@ -178,10 +179,10 @@ flat = true
 process_mode = 3
 z_index = 3
 layout_mode = 0
-offset_left = 1396.0
-offset_top = 766.0
-offset_right = 1691.0
-offset_bottom = 913.0
+offset_left = 1485.0
+offset_top = 814.0
+offset_right = 1780.0
+offset_bottom = 961.0
 theme_override_fonts/font = ExtResource("5_swl1s")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5j0ne")
@@ -192,6 +193,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_1f5me")
 text = "Back"
 
 [node name="AudioMenu" type="Control" parent="."]
+visible = false
 z_index = 3
 anchors_preset = 0
 offset_left = 190.0
@@ -324,7 +326,6 @@ step = 0.01
 value = 0.5
 
 [node name="ControlsMenu" type="Control" parent="."]
-visible = false
 z_index = 3
 anchors_preset = 0
 offset_left = 190.0
@@ -334,44 +335,58 @@ offset_bottom = 161.0
 
 [node name="RmbMouseIcon" type="Sprite2D" parent="ControlsMenu"]
 z_index = 2
-position = Vector2(1389, 403)
+position = Vector2(1251, 359)
 texture = ExtResource("5_ynxk2")
+offset = Vector2(-100, 0)
 
-[node name="RMBLabel" type="Label" parent="ControlsMenu/RmbMouseIcon"]
+[node name="Backspace" type="Sprite2D" parent="ControlsMenu/RmbMouseIcon"]
+position = Vector2(235, -24)
+texture = ExtResource("7_12nvk")
+
+[node name="RMB_BKSPLabel" type="Label" parent="ControlsMenu/RmbMouseIcon"]
 z_index = 2
-offset_left = -128.0
-offset_top = 122.0
-offset_right = 141.0
-offset_bottom = 190.0
+offset_left = -38.0
+offset_top = 118.0
+offset_right = 231.0
+offset_bottom = 186.0
 theme_override_fonts/font = ExtResource("1_del6v")
 theme_override_font_sizes/font_size = 50
 text = "Redo Shot"
 
+[node name="OR Label" type="Label" parent="ControlsMenu/RmbMouseIcon"]
+offset_left = 7.0
+offset_top = -31.0
+offset_right = 80.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("1_del6v")
+theme_override_font_sizes/font_size = 50
+text = "OR"
+
 [node name="LmbMouseIcon" type="Sprite2D" parent="ControlsMenu"]
 z_index = 2
-position = Vector2(1097, 403)
+position = Vector2(879, 363)
 texture = ExtResource("6_12nvk")
 
 [node name="LMBLabel" type="Label" parent="ControlsMenu/LmbMouseIcon"]
 z_index = 2
-offset_left = -109.0
-offset_top = 122.0
-offset_right = 115.0
-offset_bottom = 190.0
+offset_left = -110.0
+offset_top = 116.0
+offset_right = 114.0
+offset_bottom = 176.0
 theme_override_fonts/font = ExtResource("1_del6v")
 theme_override_font_sizes/font_size = 50
 text = "Interact"
 
 [node name="Eicon" type="Sprite2D" parent="ControlsMenu"]
 z_index = 2
-position = Vector2(486, 370)
+position = Vector2(312, 391)
 texture = ExtResource("7_dbevg")
 
 [node name="ELabel" type="Label" parent="ControlsMenu/Eicon"]
 z_index = 2
-offset_left = -185.0
+offset_left = -136.0
 offset_top = 76.0
-offset_right = 188.0
+offset_right = 162.0
 offset_bottom = 136.0
 theme_override_fonts/font = ExtResource("1_del6v")
 theme_override_font_sizes/font_size = 40
@@ -380,7 +395,7 @@ horizontal_alignment = 1
 
 [node name="Qicon" type="Sprite2D" parent="ControlsMenu"]
 z_index = 2
-position = Vector2(141, 368)
+position = Vector2(25, 391)
 texture = ExtResource("8_5j0ne")
 
 [node name="QLabel" type="Label" parent="ControlsMenu/Qicon"]
@@ -396,45 +411,45 @@ horizontal_alignment = 1
 
 [node name="Ricon" type="Sprite2D" parent="ControlsMenu"]
 z_index = 2
-position = Vector2(798, 367)
+position = Vector2(598, 388)
 texture = ExtResource("9_tfgby")
 
 [node name="RLabel" type="Label" parent="ControlsMenu/Ricon"]
 z_index = 2
 offset_left = -77.0
 offset_top = 76.0
-offset_right = 88.0
-offset_bottom = 124.0
+offset_right = 75.0
+offset_bottom = 118.0
 theme_override_fonts/font = ExtResource("1_del6v")
 theme_override_font_sizes/font_size = 40
 text = "Restart"
 
 [node name="EscIcon" type="Sprite2D" parent="ControlsMenu"]
 z_index = 2
-position = Vector2(141, 182)
+position = Vector2(25, 176)
 texture = ExtResource("10_yb8th")
 
 [node name="ESCLabel" type="Label" parent="ControlsMenu/EscIcon"]
 z_index = 2
-offset_left = -63.0
-offset_top = 34.0
-offset_right = 65.0
-offset_bottom = 82.0
+offset_left = -58.0
+offset_top = 38.0
+offset_right = 54.0
+offset_bottom = 86.0
 theme_override_fonts/font = ExtResource("1_del6v")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "Pause"
 
 [node name="Spaceicon" type="Sprite2D" parent="ControlsMenu"]
 z_index = 2
-position = Vector2(486, 627)
+position = Vector2(291, 693)
 texture = ExtResource("11_23i5p")
 
 [node name="SpaceLabel" type="Label" parent="ControlsMenu/Spaceicon"]
 z_index = 2
-offset_left = -313.0
-offset_top = 106.0
-offset_right = 297.0
-offset_bottom = 161.0
+offset_left = -291.0
+offset_top = 105.0
+offset_right = 319.0
+offset_bottom = 160.0
 theme_override_fonts/font = ExtResource("1_del6v")
 theme_override_font_sizes/font_size = 45
 text = "Charge Shot / Hit Cue Ball"
