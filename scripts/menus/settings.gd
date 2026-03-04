@@ -5,17 +5,20 @@ extends Control
 @onready var MasterSlider = $AudioMenu/MasterSlider
 @onready var MusicSlider = $AudioMenu/MusicSlider
 @onready var SFXSlider  = $AudioMenu/SFXSlider
+@onready var VoiceSlider = $AudioMenu/VoiceSlider
 @onready var MuteMaster = $AudioMenu/MuteMaster
 @onready var MuteMusic = $AudioMenu/MuteMusic
 @onready var MuteSFX = $AudioMenu/MuteSFX
+@onready var MuteVoice = $AudioMenu/MuteVoice
 @onready var cam = $Camera2D
 @onready var timer = $Camera2D/Timer
 @onready var Location: String = ""
 
 
-var MasterValue = 0.5
-var MusicValue = 0.5
-var SFXValue = 0.5
+var MasterValue = AudioManager.max_volume
+var MusicValue = AudioManager.max_music_volume
+var SFXValue = AudioManager.max_sfx_volume
+var VoiceValue = AudioManager.max_voice_volume
 
 
 
@@ -127,3 +130,26 @@ func tween_in():
 func _on_timer_timeout() -> void:
 	LevelManager.menu_load = GlobalEnums.LoadAnim.SPECIAL
 	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+
+
+func _on_mute_voice_pressed() -> void:
+	print (VoiceValue)
+	if (MuteMaster.button_pressed):
+		AudioManager.setvoicevol(0.0)
+		VoiceSlider.value = 0
+	elif (!MuteMaster.button_pressed): 
+		AudioManager.setvoicevol(VoiceValue)
+		VoiceSlider.value = VoiceValue
+
+
+func _on_voice_slider_value_changed(value: float) -> void:
+	print(value)
+	if (value == 0.0):
+		MuteVoice.button_pressed = true
+	else:
+		MuteVoice.button_pressed = false
+
+
+func _on_voice_slider_drag_ended(value_changed: bool) -> void:
+	if value_changed:
+		VoiceValue = VoiceSlider.value
