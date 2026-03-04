@@ -3,9 +3,10 @@ extends Node
 const SPEED_MAX_VOLUME = 1000; # lowest speed for volume to be set to it's maximum (ball hit, wall hit)
 const POWER_MAX_VOLUME = 50; # lowest shot power for valume to be set to it's maximum (stick hit)
 const VOL_RANGE = 18; # volume range, placed from -(VOL_RANGE) to 0 db
-var max_volume = 1
-var max_sfx_volume = 1
-var max_music_volume = 1
+var max_volume = .5
+var max_sfx_volume = .5
+var max_music_volume = .5
+var max_voice_volume = .5
 
 @onready var music: AudioStreamPlayer = $Music
 var fail = preload("res://sounds/sfx/level-fail.wav")
@@ -24,7 +25,11 @@ var rng = RandomNumberGenerator.new()
 var ballsinksounds = [preload("res://sounds/sfx/ball-sink-1.wav"),preload("res://sounds/sfx/ball-sink-2.wav"),preload("res://sounds/sfx/ball-sink-3.wav")]
 var levelstartsounds = [preload("res://sounds/sfx/VoiceLines/The_First_One.wav"),preload("res://sounds/sfx/VoiceLines/Three's_Company.wav"),preload("res://sounds/sfx/VoiceLines/Dodging_Walls.wav"),preload("res://sounds/sfx/VoiceLines/Kaboom.wav"),preload("res://sounds/sfx/VoiceLines/Bomb's_Away.wav"),preload("res://sounds/sfx/VoiceLines/Open_Sesame.wav"),preload("res://sounds/sfx/VoiceLines/No_Way_Out.wav"),preload("res://sounds/sfx/VoiceLines/Back_And_Better.wav"),preload("res://sounds/sfx/VoiceLines/Chaotic_Playground.wav"),preload("res://sounds/sfx/VoiceLines/The_Gauntlet.wav"),preload("res://sounds/sfx/VoiceLines/Freeplay.wav")]
 
-
+func _ready():
+	setvol(.5)
+	setmusicvol(.5)
+	setsfxvol(.5)
+	setvoicevol(.5)
 
 # having all of these as helper functions should make the in-script calls less complex, 
 # and allow for intermediate steps between the call being made and playing the audio
@@ -60,6 +65,15 @@ func setmusicvol(newvol: float):
 		if(player.type == "MUSIC"):
 			player.volume_linear = newvol*max_volume
 
+
+func setvoicevol(newvol: float):
+	var players = self.get_children()
+	max_voice_volume = newvol #only applies to voices
+	for player: AudioStreamPlayer in players:
+		if(player.type == "VOICE"):
+			print("heyy")
+			player.volume_linear = newvol*max_volume
+
 #func volmod(vol: float):
 	#print(vol)
 	#var mod: float = rng.randf()*.1
@@ -78,13 +92,12 @@ func ball_hit(speed):
 	#volume = volmod(volume)
 	print(volume)
 	
-	$BallHit.volume_linear = volume
-	print($BallHit.volume_linear)
-	
+	$BallHit.volume_linear = volume*max_volume
+	print($BallHit.volume_db)
 	$BallHit.play()
 	
 func ball_hit_menu():
-	$StickHit.volume_linear = max_volume
+	$StickHit.volume_linear = max_volume*max_sfx_volume
 	$StickHit.play()
 
 func ball_break():
@@ -94,6 +107,7 @@ func level_complete(_type: int): # based on number, hopefully can be set in scri
 								 # should be 0 = fail, 1-3 = that many stars
 	print(_type)
 	$LevelComplete.stream = instrumentcompletesounds[_type]
+	$LevelComplete.volume_linear = max_volume*max_sfx_volume
 	$LevelComplete.play()
 
 func wall_hit(speed):
@@ -117,16 +131,16 @@ func stick_hit(power):
 	print("stickhit: ", volume)
 	
 	$StickHit.volume_linear = volume
-	print("stickhit 2: ", $StickHit.volume_linear)
-	
 	$StickHit.play()
 
 func ball_sink(): #should randomize between the three available takes ideally. Important for this sound b/c it's crunchy
 	var soundnum: int = rng.randi_range(0,2)
 	$BallSink.stream = ballsinksounds[soundnum]
+	$BallSink.volume_linear = max_sfx_volume*max_volume
 	$BallSink.play()
 	
 func pocket_drone():
+	$Pocket.volume_linear = max_sfx_volume*max_volume
 	if(!$Pocket.playing):
 		$Pocket.play()
 
@@ -135,10 +149,12 @@ func pocket_off():
 		$Pocket.stop()
 
 func explosion():
+	$Explosion.volume_linear = max_sfx_volume*max_volume
 	$Explosion.play()
 
 func level_voice(level: int):
 	$LevelVoice.stream = levelstartsounds[level]
+	$LevelVoice.volume_linear = max_voice_volume*max_volume
 	$LevelVoice.play()
 
 func complete_voice(_type: int):
@@ -150,8 +166,10 @@ func complete_voice(_type: int):
 			$LevelCompleteVoice.play()
 	print(voicecompletesounds[_type][soundrand])
 	$LevelCompleteVoice.stream = voicecompletesounds[_type][soundrand]
+	$LevelCompleteVoice.volume_linear=max_voice_volume*max_volume
 	$LevelCompleteVoice.play()
 
 func power_on():
+	$PowerOn.volume_linear = max_sfx_volume*max_volume
 	$PowerOn.play()
 	
