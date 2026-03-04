@@ -337,7 +337,7 @@ func onward(dest: GlobalEnums.Destination) -> void:
 	var ctween = create_tween()
 	ctween.set_ease(Tween.EASE_IN)
 	ctween.set_trans(Tween.TRANS_CUBIC)
-	ctween.tween_property(cam, "position", newpos, 1.5)
+	ctween.tween_property(cam, "position", newpos, 2)
 	
 	
 func resume_play():
