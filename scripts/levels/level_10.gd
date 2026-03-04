@@ -109,7 +109,13 @@ func reset_table():
 	super.reset_table()
 	
 func next() -> void:
-	get_tree().change_scene_to_file("res://scenes/info-pages/credits.tscn")
+	if destination == GlobalEnums.Destination.NEXT:
+		get_tree().change_scene_to_file("res://scenes/info-pages/credits.tscn")
+	elif destination == GlobalEnums.Destination.LEVEL_SELECT:
+		get_tree().change_scene_to_file("res://scenes/menus/level_select.tscn")
+	else:
+		LevelManager.menu_load = GlobalEnums.LoadAnim.SPECIAL
+		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
 	
 func check_keys():
 	if ((pocket_track == 1) && !first_wall_anim.is_playing() && !firstboundfirstkey):
