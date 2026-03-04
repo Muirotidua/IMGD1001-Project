@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://brv03ckg6yq36"]
 
-[ext_resource type="Texture2D" uid="uid://dc7da20lckv05" path="res://visuals/pointer.png" id="1_tnv33"]
+[ext_resource type="Texture2D" uid="uid://reh0mkbm5u42" path="res://visuals/pointer/Dotted-Line Texture.png" id="1_tnv33"]
+
 
 [node name="Pointer" type="Node2D"]
 z_index = 2
