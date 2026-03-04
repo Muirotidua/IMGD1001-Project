@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bjam3v857ixvp"]
+[gd_scene load_steps=39 format=3 uid="uid://bjam3v857ixvp"]
 
 [ext_resource type="Texture2D" uid="uid://dh8efdrdti6t1" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0004_Layer-8.png" id="1_rdhte"]
 [ext_resource type="Texture2D" uid="uid://82g0plycrb07" path="res://visuals/UI/level1anim/anim2/Untitled-1-Recovered-Recovered_0000s_0003_Layer-9.png" id="2_c3rkq"]
@@ -16,12 +16,18 @@
 [ext_resource type="Texture2D" uid="uid://v6v2le5jqwwp" path="res://visuals/UI/reset_anim/mainworkdoc-Recovered.png" id="14_1nlbl"]
 [ext_resource type="Texture2D" uid="uid://cd4su1knrf70n" path="res://visuals/UI/reset_anim/mainworkdoc-Recovered.psd_0004s_0000_Layer-47.png" id="15_r3ly0"]
 [ext_resource type="Texture2D" uid="uid://kpih5ajap2uu" path="res://visuals/UI/reset_anim/mainworkdoc-Recovered.psd_0004s_0002_Layer-45.png" id="16_02s6l"]
+[ext_resource type="Texture2D" uid="uid://cotfr0afvmu5n" path="res://visuals/UI/bomball_tutorial/mainworkdoc-Recovered_0005_1-explosionanim.png" id="17_3edbm"]
 [ext_resource type="Texture2D" uid="uid://bpcf8j2angko7" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0010_1-pocketballanim.png" id="17_hbg3f"]
+[ext_resource type="Texture2D" uid="uid://c4ervqorrcigf" path="res://visuals/UI/bomball_tutorial/mainworkdoc-Recovered_0004_2-explosionanim.png" id="18_gkisf"]
 [ext_resource type="Texture2D" uid="uid://dvipj1iw65cm3" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0009_2-pocketballanim.png" id="18_wo6ks"]
 [ext_resource type="Texture2D" uid="uid://1031dwcwahi5" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0008_3-pocketballanim.png" id="19_3edbm"]
+[ext_resource type="Texture2D" uid="uid://da5qvqwjc1ikb" path="res://visuals/UI/bomball_tutorial/mainworkdoc-Recovered_0003_3-explosion-anim.png" id="19_8dwwd"]
+[ext_resource type="Texture2D" uid="uid://byjrf58qelxhb" path="res://visuals/UI/bomball_tutorial/mainworkdoc-Recovered_0002_4-explosion-anim.png" id="20_3er8x"]
 [ext_resource type="Texture2D" uid="uid://dmqhik0w0o11s" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0007_4-pocketballanim.png" id="20_gkisf"]
 [ext_resource type="Texture2D" uid="uid://0arwbd3kvfyd" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0006_5-pocketballanim.png" id="21_8dwwd"]
+[ext_resource type="Texture2D" uid="uid://d3smli3e43xjr" path="res://visuals/UI/bomball_tutorial/mainworkdoc-Recovered_0001_5-explosion-anim.png" id="21_y4dmm"]
 [ext_resource type="Texture2D" uid="uid://cl2nidwp45x4d" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0005_6-pocketballanim.png" id="22_3er8x"]
+[ext_resource type="Texture2D" uid="uid://mxg32ntxbjld" path="res://visuals/UI/bomball_tutorial/mainworkdoc-Recovered_0000_6-explosion-anim.png" id="22_bvm0w"]
 [ext_resource type="Texture2D" uid="uid://1r4051dcfxdr" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0004_7-pocketballanim.png" id="23_y4dmm"]
 [ext_resource type="Texture2D" uid="uid://cklndxnkd40ao" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0003_8-pocketballanim.png" id="24_bvm0w"]
 [ext_resource type="Texture2D" uid="uid://u0ajsikhoufb" path="res://visuals/UI/pocketball_tutorial/experiment-mainworkdoc-Recovered-copy_0002_9-pocketballanim.png" id="25_6dmso"]
@@ -109,6 +115,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("17_3edbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_gkisf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_8dwwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_3er8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_y4dmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_bvm0w")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("17_hbg3f")
 }, {
 "duration": 1.0,
@@ -184,4 +213,4 @@ animations = [{
 
 [node name="Tutorial" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_ir7bu")
-animation = &"0"
+animation = &"4"
