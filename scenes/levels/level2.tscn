@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="10_bxuut"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="11_g04qb"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_hkuam"]
-[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_f3b2k"]
+[ext_resource type="PackedScene" path="res://scenes/level-components/arrow.tscn" id="12_f3b2k"]
 [ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="12_ida7w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8imr8"]
@@ -35,8 +35,8 @@ font_size = 72
 process_mode = 3
 script = ExtResource("1_8i1lk")
 shot_limit = 8
-two_star_limit = 5
-three_star_limit = 2
+two_star_limit = 6
+three_star_limit = 4
 level_id = 2
 
 [node name="Menus" type="Node" parent="."]

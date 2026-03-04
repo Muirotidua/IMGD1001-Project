@@ -1,6 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://baxibnsvs5jc"]
+[gd_scene load_steps=28 format=3 uid="uid://c34ttl6ofmcco"]
 
-[ext_resource type="Script" uid="uid://ccfavtmj74ls4" path="res://scripts/levels/level_8.gd" id="1_5v622"]
+[ext_resource type="Script" path="res://scripts/levels/level_8.gd" id="1_5v622"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_ofvo0"]
 [ext_resource type="PackedScene" uid="uid://ceuyvfckkp75l" path="res://scenes/in-level-menus/level_won.tscn" id="3_lnxpb"]
 [ext_resource type="PackedScene" uid="uid://c4whyrvxyjn6u" path="res://scenes/in-level-menus/level_lost.tscn" id="4_250dg"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_1dg3w"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_k12p4"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_75nnh"]
-[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_ofvo0"]
+[ext_resource type="PackedScene" path="res://scenes/level-components/arrow.tscn" id="12_ofvo0"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_cydy4"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="15_5v622"]
 [ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="15_b8bg4"]
@@ -44,6 +44,9 @@ font_size = 72
 [node name="Level8" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_5v622")
+shot_limit = 7
+two_star_limit = 5
+three_star_limit = 3
 level_id = 8
 pocket_available = true
 

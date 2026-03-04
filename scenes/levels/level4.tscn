@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://unuqmktwc8en" path="res://scenes/level-components/star.tscn" id="9_r3huh"]
 [ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_lc5pf"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_0n65g"]
-[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_tsmbm"]
+[ext_resource type="PackedScene" path="res://scenes/level-components/arrow.tscn" id="12_tsmbm"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_uyomx"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_io455"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="14_suy3i"]
@@ -34,9 +34,9 @@ font_size = 72
 [node name="Level4" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_ov8fk")
-shot_limit = 10
-two_star_limit = 7
-three_star_limit = 3
+shot_limit = 12
+two_star_limit = 10
+three_star_limit = 8
 level_id = 4
 explosion_available = true
 show_arrow = true

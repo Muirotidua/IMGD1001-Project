@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://bymd2y45slikj"]
 
-[ext_resource type="Script" uid="uid://1ltrdrtsaw5a" path="res://scripts/levels/level5.gd" id="1_2eb3b"]
+[ext_resource type="Script" path="res://scripts/levels/level5.gd" id="1_2eb3b"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_kykwg"]
 [ext_resource type="PackedScene" uid="uid://ceuyvfckkp75l" path="res://scenes/in-level-menus/level_won.tscn" id="3_iyn63"]
 [ext_resource type="PackedScene" uid="uid://c4whyrvxyjn6u" path="res://scenes/in-level-menus/level_lost.tscn" id="4_1ix84"]
@@ -12,11 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_po1mw"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_ngf84"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_d75b2"]
-[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_iyn63"]
+[ext_resource type="PackedScene" path="res://scenes/level-components/arrow.tscn" id="12_iyn63"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_snswl"]
 [ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="15_kykwg"]
 [ext_resource type="Script" uid="uid://b1iinl1eawlk8" path="res://scripts/obstacles/wall_obstacle.gd" id="16_4x4hb"]
-[ext_resource type="PackedScene" uid="uid://bgxy7icocb42t" path="res://scenes/obstacles/wall_obstacle.tscn" id="17_1ix84"]
+[ext_resource type="PackedScene" path="res://scenes/obstacles/wall_obstacle.tscn" id="17_1ix84"]
 [ext_resource type="PackedScene" uid="uid://dvfyb1ha6dsvv" path="res://scenes/obstacles/boundary_obstacle.tscn" id="17_4x4hb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ra3k"]
@@ -78,8 +78,8 @@ size = Vector2(206.00002, 284)
 process_mode = 3
 script = ExtResource("1_2eb3b")
 shot_limit = 8
-two_star_limit = 5
-three_star_limit = 3
+two_star_limit = 6
+three_star_limit = 4
 level_id = 5
 explosion_available = true
 

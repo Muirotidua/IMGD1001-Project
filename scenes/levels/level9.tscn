@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d01nr6vlwblpg"]
+[gd_scene load_steps=29 format=3 uid="uid://ddhj18yclboh4"]
 
 [ext_resource type="Script" uid="uid://cskrkf0smxfpl" path="res://scripts/levels/level_9.gd" id="1_ace8g"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_xntys"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_1ypmt"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_qf72o"]
 [ext_resource type="PackedScene" uid="uid://ddqqcgxtevmw2" path="res://scenes/level-components/boundary_table.tscn" id="12_nea2l"]
-[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_xntys"]
+[ext_resource type="PackedScene" path="res://scenes/level-components/arrow.tscn" id="12_xntys"]
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="13_hy5p4"]
 [ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="14_nsw56"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="15_h65go"]
@@ -45,9 +45,9 @@ font_size = 72
 [node name="Level9" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_ace8g")
-shot_limit = 15
-two_star_limit = 10
-three_star_limit = 5
+shot_limit = 8
+two_star_limit = 6
+three_star_limit = 4
 level_id = 9
 explosion_available = true
 pocket_available = true

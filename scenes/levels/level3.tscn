@@ -13,10 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://c3ypj135jxvjd" path="res://scenes/balls/cue_ball.tscn" id="10_022ip"]
 [ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_522sc"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="11_hl16f"]
-[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_t14x3"]
+[ext_resource type="PackedScene" path="res://scenes/level-components/arrow.tscn" id="12_t14x3"]
 [ext_resource type="PackedScene" uid="uid://g7p2rh8svuj8" path="res://scenes/balls/pool_ball.tscn" id="12_v6yyo"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="15_a82vw"]
-[ext_resource type="PackedScene" uid="uid://bgxy7icocb42t" path="res://scenes/obstacles/wall_obstacle.tscn" id="17_ahaer"]
+[ext_resource type="PackedScene" path="res://scenes/obstacles/wall_obstacle.tscn" id="17_ahaer"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pcq6o"]
 
@@ -35,8 +35,8 @@ font_size = 72
 [node name="Level3" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_wb0vq")
-shot_limit = 10
-two_star_limit = 7
+shot_limit = 8
+two_star_limit = 6
 three_star_limit = 4
 level_id = 3
 
