@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dduc4mcqnx83e"]
+[gd_scene load_steps=32 format=3 uid="uid://dduc4mcqnx83e"]
 
 [ext_resource type="Script" uid="uid://dirwhxryueirg" path="res://scripts/levels/level_10.gd" id="1_21itu"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_634p2"]
@@ -44,6 +44,10 @@ font = SubResource("SystemFont_uc8rk")
 font_size = 72
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1flq"]
+resource_local_to_scene = true
+size = Vector2(691.80914, 104.401405)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4xpj"]
 resource_local_to_scene = true
 size = Vector2(691.80914, 104.401405)
 
@@ -207,6 +211,9 @@ shape = SubResource("RectangleShape2D_x1flq")
 [node name="SecondAnimWallObstacle2" parent="." instance=ExtResource("13_x1flq")]
 position = Vector2(1237, 266)
 
+[node name="CollisionShape2D" parent="SecondAnimWallObstacle2" index="1"]
+shape = SubResource("RectangleShape2D_w4xpj")
+
 [node name="PoolBall2" parent="." instance=ExtResource("14_272pl")]
 position = Vector2(417, 224)
 
@@ -233,3 +240,4 @@ active = false
 [connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]
 
 [editable path="AnimWallObstacle"]
+[editable path="SecondAnimWallObstacle2"]
