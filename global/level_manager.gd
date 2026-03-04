@@ -4,7 +4,7 @@ const level_count = 11
 var level_unlocked: Array[bool]
 var level_stars: Array[int]
 var type_discovered: Array[bool]
-var unlock_all = true
+var unlock_all = false
 var billiards_record: int = 9999
 var menu_load = GlobalEnums.LoadAnim.FADE
 
