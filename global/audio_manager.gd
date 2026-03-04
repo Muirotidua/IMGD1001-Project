@@ -60,21 +60,27 @@ func setmusicvol(newvol: float):
 		if(player.type == "MUSIC"):
 			player.volume_linear = newvol*max_volume
 
-func volmod(player: AudioStreamPlayer):
-	var mod: float = rng.randf()*.1
-	player.volume_linear = max(player.volume_linear - mod, 0.0)
+#func volmod(vol: float):
+	#print(vol)
+	#var mod: float = rng.randf()*.1
+	#print(mod)
+	#var newvol = vol-mod
+	#if(newvol>=0.0):
+		#newvol = 0
+	#return newvol
 
 func ball_hit(speed):
 	#$BallHit.volume_db = 0
 	if(speed > SPEED_MAX_VOLUME): # clamp max speed (don't need to clamp in other direction since speed > 0
 		speed = SPEED_MAX_VOLUME
 	print(speed)
-	var volume = speed/SPEED_MAX_VOLUME*max_volume*max_sfx_volume
+	var volume = (speed/SPEED_MAX_VOLUME)*max_volume*max_sfx_volume
+	#volume = volmod(volume)
 	print(volume)
 	
-	$BallHit.volume_linear = volume*max_volume
-	print($BallHit.volume_db)
-	volmod($BallHit)
+	$BallHit.volume_linear = volume
+	print($BallHit.volume_linear)
+	
 	$BallHit.play()
 	
 func ball_hit_menu():
@@ -94,22 +100,25 @@ func wall_hit(speed):
 	if(speed > SPEED_MAX_VOLUME): # clamp max speed (don't need to clamp in other direction since speed > 0
 		speed = SPEED_MAX_VOLUME
 	print(speed)
-	var volume = speed/SPEED_MAX_VOLUME*max_volume
-	print(volume)
+	var volume = (speed/SPEED_MAX_VOLUME)*max_volume*max_sfx_volume
+	#volume = volmod(volume)
+	#print(volume)
 	
 	$WallHit.volume_linear = volume
-	volmod($WallHit)
+	
 	$WallHit.play()
 
 func stick_hit(power):
 	if(power > POWER_MAX_VOLUME): # clamp max speed (don't need to clamp in other direction since speed > 0
 		power = POWER_MAX_VOLUME
-	print(power)
-	var volume = power/POWER_MAX_VOLUME*max_volume
-	print(volume)
+	print("power: ", (power/POWER_MAX_VOLUME))
+	var volume = (power/POWER_MAX_VOLUME)*max_volume*max_sfx_volume
+	#volume = volmod(volume)
+	print("stickhit: ", volume)
 	
 	$StickHit.volume_linear = volume
-	volmod($StickHit)
+	print("stickhit 2: ", $StickHit.volume_linear)
+	
 	$StickHit.play()
 
 func ball_sink(): #should randomize between the three available takes ideally. Important for this sound b/c it's crunchy
