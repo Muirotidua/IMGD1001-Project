@@ -19,7 +19,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 30),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(160, 1552), Vector2(160, -6033)]
+"values": [Vector2(160, 1552), Vector2(160, -6683)]
 }
 
 [sub_resource type="Animation" id="Animation_ooihk"]
@@ -68,7 +68,7 @@ color = Color(0, 0, 0, 1)
 offset_left = 160.0
 offset_top = 1114.0
 offset_right = 1527.0
-offset_bottom = 7778.0
+offset_bottom = 8373.016
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_selected_color = Color(1, 1, 1, 0)
 theme_override_colors/selection_color = Color(0, 0, 0, 1)
@@ -111,6 +111,11 @@ Eric Farquharson
 Level Design:
 Max Brady
 Eric Farquharson
+
+UI Design:
+Eric Farquharson
+Max Brady
+Liam Blackwell
 
 Production:
 Liam Blackwell

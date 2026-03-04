@@ -54,8 +54,8 @@ size = Vector2(691.80914, 104.401405)
 [node name="Level10" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_21itu")
-shot_limit = 10
-two_star_limit = 5
+shot_limit = 15
+two_star_limit = 12
 three_star_limit = 8
 level_id = 10
 explosion_available = true
