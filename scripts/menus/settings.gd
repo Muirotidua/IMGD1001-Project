@@ -47,7 +47,6 @@ func _on_controls_tab_pressed() -> void:
 
 func _on_master_slider_value_changed(value: float) -> void:
 	AudioManager.setvol(value)
-	print(value)
 	if (value == 0.0):
 		MuteMaster.button_pressed = true
 	else:
@@ -61,7 +60,6 @@ func _on_music_slider_value_changed(value: float) -> void:
 	
 func _on_sfx_slider_value_changed(value: float) -> void:
 	AudioManager.setsfxvol(value)
-	print(value)
 	if (value == 0.0):
 		MuteSFX.button_pressed = true
 	else:
@@ -69,7 +67,6 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 		
 func _on_voice_slider_value_changed(value: float) -> void:
 	AudioManager.setvoicevol(value)
-	print(value)
 	if (value == 0.0):
 		MuteVoice.button_pressed = true
 	else:
