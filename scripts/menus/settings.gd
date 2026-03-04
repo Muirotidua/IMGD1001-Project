@@ -29,6 +29,7 @@ func _ready() -> void:
 	MasterSlider.value = AudioLevels.MasterLevel
 	MusicSlider.value = AudioLevels.MusicLevel
 	SFXSlider.value = AudioLevels.SFXLevel
+	VoiceSlider.value = AudioLevels.VoiceLevel
 	
 
 func _on_audio_tab_pressed() -> void:
@@ -75,7 +76,6 @@ func _on_voice_slider_value_changed(value: float) -> void:
 		MuteVoice.button_pressed = false
 
 func _on_mute_master_pressed() -> void:
-	print (MasterValue)
 	if (MuteMaster.button_pressed):
 		AudioManager.setvol(0.0)
 		MasterSlider.value = 0
@@ -89,7 +89,7 @@ func _on_mute_music_pressed() -> void:
 	if (MuteMusic.button_pressed):
 		AudioManager.setmusicvol(0.0)
 		MusicSlider.value = 0
-	else:
+	elif (!MuteMusic.button_pressed):
 		AudioManager.setmusicvol(MusicValue)
 		MusicSlider.value = MusicValue
 
@@ -98,7 +98,7 @@ func _on_mute_sfx_pressed() -> void:
 	if (MuteSFX.button_pressed):
 		AudioManager.setsfxvol(0.0)
 		SFXSlider.value = 0
-	elif (!MuteMaster.button_pressed): 
+	elif (!MuteSFX.button_pressed): 
 		AudioManager.setsfxvol(SFXValue)
 		SFXSlider.value = SFXValue
 		AudioManager.ball_sink()
@@ -134,9 +134,8 @@ func _on_voice_slider_drag_ended(value_changed: bool) -> void:
 	AudioManager.complete_voice(1)
 	
 	
-
 func _on_back_pressed() -> void:
-	AudioLevels.set_audio(MasterSlider.value, MusicSlider.value, SFXSlider.value)
+	AudioLevels.set_audio(MasterSlider.value, MusicSlider.value, SFXSlider.value, VoiceSlider.value)
 	if (Location == "Level Paused"):
 		visible = false
 	else:
