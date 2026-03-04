@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://caq4ej5ayj7eo"]
-
-[ext_resource type="Script" uid="uid://bnl6eohpitmr2" path="res://scripts/debug_labels.gd" id="1_uatmu"]
-
-[node name="Debug Labels" type="Node2D"]
-script = ExtResource("1_uatmu")
-ball_path = NodePath("../Ball")

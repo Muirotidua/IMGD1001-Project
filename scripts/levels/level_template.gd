@@ -70,6 +70,7 @@ func _ready():
 	sub.wait_time = 1.5
 	startup.start()
 	sub.start()
+	table.show()
 	cam.position.x = -2000
 	var ctween = create_tween()
 	ctween.set_ease(Tween.EASE_OUT)
@@ -400,6 +401,8 @@ func remove_pocket(pocket: Pocket):
 	if pockets.has(pocket):
 		pockets.erase(pocket)
 	pocket.queue_free()
+	if pockets.is_empty():
+		AudioManager.pocket_off()
 	
 func check_ball_availability():
 	if (rewinded == true):
