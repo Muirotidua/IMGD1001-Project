@@ -185,12 +185,6 @@ flat = true
 process_mode = 3
 z_index = 3
 layout_mode = 0
-<<<<<<< Updated upstream
-offset_left = 1485.0
-offset_top = 814.0
-offset_right = 1780.0
-offset_bottom = 961.0
-=======
 offset_left = 1448.0
 offset_top = 831.0
 offset_right = 1743.0
@@ -198,7 +192,6 @@ offset_bottom = 978.0
 theme_override_colors/font_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
 theme_override_colors/font_pressed_color = Color(0.6313726, 0.6313726, 0.6313726, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
->>>>>>> Stashed changes
 theme_override_fonts/font = ExtResource("5_swl1s")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5j0ne")
@@ -329,9 +322,9 @@ expand_icon = true
 z_index = 2
 layout_mode = 0
 offset_left = 728.0
-offset_top = 261.0
+offset_top = 195.0
 offset_right = 1538.0
-offset_bottom = 323.0
+offset_bottom = 257.0
 theme_override_styles/slider = SubResource("StyleBoxFlat_del6v")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_erjg3")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_e7wif")
@@ -343,9 +336,9 @@ value = 0.5
 z_index = 2
 layout_mode = 0
 offset_left = 728.0
-offset_top = 403.0
+offset_top = 335.0
 offset_right = 1538.0
-offset_bottom = 465.0
+offset_bottom = 397.0
 theme_override_styles/slider = SubResource("StyleBoxFlat_del6v")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_erjg3")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_e7wif")
@@ -357,11 +350,8 @@ value = 0.5
 z_index = 2
 layout_mode = 0
 offset_left = 728.0
-offset_top = 551.0
+offset_top = 475.0
 offset_right = 1538.0
-<<<<<<< Updated upstream
-offset_bottom = 613.0
-=======
 offset_bottom = 537.0
 theme_override_styles/slider = SubResource("StyleBoxFlat_del6v")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_erjg3")
@@ -377,7 +367,6 @@ offset_left = 728.0
 offset_top = 615.0
 offset_right = 1538.0
 offset_bottom = 677.0
->>>>>>> Stashed changes
 theme_override_styles/slider = SubResource("StyleBoxFlat_del6v")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_erjg3")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_e7wif")
@@ -551,9 +540,6 @@ one_shot = true
 [connection signal="value_changed" from="AudioMenu/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="drag_ended" from="AudioMenu/SFXSlider" to="." method="_on_sfx_slider_drag_ended"]
 [connection signal="value_changed" from="AudioMenu/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-<<<<<<< Updated upstream
-=======
 [connection signal="drag_ended" from="AudioMenu/VoiceSlider" to="." method="_on_voice_slider_drag_ended"]
 [connection signal="value_changed" from="AudioMenu/VoiceSlider" to="." method="_on_voice_slider_value_changed"]
->>>>>>> Stashed changes
 [connection signal="timeout" from="Camera2D/Timer" to="." method="_on_timer_timeout"]
