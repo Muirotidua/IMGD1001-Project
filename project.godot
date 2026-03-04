@@ -78,7 +78,7 @@ config/name="Untitled Pool Game"
 run/main_scene="uid://c58br4my2weka"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/show_image=false
-config/icon="res://icon.png"
+config/icon="uid://cktvwisdyjuhm"
 
 [autoload]
 
