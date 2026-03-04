@@ -10,6 +10,7 @@ func _on_continue_pressed() -> void:
 	AudioManager.ball_hit(1)
 	transfer.emit(GlobalEnums.Destination.NEXT)
 
+
 func _on_restart_pressed() -> void:
 	AudioManager.ball_hit(1)
 	restart.emit()
