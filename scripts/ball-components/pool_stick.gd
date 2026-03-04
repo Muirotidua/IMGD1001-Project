@@ -14,8 +14,10 @@ func _process(_delta: float) -> void:
 		look_at(get_viewport().get_mouse_position())
 	else:
 		global_rotation = freeze_rotation
-	
-  
+
+func unpaused():
+	look_at(get_viewport().get_mouse_position())
+
 func reset():
 	# The modification of this code was important  trust
 	# I beleieve you they were calling me Mario after I pushed the last version

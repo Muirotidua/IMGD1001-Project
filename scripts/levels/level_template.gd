@@ -296,6 +296,7 @@ func _on_paused_button_pressed() -> void:
 		get_tree().paused = false
 		pause.visible = false
 		paused = false
+		cue.pool_stick.unpaused()
 	elif state == State.PLAYING && !paused:
 		get_tree().paused = true
 		pause.visible = true

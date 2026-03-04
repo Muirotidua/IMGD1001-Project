@@ -7,14 +7,6 @@ signal restart()
 signal resume()
 signal transfer(dest: GlobalEnums.Destination)
 
-func _process(_delta: float) -> void:
-	if (settings.visible == true):
-		print (settings.visible)
-		await get_tree().create_timer(0.5).timeout
-		get_tree().paused = true
-	if (settings.visible == false):
-		get_tree().paused = false
-
 func _on_resume_pressed() -> void:
 	AudioManager.ball_hit(1)
 	visible = false

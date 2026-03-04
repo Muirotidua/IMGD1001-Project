@@ -25,6 +25,7 @@ var state: String = "default"
 
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	sprite.set_scale(default_scale)
 	if debug_labels:
 		speed_label.show()
