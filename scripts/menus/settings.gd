@@ -60,6 +60,7 @@ func _on_music_slider_value_changed(value: float) -> void:
 	
 func _on_sfx_slider_value_changed(value: float) -> void:
 	AudioManager.setsfxvol(value)
+	print(value)
 	if (value == 0.0):
 		MuteSFX.button_pressed = true
 	else:

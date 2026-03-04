@@ -88,7 +88,8 @@ func ball_hit(speed):
 	if(speed > SPEED_MAX_VOLUME): # clamp max speed (don't need to clamp in other direction since speed > 0
 		speed = SPEED_MAX_VOLUME
 	print(speed)
-	var volume = speed/SPEED_MAX_VOLUME*max_volume*max_sfx_volume
+	var volume = (speed/SPEED_MAX_VOLUME)*max_volume*max_sfx_volume
+	#volume = volmod(volume)
 	print(volume)
 	
 	$BallHit.volume_linear = volume*max_volume
@@ -113,18 +114,21 @@ func wall_hit(speed):
 	if(speed > SPEED_MAX_VOLUME): # clamp max speed (don't need to clamp in other direction since speed > 0
 		speed = SPEED_MAX_VOLUME
 	print(speed)
-	var volume = speed/SPEED_MAX_VOLUME*max_volume
-	print(volume)
+	var volume = (speed/SPEED_MAX_VOLUME)*max_volume*max_sfx_volume
+	#volume = volmod(volume)
+	#print(volume)
 	
 	$WallHit.volume_linear = volume
+	
 	$WallHit.play()
 
 func stick_hit(power):
 	if(power > POWER_MAX_VOLUME): # clamp max speed (don't need to clamp in other direction since speed > 0
 		power = POWER_MAX_VOLUME
-	print(power)
-	var volume = power/POWER_MAX_VOLUME*max_volume
-	print(volume)
+	print("power: ", (power/POWER_MAX_VOLUME))
+	var volume = (power/POWER_MAX_VOLUME)*max_volume*max_sfx_volume
+	#volume = volmod(volume)
+	print("stickhit: ", volume)
 	
 	$StickHit.volume_linear = volume
 	$StickHit.play()
