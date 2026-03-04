@@ -334,6 +334,7 @@ func onward(dest: GlobalEnums.Destination) -> void:
 	starting = true
 	cue.shot_ready = false
 	startup.start()
+	AudioManager.pocket_off()
 	var ctween = create_tween()
 	ctween.set_ease(Tween.EASE_IN)
 	ctween.set_trans(Tween.TRANS_CUBIC)

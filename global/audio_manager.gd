@@ -136,6 +136,10 @@ func pocket_off():
 
 func explosion():
 	$Explosion.play()
+	
+func settingsvoice():
+	$LevelCompleteVoice.volume_linear = max_sfx_volume * max_volume
+	$LevelCompleteVoice.play()
 
 func level_voice(level: int):
 	$LevelVoice.stream = levelstartsounds[level]
