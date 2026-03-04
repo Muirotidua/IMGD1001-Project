@@ -36,7 +36,7 @@ text = "v1.0
 -Official Release
 -No title
 
-v0.6.1
+v0.6.2
 -Added transition animations between levels and menus
 -Added voice acting
 -Added more tutorial animations
@@ -49,6 +49,7 @@ v0.6
 -Level 5, 9, and 10 finalized
 -Explosion and pocket ball sound effects
 -Polish & Bugfixes
+-Added in Freeplay Mode
 
 v0.5.5
 -Explosion ball costs two shots, pockets return one shot

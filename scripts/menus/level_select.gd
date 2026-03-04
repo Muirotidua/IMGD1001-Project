@@ -78,6 +78,8 @@ func _on_back_button_pressed() -> void:
 	$Fade/FadeTimer.start()
 
 func button_pressed(level: int, pos: Vector2):
+	if !LevelManager.level_unlocked[level - 1]:
+		return
 	if clicked == -1:
 		fade_anim.play("fade_in_black")
 		fade.show()
