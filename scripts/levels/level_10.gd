@@ -191,6 +191,8 @@ func rewind_shot():
 
 		
 func reset_table():
+	explosion_available = false
+	pocket_available = true
 	first_wall_anim.play("RESET")
 	first_wall_anim.advance(0)
 	first_wall_has_opened = false
