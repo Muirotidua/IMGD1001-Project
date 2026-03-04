@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6lyjus5mvcej"]
+[gd_scene load_steps=10 format=3 uid="uid://b6lyjus5mvcej"]
 
 [ext_resource type="Script" uid="uid://df8dsg6gcv0fe" path="res://scripts/obstacles/anim_wall_obstacle.gd" id="1_g1lu2"]
 
@@ -35,7 +35,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect:size")
+tracks/2/path = NodePath("BoundaryImage:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -47,7 +47,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColorRect:position")
+tracks/3/path = NodePath("BoundaryImage:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -56,9 +56,58 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(50.4292, -180)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BoundaryImage/BallInd1:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BoundaryImage/BallInd2:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BoundaryImage/BallInd3:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BoundaryImage/BallInd4:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_g1lu2"]
 resource_name = "unlock"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -66,10 +115,10 @@ tracks/0/path = NodePath("CollisionShape2D:shape:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(691.80914, 104.401405), Vector2(0, 104.401)]
+"values": [Vector2(691.80914, 104.401405), Vector2(691.80914, 104.401405), Vector2(0, 104.401)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -78,46 +127,159 @@ tracks/1/path = NodePath("CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-2, 166), Vector2(-2, 511.905)]
+"values": [Vector2(-2, 166), Vector2(-2, 166), Vector2(-2, 511.905)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect:size")
+tracks/2/path = NodePath("BoundaryImage:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(691.80914, 104.401405), Vector2(0, 104.40143)]
+"values": [Vector2(691.80914, 104.401405), Vector2(691.80914, 104.401405), Vector2(0, 104.40143)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ColorRect:position")
+tracks/3/path = NodePath("BoundaryImage:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(50.4292, -180), Vector2(50.4292, -180), Vector2(50.42917, 511.80914)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BoundaryImage/BallInd1:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.9999998, 0.15684608, 0.999494, 1), Color(1, 0.15686275, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BoundaryImage/BallInd2:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.15686275, 1, 1), Color(1, 0.15686275, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BoundaryImage/BallInd3:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.15686275, 1, 1), Color(1, 0.15686275, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BoundaryImage/BallInd4:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.15686275, 1, 1), Color(1, 0.15686275, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y2uea"]
+resource_name = "pinkpocketed1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoundaryImage/BallInd1:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 0.15686275, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u8uyl"]
+resource_name = "pinkpocketed2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoundaryImage/BallInd2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(50.4292, -180), Vector2(50.42917, 511.80914)]
+"values": [Color(0, 0, 0, 1), Color(1, 0.15686275, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g08to"]
+resource_name = "pinkpocketed3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoundaryImage/BallInd3:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 0.15686275, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_83w8t"]
+resource_name = "pinkpocketed4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoundaryImage/BallInd4:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 0.15686275, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y2uea"]
 _data = {
 &"RESET": SubResource("Animation_1qn7j"),
+&"pinkpocketed1": SubResource("Animation_y2uea"),
+&"pinkpocketed2": SubResource("Animation_u8uyl"),
+&"pinkpocketed3": SubResource("Animation_g08to"),
+&"pinkpocketed4": SubResource("Animation_83w8t"),
 &"unlock": SubResource("Animation_g1lu2")
 }
 
 [node name="AnimWallObstacle" type="AnimatableBody2D"]
 script = ExtResource("1_g1lu2")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BoundaryImage" type="ColorRect" parent="."]
 offset_left = 50.4292
 offset_top = -180.0
 offset_right = 742.23834
@@ -125,7 +287,44 @@ offset_bottom = -75.598595
 rotation = 1.5707964
 mouse_filter = 2
 
+[node name="BallInd1" type="ColorRect" parent="BoundaryImage"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 24.429201
+offset_right = 154.0
+offset_bottom = 64.42921
+rotation = 0.7853982
+color = Color(0, 0, 0, 1)
+
+[node name="BallInd2" type="ColorRect" parent="BoundaryImage"]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 21.429178
+offset_right = 322.0
+offset_bottom = 61.42917
+rotation = 0.7853982
+color = Color(0, 0, 0, 1)
+
+[node name="BallInd3" type="ColorRect" parent="BoundaryImage"]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 22.429163
+offset_right = 470.0
+offset_bottom = 62.42916
+rotation = 0.7853982
+color = Color(0, 0, 0, 1)
+
+[node name="BallInd4" type="ColorRect" parent="BoundaryImage"]
+layout_mode = 0
+offset_left = 585.0
+offset_top = 22.429178
+offset_right = 625.0
+offset_bottom = 62.42917
+rotation = 0.7853982
+color = Color(0, 0, 0, 1)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-2, 166)
 rotation = 1.5707964
 scale = Vector2(0.9999999, 0.9999999)

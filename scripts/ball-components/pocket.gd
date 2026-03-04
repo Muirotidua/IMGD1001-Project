@@ -1,6 +1,5 @@
 extends Area2D
 class_name Pocket
-
 var active = false
 var bodies = []
 var pocket_ready = false

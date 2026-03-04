@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dduc4mcqnx83e"]
+[gd_scene load_steps=31 format=3 uid="uid://dduc4mcqnx83e"]
 
 [ext_resource type="Script" uid="uid://dirwhxryueirg" path="res://scripts/levels/level_10.gd" id="1_21itu"]
 [ext_resource type="PackedScene" uid="uid://coisbwly02om5" path="res://scenes/in-level-menus/level_paused.tscn" id="2_634p2"]
@@ -42,6 +42,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_hseji"]
 font = SubResource("SystemFont_uc8rk")
 font_size = 72
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1flq"]
+resource_local_to_scene = true
+size = Vector2(691.80914, 104.401405)
 
 [node name="Level10" type="Node2D"]
 process_mode = 3
@@ -182,6 +186,24 @@ position = Vector2(851, 310)
 [node name="AnimWallObstacle" parent="." instance=ExtResource("13_x1flq")]
 position = Vector2(737, 266)
 
+[node name="BallInd1" parent="AnimWallObstacle/BoundaryImage" index="0"]
+offset_left = 192.0
+offset_right = 232.0
+
+[node name="BallInd2" parent="AnimWallObstacle/BoundaryImage" index="1"]
+offset_left = 351.0
+offset_right = 391.0
+
+[node name="BallInd3" parent="AnimWallObstacle/BoundaryImage" index="2"]
+offset_left = 514.0
+offset_right = 554.0
+
+[node name="BallInd4" parent="AnimWallObstacle/BoundaryImage" index="3"]
+visible = false
+
+[node name="CollisionShape2D" parent="AnimWallObstacle" index="1"]
+shape = SubResource("RectangleShape2D_x1flq")
+
 [node name="SecondAnimWallObstacle2" parent="." instance=ExtResource("13_x1flq")]
 position = Vector2(1237, 266)
 
@@ -209,3 +231,5 @@ active = false
 
 [connection signal="pressed" from="Buttons/PausedButton" to="." method="_on_paused_button_pressed"]
 [connection signal="pressed" from="Buttons/SwapBallButton" to="." method="_on_swap_ball_button_pressed"]
+
+[editable path="AnimWallObstacle"]

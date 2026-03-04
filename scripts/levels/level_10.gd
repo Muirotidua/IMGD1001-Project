@@ -10,6 +10,16 @@ extends Level_template
 @onready var second_wall_just_opened: bool = false
 @onready var first_wall_has_opened: bool = false
 @onready var second_wall_has_opened: bool = false
+@onready var firstboundfirstkey: bool = false
+@onready var firstboundsecondkey: bool = false
+@onready var firstboundthirdkey: bool = false
+@onready var firstboundfourthkey: bool = false
+@onready var secondboundfirstkey: bool = false
+@onready var secondboundsecondkey: bool = false
+@onready var secondboundthirdkey: bool = false
+@onready var secondboundfourthkey: bool = false
+
+
 #@onready var first_is_unlocking: bool = false
 #@onready var second_is_unlocking: bool = false
 
@@ -23,7 +33,7 @@ func _physics_process(_delta: float) -> void:
 		explosion_available = true
 	if (pocket_track > 6):
 		explosion_available = false
-	print("Explo Status:", explosion_available)
+	
 
 func open_boundary():
 	if !(first_wall_has_opened):
@@ -48,6 +58,7 @@ func open_boundary():
 			second_wall_has_opened = true
 			explosion_available = false
 			print(pocket_track)
+			await get_tree().create_timer(1).timeout
 			second_wall_anim.play("unlock")
 			await get_tree().create_timer(1.1).timeout
 			second_wall_just_opened = true
@@ -55,8 +66,10 @@ func open_boundary():
 	
 func check_final():
 	super.check_final()
+	check_keys()
 	if (pocket_track == 3) || (pocket_track == 7):
 		open_boundary()
+		
 	
 func on_try_shoot():
 	super.on_try_shoot()
@@ -97,3 +110,25 @@ func reset_table():
 	
 func next() -> void:
 	get_tree().change_scene_to_file("res://scenes/info-pages/credits.tscn")
+	
+func check_keys():
+	if ((pocket_track == 1) && !first_wall_anim.is_playing() && !firstboundfirstkey):
+		first_wall_anim.play("pinkpocketed1")
+		firstboundfirstkey = true
+	if ((pocket_track == 2) && !first_wall_anim.is_playing() && !firstboundsecondkey):
+		first_wall_anim.play("pinkpocketed2")
+		firstboundsecondkey = true
+	#if (pocket_track == 3):
+		#first_wall_anim.play("pinkpocketed3")
+	if ((pocket_track == 4)&& !second_wall_anim.is_playing() && !secondboundfirstkey):
+		second_wall_anim.play("pinkpocketed1")
+		secondboundfirstkey = true
+	if ((pocket_track == 5)&&!second_wall_anim.is_playing() && !secondboundsecondkey):
+		second_wall_anim.play("pinkpocketed2")
+		secondboundsecondkey = true
+	if ((pocket_track == 6)&&!second_wall_anim.is_playing() && !secondboundthirdkey):
+		second_wall_anim.play("pinkpocketed3")
+		secondboundthirdkey = true
+	#if ((pocket_track == 7)&&!second_wall_anim.is_playing() && !secondboundfourthkey):
+		#second_wall_anim.play("pinkpocketed4")
+		#secondboundfourthkey = true
