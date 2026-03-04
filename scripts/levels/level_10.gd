@@ -227,26 +227,36 @@ func next() -> void:
 func check_keys():
 	if ((pocket_track >= 1) && !first_wall_anim.is_playing() && !firstboundfirstkey):
 		first_wall_anim.play("pinkpocketed1")
+		AudioManager.power_on()
 		firstboundfirstkey = true
 		firstboundfirstkey_just_activated = true
 	if ((pocket_track >= 2) && !first_wall_anim.is_playing() && !firstboundsecondkey):
 		first_wall_anim.play("pinkpocketed2")
+		AudioManager.power_on()
 		firstboundsecondkey = true
 		firstboundsecondkey_just_activated = true
-	#if (pocket_track == 3):
-		#first_wall_anim.play("pinkpocketed3")
+	if (pocket_track >= 3) && !first_wall_anim.is_playing() && !firstboundthirdkey:
+		first_wall_anim.play("unlock")
+		AudioManager.power_on()
+		firstboundthirdkey= true
+		firstboundthirdkey_just_activated = true
 	if ((pocket_track >= 4)&& !second_wall_anim.is_playing() && !secondboundfirstkey):
 		second_wall_anim.play("pinkpocketed1")
+		AudioManager.power_on()
 		secondboundfirstkey = true
 		secondboundfirstkey_just_activated = true
 	if ((pocket_track >= 5)&& !second_wall_anim.is_playing() && !secondboundsecondkey):
 		second_wall_anim.play("pinkpocketed2")
+		AudioManager.power_on()
 		secondboundsecondkey = true
 		secondboundsecondkey_just_activated = true
 	if ((pocket_track >= 6)&& !second_wall_anim.is_playing() && !secondboundthirdkey):
 		second_wall_anim.play("pinkpocketed3")
+		AudioManager.power_on()
 		secondboundthirdkey = true
 		secondboundthirdkey_just_activated = true
-	#if ((pocket_track == 7)&&!second_wall_anim.is_playing() && !secondboundfourthkey):
-		#second_wall_anim.play("pinkpocketed4")
-		#secondboundfourthkey = true
+	if ((pocket_track == 7)&&!second_wall_anim.is_playing() && !secondboundfourthkey):
+		second_wall_anim.play("unlock")
+		AudioManager.power_on()
+		secondboundfourthkey = true
+		secondboundfourthkey_just_activated = true
