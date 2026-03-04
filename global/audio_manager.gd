@@ -121,6 +121,10 @@ func pocket_drone():
 	if(!$Pocket.playing):
 		$Pocket.play()
 
+func pocket_off():
+	if($Pocket.playing):
+		$Pocket.stop()
+
 func explosion():
 	$Explosion.play()
 
@@ -138,3 +142,7 @@ func complete_voice(_type: int):
 	print(voicecompletesounds[_type][soundrand])
 	$LevelCompleteVoice.stream = voicecompletesounds[_type][soundrand]
 	$LevelCompleteVoice.play()
+
+func power_on():
+	$PowerOn.play()
+	

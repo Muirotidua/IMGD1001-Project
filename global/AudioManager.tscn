@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8awlpufvfhkk"]
+[gd_scene load_steps=13 format=3 uid="uid://b8awlpufvfhkk"]
 
 [ext_resource type="Script" uid="uid://ct60y56rryqoj" path="res://global/audio_manager.gd" id="1_ap5g2"]
 [ext_resource type="AudioStream" uid="uid://bu7vl2f3774w5" path="res://sounds/music/UPG.mp3" id="2_wc3te"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cykkkxquvtpew" path="res://sounds/sfx/ball-sink-1.wav" id="8_1ruox"]
 [ext_resource type="AudioStream" uid="uid://bplo4n8k3lc37" path="res://sounds/sfx/pocket_drone.mp3" id="9_axni5"]
 [ext_resource type="AudioStream" uid="uid://c12yov6xnct4n" path="res://sounds/sfx/explosion.wav" id="10_20mit"]
+[ext_resource type="AudioStream" uid="uid://dsokhnxnvrw42" path="res://sounds/sfx/power-on-001.wav" id="12_1ruox"]
 
 [node name="AudioManager" type="Node"]
 process_mode = 3
@@ -71,3 +72,8 @@ type = "VOICE"
 [node name="LevelVoice" type="AudioStreamPlayer" parent="."]
 script = ExtResource("3_20mit")
 type = "VOICE"
+
+[node name="PowerOn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_1ruox")
+script = ExtResource("3_20mit")
+type = "SFX"
