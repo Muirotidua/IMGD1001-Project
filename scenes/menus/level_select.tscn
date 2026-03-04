@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://gxwvtxc6ed7c" path="res://scripts/menus/level_select.gd" id="1_1g16o"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="2_25yo6"]
 [ext_resource type="PackedScene" uid="uid://bip0ukhvo06uf" path="res://scenes/menu-components/level_button.tscn" id="3_vgm8m"]
-[ext_resource type="Script" path="res://scripts/menu-components/freeplay_button.gd" id="4_25yo6"]
+[ext_resource type="Script" uid="uid://dejrk4uft21n2" path="res://scripts/menu-components/freeplay_button.gd" id="4_25yo6"]
 [ext_resource type="Texture2D" uid="uid://fiukvx34slgy" path="res://visuals/UI/freeplaybutton(text).png" id="4_vgm8m"]
 [ext_resource type="PackedScene" uid="uid://ba2hi0umofv6w" path="res://scenes/assorted/fade.tscn" id="6_p7c2r"]
 
@@ -172,9 +172,6 @@ offset_left = 58.0
 offset_top = 889.0
 offset_right = 383.0
 offset_bottom = 1016.0
-theme_override_colors/font_color = Color(0.85882354, 0.85882354, 0.85882354, 1)
-theme_override_colors/font_pressed_color = Color(0.6313726, 0.6313726, 0.6313726, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_25yo6")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_r77uv")
