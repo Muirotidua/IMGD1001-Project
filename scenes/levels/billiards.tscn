@@ -105,6 +105,7 @@ position = Vector2(129.32985, 490)
 frame = 2
 
 [node name="Tutorial" parent="Display" instance=ExtResource("10_lpmbf")]
+visible = false
 modulate = Color(0.2903535, 0.2903535, 0.29035345, 1)
 z_index = -2
 position = Vector2(1031, 216)

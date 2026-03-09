@@ -40,11 +40,6 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir7bu"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"0",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_rdhte")
@@ -213,4 +208,4 @@ animations = [{
 
 [node name="Tutorial" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_ir7bu")
-animation = &"4"
+animation = &"1"

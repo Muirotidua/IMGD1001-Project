@@ -121,12 +121,11 @@ func _ready():
 		elif LevelManager.type_discovered[i - 1]:
 			swap_ball.ball_availability[i - 1] = GlobalEnums.BallAvailability.UNAVAILABLE
 	cue.switch_type_spc(cue.ball_type)
+	tutorial.hide()
 	swap_ball.color()
 	if tutorial.sprite_frames.has_animation(str(level_id)):
 		tutorial.show()
 		tutorial.play(str(level_id))
-	else:
-		tutorial.hide()
 	for child: Node in get_children():
 		if child is BaseBall:
 			all_balls.append(child)
