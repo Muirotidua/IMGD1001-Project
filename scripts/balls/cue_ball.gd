@@ -23,6 +23,8 @@ var last_available_types: Array[GlobalEnums.BallType]
 var spec_pock_last_shot: bool = true
 var shot_count_last = 0
 var popped = false
+const INACTIVE: Color = Color(0.5,0.5,0.5)
+const ACTIVE: Color = Color(1,1,1)
 
 @onready var shot_count = 0
 @onready var count_label: Label = $NonRotate/CountLabel
@@ -53,7 +55,7 @@ func _ready():
 	super.reset()
 
 
-func _physics_process(delta: float) -> void:	
+func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if(Input.is_action_just_pressed("switch_type_left")):
 		switch_type_dir("l")
@@ -76,6 +78,8 @@ func _physics_process(delta: float) -> void:
 		%ProgressBar.hide()                                                                
 		pool_stick.reset()                                               
 		print("Ball Type: ", ball_type)
+	if shot_ready:
+		popped = false
 
 
 func _process(_delta: float) -> void:
@@ -89,10 +93,13 @@ func _process(_delta: float) -> void:
 		pointer.show()
 	else:
 		pointer.hide()
+	if !popped:
+		modulate = ACTIVE
+	else:
+		modulate = INACTIVE
 	pool_stick.global_position = stick_pos
 
 func on_shoot():
-	popped = false
 	shot_count_last = shot_count
 	var direction = global_position.direction_to(get_global_mouse_position())
 	#var s = global_position.distance_to(get_global_mouse_position())
@@ -143,7 +150,7 @@ func _on_body_entered(body: Node) -> void:
 		AudioManager.wall_hit(speed)
 	
 	
-	if(ball_type == GlobalEnums.BallType.EXPLOSION):
+	if(ball_type == GlobalEnums.BallType.EXPLOSION  && !popped):
 		var balls = %ExplosionArea.get_overlapping_bodies()
 		print(balls)
 		for ball in balls:
@@ -154,12 +161,12 @@ func _on_body_entered(body: Node) -> void:
 		popped = true
 		AudioManager.explosion()
 		await get_tree().create_timer(0.1).timeout
-		(switch_type_spc(GlobalEnums.BallType.NORMAL))
+		#(switch_type_spc(GlobalEnums.BallType.NORMAL))
 	if(ball_type == GlobalEnums.BallType.POCKET) && !popped:
 		call_deferred("spawn_pocket")
 		popped = true
 		await get_tree().create_timer(0.1).timeout
-		switch_type_spc(GlobalEnums.BallType.NORMAL)
+		#switch_type_spc(GlobalEnums.BallType.NORMAL)
 		#pocket_ready.emit() 
 		AudioManager.pocket_drone()
 	
