@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bjam3v857ixvp" path="res://scenes/level-components/tutorial.tscn" id="10_lgguw"]
 [ext_resource type="FontFile" uid="uid://cygmi5hueknl4" path="res://Fonts/rubik/Rubik-Black.ttf" id="11_jprdt"]
 [ext_resource type="PackedScene" uid="uid://ci5cown6qsyjp" path="res://scenes/balls/eight_ball.tscn" id="11_jrfo0"]
-[ext_resource type="PackedScene" uid="uid://10cvjb0uqjeh" path="res://scenes/level-components/arrow.tscn" id="12_ps2vj"]
+[ext_resource type="PackedScene" path="res://scenes/level-components/arrow.tscn" id="12_ps2vj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlxio"]
 

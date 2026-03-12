@@ -18,6 +18,7 @@ enum State{ WON, LOST, PLAYING }
 @onready var lost: Node2D = $Menus/LevelLost
 @onready var won: Node2D = $Menus/LevelWon
 @onready var shot_display: Label = $Display/ShotCountDisplay
+
 @onready var paused_button: Button = $Buttons/PausedButton
 @onready var swap_ball: Control = $Menus/SwapBall
 @onready var swap_ball_button: Button = $Buttons/SwapBallButton
@@ -51,6 +52,7 @@ var pocket_track: int = 0
 var starting = true
 var began = false
 var destination = GlobalEnums.Destination.LEVEL_SELECT
+var shot_count_text = preload("res://scenes/levels/level_shot_count_text.tres")
 
 signal shoot()
 
@@ -352,8 +354,9 @@ func is_eight_last_ball():
 		fail_ready = true
 
 func update_shot_display():
+	shot_display.label_settings = shot_count_text
 	if((shot_limit-cue.shot_count) == 1):
-		shot_display.text = "1 shot left!!"
+		shot_display.text = "1 shot left!"
 	else:
 		shot_display.text = (str((shot_limit-cue.shot_count))+" shots left.")
 
@@ -468,7 +471,7 @@ func _on_sub_timeout():
 	s2tween.tween_property(star2, "position:x", 130, 0.5)
 	s3tween.tween_property(star3, "position:x", 130, 0.5)
 	lntween.tween_property(lev_name, "position:y", 940, 0.5)
-	sdtween.tween_property(shot_display, "position:y", 910, 0.5)
+	sdtween.tween_property(shot_display, "position:y", 940, 0.5)
 	sbtween.tween_property(swap_ball_button, "position:y", 850, 0.5)
 	pbtween.tween_property(paused_button, "position:y", 19, 0.5)
 	atween.tween_property(arrow, "position:x", 140, 0.5)

@@ -75,7 +75,7 @@ Settings/Show_Tooltips=true
 [application]
 
 config/name="Untitled Pool Game"
-run/main_scene="uid://c58br4my2weka"
+run/main_scene="uid://dl1shq1p0uaq8"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/show_image=false
 config/icon="uid://cktvwisdyjuhm"
@@ -224,3 +224,4 @@ swap_ball={
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

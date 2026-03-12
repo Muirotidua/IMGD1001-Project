@@ -259,6 +259,7 @@ text = "Settings"
 flat = true
 
 [node name="Version Notes" type="Button" parent="Buttons"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.15989584
